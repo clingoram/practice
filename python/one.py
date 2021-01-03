@@ -1,0 +1,2 @@
+apple = 'red'
+print(apple)
