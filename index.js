@@ -1,4 +1,5 @@
-// const array = [1, 4, 3, 2, 6, 8, 10];
+// 找出重複最多次的
+const array = [1, 1, 1, 2, 2, 2, 1, 2, 1];
 // console.log(array.sort());
 // function get_array(array) {
 //     let total = 0;
@@ -32,21 +33,21 @@
 // console.log(c);
 
 
-var buddyStrings = function (A, B) {
+// var buddyStrings = function (A, B) {
 
-    if (A.length != B.length) return false;
+//     if (A.length != B.length) return false;
 
-    let split_a = A.split('');
-    let split_b = B.split('');//.reverse().join('');
+//     let split_a = A.split('');
+//     let split_b = B.split('');//.reverse().join('');
 
-    const array = [];
+//     const array = [];
 
-    console.log(split_a);
-    console.log(split_b);
+//     console.log(split_a);
+//     console.log(split_b);
 
-    if (split_a != split_b) {
-        console.log('different')
-    };
+//     if (split_a != split_b) {
+//         console.log('different')
+//     };
 
     // split_a.forEach(element => {
     //     console.log(element);
@@ -61,8 +62,8 @@ var buddyStrings = function (A, B) {
     // } else {
     //     return false;
     // }
-};
+// };
 
-console.log(buddyStrings('aaaaaaabc', 'aaaaaaacb'));
+// console.log(buddyStrings('aaaaaaabc', 'aaaaaaacb'));
 
 // 轉陣列->找出一樣的->把B剩下不一樣的reverse
