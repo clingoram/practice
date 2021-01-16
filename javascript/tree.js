@@ -10,7 +10,7 @@ class Node {
 class BST {
     constructor(value) {
         this.root = new Node(value);
-        this.count = 1; // 0 at first,then it can track how many nodes in this tree.
+        this.count = 1; // 1 at first,then it can track how many nodes in this tree.
     }
 
     size() {
@@ -22,7 +22,7 @@ class BST {
 
         let newNode = new Node(value);
 
-        const searchTree = node => {
+        const searchTree = function (node) {
             // if value < node.value,go left
             if (value < node.value) {
                 // if no left child,append new node
@@ -42,7 +42,8 @@ class BST {
                     searchTree(node.right);
                 }
             }
-        }
+        };
+
         searchTree(this.root);
     }
 
@@ -67,10 +68,11 @@ class BST {
         return currentNode.value;
     }
 
-    contains() {
+    contains(value) {
         let currentNode = this.root;
 
         while (currentNode) {
+            // find the value
             if (value === currentNode.value) {
                 return true;
             }
@@ -84,55 +86,67 @@ class BST {
         return false;
     }
 
-    // depth first search
+    // depth first search - looking branch by branch
 
     // in order
+    // left,root,right
     inOrder() {
         let result = [];
 
-        const traverse = node => {
-            if (node.left) traverse(node.left);
-
+        const traverse = function (node) {
+            if (node.left) {
+                traverse(node.left);
+            }
             result.push(node.value);
-
-            if (node.right) traverse(node.right);
+            if (node.right) {
+                traverse(node.right);
+            }
         }
+
+        traverse(this.root);
         return result;
     }
+
     // pre order
     // root,left,right
     preOrder() {
         let result = [];
 
-        const traverse = node => {
+        const traverse = function (node) {
             result.push(node.value);
-
-            if (node.left) traverse(node.left);
-
-            if (node.right) traverse(node.right);
-
-
+            if (node.left) {
+                traverse(node.left);
+            }
+            if (node.right) {
+                traverse(node.right);
+            }
         }
+        traverse(this.root);
         return result;
     }
+
     // post order
     // left,right,root
     postOrder() {
         let result = [];
 
-        const traverse = node => {
-            if (node.left) traverse(node.left);
+        const traverse = function (node) {
+            if (node.left) {
+                traverse(node.left);
+            }
 
-
-            if (node.right) traverse(node.right);
-
+            if (node.right) {
+                traverse(node.right);
+            }
             result.push(node.value);
         }
+        traverse(this.root);
         return result;
     }
 
 
-    // bfs
+    // breadth first search - looking for level by level
+    // queque
     bfs() {
         let result = [];
         let queue = [];
@@ -142,7 +156,7 @@ class BST {
         while (queue.length) {
             let currentNode = queue.shift();
 
-            result.push(currentNode);
+            result.push(currentNode.value);
 
             if (currentNode.left) {
                 queue.push(currentNode.left);
@@ -163,6 +177,6 @@ bst.insert(12);
 bst.insert(28);
 bst.insert(39);
 
-bst.size();
+// bst.size();
 
-console.log(bst.preOrder());
+console.log(bst.bfs());
