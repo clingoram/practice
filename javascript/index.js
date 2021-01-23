@@ -39,6 +39,8 @@
 // console.log(addToArrayForm(A, K));
 // // 1200+34 =1234 => [1,2,3,4]
 
+
+// 1450
 /**
  * @param {number[]} startTime
  * @param {number[]} endTime
@@ -46,6 +48,9 @@
  * @return {number}
  */
 var busyStudent = function (startTime, endTime, queryTime) {
+    if (startTime.length < 2 || endTime.length < 2) {
+        return;
+    }
 
 };
 const startTime = [1, 2, 3], endTime = [3, 2, 7], queryTime = 4;
