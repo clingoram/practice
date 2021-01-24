@@ -5,28 +5,37 @@ class LinkedList {
     }
 
     // Methods
-    // insert data to linkedlist
+    // it's empty array at the begining,
+    // and insert data to linkedlist at first(head)
     append(value) {
+        // obj
         const newNode = {
             value: value,
             next: null
         };
 
-        // if has tail
+        // 有head 值，就把value加到tail
         if (this.tail) {
+            console.log('tail:');
+            // console.log(this.tail);
             this.tail.next = newNode;
         }
         this.tail = newNode;
+        // console.log(this.tail);
+
 
         // cause this is append data to linkedlist
         // have to check head value exist or not
+
+        // head沒有值，就把value加到head上
         if (!this.head) {
+            console.log('No head!!');
             this.head = newNode;
         }
     }
 
     // insert 第一個位置
-    prepend(value) {
+    insertFirst(value) {
         const newNode = {
             value: value,
             next: this.head
@@ -108,15 +117,10 @@ class LinkedList {
     }
 }
 
-const list = new LinkedList();
-list.append(1);
-list.append('Saturday');
-list.append('JavaScript');
-list.append('PHP');
-list.append(30);
-list.prepend('one');
-// list.delete(30);
-list.insertAfter('single', 1);
+const findList = new LinkedList();
 
-// console.log(list.find('PHP'));
-console.log(list.toArray());
+findList.append('JavaScript');
+findList.append(20);
+
+console.log(findList);
+// console.log(findList.toArray());
