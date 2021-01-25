@@ -52,3 +52,22 @@ var twoSum = function (nums, target) {
 
 const nums = [3, 2, 4], target = 6;
 console.log(twoSum(nums, target));
+
+
+// --------------------------------------------
+// use for loop
+// update at 2021-01-25
+var twoSum_for = function (nums, target) {
+    if (nums.length < 2) {
+        return;
+    }
+    for (let index = 0; index < nums.length; index++) {
+        for (let j = 0; j < nums.length; j++) {
+            if (nums[index] + nums[j] == target && index != j) {
+                return [index, j];
+            }
+        }
+    }
+};
+const number_array = [2, 7, 11, 15], target_number = 9;
+console.log(twoSum_for(number_array, target_number));

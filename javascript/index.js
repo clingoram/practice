@@ -39,67 +39,62 @@
 // console.log(addToArrayForm(A, K));
 // // 1200+34 =1234 => [1,2,3,4]
 
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function (nums, target) {
+    if (nums.length < 2) {
+        return;
+    }
+    for (let index = 0; index < nums.length; index++) {
+        for (let j = 0; j < nums.length; j++) {
+            if (nums[index] + nums[j] == target && index != j) {
+                return [index, j];
+            }
+        }
+    }
+};
+const nums = [2, 7, 11, 15], target = 9;
+console.log(twoSum(nums, target));
 
-// 1450
-// /**
-//  * @param {number[]} startTime
-//  * @param {number[]} endTime
-//  * @param {number} queryTime
-//  * @return {number}
-//  */
-// var busyStudent = function (startTime, endTime, queryTime) {
-//     if (startTime.length < 2 || endTime.length < 2) {
-//         return;
+// class MyTest_LinkedList {
+//     // default
+//     constructor() {
+//         this.head = null;
+//         this.tail = null;
 //     }
 
-// };
-// const startTime = [1, 2, 3], endTime = [3, 2, 7], queryTime = 4;
-// console.log(busyStudent(startTime, endTime, queryTime));
-// /*
-// Output: 1
-// Explanation: We have 3 students where:
-// The first student started doing homework at time 1 and finished at time 3 and wasn't doing anything at time 4.
-// The second student started doing homework at time 2 and finished at time 2 and also wasn't doing anything at time 4.
-// The third student started doing homework at time 3 and finished at time 7 and was the only student doing homework at time 4.
-// */
+//     appendData(value) {
+//         const newNode = {
+//             value: value,
+//             next: null
+//         }
+
+//         if (this.tail) {
+//             this.tail = newNode;
+//         }
+//         this.tail = newNode;
+
+//         if (!this.head) {
+//             this.head = newNode;
+//         }
+//     }
+
+//     prependData(value) {
+//         const newNode = {
+//             value: value,
+//             next: this.head
+//         }
 
 
-class MyTest_LinkedList {
-    // default
-    constructor() {
-        this.head = null;
-        this.tail = null;
-    }
-
-    appendData(value) {
-        const newNode = {
-            value: value,
-            next: null
-        }
-
-        if (this.tail) {
-            this.tail = newNode;
-        }
-        this.tail = newNode;
-
-        if (!this.head) {
-            this.head = newNode;
-        }
-    }
-
-    prependData(value) {
-        const newNode = {
-            value: value,
-            next: this.head
-        }
-
-
-    }
+//     }
 
 
 
-}
-// 新增、首位新增、末位新增、找、刪除、print
-const test = new MyTest_LinkedList();
-test.appendData(20);
-console.log(test);
+// }
+// // 新增、首位新增、末位新增、找、刪除、print
+// const test = new MyTest_LinkedList();
+// test.appendData(20);
+// console.log(test);
