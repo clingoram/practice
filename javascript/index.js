@@ -39,62 +39,74 @@
 // console.log(addToArrayForm(A, K));
 // // 1200+34 =1234 => [1,2,3,4]
 
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
- */
-var twoSum = function (nums, target) {
-    if (nums.length < 2) {
-        return;
+class MyTest_LinkedList {
+    // default
+    constructor() {
+        this.head = null;
+        this.tail = null;
     }
-    for (let index = 0; index < nums.length; index++) {
-        for (let j = 0; j < nums.length; j++) {
-            if (nums[index] + nums[j] == target && index != j) {
-                return [index, j];
-            }
+
+    // 新增資料
+    appendData(value) {
+        const newNode = {
+            value: value,
+            next: null
+        }
+
+        if (this.tail) {
+            this.tail = newNode;
+        }
+        this.tail = newNode;
+
+        if (!this.head) {
+            this.head = newNode;
         }
     }
+
+    // 在head新增資料
+    appendDataFirst(value) {
+        const newNode = {
+            value: value,
+            next: this.head
+        }
+
+        this.head = newNode;
+        if (!this.tail) {
+            this.tail = newNode;
+        }
+    }
+
+    // 在tail位置新增資料
+    appendDataLast(value, after) {
+        const exist = this.find(after);
+
+        if (!exist) {
+
+        }
+    }
+
+    // find data exist or not
+    find(value) {
+
+    }
+
+}
+// 新增、首位新增、末位新增、找、刪除、print
+const test = new MyTest_LinkedList();
+test.appendData(20);
+test.appendDataFirst(60);
+console.log(test);
+
+/**
+ * @param {number} n
+ * @param {number} start
+ * @return {number}
+ */
+var xorOperation = function (n, start) {
+
 };
-const nums = [2, 7, 11, 15], target = 9;
-console.log(twoSum(nums, target));
-
-// class MyTest_LinkedList {
-//     // default
-//     constructor() {
-//         this.head = null;
-//         this.tail = null;
-//     }
-
-//     appendData(value) {
-//         const newNode = {
-//             value: value,
-//             next: null
-//         }
-
-//         if (this.tail) {
-//             this.tail = newNode;
-//         }
-//         this.tail = newNode;
-
-//         if (!this.head) {
-//             this.head = newNode;
-//         }
-//     }
-
-//     prependData(value) {
-//         const newNode = {
-//             value: value,
-//             next: this.head
-//         }
-
-
-//     }
-
-
-
-// }
-// // 新增、首位新增、末位新增、找、刪除、print
-// const test = new MyTest_LinkedList();
-// test.appendData(20);
-// console.log(test);
+const n = 5, start = 0;
+console.log(xorOperation(n, start));
+// Output: 8
+// Explanation: Array nums is equal to [0, 2, 4, 6, 8] where (0 ^ 2 ^ 4 ^ 6 ^ 8) = 8.
+// Where "^" corresponds to bitwise XOR operator.
