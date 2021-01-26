@@ -1,3 +1,5 @@
 # practice
-<h1>目前是用來練習的 </h1>
-例如git或者是JS等其他用途
+<h1>目的</h1>
+1. 用來練習JS、Python
+2. GIT
+3. LeetCode 題目
