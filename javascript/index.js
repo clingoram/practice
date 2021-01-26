@@ -1,19 +1,12 @@
-// function num(n) {
 //     //放置於程式開始執行處--開始時間
 //     let start_time = new Date().getTime();
 
-//     for (let i = 0; i < n; i++) {
-//         for (let j = 0; j < 1; j++) {
-//             console.log(j);
-//         }
-//     }
 //     //放置於程式執行結束處--程式進ajax撈完資料庫資料後回傳結果的結束時間
 //     let end_time = new Date().getTime();
 
 //     //計算花多久時間
 //     alert((end_time - start_time) / 1000 + "sec");
-// }
-// num(10);
+
 
 
 // 989. Add to Array-Form of Integer
@@ -77,36 +70,70 @@ class MyTest_LinkedList {
     }
 
     // 在tail位置新增資料
-    appendDataLast(value, after) {
-        const exist = this.find(after);
+    appendDataLast(afterValue, value) {
+        // find the data exist or not
+        const exist = this.findData(afterValue);
 
-        if (!exist) {
-
+        if (exist) {
+            const newNode = {
+                value: value,
+                next: exist.next
+            };
+            exist.next = newNode;
         }
     }
 
-    // find data exist or not
-    find(value) {
+    // find this data exist or not
+    findData(value) {
+        // no data at head
+        if (!this.head) {
+            return;
+        }
+        let currentNode = this.head;
+        // console.log(currentNode);
+        while (currentNode) {
+            if (currentNode.value === value) {
+                return currentNode;
+            }
+            currentNode = currentNode.next;
+        }
+        return null;
+    }
 
+    removeData() {
+        this.head = null;
+        this.tail = null;
+    }
+
+    printOut() {
+        const data = [];
+
+        let currentNode = this.head;
+        while (currentNode) {
+            data.push(currentNode);
+            currentNode = currentNode.next;
+        }
+
+        return data;
     }
 
 }
-// 新增、首位新增、末位新增、找、刪除、print
+// 新增、首位新增、末位新增、找、刪除、printout
 const test = new MyTest_LinkedList();
 test.appendData(20);
 test.appendDataFirst(60);
-console.log(test);
+console.log(test.printOut());
 
 /**
  * @param {number} n
  * @param {number} start
  * @return {number}
  */
-var xorOperation = function (n, start) {
+// var xorOperation = function (n, start) {
 
-};
-const n = 5, start = 0;
-console.log(xorOperation(n, start));
+// };
+// const n = 5, start = 0;
+// console.log(xorOperation(n, start));
 // Output: 8
 // Explanation: Array nums is equal to [0, 2, 4, 6, 8] where (0 ^ 2 ^ 4 ^ 6 ^ 8) = 8.
 // Where "^" corresponds to bitwise XOR operator.
