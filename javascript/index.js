@@ -9,29 +9,8 @@
 
 
 
-// 989. Add to Array-Form of Integer
-// /**
-//  * @param {number[]} A
-//  * @param {number} K
-//  * @return {number[]}
-//  */
-// var addToArrayForm = function (A, K) {
-//     if (K <= 0) {
-//         return A;
-//     }
-//     const element = A.join('');
-//     const change = parseInt(element, 10) + parseInt(K, 10);
-//     const result = Array.from(String(change), Number);
-//     // console.log(result);
-//     return result;
-// };
 
-// const A = [1, 2, 6, 3, 0, 7, 1, 7, 1, 9, 7, 5, 6, 6, 4, 4, 0, 0, 6, 3];
-// const K = 516;
-// // should return :[1,2,6,3,0,7,1,7,1,9,7,5,6,6,4,4,0,5,7,9]
-// console.log(addToArrayForm(A, K));
-// // 1200+34 =1234 => [1,2,3,4]
-
+/*
 class MyTest_LinkedList {
     // default
     constructor() {
@@ -123,17 +102,48 @@ const test = new MyTest_LinkedList();
 test.appendData(20);
 test.appendDataFirst(60);
 console.log(test.printOut());
+*/
 
+// 1588
 /**
- * @param {number} n
- * @param {number} start
+ * @param {number[]} arr
  * @return {number}
  */
-// var xorOperation = function (n, start) {
+var sumOddLengthSubarrays = function (arr) {
 
-// };
-// const n = 5, start = 0;
-// console.log(xorOperation(n, start));
-// Output: 8
-// Explanation: Array nums is equal to [0, 2, 4, 6, 8] where (0 ^ 2 ^ 4 ^ 6 ^ 8) = 8.
-// Where "^" corresponds to bitwise XOR operator.
+    return arr.forEach(element => {
+        console.log(element);
+    });
+};
+const arr = [1, 4, 2, 5, 3];
+console.log(sumOddLengthSubarrays(arr));
+/*
+Given an array of positive integers arr, calculate the sum of all possible odd-length subarrays.
+
+A subarray is a contiguous subsequence of the array.
+
+Return the sum of all odd-length subarrays of arr.
+
+---------------------------
+arr = 正整數的array
+可被2整除者是偶數，不可被2整除者是奇數
+
+計算:
+加總奇數的陣列
+return sum of int
+
+
+Input: arr = [1,4,2,5,3]
+Output: 58
+Explanation: The odd-length subarrays of arr and their sums are:
+[1] = 1 *
+[4] = 4
+[2] = 2
+[5] = 5 *
+[3] = 3 *
+[1,4,2] = 7
+[4,2,5] = 11
+[2,5,3] = 10
+[1,4,2,5,3] = 15
+If we add all these together we get 1 + 4 + 2 + 5 + 3 + 7 + 11 + 10 + 15 = 58
+*/
