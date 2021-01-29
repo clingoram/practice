@@ -50,7 +50,8 @@ var twoSum = function (nums, target) {
     }
 };
 
-const nums = [3, 2, 4], target = 6;
+const nums = [3, 2, 4];
+const target = 6;
 console.log(twoSum(nums, target));
 
 
@@ -69,5 +70,6 @@ var twoSum_for = function (nums, target) {
         }
     }
 };
-const number_array = [2, 7, 11, 15], target_number = 9;
+const number_array = [2, 7, 11, 15];
+const target_number = 9;
 console.log(twoSum_for(number_array, target_number));
