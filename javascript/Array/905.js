@@ -35,5 +35,5 @@ var sortArrayByParity = function (A) {
     return temp;
 };
 
-const $array = [3, 1, 2, 4];
-console.log(sortArrayByParity($array));
+const array = [3, 1, 2, 4];
+console.log(sortArrayByParity(array));

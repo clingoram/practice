@@ -73,7 +73,9 @@ var busyStudent = function (startTime, endTime, queryTime) {
     return count;
 
 };
-const startTime = [1, 2, 3], endTime = [3, 2, 7], queryTime = 4;
+const startTime = [1, 2, 3];
+const endTime = [3, 2, 7];
+const queryTime = 4;
 console.log(busyStudent(startTime, endTime, queryTime));
 
 
@@ -91,5 +93,7 @@ var busyStudent_reduce = function (startTime, endTime, queryTime) {
 
     return result;
 };
-const start = [1, 2, 3], end = [3, 2, 7], target = 4;
+const start = [1, 2, 3];
+const end = [3, 2, 7];
+const target = 4;
 console.log(busyStudent_reduce(start, end, target));

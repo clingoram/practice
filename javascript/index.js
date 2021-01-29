@@ -109,14 +109,14 @@ console.log(test.printOut());
  * @param {number[]} arr
  * @return {number}
  */
-var sumOddLengthSubarrays = function (arr) {
+// var sumOddLengthSubarrays = function (arr) {
 
-    return arr.forEach(element => {
-        console.log(element);
-    });
-};
-const arr = [1, 4, 2, 5, 3];
-console.log(sumOddLengthSubarrays(arr));
+//     return arr.forEach(element => {
+//         console.log(element);
+//     });
+// };
+// const arr = [1, 4, 2, 5, 3];
+// console.log(sumOddLengthSubarrays(arr));
 /*
 Given an array of positive integers arr, calculate the sum of all possible odd-length subarrays.
 
@@ -147,3 +147,11 @@ Explanation: The odd-length subarrays of arr and their sums are:
 [1,4,2,5,3] = 15
 If we add all these together we get 1 + 4 + 2 + 5 + 3 + 7 + 11 + 10 + 15 = 58
 */
+
+function te(a, b) {
+    alert(this);
+}
+
+te.call('r', 7);
+te.apply('rtrr', [4]);
+

@@ -59,5 +59,6 @@ var xorOperation = function (n, start) {
     return nums.reduce((prev, current) => prev ^ current, 0);
 
 };
-const n = 4, start = 3;
+const n = 4;
+const start = 3;
 console.log(xorOperation(n, start));
