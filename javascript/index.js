@@ -111,7 +111,11 @@ console.log(test.printOut());
  * @return {number}
  */
 var diagonalSum = function (mat) {
+    for (let index = 0; index <= mat.length; index++) {
+        const element = mat[index];
+        console.log(element);
 
+    }
 };
 const arr = [
     [1, 2, 3],
