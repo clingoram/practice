@@ -8,70 +8,104 @@
 //     alert((end_time - start_time) / 1000 + "sec");
 
 
+// 1572. Matrix Diagonal Sum
+/**
+ * @param {number[][]} mat
+ * @return {number}
+ */
+// var diagonalSum = function (mat) {
+//     for (let index = 0; index <= mat.length; index++) {
+//         // const element = mat[index];
+//         console.log(mat[index]);
+//     }
+// };
+// const arr = [
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9]
+// ];
+// console.log(diagonalSum(arr));
 
+// return the sum of the matrix diagonals. 返回正方形中對角線的總和
+// sum X =>
+// primary: 1 + 5 + 9 
+// secondary: 3 + 5 + 7
+
+// 1. 是二維陣列
+// 2. 判斷陣列length是奇數或偶數，共有幾個二維陣列
+// 3. 
+//  a.第一個二維陣列:找該array中位於第0個位置和最後一個位置的值，之後其他二維陣列則取往後移一個位置的值
+//  b.最後一個二維陣列:找該array中位於第0個位置和最後一個位置的值
+
+// 二維陣列
+// 判斷陣列length是奇數或偶數，共有幾個二維陣列
+// ==> 找第一個和最後一個二維陣列中，第0個位置和最後一個位置的值
+// 其他二維陣列則取往後移一個位置的值
 
 /*
-class MyTest_LinkedList {
-    // default
+Input: mat = [[1,2,3],
+              [4,5,6],
+              [7,8,9]]
+Output: 25
+Explanation: Diagonals sum: 1 + 5 + 9 + 3 + 7 = 25
+Notice that element mat[1][1] = 5 is counted only once.
+*/
+
+class LinkedList {
     constructor() {
         this.head = null;
         this.tail = null;
     }
 
-    // 新增資料
     appendData(value) {
-        const newNode = {
+        const node = {
             value: value,
             next: null
-        }
+        };
 
         if (this.tail) {
-            this.tail = newNode;
+            this.tail = node;
         }
-        this.tail = newNode;
+
+        this.tail = node;
 
         if (!this.head) {
-            this.head = newNode;
+            this.head = node;
         }
     }
 
-    // 在head新增資料
     appendDataFirst(value) {
-        const newNode = {
+        const node = {
             value: value,
             next: this.head
         }
-
-        this.head = newNode;
+        this.head = node;
         if (!this.tail) {
-            this.tail = newNode;
+            this.tail = node;
         }
     }
 
-    // 在tail位置新增資料
-    appendDataLast(afterValue, value) {
-        // find the data exist or not
-        const exist = this.findData(afterValue);
+    appendDataLast(place, value) {
+        const ele = this.find(place);
 
-        if (exist) {
-            const newNode = {
+        if (ele) {
+            const node = {
                 value: value,
-                next: exist.next
-            };
-            exist.next = newNode;
+                next: ele.next
+            }
+            ele.next = node;
         }
     }
 
-    // find this data exist or not
-    findData(value) {
-        // no data at head
+    find(value) {
         if (!this.head) {
-            return;
+            return false;
         }
+
         let currentNode = this.head;
-        // console.log(currentNode);
+
         while (currentNode) {
-            if (currentNode.value === value) {
+            if (currentNode.next == value) {
                 return currentNode;
             }
             currentNode = currentNode.next;
@@ -79,29 +113,25 @@ class MyTest_LinkedList {
         return null;
     }
 
-    removeData() {
+    delete() {
         this.head = null;
         this.tail = null;
     }
 
     printOut() {
-        const data = [];
+        // empty array
+        const ele = [];
 
         let currentNode = this.head;
         while (currentNode) {
-            data.push(currentNode);
+            ele.push(currentNode);
+
             currentNode = currentNode.next;
         }
-
         return data;
     }
-
 }
-// 新增、首位新增、末位新增、找、刪除、printout
-const test = new MyTest_LinkedList();
-test.appendData(20);
-test.appendDataFirst(60);
-console.log(test.printOut());
-*/
-
-
+const test = new LinkedList();
+test.appendData(10);
+test.appendDataFirst(20);
+console.log(test);
