@@ -1,3 +1,12 @@
+/*
+functions:
+append
+append at the begining
+append at the end
+delete
+find
+
+*/
 class LinkedList {
     constructor() {
         this.head = null; // first element of the list
