@@ -256,3 +256,22 @@ setData2.addValue("b");
 
 console.log(setData.intersection(setData2));
 */
+
+function sumArray(arr) {
+    if (arr.length < 2) {
+        return arr;
+    }
+
+    // solution 1:
+    let result = 0;
+    for (let i = 0; i < arr.length; i++) {
+        result += arr[i];
+    }
+    return result;
+
+    // solution 2:
+    // return arr.reduce((a, b) => a + b, 0);
+}
+// sum up array
+const arr = [4, 5, 2, 6]; // 4+5+2+6=17
+console.log(sumArray(arr));
