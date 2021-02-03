@@ -1,9 +1,11 @@
 /*
-Stack
+Stack:
+先進後出
 
+------------------
 function:
-push
-pop
+push(add item)
+pop(remove item)
 peek
 length
 */
