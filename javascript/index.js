@@ -137,70 +137,122 @@ Notice that element mat[1][1] = 5 is counted only once.
 // console.log(test);
 
 /*
-Queue
+class mySet {
 
-*/
-// class Queue {
-//     constructor() {
-//         this.coll = [];
-//     }
-
-//     print() {
-//         console.log(coll);
-//     }
-
-//     enqueue(ele) {
-//         colln.push(ele);
-//     }
-
-//     deque() {
-//         return coll.shift();
-//     }
-
-//     front() {
-//         return coll[0];
-//     }
-
-//     size() {
-//         return coll.length;
-//     }
-
-//     isEmpty() {
-//         return (coll.length === 0);
-//     }
-// }
-
-function Queue() {
-    // collect all the items of queue
-    let collectionlist = [];
-
-    // print out
-    this.print = function () {
-        console.log(collectionlist);
-    }
-    // add(push) the first item in queue
-    this.enqueue = function (ele) {
-        collectionlist.push(ele);
-    }
-    // take out first item of an queue
-    this.dequeue = function () {
-        return collectionlist.shift();
-    }
-    // return the 1 item of queue
-    this.front = function () {
-        return collectionlist[0];
+    constructor() {
+        // collection will hold the set as array
+        this.getcollect = [];
     }
 
-    this.size = function () {
-        return collectionlist.length;
+    // add the element to the set
+    addValue(element) {
+        // if the element does't exist
+        if (!this.hasData(element)) {
+            // console.log('here');
+            // add the element to the set and return true
+            this.getcollect.push(element);
+            return true;
+        }
+        return false;
     }
-    // check if empty
-    this.isEmpty = function () {
-        return (collectionlist.length === 0);
+
+    // check for the existence of an element and return true or false
+    hasData(element) {
+        // if (getcollect.indexOf(element) !== -1) {
+        //     console.log('find');
+        //     return true;
+        // } else {
+        //     return false;
+        // }
+        return (this.getcollect.indexOf(element) !== -1);
+    }
+
+    // remove an element from a set
+    removeValue(element) {
+        if (this.hasData(element)) {
+            let index = getcollect.indexOf(element);
+            // remove 1 element from index
+            // 從index的位置開始，刪除 1 個元素
+            this.getcollect.splice(index, 1);
+            return true;
+        }
+        return false;
+    }
+
+    // return all the values in the set
+    returnValue() {
+        return this.getcollect;
+    }
+
+    // return the size of the collection
+    size() {
+        return this.getcollect.length;
+    }
+
+    // return the union of 2 sets
+    // which means combine 2 sets
+    combineSets(otherSet) {
+        let unionSet = new Set();
+        let firstSet = this.returnValue();
+        let secondSet = otherSet.returnValue();
+
+        firstSet.foreach(function (e) {
+            unionSet.addValue(e);
+        })
+        secondSet.forEach(function (e) {
+            unionSet.addValue(e);
+        })
+        // firstSet.forEach(element => {
+        //     unionSet.addValue(element);
+        // });
+
+        // secondSet.forEach(element => {
+        //     unionSet.addValue(element);
+        // });
+
+        return unionSet;
+    }
+
+    // return the intersection of 2 sets as a new set
+    intersection(otherSet) {
+        let intersevtionSet = new Set();
+        let firstSet = this.returnValue();
+
+        firstSet.forEach(function (e) {
+            if (otherSet.hasData(e)) {
+                intersevtionSet.addValue(e);
+            }
+        });
+        return intersevtionSet;
+    }
+
+    // return the difference of 2 sets as a new set
+    difference(otherSet) {
+        let differenceSet = new Set();
+        let firstSet = this.returnValue();
+
+        firstSet.forEach(function (e) {
+            if (!otherSet.hasData(e)) {
+                differenceSet.addValue(e);
+            }
+        });
+
+        return differenceSet;
+    }
+
+    // test if the set is a subset of a fifferent set
+    subSet(otherSet) {
+        let firstSet = this.returnValue();
+        return firstSet.every(function (value) {
+            return otherSet.hasData(value);
+        })
     }
 }
-let q = new Queue();
-q.enqueue('a');
-q.enqueue('asd');
-q.print()
-console.log(q.dequeue());
+
+const setData = new mySet();
+const setData2 = new mySet();
+setData.addValue("a");
+setData2.addValue("b");
+
+console.log(setData.intersection(setData2));
+*/

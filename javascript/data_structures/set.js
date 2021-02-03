@@ -17,8 +17,9 @@ class mySet {
     addValue(element) {
         // if the element does't exist
         if (!this.hasData(element)) {
+            // console.log('here');
             // add the element to the set and return true
-            getcollect.push(element);
+            this.getcollect.push(element);
             return true;
         }
         return false;
@@ -26,12 +27,13 @@ class mySet {
 
     // check for the existence of an element and return true or false
     hasData(element) {
-        if (getcollect.indexOf(element) !== -1) {
-            return true;
-        } else {
-            return false;
-        }
-        // return (getcollect.indexOf(element) !== -1);
+        // if (getcollect.indexOf(element) !== -1) {
+        //     console.log('find');
+        //     return true;
+        // } else {
+        //     return false;
+        // }
+        return (this.getcollect.indexOf(element) !== -1);
     }
 
     // remove an element from a set
@@ -40,7 +42,7 @@ class mySet {
             let index = getcollect.indexOf(element);
             // remove 1 element from index
             // 從index的位置開始，刪除 1 個元素
-            getcollect.splice(index, 1);
+            this.getcollect.splice(index, 1);
             return true;
         }
         return false;
@@ -48,12 +50,12 @@ class mySet {
 
     // return all the values in the set
     returnValue() {
-        return getcollect;
+        return this.getcollect;
     }
 
     // return the size of the collection
     size() {
-        return getcollect.length;
+        return this.getcollect.length;
     }
 
     // return the union of 2 sets
