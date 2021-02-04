@@ -27,12 +27,14 @@ class mySet {
 
     // check for the existence of an element and return true or false
     hasData(element) {
-        // if (getcollect.indexOf(element) !== -1) {
+        // if (this.getcollect.indexOf(element) !== -1) {
         //     console.log('find');
         //     return true;
         // } else {
         //     return false;
         // }
+
+        // indexof沒找到會回傳-1
         return (this.getcollect.indexOf(element) !== -1);
     }
 
@@ -86,10 +88,20 @@ class mySet {
     intersection(otherSet) {
         let intersevtionSet = new Set();
         let firstSet = this.returnValue();
+        // console.log("otherset is" + JSON.stringify(otherSet));
 
         firstSet.forEach(function (e) {
-            if (otherSet.hasData(e)) {
-                intersevtionSet.addValue(e);
+            console.log(otherSet.hasData(e));
+            // console.log(`Firstset is: ${firstSet}`);
+
+            // obj to find value
+            // console.log('key' + Object.keys(otherSet).find(key => otherSet[key]));
+
+            if (Object.keys(otherSet).find(key => otherSet[key]) == otherSet.hasData(e)) {
+                console.log('a');
+                intersevtionSet.add(e);
+            } else {
+                console.log('b');
             }
         });
         return intersevtionSet;
@@ -120,10 +132,11 @@ class mySet {
 
 const setData = new mySet();
 const setData2 = new mySet();
-setData.addValue("a");
-setData2.addValue("b");
-
-console.log(setData.subSet(setData2));
+setData.addValue("a for ape");
+setData2.addValue("b for ball");
+setData.addValue("c for cool");
+setData2.addValue("d for duty");
+console.log(setData2.intersection(setData));
 
 
 /*
