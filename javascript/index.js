@@ -50,3 +50,28 @@ Output: 25
 Explanation: Diagonals sum: 1 + 5 + 9 + 3 + 7 = 25
 Notice that element mat[1][1] = 5 is counted only once.
 */
+
+
+// bst
+class Node {
+    constructor(data, left = null, right = null) {
+        this.data = data;
+        this.left = left;
+        this.right = right;
+    }
+}
+class BST {
+    constructor() {
+        this.root = null;
+    }
+    add(data) {
+        const node = this.root;
+
+        if (node == null) {
+            this.root = new Node(data);
+            return;
+        } else {
+
+        }
+    }
+}
