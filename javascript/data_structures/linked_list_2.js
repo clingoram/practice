@@ -6,6 +6,7 @@ append at the end
 delete
 find
 
+新增、首位新增、末位新增、找、刪除、printout
 */
 class LinkedList {
     constructor() {
