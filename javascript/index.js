@@ -1,13 +1,3 @@
-//     //放置於程式開始執行處--開始時間
-//     let start_time = new Date().getTime();
-
-//     //放置於程式執行結束處--程式進ajax撈完資料庫資料後回傳結果的結束時間
-//     let end_time = new Date().getTime();
-
-//     //計算花多久時間
-//     alert((end_time - start_time) / 1000 + "sec");
-
-
 // 1572. Matrix Diagonal Sum
 /**
  * @param {number[][]} mat
@@ -52,26 +42,90 @@ Notice that element mat[1][1] = 5 is counted only once.
 */
 
 
-// bst
+// binary search tree
 class Node {
     constructor(data, left = null, right = null) {
-        this.data = data;
-        this.left = left;
-        this.right = right;
+        this.data = data; // store data
+        this.left = left; // left node
+        this.right = right; // right node
     }
 }
 class BST {
     constructor() {
         this.root = null;
     }
+
+    // add data
     add(data) {
         const node = this.root;
 
-        if (node == null) {
+        // check if node is empty
+        if (node === null) {
             this.root = new Node(data);
             return;
         } else {
-
+            const SearchTree = function (node) {
+                if (data < node.data) {
+                    if (node.left === null) {
+                        node.left = new Node(data);
+                        return;
+                    } else if (node.left != null) {
+                        return SearchTree(node.left);
+                    }
+                } else if (data > node.data) {
+                    if (node.right === null) {
+                        node.right = new Node(data);
+                        return;
+                    } else if (node.right != null) {
+                        return SearchTree(node.right);
+                    }
+                } else {
+                    return null;
+                }
+            }
+            return SearchTree(node);
         }
     }
+
+    // bst都是左邊節點比右邊的節點小
+    findMin() {
+        let currentNode = this.root;
+
+        while (currentNode.left !== null) {
+            currentNode = currentNode.left;
+        }
+        return currentNode.data;
+    }
+
+    // bst都是右邊節點比左邊的節點大
+    findMax() {
+        let currentNode = this.root;
+        while (currentNode.right !== null) {
+            currentNode = currentNode.right;
+        }
+        return currentNode.data;
+    }
+
+    find(data) {
+        let currentNode = this.root;
+        while (currentNode !== data) {
+            // left < right
+            if (data < currentNode.data) {
+                currentNode = currentNode.left;
+            } else {
+                currentNode = currentNode.right;
+            }
+            if (currentNode === null) {
+                return null;
+            }
+        }
+        return currentNode;
+    }
 }
+
+const bst = new BST();
+bst.add(10); // root
+bst.add(30);
+bst.add(15);
+
+console.log(bst);
