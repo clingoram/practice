@@ -122,6 +122,7 @@ class BST {
         return currentNode;
     }
 
+    // return true or false
     isset(data) {
         let currentNode = this.node;
         while (currentNode) {
@@ -179,11 +180,90 @@ class BST {
         }
         this.root = removeNode(this.root, data);
     }
+
+    /*
+    traversal:
+        inorder
+        postorder
+        preorder
+        
+        height
+
+    */
+    // left node -> root -> right node
+    inOrder() {
+        let result = [];
+
+        if (this.root == null) {
+            return null;
+        } else {
+            const traverse = function (node) {
+                result.push(node.data);
+
+                if (node.left) {
+                    traverse(node.left);
+                }
+
+                if (node.right) {
+                    traverse(node.right);
+                }
+
+            }
+            traverse(this.root);
+            return result;
+        }
+    }
+
+    // root -> left node -> right node
+    postOrder() {
+        let result = [];
+
+        if (this.root == null) {
+            return null;
+        } else {
+            const traverse = function (node) {
+                result.push(node.data);
+
+                if (node.left) {
+                    traverse(node.left);
+                }
+
+                if (node.right) {
+                    traverse(node.right);
+                }
+            }
+
+            traverse(this.root);
+            return result;
+        }
+    }
+
+    // root -> left node -> right node
+    preOrder() {
+        let result = [];
+        if (this.root == null) {
+            return null;
+        } else {
+            const traverse = function (node) {
+                result.push(node.data);
+
+                if (node.left) {
+                    traverse(node.left);
+                }
+
+                if (node.right) {
+                    traverse(node.right);
+                }
+            }
+            traverse(this.root);
+            return result;
+        }
+    }
 }
 
 const bst = new BST();
 bst.add(10); // root
 bst.add(30);
 bst.add(15);
-bst.remove(15);
-console.log(bst);
+
+console.log(bst.postOrder());
