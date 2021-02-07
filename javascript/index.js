@@ -1,20 +1,70 @@
+/*
+EG:
+寫在程式開始執行的地方:
+let functionName = 'twoSum';
+let start = countTime(functionName);
+放置於程式執行結束處:
+let end = endTime(start);
+console.log(end);
+*/
+/**
+ * 
+ * @param {string} fileName 執行function名稱
+ */
+
+//放置於程式開始執行處--開始時間
+function countTime(fileName = null) {
+
+    let start_time = new Date().getTime();
+    let data = [
+        fileName,
+        start_time
+    ]
+    return data;
+}
+// 結束時間
+// 放置於程式執行結束處，回傳結果的結束時間
+function endTime(start) {
+    let end_time = new Date().getTime();
+
+    return start[0] + '執行時間:' + (end_time - start[1]) / 5000 + 'ms';
+}
+
+
 // 1572. Matrix Diagonal Sum
 /**
  * @param {number[][]} mat
  * @return {number}
  */
-// var diagonalSum = function (mat) {
-//     for (let index = 0; index <= mat.length; index++) {
-//         // const element = mat[index];
-//         console.log(mat[index]);
-//     }
-// };
-// const arr = [
-//     [1, 2, 3],
-//     [4, 5, 6],
-//     [7, 8, 9]
-// ];
-// console.log(diagonalSum(arr));
+var diagonalSum = function (mat) {
+    // let functionName = 'diagonalSum';
+    // let start = countTime(functionName);
+
+    let result = 0;
+    let j = mat[0].length - 1; // 二維陣列中的第一個陣列-1 => [1,2,3]
+
+    for (let i = 0; i < mat.length; i++, j--) {
+        // console.log(`i: ${i}`); // 0,1,2 => i++
+        // console.log(`j: ${j}`); // 2,1,0 => j--
+
+        if (i !== j) {
+            console.log(`ij: ${mat[i][j]}`); //3,7
+            result += mat[i][j];
+        }
+        console.log(`ii:${mat[i][i]}`) // 1,5,9
+        result += mat[i][i];
+
+        // let end = endTime(start);
+        // console.log(end);
+    }
+    return result;
+};
+const arr = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+console.log(diagonalSum(arr));
 
 // return the sum of the matrix diagonals. 返回正方形中對角線的總和
 // sum X =>
@@ -40,87 +90,3 @@ Output: 25
 Explanation: Diagonals sum: 1 + 5 + 9 + 3 + 7 = 25
 Notice that element mat[1][1] = 5 is counted only once.
 */
-
-var twoSum = function (nums, target) {
-    let map = new Map;
-    for (var i = 0; i < nums.length; i++) {
-        let complement = target - nums[i];
-        if (map.has(complement)) {
-            return [map.get(complement), i]
-        }
-        map.set(nums[i], i);
-    }
-};
-
-const nums = [3, 2, 4];
-const target = 6;
-// console.log(twoSum(nums, target));
-
-var kidsWithCandies = function (candies, extraCandies) {
-    // find the max value in the array,can use be use: Math.max(...,candies) which have same result
-    const max = Math.max.apply(null, candies);
-    // to plus extraCnadies into the array
-    const result = candies.map((number => number + extraCandies >= max));
-
-    return result;
-
-};
-const candies = [2, 3, 5, 1, 3];
-const extraCandies = 3;
-// console.log(kidsWithCandies(candies, extraCandies));
-
-class Speed {
-    constructor() {
-        this.time = 0;
-        this.runProgramName = '';
-    }
-
-    start(ProgramName) {
-        this.time = new Date().getTime();
-        this.runProgramName = ProgramName;
-
-        return this.time;
-        // console.log(this.runProgramName);
-    }
-
-    end(times, name) {
-        let time = this.start(name);
-        // let end_time = new Date().getTime();
-
-        // console.log(time)
-        console.log(`${name} 執行時間: ${Math.floor((new Date() - time) / times)} ms.`);
-        // console.log(`${name} ${(end_time - time) / 1000} sec `);
-    }
-
-}
-
-function testCase(functionName, times) {
-
-    const Max = 1e7;
-    let result = [];
-    let number = 3000;
-
-    console.log(functionName);
-    while (number--) {
-        result[number] = Math.floor(Math.random() * Max);
-    }
-
-    for (var i = 0; i < times; i++) {
-        functionName(result);
-    }
-    return;
-}
-
-function ExecuteProgram(keys) {
-    console.log('run');
-    for (let i = 0; i < keys.length; i++) {
-        let speedTest = new Speed();
-        speedTest.start(keys[i]);
-
-        testCase([keys[i]], 5);
-
-        speedTest.end(5, keys);
-    }
-}
-const key = ['twoSum', 'kidsWithCandies'];
-ExecuteProgram(key);
