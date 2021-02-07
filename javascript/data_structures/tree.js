@@ -68,6 +68,7 @@ class BST {
         return currentNode.value;
     }
 
+    // return true or false
     contains(value) {
         let currentNode = this.root;
 
@@ -112,17 +113,22 @@ class BST {
     preOrder() {
         let result = [];
 
-        const traverse = function (node) {
-            result.push(node.value);
-            if (node.left) {
-                traverse(node.left);
+        if (this.root === null) {
+            return null;
+        } else {
+
+            const traverse = function (node) {
+                result.push(node.value);
+                if (node.left) {
+                    traverse(node.left);
+                }
+                if (node.right) {
+                    traverse(node.right);
+                }
             }
-            if (node.right) {
-                traverse(node.right);
-            }
+            traverse(this.root);
+            return result;
         }
-        traverse(this.root);
-        return result;
     }
 
     // post order

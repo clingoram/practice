@@ -1,3 +1,4 @@
+
 // binary search tree
 class Node {
     constructor(data, left = null, right = null) {
@@ -78,6 +79,7 @@ class BST {
         return currentNode;
     }
 
+    // return true or false
     isset(data) {
         let currentNode = this.node;
         while (currentNode) {
@@ -135,11 +137,160 @@ class BST {
         }
         this.root = removeNode(this.root, data);
     }
+
+    /*
+    traversal:
+        inorder
+        postorder
+        preorder
+        
+        height:
+         minheight
+         maxheight
+
+    */
+    // left node -> root -> right node
+    inOrder() {
+        let result = [];
+
+        if (this.root == null) {
+            return null;
+        } else {
+            const traverse = function (node) {
+
+                // if node.left == true
+                if (node.left) {
+                    traverse(node.left);
+                }
+
+                result.push(node.data);
+
+                // if node.right == true
+                if (node.right) {
+                    traverse(node.right);
+                }
+
+            }
+            traverse(this.root);
+            return result;
+        }
+    }
+
+    // root -> left node -> right node
+    postOrder() {
+        let result = [];
+
+        if (this.root == null) {
+            return null;
+        } else {
+            const traverse = function (node) {
+                result.push(node.data);
+
+                if (node.left) {
+                    traverse(node.left);
+                }
+
+                if (node.right) {
+                    traverse(node.right);
+                }
+            }
+
+            traverse(this.root);
+            return result;
+        }
+    }
+
+    // root -> left node -> right node
+    preOrder() {
+        let result = [];
+        if (this.root == null) {
+            return null;
+        } else {
+            const traverse = function (node) {
+                result.push(node.data);
+
+                if (node.left) {
+                    traverse(node.left);
+                }
+
+                if (node.right) {
+                    traverse(node.right);
+                }
+            }
+            traverse(this.root);
+            return result;
+        }
+    }
+
+    // breadth first search - looking for level by level
+    levelOrder() {
+        let result = [];
+        let queue = []; // temp array
+
+        if (this.root != null) {
+            queue.push(this.root);
+
+            while (queue.length > 0) {
+                let node = queue.shift(); //take out first element of array
+                result.push(node.data);
+
+                if (node.left != null) {
+                    queue.push(node.left);
+                }
+
+                if (node.right != null) {
+                    queue.push(node.right);
+                }
+            }
+            return result;
+        } else {
+            return nill;
+        }
+    }
+
+    // check if right and left is balanced(equal)
+    // return true or false
+    isBalance() {
+        return (this.findMinHeight() >= this.findMaxHeight() - 1);
+    }
+
+    findMinHeight(node = this.root) {
+        if (node == null) {
+            return -1;
+        }
+        let left = this.findMinHeight(node.left);
+        let right = this.findMinHeight(node.right);
+
+        if (left < right) {
+            return left + 1;
+        } else {
+            return right + 1;
+        }
+    }
+
+    findMaxHeight(node = this.root) {
+        if (node == null) {
+            return -1;
+        }
+
+        let left = this.findMaxHeight(node.left);
+        let right = this.findMaxHeight(node.right);
+
+        if (left > right) {
+            return left + 1;
+        } else {
+            return right + 1;
+        }
+    }
 }
 
 const bst = new BST();
 bst.add(10); // root
-bst.add(30);
+bst.add(6);
 bst.add(15);
-bst.remove(15);
-console.log(bst);
+bst.add(45);
+bst.add(2);
+
+
+
+console.log(bst.postOrder());
