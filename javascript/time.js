@@ -7,7 +7,7 @@
 // //計算花多久時間
 // alert((end_time - start_time) / 1000 + "sec");
 
-let sorting = require("./index.js");
+// let sorting = require("./index.js");
 
 class Speed {
     constructor() {

@@ -41,229 +41,86 @@ Explanation: Diagonals sum: 1 + 5 + 9 + 3 + 7 = 25
 Notice that element mat[1][1] = 5 is counted only once.
 */
 
-
-// binary search tree
-class Node {
-    constructor(data, left = null, right = null) {
-        this.data = data; // store data
-        this.left = left; // left node
-        this.right = right; // right node
+var twoSum = function (nums, target) {
+    let map = new Map;
+    for (var i = 0; i < nums.length; i++) {
+        let complement = target - nums[i];
+        if (map.has(complement)) {
+            return [map.get(complement), i]
+        }
+        map.set(nums[i], i);
     }
-}
-class BST {
+};
+
+const nums = [3, 2, 4];
+const target = 6;
+// console.log(twoSum(nums, target));
+
+var kidsWithCandies = function (candies, extraCandies) {
+    // find the max value in the array,can use be use: Math.max(...,candies) which have same result
+    const max = Math.max.apply(null, candies);
+    // to plus extraCnadies into the array
+    const result = candies.map((number => number + extraCandies >= max));
+
+    return result;
+
+};
+const candies = [2, 3, 5, 1, 3];
+const extraCandies = 3;
+// console.log(kidsWithCandies(candies, extraCandies));
+
+class Speed {
     constructor() {
-        this.root = null;
+        this.time = 0;
+        this.runProgramName = '';
     }
 
-    // add data
-    add(data) {
-        const node = this.root;
+    start(ProgramName) {
+        this.time = new Date().getTime();
+        this.runProgramName = ProgramName;
 
-        // check if node is empty
-        if (node === null) {
-            this.root = new Node(data);
-            return;
-        } else {
-            const SearchTree = function (node) {
-                if (data < node.data) {
-                    if (node.left === null) {
-                        node.left = new Node(data);
-                        return;
-                    } else if (node.left != null) {
-                        return SearchTree(node.left);
-                    }
-                } else if (data > node.data) {
-                    if (node.right === null) {
-                        node.right = new Node(data);
-                        return;
-                    } else if (node.right != null) {
-                        return SearchTree(node.right);
-                    }
-                } else {
-                    return null;
-                }
-            }
-            return SearchTree(node);
-        }
+        return this.time;
+        // console.log(this.runProgramName);
     }
 
-    // bst都是左邊節點比右邊的節點小
-    findMin() {
-        let currentNode = this.root;
+    end(times, name) {
+        let time = this.start(name);
+        // let end_time = new Date().getTime();
 
-        while (currentNode.left !== null) {
-            currentNode = currentNode.left;
-        }
-        return currentNode.data;
+        // console.log(time)
+        console.log(`${name} 執行時間: ${Math.floor((new Date() - time) / times)} ms.`);
+        // console.log(`${name} ${(end_time - time) / 1000} sec `);
     }
 
-    // bst都是右邊節點比左邊的節點大
-    findMax() {
-        let currentNode = this.root;
-        while (currentNode.right !== null) {
-            currentNode = currentNode.right;
-        }
-        return currentNode.data;
-    }
-
-    find(data) {
-        let currentNode = this.root;
-        while (currentNode !== data) {
-            // left < right
-            if (data < currentNode.data) {
-                currentNode = currentNode.left;
-            } else {
-                currentNode = currentNode.right;
-            }
-            if (currentNode === null) {
-                return null;
-            }
-        }
-        return currentNode;
-    }
-
-    // return true or false
-    isset(data) {
-        let currentNode = this.node;
-        while (currentNode) {
-            if (data === currentNode.data) {
-                return true;
-            }
-
-            // left < right
-            if (data < currentNode.data) {
-                currentNode = currentNode.left;
-            } else {
-                currentNode = currentNode.right;
-            }
-        }
-        return false;
-    }
-
-    remove(data) {
-        const removeNode = function (node, data) {
-            if (node === null) {
-                return null;
-            }
-
-            if (data == node.data) {
-                // node has no children
-                if (node.left == null && node.right == null) {
-                    return null;
-                }
-                // node has no left child
-                if (node.left == null) {
-                    return node.right;
-                }
-                // node has no right child
-                if (node.right == null) {
-                    return node.left;
-                }
-
-                // node has 2 children
-                let tempNode = node.right;
-                while (tempNode.left !== null) {
-                    tempNode = tempNode.left;
-                }
-
-                node.data = tempNode.data;
-                node.left = removeNode(node.right, tempNode.data);
-                return node;
-
-            } else if (data < node.data) {
-                node.left = removeNode(node.left, data);
-                return node;
-            } else {
-                node.right = removeNode(node.right, data);
-                return node;
-            }
-        }
-        this.root = removeNode(this.root, data);
-    }
-
-    /*
-    traversal:
-        inorder
-        postorder
-        preorder
-        
-        height
-
-    */
-    // left node -> root -> right node
-    inOrder() {
-        let result = [];
-
-        if (this.root == null) {
-            return null;
-        } else {
-            const traverse = function (node) {
-                result.push(node.data);
-
-                if (node.left) {
-                    traverse(node.left);
-                }
-
-                if (node.right) {
-                    traverse(node.right);
-                }
-
-            }
-            traverse(this.root);
-            return result;
-        }
-    }
-
-    // root -> left node -> right node
-    postOrder() {
-        let result = [];
-
-        if (this.root == null) {
-            return null;
-        } else {
-            const traverse = function (node) {
-                result.push(node.data);
-
-                if (node.left) {
-                    traverse(node.left);
-                }
-
-                if (node.right) {
-                    traverse(node.right);
-                }
-            }
-
-            traverse(this.root);
-            return result;
-        }
-    }
-
-    // root -> left node -> right node
-    preOrder() {
-        let result = [];
-        if (this.root == null) {
-            return null;
-        } else {
-            const traverse = function (node) {
-                result.push(node.data);
-
-                if (node.left) {
-                    traverse(node.left);
-                }
-
-                if (node.right) {
-                    traverse(node.right);
-                }
-            }
-            traverse(this.root);
-            return result;
-        }
-    }
 }
 
-const bst = new BST();
-bst.add(10); // root
-bst.add(30);
-bst.add(15);
+function testCase(functionName, times) {
 
-console.log(bst.postOrder());
+    const Max = 1e7;
+    let result = [];
+    let number = 3000;
+
+    console.log(functionName);
+    while (number--) {
+        result[number] = Math.floor(Math.random() * Max);
+    }
+
+    for (var i = 0; i < times; i++) {
+        functionName(result);
+    }
+    return;
+}
+
+function ExecuteProgram(keys) {
+    console.log('run');
+    for (let i = 0; i < keys.length; i++) {
+        let speedTest = new Speed();
+        speedTest.start(keys[i]);
+
+        testCase([keys[i]], 5);
+
+        speedTest.end(5, keys);
+    }
+}
+const key = ['twoSum', 'kidsWithCandies'];
+ExecuteProgram(key);
