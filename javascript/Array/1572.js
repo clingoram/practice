@@ -40,6 +40,7 @@ var diagonalSum = function (mat) {
         }
         result += mat[i][i];
 
+        // $result += (i != j) ? mat[i][j] : mat[i][i];
         // let end = endTime(start);
         // console.log(end);
     }
