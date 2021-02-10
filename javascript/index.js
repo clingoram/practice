@@ -30,60 +30,39 @@ function endTime(start) {
     return start[0] + '執行時間:' + (end_time - start[1]) / 5000 + 'ms';
 }
 
-// 442. Find All Duplicates in an Array
-// /**
-//  * @param {number[]} nums
-//  * @return {number[]}
-//  */
-// var findDuplicates = function (nums) {
 
-// };
-// const input = [4, 3, 2, 7, 8, 2, 3, 1];
-// console.log(findDuplicates(input));
-// /*
-// Output:
-// [2,3]
-
-// need: O(n) runtime
-// */
-
-
-// 442. Find All Duplicates in an Array
 /*
-Given an array of integers, 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
+219. Contains Duplicate II
+Difficulty:Easy
 
-Find all the elements that appear twice in this array.
+Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the absolute difference between i and j is at most k.
 
-Could you do it without extra space and in O(n) runtime?
+note:
+1. int array and int k
+2. array 中有i 和 j，要互等於 => nums[i] = nums[j]
+3. return true or false
 
-1. 出現次數>=2
-2. return 重複值(array)
-3. 執行時間 O(n)
 
-Example:
-Input:
-[4,3,2,7,8,2,3,1]
+Example 1:
 
-Output:
-[2,3]
+Input: nums = [1,2,3,1], k = 3
+Output: true
+Example 2:
+
+Input: nums = [1,0,1,1], k = 1
+Output: true
+Example 3:
+
+Input: nums = [1,2,3,1,2,3], k = 2
+Output: false
 */
 /**
  * @param {number[]} nums
- * @return {number[]}
+ * @param {number} k
+ * @return {boolean}
  */
-var findDuplicates = function (nums) {
-    let map = new Map(); // obj with key and value
-    let result = [];
-    // console.log(map);
-    // for (const number of nums) {
-    //     console.log(number); // 4, 3, 2, 7, 8, 2, 3, 1
-
-    // }
-    nums.forEach(a => {
-        console.log(a); // 4, 3, 2, 7, 8, 2, 3, 1
-
-    })
+var containsNearbyDuplicate = function (nums, k) {
 
 };
-const arr = [4, 3, 2, 7, 8, 2, 3, 1];
-console.log(findDuplicates(arr));
+const nums = [1, 2, 3, 1], k = 3;
+console.log(`The containsNearbyDuplicate result is ${containsNearbyDuplicate(nums, k)}`);
