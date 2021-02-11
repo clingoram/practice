@@ -30,39 +30,40 @@ function endTime(start) {
     return start[0] + '執行時間:' + (end_time - start[1]) / 5000 + 'ms';
 }
 
-
 /*
-219. Contains Duplicate II
-Difficulty:Easy
+795. Number of Subarrays with Bounded Maximum
 
-Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the absolute difference between i and j is at most k.
+We are given an array A of positive integers, and two positive integers L and R (L <= R).
 
-note:
-1. int array and int k
-2. array 中有i 和 j，要互等於 => nums[i] = nums[j]
-3. return true or false
+Return the number of (contiguous, non-empty) subarrays such that the value of the maximum array element in that subarray is at least L and at most R.
+
+Note:
+1. A是正整數array，L和R也是正整數，L<=R
+2. return A中最小值~最大值中間數值是L或R哪一個
 
 
-Example 1:
+Example :
+Input:
+A = [2, 1, 4, 3]
+L = 2
+R = 3
+Output: 3
+Explanation: There are three subarrays that meet the requirements: [2], [2, 1], [3].
+Note:
 
-Input: nums = [1,2,3,1], k = 3
-Output: true
-Example 2:
+L, R  and A[i] will be an integer in the range [0, 10^9].
+The length of A will be in the range of [1, 50000].
 
-Input: nums = [1,0,1,1], k = 1
-Output: true
-Example 3:
+Related:1748
 
-Input: nums = [1,2,3,1,2,3], k = 2
-Output: false
 */
+
 /**
- * @param {number[]} nums
- * @param {number} k
- * @return {boolean}
+ * @param {number[]} A
+ * @param {number} L
+ * @param {number} R
+ * @return {number}
  */
-var containsNearbyDuplicate = function (nums, k) {
+var numSubarrayBoundedMax = function (A, L, R) {
 
 };
-const nums = [1, 2, 3, 1], k = 3;
-console.log(`The containsNearbyDuplicate result is ${containsNearbyDuplicate(nums, k)}`);
