@@ -31,47 +31,38 @@ function endTime(start) {
 }
 
 /*
-1464. Maximum Product of Two Elements in an Array
-Difficulty:Easy
+1295. Find Numbers with Even Number of Digits
 
-Given the array of integers nums, you will choose two different indices i and j of that array. Return the maximum value of (nums[i]-1)*(nums[j]-1).
- 
-
-Use brute force: two loops to select i and j, then select the maximum value of (nums[i]-1)*(nums[j]-1).
+Given an array nums of integers, return how many of them contain an even number of digits.
 
 Note:
-1.integer array
-2.i and j are the indices of that array
-3.return the Max value of (nums[i]-1)*(nums[j]-1)
+1.array of int
+2.return array中，element是奇位數的有幾個
+3.return int
 
-nums = [3,4,5,2]
-index : 0 1 2 3
-=> if i=1 and j=2
-=> num(4-1) * nums(5-1) = 3*4=12
-
-找出該array中最大數和第二大的數相加
-
+How to compute the number of digits of a number ?
+Divide the number by 10 again and again to get the number of digits.
+ 
+Constraints:
+1 <= nums.length <= 500
+1 <= nums[i] <= 10^5
 
 Example 1:
+Input: nums = [12,345,2,6,7896]
+Output: 2
+Explanation: 
+12 contains 2 digits (even number of digits). 
+345 contains 3 digits (odd number of digits). 
+2 contains 1 digit (odd number of digits). 
+6 contains 1 digit (odd number of digits). 
+7896 contains 4 digits (even number of digits). 
+Therefore only 12 and 7896 contain an even number of digits.
 
-Input: nums = [3,4,5,2]
-Output: 12 
-Explanation: If you choose the indices i=1 and j=2 (indexed from 0), you will get the maximum value, that is, (nums[1]-1)*(nums[2]-1) = (4-1)*(5-1) = 3*4 = 12. 
 Example 2:
-
-Input: nums = [1,5,4,5]
-Output: 16
-Explanation: Choosing the indices i=1 and j=3 (indexed from 0), you will get the maximum value of (5-1)*(5-1) = 16.
-Example 3:
-
-Input: nums = [3,7]
-Output: 12
- 
-
-Constraints:
-
-2 <= nums.length <= 500
-1 <= nums[i] <= 10^3
+Input: nums = [555,901,482,1771]
+Output: 1 
+Explanation: 
+Only 1771 contains an even number of digits.
 
 */
 
@@ -79,19 +70,8 @@ Constraints:
  * @param {number[]} nums
  * @return {number}
  */
-var maxProduct = function (nums) {
-    if (nums.length < 2) {
-        return parseInt(nums, 10);
-    }
-    // console.log(nums.length);// return 4
-    const array_sort = nums.sort((a, b) => a - b); // return [1,4,5,5];
-    const lastNumber = array_sort[nums.length - 1] // return 5
-    const secondLastNumber = array_sort[nums.length - 2]; // return 5
-
-    return (lastNumber - 1) * (secondLastNumber - 1);
+var findNumbers = function (nums) {
 
 };
-const nums = [1, 5, 4, 5];
-// return 16 
-// cause i=1;j=3 => nums(5-1)*nums(5-1) = 4*4 =16 
-console.log(`The result of maxProduct is ${maxProduct(nums)}`);
+const array = [12, 345, 2, 6, 7896]; // return 2
+console.log(`The result of findNumbers is ${findNumbers(array)}`);
