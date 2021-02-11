@@ -1,36 +1,4 @@
 /*
-EG:
-寫在程式開始執行的地方:
-let functionName = 'twoSum';
-let start = countTime(functionName);
-放置於程式執行結束處:
-let end = endTime(start);
-console.log(end);
-*/
-/**
- * 
- * @param {string} fileName 執行function名稱
- */
-
-//放置於程式開始執行處--開始時間
-function countTime(fileName = null) {
-
-    let start_time = new Date().getTime();
-    let data = [
-        fileName,
-        start_time
-    ]
-    return data;
-}
-// 結束時間
-// 放置於程式執行結束處，回傳結果的結束時間
-function endTime(start) {
-    let end_time = new Date().getTime();
-
-    return start[0] + '執行時間:' + (end_time - start[1]) / 5000 + 'ms';
-}
-
-/*
 1464. Maximum Product of Two Elements in an Array
 Difficulty:Easy
 
@@ -49,7 +17,7 @@ index : 0 1 2 3
 => if i=1 and j=2
 => num(4-1) * nums(5-1) = 3*4=12
 
-找出該array中最大數和第二大的數相加
+排序後找出該array中最大數和第二大的數，各減一後相加
 
 
 Example 1:
@@ -80,6 +48,7 @@ Constraints:
  * @return {number}
  */
 var maxProduct = function (nums) {
+    // time O(n log n) space O(1)
     if (nums.length < 2) {
         return parseInt(nums, 10);
     }
