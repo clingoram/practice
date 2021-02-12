@@ -30,39 +30,74 @@ function endTime(start) {
     return start[0] + '執行時間:' + (end_time - start[1]) / 5000 + 'ms';
 }
 
-
 /*
-219. Contains Duplicate II
-Difficulty:Easy
+1295. Find Numbers with Even Number of Digits
 
-Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the absolute difference between i and j is at most k.
+Given an array nums of integers, return how many of them contain an even number of digits.
 
-note:
-1. int array and int k
-2. array 中有i 和 j，要互等於 => nums[i] = nums[j]
-3. return true or false
+Note:
+1.array of int
+2.return array中，element是奇位數的有幾個
+3.return int
 
+How to compute the number of digits of a number ?
+Divide the number by 10 again and again to get the number of digits.
+ 
+Constraints:
+1 <= nums.length <= 500
+1 <= nums[i] <= 10^5
 
 Example 1:
+Input: nums = [12,345,2,6,7896]
+Output: 2
+Explanation: 
+12 contains 2 digits (even number of digits). 
+345 contains 3 digits (odd number of digits). 
+2 contains 1 digit (odd number of digits). 
+6 contains 1 digit (odd number of digits). 
+7896 contains 4 digits (even number of digits). 
+Therefore only 12 and 7896 contain an even number of digits.
 
-Input: nums = [1,2,3,1], k = 3
-Output: true
 Example 2:
+Input: nums = [555,901,482,1771]
+Output: 1 
+Explanation: 
+Only 1771 contains an even number of digits.
 
-Input: nums = [1,0,1,1], k = 1
-Output: true
-Example 3:
-
-Input: nums = [1,2,3,1,2,3], k = 2
-Output: false
 */
-/**
- * @param {number[]} nums
- * @param {number} k
- * @return {boolean}
- */
-var containsNearbyDuplicate = function (nums, k) {
 
-};
-const nums = [1, 2, 3, 1], k = 3;
-console.log(`The containsNearbyDuplicate result is ${containsNearbyDuplicate(nums, k)}`);
+// /**
+//  * @param {number[]} nums
+//  * @return {number}
+//  */
+// var findNumbers = function (nums) {
+
+// };
+// const array = [12, 345, 2, 6, 7896]; // return 2
+// console.log(`The result of findNumbers is ${findNumbers(array)}`);
+
+
+function Select(array) {
+
+    // 有幾個元素，就要找幾輪的最小值
+    // 這邊的 i 代表 i 以前的元素都排序好了
+    for (let i = 0; i < array.length; i++) {
+        // 假設第一個是最小值
+        let min = array[i];
+        let minIndex = i;
+
+        // 從還沒排好的元素開始找最小值
+        for (let j = i + 1; j < array.length; j++) {
+            if (min > array[j]) {
+                min = array[j];
+                minIndex = j;
+            }
+        }
+        // ES6 的用法，交換兩個數值
+        [array[minIndex], array[i]] = [array[i], array[minIndex]];
+    }
+
+    return array;
+}
+const arr = [80, 2, 33, 9, 24, 52, 6];
+console.log(Select(arr));
