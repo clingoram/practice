@@ -31,82 +31,103 @@ function endTime(start) {
 }
 
 /*
-1394. Find Lucky Integer in an Array
-Difficulty: Easy
+922. Sort Array By Parity II
 
-Given an array of integers arr, a lucky integer is an integer which has a frequency in the array equal to its value.
+Difficulty:Easy
 
-Return a lucky integer in the array. If there are multiple lucky integers return the largest of them. If there is no lucky integer return -1.
+Given an array A of non-negative integers, half of the integers in A are odd, and half of the integers are even.
 
-Note:
-1.int array
-2.return 
- a.the largest int
- b.no lucky int will return -1
+Sort the array so that whenever A[i] is odd, i is odd; and whenever A[i] is even, i is even.
 
-Count the frequency of each integer in the array.
-Get all lucky numbers and return the largest of them.
+You may return any answer array that satisfies this condition.
 
-Constraints:
-1 <= arr.length <= 500
-1 <= arr[i] <= 500
+1.array A都是正整數，其中一半是奇數，剩下則是偶數
+2.sort array，array的i是奇數，偶數
+3.return array
 
 Example 1:
-Input: arr = [2,2,3,4]
-Output: 2
-Explanation: The only lucky number in the array is 2 because frequency[2] == 2.
+Input: [4,2,5,7]
+Output: [4,5,2,7]
+Explanation: [4,7,2,5], [2,5,4,7], [2,7,4,5] would also have been accepted.
+
+
+Note:
+2 <= A.length <= 20000
+A.length % 2 == 0
+0 <= A[i] <= 1000
+
+*/
+// /**
+//  * @param {number[]} A
+//  * @return {number[]}
+//  */
+// var sortArrayByParityII = function (A) {
+//     if (A.length <= 1) {
+//         return A;
+//     }
+
+// };
+// const array = [4, 2, 5, 7];
+// // should return [4,5,2,7]
+// console.log(`The result is ${sortArrayByParityII(array)}`);
+
+
+/*
+1662. Check If Two String Arrays are Equivalent
+Difficulty:Easy
+
+Given two string arrays word1 and word2, return true if the two arrays represent the same string, and false otherwise.
+
+A string is represented by an array if the array elements concatenated in order forms the string.
+
+1. word1 and word2 = array
+2. if word1 == word2 return true ,else return false
+
+
+Concatenate all strings in the first array into a single string in the given order, the same for the second array.
+Both arrays represent the same string if and only if the generated strings are the same.
+
+Example 1:
+
+Input: word1 = ["ab", "c"], word2 = ["a", "bc"]
+Output: true
+Explanation:
+word1 represents string "ab" + "c" -> "abc"
+word2 represents string "a" + "bc" -> "abc"
+The strings are the same, so return true.
 
 Example 2:
-Input: arr = [1,2,2,3,3,3]
-Output: 3
-Explanation: 1, 2 and 3 are all lucky numbers, return the largest of them.
+Input: word1 = ["a", "cb"], word2 = ["ab", "c"]
+Output: false
 
 Example 3:
-Input: arr = [2,2,2,3,3]
-Output: -1
-Explanation: There are no lucky numbers in the array.
+Input: word1  = ["abc", "d", "defg"], word2 = ["abcddefg"]
+Output: true
 
-Example 4:
-Input: arr = [5]
-Output: -1
 
-Example 5:
-Input: arr = [7,7,7,7,7,7,7]
-Output: 7
+Constraints:
+1 <= word1.length, word2.length <= 103
+1 <= word1[i].length, word2[i].length <= 103
+1 <= sum(word1[i].length), sum(word2[i].length) <= 103
+word1[i] and word2[i] consist of lowercase letters.
+
 */
 /**
- * @param {number[]} arr
- * @return {number}
+ * @param {string[]} word1
+ * @param {string[]} word2
+ * @return {boolean}
  */
-var findLucky = function (arr) {
-    if (arr.length <= 1) {
-        return -1;
+var arrayStringsAreEqual = function (word1, word2) {
+    if (!word1 || !word2) {
+        return;
     }
-    let m = new Map();
-
-    // solution 1:
-    for (let i = 0; i < arr.length; i++) {
-        if (!m.has(arr[i])) {
-            m.set(arr[i], 0);
-        }
-        m.set(arr[i], m.get(arr[i]) + 1);
+    if (word1.join("") == word2.join("")) {
+        return true;
     }
-    let max = -1;
-    for (let j of m.entries()) {
-        if (j[0] === j[1]) {
-            max = Math.max(max, j[0]);
-        }
-    }
-    return max;
-
-
-    // solution 2
-    // for (let i = 0; i < arr.length; i++) {
-    //     m.has(arr[i]) ? m.set(arr[i], m.get(arr[i]) + 1) : m.set(arr[i], 1);
-    // }
-    // return Math.max(...arr.filter(e => m.get(e) === e), -1);
+    return false;
 
 };
-const arr = [2, 2, 3, 4];
-// return 2
-console.log(`The result is ${findLucky(arr)}`);
+const w1 = ["a", "cb"];
+const w2 = ["ab", "c"];
+// return false
+console.log(`The result is ${arrayStringsAreEqual(w1, w2)}`);
