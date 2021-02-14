@@ -31,47 +31,42 @@ function endTime(start) {
 }
 
 /*
-1295. Find Numbers with Even Number of Digits
+922. Sort Array By Parity II
 
-Given an array nums of integers, return how many of them contain an even number of digits.
+Difficulty:Easy
 
-Note:
-1.array of int
-2.return array中，element是奇位數的有幾個
-3.return int
+Given an array A of non-negative integers, half of the integers in A are odd, and half of the integers are even.
 
-How to compute the number of digits of a number ?
-Divide the number by 10 again and again to get the number of digits.
+Sort the array so that whenever A[i] is odd, i is odd; and whenever A[i] is even, i is even.
 
-Constraints:
-1 <= nums.length <= 500
-1 <= nums[i] <= 10^5
+You may return any answer array that satisfies this condition.
+
+1.array A都是正整數，其中一半是奇數，剩下則是偶數
+2.sort array，array的i是奇數，偶數
+3.return array
 
 Example 1:
-Input: nums = [12,345,2,6,7896]
-Output: 2
-Explanation:
-12 contains 2 digits (even number of digits).
-345 contains 3 digits (odd number of digits).
-2 contains 1 digit (odd number of digits).
-6 contains 1 digit (odd number of digits).
-7896 contains 4 digits (even number of digits).
-Therefore only 12 and 7896 contain an even number of digits.
+Input: [4,2,5,7]
+Output: [4,5,2,7]
+Explanation: [4,7,2,5], [2,5,4,7], [2,7,4,5] would also have been accepted.
 
-Example 2:
-Input: nums = [555,901,482,1771]
-Output: 1
-Explanation:
-Only 1771 contains an even number of digits.
+
+Note:
+2 <= A.length <= 20000
+A.length % 2 == 0
+0 <= A[i] <= 1000
 
 */
-
 /**
- * @param {number[]} nums
- * @return {number}
+ * @param {number[]} A
+ * @return {number[]}
  */
-var findNumbers = function (nums) {
+var sortArrayByParityII = function (A) {
+    if (A.length <= 1) {
+        return A;
+    }
 
 };
-const array = [12, 345, 2, 6, 7896]; // return 2
-console.log(`The result of findNumbers is ${findNumbers(array)}`);
+const array = [4, 2, 5, 7];
+// should return [4,5,2,7]
+console.log(`The result is ${sortArrayByParityII(array)}`);
