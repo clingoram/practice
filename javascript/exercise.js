@@ -83,3 +83,42 @@ function TestArray(array) {
 }
 const myArray = [6, 3, 12, 5, 5, 14, 1, 9, 98];
 console.log(TestArray(myArray))
+
+
+// 取不重複值的array
+// return array
+function noDuplicate(array) {
+
+    /* 
+    Solution 1:
+    Set
+    Set is a new data object introduced in ES6. Because Set only lets you store unique values. 
+    When you pass in an array, it will remove any duplicate values.
+    */
+    // const uniqueSet = new Set(array);
+    // return [...uniqueSet];
+
+    /* 
+    Solution 2:
+    1.indexOf:回傳所在位置的 index，如果找不到會回傳 -1
+    2.filter:filter() 會回傳一個陣列，只會回傳條件是 true 的物件，適合用在搜尋符合條件的資料。
+    */
+    // return array.filter((item, index) => array.indexOf(item) == index);
+
+    /**
+     * Solution 3:
+     * reduce
+     * Array.prototype.reduce(accumulator, currentValue, currentIndex, array [, initialValue])
+        reduce() 可以與前一個回傳的值再次作運算。
+        參數包含以下：
+        accumulator:前一個回傳的值，從 initialValue 開始．若沒有 initialValue 就是從陣列的 index 0 開始
+        currentValue :現在的值
+        currentIndex:現在的參數位置-Optional
+        array :全部陣列 -Optional
+        initialValue:初始值- Optional
+     */
+    return array.reduce((item, index) => item.includes(index) ? item : [...item, index], []);
+
+}
+const arr = ['apple', 'orange', 'grape', 'apple', 'pineapple'];
+console.log(`The result is ${noDuplicate(arr)}`);
