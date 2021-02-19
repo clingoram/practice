@@ -70,3 +70,21 @@ A.length % 2 == 0
 // const array = [4, 2, 5, 7];
 // // should return [4,5,2,7]
 // console.log(`The result is ${sortArrayByParityII(array)}`);
+
+
+// 找出array中大於target的值，並重組，回傳成新陣列
+// function test(array, target) {
+//     let result = [];
+//     let slice_array = array.slice().sort();
+//     console.log(slice_array);
+// }
+// const a = [1, 6, 48, 6, 35, 79, 86];
+// const t = 30;
+// console.log(test(a, t));
+
+class LinkedList {
+    constructor() {
+        this.head = null;
+        this.length = 0;
+    }
+}
