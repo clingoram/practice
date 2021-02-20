@@ -82,9 +82,9 @@ A.length % 2 == 0
 // const t = 30;
 // console.log(test(a, t));
 
-class LinkedList {
+class Node {
     constructor() {
+        this.size = 0;
         this.head = null;
-        this.length = 0;
     }
 }
