@@ -70,27 +70,3 @@ A.length % 2 == 0
 // const array = [4, 2, 5, 7];
 // // should return [4,5,2,7]
 // console.log(`The result is ${sortArrayByParityII(array)}`);
-
-
-// 找出array中大於target的值
-// 若大於target，重組，回傳成新陣列
-// 若"都"沒有大於target，return null
-function test(array, target) {
-    // let result = [];
-
-    if (array.length <= 1 && array > target) {
-        return array;
-    }
-
-    // for (let i = 0; i < array.length; i++) {
-    //     const element = array[i];
-
-
-    // }
-    let result = array.every(element => element > target);
-    return result;
-}
-const a = [1, 6, 48, 6, 35, 79, 86, 5, 23];
-const t = 30;
-// should return 48,35,79,86
-console.log(`The result is ${test(a, t)}`);
