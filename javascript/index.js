@@ -104,23 +104,43 @@ preorder is guaranteed to be the preorder traversal of the tree.
 inorder is guaranteed to be the inorder traversal of the tree.
  */
 
-/**
- * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
- * }
- */
-/**
- * @param {number[]} preorder
- * @param {number[]} inorder
- * @return {TreeNode}
- */
-var buildTree = function (preorder, inorder) {
+// /**
+//  * Definition for a binary tree node.
+//  * function TreeNode(val, left, right) {
+//  *     this.val = (val===undefined ? 0 : val)
+//  *     this.left = (left===undefined ? null : left)
+//  *     this.right = (right===undefined ? null : right)
+//  * }
+//  */
+// /**
+//  * @param {number[]} preorder
+//  * @param {number[]} inorder
+//  * @return {TreeNode}
+//  */
+// var buildTree = function (preorder, inorder) {
 
-};
+// };
 
-const preorder = [3, 9, 20, 15, 7], inorder = [9, 3, 15, 20, 7];
-// should return [3,9,20,null,null,15,7]
-console.log(`The result is ${buildTree(preorder, inorder)}`);
+// const preorder = [3, 9, 20, 15, 7], inorder = [9, 3, 15, 20, 7];
+// // should return [3,9,20,null,null,15,7]
+// console.log(`The result is ${buildTree(preorder, inorder)}`);
+
+// 跟隔壁互相比較，順序錯了就交換，讓大的元素一直浮到最後
+function bs(array) {
+
+    if (array.length <= 1) {
+        return array;
+    }
+
+    for (let i = 0; i < array.length; i++) {
+        // console.log(`The i is: ${array[i]}`);
+        for (let j = 0; j < array.length - 1 - i; j++) {
+            console.log(`The j is: ${array[j]}`);
+
+        }
+
+    }
+}
+const a = [5, 13, 6, 7, 28];
+// return 5,6,7,13,28
+console.log(bs(a));
