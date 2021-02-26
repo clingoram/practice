@@ -57,19 +57,19 @@ A.length % 2 == 0
 0 <= A[i] <= 1000
 
 */
-// /**
-//  * @param {number[]} A
-//  * @return {number[]}
-//  */
-// var sortArrayByParityII = function (A) {
-//     if (A.length <= 1) {
-//         return A;
-//     }
+/**
+ * @param {number[]} A
+ * @return {number[]}
+ */
+var sortArrayByParityII = function (A) {
+    if (A.length <= 1) {
+        return A;
+    }
 
-// };
-// const array = [4, 2, 5, 7];
-// // should return [4,5,2,7]
-// console.log(`The result is ${sortArrayByParityII(array)}`);
+};
+const array = [4, 2, 5, 7];
+// should return [4,5,2,7]
+console.log(`The result is ${sortArrayByParityII(array)}`);
 
 /*
  105. Construct Binary Tree from Preorder and Inorder Traversal
@@ -91,7 +91,7 @@ Output: [3,9,20,null,null,15,7]
 Example 2:
 Input: preorder = [-1], inorder = [-1]
 Output: [-1]
- 
+
 
 Constraints:
 
@@ -125,22 +125,4 @@ inorder is guaranteed to be the inorder traversal of the tree.
 // // should return [3,9,20,null,null,15,7]
 // console.log(`The result is ${buildTree(preorder, inorder)}`);
 
-// 跟隔壁互相比較，順序錯了就交換，讓大的元素一直浮到最後
-function bs(array) {
 
-    if (array.length <= 1) {
-        return array;
-    }
-
-    for (let i = 0; i < array.length; i++) {
-        // console.log(`The i is: ${array[i]}`);
-        for (let j = 0; j < array.length - 1 - i; j++) {
-            console.log(`The j is: ${array[j]}`);
-
-        }
-
-    }
-}
-const a = [5, 13, 6, 7, 28];
-// return 5,6,7,13,28
-console.log(bs(a));
