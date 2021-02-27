@@ -147,3 +147,35 @@ const a = [1, 6, 48, 6, 35, 79, 86, 5, 23];
 const t = 30;
 // should return 48,35,79,86
 console.log(`The result is ${test(a, t)}`);
+
+/*
+es5的class
+*/
+// constructor:
+// function es5Class(name) {
+//     this.name = name;
+// }
+
+// // 從es5Class那連結function
+// es5Class.prototype.getName = function () {
+//     return this.name;
+// }
+
+/* 
+ES6的class(語法糖)
+實際上的 JavaScript 本身並沒有 class 可以使用
+*/
+
+class es5Class {
+    // constructor = function es5Class(name)
+    constructor(name) {
+        this.name = name;
+    }
+    // function
+    getName() {
+        return this.name;
+    }
+}
+let test = new es5Class('Joe');
+test.getName();
+console.log(test);

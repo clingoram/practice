@@ -31,47 +31,6 @@ function endTime(start) {
 }
 
 /*
-922. Sort Array By Parity II
-
-Difficulty:Easy
-
-Given an array A of non-negative integers, half of the integers in A are odd, and half of the integers are even.
-
-Sort the array so that whenever A[i] is odd, i is odd; and whenever A[i] is even, i is even.
-
-You may return any answer array that satisfies this condition.
-
-1.array A都是正整數，其中一半是奇數，剩下則是偶數
-2.sort array，array的i是奇數，偶數
-3.return array
-
-Example 1:
-Input: [4,2,5,7]
-Output: [4,5,2,7]
-Explanation: [4,7,2,5], [2,5,4,7], [2,7,4,5] would also have been accepted.
-
-
-Note:
-2 <= A.length <= 20000
-A.length % 2 == 0
-0 <= A[i] <= 1000
-
-*/
-// /**
-//  * @param {number[]} A
-//  * @return {number[]}
-//  */
-// var sortArrayByParityII = function (A) {
-//     if (A.length <= 1) {
-//         return A;
-//     }
-
-// };
-// const array = [4, 2, 5, 7];
-// // should return [4,5,2,7]
-// console.log(`The result is ${sortArrayByParityII(array)}`);
-
-/*
  105. Construct Binary Tree from Preorder and Inorder Traversal
  Difficulty:Medium
 
@@ -91,7 +50,7 @@ Output: [3,9,20,null,null,15,7]
 Example 2:
 Input: preorder = [-1], inorder = [-1]
 Output: [-1]
- 
+
 
 Constraints:
 
@@ -104,19 +63,19 @@ preorder is guaranteed to be the preorder traversal of the tree.
 inorder is guaranteed to be the inorder traversal of the tree.
  */
 
-// /**
-//  * Definition for a binary tree node.
-//  * function TreeNode(val, left, right) {
-//  *     this.val = (val===undefined ? 0 : val)
-//  *     this.left = (left===undefined ? null : left)
-//  *     this.right = (right===undefined ? null : right)
-//  * }
-//  */
-// /**
-//  * @param {number[]} preorder
-//  * @param {number[]} inorder
-//  * @return {TreeNode}
-//  */
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {number[]} preorder
+ * @param {number[]} inorder
+ * @return {TreeNode}
+ */
 // var buildTree = function (preorder, inorder) {
 
 // };
@@ -125,22 +84,25 @@ inorder is guaranteed to be the inorder traversal of the tree.
 // // should return [3,9,20,null,null,15,7]
 // console.log(`The result is ${buildTree(preorder, inorder)}`);
 
-// 跟隔壁互相比較，順序錯了就交換，讓大的元素一直浮到最後
-function bs(array) {
-
-    if (array.length <= 1) {
-        return array;
-    }
-
-    for (let i = 0; i < array.length; i++) {
-        // console.log(`The i is: ${array[i]}`);
-        for (let j = 0; j < array.length - 1 - i; j++) {
-            console.log(`The j is: ${array[j]}`);
-
-        }
-
+class Node {
+    constructor(data, next = null) {
+        this.data = data;
+        this.next = next;
     }
 }
-const a = [5, 13, 6, 7, 28];
-// return 5,6,7,13,28
-console.log(bs(a));
+class Linked {
+    constructor() {
+        this.head = null;
+        this.size = 0;
+    }
+
+    append(data) {
+        this.head = new Node(data, this.head);
+        this.size++;
+    }
+}
+let list = new Linked();
+list.append(20);
+list.append(12);
+list.append(5);
+console.log(list);
