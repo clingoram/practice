@@ -76,12 +76,33 @@ inorder is guaranteed to be the inorder traversal of the tree.
  * @param {number[]} inorder
  * @return {TreeNode}
  */
-var buildTree = function (preorder, inorder) {
+// var buildTree = function (preorder, inorder) {
 
-};
+// };
 
-const preorder = [3, 9, 20, 15, 7], inorder = [9, 3, 15, 20, 7];
-// should return [3,9,20,null,null,15,7]
-console.log(`The result is ${buildTree(preorder, inorder)}`);
+// const preorder = [3, 9, 20, 15, 7], inorder = [9, 3, 15, 20, 7];
+// // should return [3,9,20,null,null,15,7]
+// console.log(`The result is ${buildTree(preorder, inorder)}`);
 
+class Node {
+    constructor(data, next = null) {
+        this.data = data;
+        this.next = next;
+    }
+}
+class Linked {
+    constructor() {
+        this.head = null;
+        this.size = 0;
+    }
 
+    append(data) {
+        this.head = new Node(data, this.head);
+        this.size++;
+    }
+}
+let list = new Linked();
+list.append(20);
+list.append(12);
+list.append(5);
+console.log(list);
