@@ -100,6 +100,16 @@ class Linked {
         this.head = new Node(data, this.head);
         this.size++;
     }
+
+    remove(data) {
+        if (!this.head) {
+            return;
+        }
+    }
+
+    find(data) {
+
+    }
 }
 let list = new Linked();
 list.append(20);
