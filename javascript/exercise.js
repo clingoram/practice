@@ -63,6 +63,7 @@ function TestArray(array) {
     // return array[n];
 
     // goal 4:
+    // Solution 1:
     let result = [];
     let slice_arr = array.slice().sort();
     // 最後一個是最大數，所以減一
@@ -73,6 +74,17 @@ function TestArray(array) {
         }
     }
     return result;
+    // Solution 2:
+    // let result = [];
+    //  array.unshift(0); //會添加一個或多個元素至陣列的開頭，並且回傳陣列的新長度。
+    //  for (let i = 0; i < array.length; i++) {
+    //      const element = Math.abs(array[i]);
+    //      if (array[element] < 0) {
+    //          result.push(element);
+    //      }
+    //      array[element] *= -1;
+    //  }
+    //  return result;
 
     // goal 6:
     // A.
