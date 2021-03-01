@@ -84,25 +84,46 @@ inorder is guaranteed to be the inorder traversal of the tree.
 // // should return [3,9,20,null,null,15,7]
 // console.log(`The result is ${buildTree(preorder, inorder)}`);
 
-class Node {
-    constructor(data, next = null) {
-        this.data = data;
-        this.next = next;
-    }
-}
-class Linked {
-    constructor() {
-        this.head = null;
-        this.size = 0;
-    }
+// class Node {
+//     constructor(data, next = null) {
+//         this.data = data;
+//         this.next = next;
+//     }
+// }
+// class Linked {
+//     constructor() {
+//         this.head = null;
+//         this.size = 0;
+//     }
 
-    append(data) {
-        this.head = new Node(data, this.head);
-        this.size++;
+//     append(data) {
+//         this.head = new Node(data, this.head);
+//         this.size++;
+//     }
+
+//     remove(data) {
+//         if (!this.head) {
+//             return;
+//         }
+//     }
+
+//     find(data) {
+
+//     }
+// }
+// let list = new Linked();
+// list.append(20);
+// list.append(12);
+// list.append(5);
+// console.log(list);
+
+// find largest and smallest number of array
+function find(array) {
+    if (array.length < 1) {
+        return array;
     }
+    let result = [];
+
 }
-let list = new Linked();
-list.append(20);
-list.append(12);
-list.append(5);
-console.log(list);
+const nums = [12, 4, 65, 7, 2, 4, 12];
+console.log(`The result is ${find(nums)}`);
