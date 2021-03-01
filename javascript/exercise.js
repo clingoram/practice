@@ -191,3 +191,21 @@ class es5Class {
 let test = new es5Class('Joe');
 test.getName();
 console.log(test);
+
+// find largest and smallest number of array
+function find(array) {
+    if (array.length < 1) {
+        return array;
+    }
+    // let result = [];
+    // let max = Math.max.apply(null, array);
+    // let min = Math.min.apply(null, array);
+
+    // es6 to find largest and smallest int
+    let max = Math.max(...array);
+    let min = Math.min(...array);
+    // console.log(min);
+
+}
+const nums = [12, 4, 65, 7, 2, 4, 12];
+console.log(`The result is ${find(nums)}`);
