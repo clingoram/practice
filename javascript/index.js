@@ -117,20 +117,68 @@ inorder is guaranteed to be the inorder traversal of the tree.
 // list.append(5);
 // console.log(list);
 
-// find largest and smallest number of array
-function find(array) {
-    if (array.length < 1) {
-        return array;
-    }
-    // let result = [];
-    // let max = Math.max.apply(null, array);
-    // let min = Math.min.apply(null, array);
 
-    // es6 to find largest and smallest int
-    let max = Math.max(...array);
-    let min = Math.min(...array);
-    // console.log(min);
+/*
+1351. Count Negative Numbers in a Sorted Matrix
+Difficulty: Easy
 
-}
-const nums = [12, 4, 65, 7, 2, 4, 12];
-console.log(`The result is ${find(nums)}`);
+Given a m x n matrix grid which is sorted in non-increasing order both row-wise and column-wise, return the number of negative numbers in grid.
+
+計算出array中有幾個負數
+return number
+Use binary search for optimization or simply brute force.
+
+
+Example 1:
+Input: grid = [[4,3,2,-1],[3,2,1,-1],[1,1,-1,-2],[-1,-1,-2,-3]]
+Output: 8
+Explanation: There are 8 negatives number in the matrix.
+
+Example 2:
+Input: grid = [[3,2],[1,0]]
+Output: 0
+
+Example 3:
+Input: grid = [[1,-1],[-1,-1]]
+Output: 3
+
+Example 4:
+Input: grid = [[-1]]
+Output: 1
+
+
+Constraints:
+
+m == grid.length
+n == grid[i].length
+1 <= m, n <= 100
+-100 <= grid[i][j] <= 100
+*/
+/**
+ * @param {number[][]} grid
+ * @return {number}
+ */
+var countNegatives = function (grid) {
+    // count the number to check if int < 0 
+
+    // let count = 0;
+    // for (let i = 0; i < grid.length; i++) {
+
+    //     for (let j = 0 + i; j < grid.length; j++) {
+    //         const element = grid[j];
+    //         console.log(element);
+    //     }
+    //     // if (element < 0) {
+    //     //     count++;
+    //     // }
+    // }
+    // return count;
+    let find = grid.filter((i) => i < 0);
+    let count = 0;
+    return count;
+};
+// const grid = [[4, 3, 2, -1], [3, 2, 1, -1], [1, 1, -1, -2], [-1, -1, -2, -3]];
+const grid = [4, 3, 2, -1];
+
+// should return 8
+console.log(countNegatives(grid));

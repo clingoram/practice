@@ -64,6 +64,7 @@ function TestArray(array) {
 
     // goal 4:
     // Solution 1:
+    // Will return all duplicates numbers from an array
     let result = [];
     let slice_arr = array.slice().sort();
     // 最後一個是最大數，所以減一
@@ -75,8 +76,11 @@ function TestArray(array) {
     }
     return result;
     // Solution 2:
+    // Will only return 1 duplicate number from an array
     // let result = [];
-    //  array.unshift(0); //會添加一個或多個元素至陣列的開頭，並且回傳陣列的新長度。
+
+    // 會添加一個或多個元素至陣列的開頭，並且回傳陣列的新長度。 var arr = [1, 2]; arr.unshift(0); => [0,1,2];
+    //  array.unshift(0);
     //  for (let i = 0; i < array.length; i++) {
     //      const element = Math.abs(array[i]);
     //      if (array[element] < 0) {
@@ -99,6 +103,7 @@ console.log(TestArray(myArray))
 
 // 取不重複值的array
 // return array
+// remove duplicates from an array in place
 function noDuplicate(array) {
 
     /* 
@@ -209,3 +214,24 @@ function find(array) {
 }
 const nums = [12, 4, 65, 7, 2, 4, 12];
 console.log(`The result is ${find(nums)}`);
+
+// find all pairs of an integer array whose sum is equal to a given number?
+function find(array, target) {
+    let result = [];
+    if (array.length < 2 && target == null) {
+        return array;
+    }
+    for (let i = 0; i < array.length; i++) {
+        for (let j = i + 1; j < array.length; j++) {
+            if (array[i] + array[j] === target) {
+                result.push(array[j], array[i]);
+            }
+        }
+    }
+
+    return result;
+}
+const nums = [12, 4, 65, 7, 2, 4];
+// should return 65,2
+const t = 67;
+console.log(`The result is ${find(nums, t)}`);
