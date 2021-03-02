@@ -35,6 +35,8 @@ Only one valid answer exists.
  * @return {number[]}
  */
 var twoSum = function (nums, target) {
+
+    // solution 1:
     if (nums.length < 2) {
         return;
     }
@@ -45,4 +47,19 @@ var twoSum = function (nums, target) {
             }
         }
     }
+
+    // solution 2:
+    // let map = new Map();
+    // if (array.length < 2 && target == null) {
+    //     return array;
+    // }
+
+    // for (let i = 0; i < array.length; i++) {
+    //     if (map.has(target - array[i])) {
+    //         return [map.get(target - array[i]), i];
+    //     } else {
+    //         map.set(array[i], i);
+    //     }
+    // }
+    // return [];
 };
