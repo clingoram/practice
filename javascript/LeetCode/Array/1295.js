@@ -6,7 +6,7 @@ Given an array nums of integers, return how many of them contain an even number 
 
 Note:
 1.array of int
-2.array中，element是奇位數的有幾個
+2.array中，element是even(偶數)的有幾個
 3.return int
 
 How to compute the number of digits of a number ?
@@ -49,5 +49,5 @@ var findNumbers = function (nums) {
     });
     return count;
 };
-const array = [12, 345, 2, 6, 7896]; // return 2
+const array = [12, 345, 2, 6, 7896]; // return 2(12,7896)
 console.log(`The result of findNumbers is ${findNumbers(array)}`);

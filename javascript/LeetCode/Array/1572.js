@@ -29,8 +29,6 @@ Notice that element mat[1][1] = 5 is counted only once.
  * @return {number}
  */
 var diagonalSum = function (mat) {
-    // let functionName = 'diagonalSum';
-    // let start = countTime(functionName);
 
     let result = 0;
     let j = mat[0].length - 1;
