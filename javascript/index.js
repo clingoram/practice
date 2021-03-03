@@ -153,12 +153,14 @@ var numSubarrayBoundedMax = function (A, L, R) {
     if (A.length < 2 || L === 0 || R === 0) {
         return;
     }
-    let split = A.slice(0);
-    console.log(split);
+    // let split = A.slice(0);
+    // console.log(split);
 
 
 };
 const A = [2, 1, 4, 3];
 const L = 2;
 const R = 3;
-console.log(numSubarrayBoundedMax(A, L, R));
+// sholud return 3
+// console.log(numSubarrayBoundedMax(A, L, R));
+
