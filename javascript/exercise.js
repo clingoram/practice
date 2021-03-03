@@ -235,3 +235,30 @@ const nums = [12, 4, 65, 7, 2, 4];
 // should return 65,2
 const t = 67;
 console.log(`The result is ${find(nums, t)}`);
+
+// 條件式3種:
+// 以下結果都一樣
+let money = 10;
+let p;
+// 1.三元
+// const p = (money > 15) ? 'Expensive' : 'Cheap';
+
+// 2.if else
+// if (money > 15) {
+//     p = 'Expensive';
+// } else {
+//     p = 'Cheap';
+// }
+
+// 3.switch
+switch (money) {
+    case 10:
+        p = 'Cheap';
+        break;
+    case 15:
+        p = 'Expensive';
+        break;
+    default:
+        break;
+}
+console.log(p);

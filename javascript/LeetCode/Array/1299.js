@@ -47,12 +47,12 @@ var replaceElements = function (arr) {
     if (arr.length < 1) {
         return arr;
     }
-    /* 
-    Solution 1:
-     1.find the max value
-     2.loop the array
-     3.push and return the array
-     */
+    // steps:
+    // 1.find the max value
+    // 2.loop the array
+    // 3.push and return the array
+
+    // Solution 1:
     // let result = [];
     // let maxValue = Math.max(...arr);
 

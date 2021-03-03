@@ -119,66 +119,46 @@ inorder is guaranteed to be the inorder traversal of the tree.
 
 
 /*
-1351. Count Negative Numbers in a Sorted Matrix
-Difficulty: Easy
+795. Number of Subarrays with Bounded Maximum
 
-Given a m x n matrix grid which is sorted in non-increasing order both row-wise and column-wise, return the number of negative numbers in grid.
+We are given an array A of positive integers, and two positive integers L and R (L <= R).
 
-計算出array中有幾個負數
-return number
-Use binary search for optimization or simply brute force.
+Return the number of (contiguous, non-empty) subarrays such that the value of the maximum array element in that subarray is at least L and at most R.
 
-
-Example 1:
-Input: grid = [[4,3,2,-1],[3,2,1,-1],[1,1,-1,-2],[-1,-1,-2,-3]]
-Output: 8
-Explanation: There are 8 negatives number in the matrix.
-
-Example 2:
-Input: grid = [[3,2],[1,0]]
-Output: 0
-
-Example 3:
-Input: grid = [[1,-1],[-1,-1]]
+----------------
+A= 正整數array
+L、R=正整數，L<=R
+把a分割成符合L和R的陣列，並回傳最大element
+----------------
+Example :
+Input:
+A = [2, 1, 4, 3]
+L = 2
+R = 3
 Output: 3
+Explanation: There are three subarrays that meet the requirements: [2], [2, 1], [3].
 
-Example 4:
-Input: grid = [[-1]]
-Output: 1
+Note:
 
-
-Constraints:
-
-m == grid.length
-n == grid[i].length
-1 <= m, n <= 100
--100 <= grid[i][j] <= 100
+L, R  and A[i] will be an integer in the range [0, 10^9].
+The length of A will be in the range of [1, 50000].
 */
 /**
- * @param {number[][]} grid
+ * @param {number[]} A
+ * @param {number} L
+ * @param {number} R
  * @return {number}
  */
-var countNegatives = function (grid) {
-    // count the number to check if int < 0 
+var numSubarrayBoundedMax = function (A, L, R) {
+    if (A.length < 2 || L === 0 || R === 0) {
+        return;
+    }
+    let split = A.slice(0);
+    console.log(split);
 
-    // let count = 0;
-    // for (let i = 0; i < grid.length; i++) {
 
-    //     for (let j = 0 + i; j < grid.length; j++) {
-    //         const element = grid[j];
-    //         console.log(element);
-    //     }
-    //     // if (element < 0) {
-    //     //     count++;
-    //     // }
-    // }
-    // return count;
-    let find = grid.filter((i) => i < 0);
-    let count = 0;
-    return count;
 };
-// const grid = [[4, 3, 2, -1], [3, 2, 1, -1], [1, 1, -1, -2], [-1, -1, -2, -3]];
-const grid = [4, 3, 2, -1];
-
-// should return 8
-console.log(countNegatives(grid));
+const A = [2, 1, 4, 3];
+const L = 2;
+const R = 3;
+console.log(numSubarrayBoundedMax(A, L, R));
