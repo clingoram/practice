@@ -184,7 +184,6 @@ class BST {
             return null;
         } else {
             const traverse = function (node) {
-                result.push(node.data);
 
                 if (node.left) {
                     traverse(node.left);
@@ -193,6 +192,7 @@ class BST {
                 if (node.right) {
                     traverse(node.right);
                 }
+                result.push(node.data);
             }
 
             traverse(this.root);

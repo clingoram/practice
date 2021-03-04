@@ -108,6 +108,25 @@ class BST {
         return result;
     }
 
+    // post order
+    // left,right,root
+    postOrder() {
+        let result = [];
+
+        const traverse = function (node) {
+            if (node.left) {
+                traverse(node.left);
+            }
+
+            if (node.right) {
+                traverse(node.right);
+            }
+            result.push(node.value);
+        }
+        traverse(this.root);
+        return result;
+    }
+
     // pre order
     // root,left,right
     preOrder() {
@@ -130,26 +149,6 @@ class BST {
             return result;
         }
     }
-
-    // post order
-    // left,right,root
-    postOrder() {
-        let result = [];
-
-        const traverse = function (node) {
-            if (node.left) {
-                traverse(node.left);
-            }
-
-            if (node.right) {
-                traverse(node.right);
-            }
-            result.push(node.value);
-        }
-        traverse(this.root);
-        return result;
-    }
-
 
     // breadth first search - looking for level by level
     // queque
