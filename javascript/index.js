@@ -112,11 +112,9 @@ var createTargetArray = function (nums, index) {
         return null;
     }
     for (let i = 0; i < nums.length; i++) {
-        for (let j = i; j < index.length; j++) {
-            const element = index[j];
-            console.log(element)
-
-        }
+        let slice = index.slice(nums[i]);
+        // const element = nums[i];
+        console.log(slice)
     }
 
 };
