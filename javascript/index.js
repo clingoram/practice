@@ -30,95 +30,52 @@ function endTime(start) {
     return start[0] + '執行時間:' + (end_time - start[1]) / 5000 + 'ms';
 }
 /*
-1389. Create Target Array in the Given Order
-Difficulty:Easy
+1502. Can Make Arithmetic Progression From Sequence
+Difficulty: Easy
 
-Given two arrays of integers nums and index. Your task is to create target array under the following rules:
+Given an array of numbers arr. A sequence of numbers is called an arithmetic progression if the difference between any two consecutive elements is the same.
 
-Initially target array is empty.
-From left to right read nums[i] and index[i], insert at index index[i] the value nums[i] in target array.
-Repeat the previous step until there are no elements to read in nums and index.
-Return the target array.
-
-It is guaranteed that the insertion operations will be valid.
+Return true if the array can be rearranged to form an arithmetic progression, otherwise, return false.
 
 Hints:
-Simulate the process and fill corresponding numbers in the designated spots.
+Consider that any valid arithmetic progression will be in sorted order.
+Sort the array, then check if the differences of all consecutive elements are equal.
 
-------------------------------------
-1.index & nums = integer array
+-----------------------------
+arr = numbers of array
+陣列中的每個element，必須是要同數字的增加或遞減
+EG:[3,5,1]=>[1,3,5] or [5,3,1] 間隔都是以2或-2，所以回傳true
+若不一樣，回傳false
 
-rules:
-初始化是空陣列
-從左到右讀取兩個target array(index i and nums i)
-並insert index of index i and nums i 直到沒有element可讀取
-
-return array
-
-eg:
-nums i (0) index i (0) => [0];
-nums i (1) index i (1) => [0,1]
-nums i (2) index i (2) => [0,1,2];
-nums i (3) index i (2) => [0,1,3,2]
-nums i (4) index i (1) => [0,4,1,3,2]
-
---> 
-以nums的index為主，比較兩個array
-同樣的兩個值，則組合成新陣列，不同的，則看是否已有該值，若沒有，新增沒有的值(不加重複出現過的值)
-------------------------------------
+------------------------------
 
 Example 1:
-Input: nums = [0,1,2,3,4], index = [0,1,2,2,1]
-Output: [0,4,1,3,2]
-Explanation:
-nums       index     target
-0            0        [0]
-1            1        [0,1]
-2            2        [0,1,2]
-3            2        [0,1,3,2]
-4            1        [0,4,1,3,2]
+Input: arr = [3,5,1]
+Output: true
+Explanation: We can reorder the elements as [1,3,5] or [5,3,1] with differences 2 and -2 respectively, between each consecutive elements.
 
 Example 2:
-Input: nums = [1,2,3,4,0], index = [0,1,2,3,0]
-Output: [0,1,2,3,4]
-Explanation:
-nums       index     target
-1            0        [1]
-2            1        [1,2]
-3            2        [1,2,3]
-4            3        [1,2,3,4]
-0            0        [0,1,2,3,4]
-
-Example 3:
-Input: nums = [1], index = [0]
-Output: [1]
+Input: arr = [1,2,4]
+Output: false
+Explanation: There is no way to reorder the elements to obtain an arithmetic progression.
 
 
 Constraints:
-1 <= nums.length, index.length <= 100
-nums.length == index.length
-0 <= nums[i] <= 100
-0 <= index[i] <= i
+2 <= arr.length <= 1000
+-10^6 <= arr[i] <= 10^6
 */
-
 /**
- * @param {number[]} nums
- * @param {number[]} index
- * @return {number[]}
+ * @param {number[]} arr
+ * @return {boolean}
  */
-var createTargetArray = function (nums, index) {
-    let result = [];
-    if (nums.length !== index.length) {
-        return null;
+var canMakeArithmeticProgression = function (arr) {
+    // 1.sorted
+    // 2.math
+    if (arr.length < 1) {
+        return arr;
     }
-    for (let i = 0; i < nums.length; i++) {
-        let slice = index.slice(nums[i]);
-        // const element = nums[i];
-        console.log(slice)
-    }
+
 
 };
-const n = [1, 2, 3, 4, 0];
-const i = [0, 1, 2, 3, 0];
-// should return [0,1,2,3,4]
-console.log(`The result is ${createTargetArray(n, i)}`)
+const a = [3, 5, 1];
+console.log(canMakeArithmeticProgression(a));
