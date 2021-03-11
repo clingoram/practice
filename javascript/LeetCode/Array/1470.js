@@ -40,6 +40,7 @@ Output: [1,2,1,2]
  * @return {number[]}
  */
 var shuffle = function (nums, n) {
+    // time:o(n) ==> n=n.length
     let result = [];
     // x1,x2,x3,y1,y2,y3....，index都只有到3
     for (let i = 0; i < n; i++) {

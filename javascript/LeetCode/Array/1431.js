@@ -18,6 +18,8 @@ Kid 5 has 3 candies and if he or she receives at least 2 extra candies will have
 
 ---------------------------------------------------
 array(candies)，個別加上extraCandies的值=最大值(true)，小則(false)
+candies 的element和extraCandies 值相加，必須是candies中最大數(true)，小則回false
+
 2+3=5 =>true
 3+3=6 =>true
 5+3=8 =>true
@@ -31,6 +33,7 @@ array(candies)，個別加上extraCandies的值=最大值(true)，小則(false)
  * @return {boolean[]}
  */
 var kidsWithCandies = function (candies, extraCandies) {
+    // solution 1:
     // find the max value in the array,can use be use: Math.max(...,candies) which have same result
     const max = Math.max.apply(null, candies);
     // to plus extraCnadies into the array
@@ -38,6 +41,9 @@ var kidsWithCandies = function (candies, extraCandies) {
 
     return result;
 
+    // solution 2:
+    // let max = Math.max(...candies);
+    // return candies.map((x) => (x + extraCandies >= max) ? true : false);
 };
 const candies = [2, 3, 5, 1, 3];
 const extraCandies = 3;

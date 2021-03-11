@@ -42,6 +42,10 @@ var runningSum = function (nums) {
         nums[i] += nums[i - 1];
     }
     return nums;
+
+    // solution 2-reduce
+    //  nums.reduce((prev, current, index, array) => array[index] += prev);
+    //  return nums;
 };
 let nums = [3, 1, 2, 10, 1];
 runningSum(nums);
