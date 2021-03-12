@@ -29,61 +29,38 @@ function endTime(start) {
 
     return start[0] + '執行時間:' + (end_time - start[1]) / 5000 + 'ms';
 }
-
 /*
-832. Flipping an Image
+53. Maximum Subarray
 Difficulty:Easy
 
-Given an n x n binary matrix image, flip the image horizontally, then invert it, and return the resulting image.
+Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
 
-To flip an image horizontally means that each row of the image is reversed.
 
-For example, flipping [1,1,0] horizontally results in [0,1,1].
-To invert an image means that each 0 is replaced by 1, and each 1 is replaced by 0.
-
-For example, inverting [0,1,1] results in [1,0,0].
-
------------------------------------
-把array反轉後，再把反轉過的值，變成1->0;0->1
------------------------------------
 
 Example 1:
-Input: image = [[1,1,0],[1,0,1],[0,0,0]]
-Output: [[1,0,0],[0,1,0],[1,1,1]]
-Explanation: First reverse each row: [[0,1,1],[1,0,1],[0,0,0]].
-Then, invert the image: [[1,0,0],[0,1,0],[1,1,1]]
+Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+Output: 6
+Explanation: [4,-1,2,1] has the largest sum = 6.
 
 Example 2:
-Input: image = [[1,1,0,0],[1,0,0,1],[0,1,1,1],[1,0,1,0]]
-Output: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]
-Explanation: First reverse each row: [[0,0,1,1],[1,0,0,1],[1,1,1,0],[0,1,0,1]].
-Then invert the image: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]
+Input: nums = [1]
+Output: 1
+
+Example 3:
+Input: nums = [5,4,-1,7,8]
+Output: 23
 
 
 Constraints:
-n == image.length
-n == image[i].length
-1 <= n <= 20
-images[i][j] is either 0 or 1.
+1 <= nums.length <= 3 * 104
+-105 <= nums[i] <= 105
 */
-
 /**
- * @param {number[][]} A
- * @return {number[][]}
+ * @param {number[]} nums
+ * @return {number}
  */
-var flipAndInvertImage = function (A) {
-    if (A.length === null) {
-        return null;
-    }
-    let result = [];
-    // 每個陣列要個別反轉
-    // 1->0; 0->1 replace
-    for (let i = 0; i < A.length; i++) {
-        const element = A[i].reverse();
-
-    }
+var maxSubArray = function (nums) {
 
 };
-const i = [[1, 1, 0], [1, 0, 1], [0, 0, 0]];
-// [[1,0,0],[0,1,0],[1,1,1]]
-console.log(flipAndInvertImage(i));
+const a = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+console.log(maxSubArray(a));
