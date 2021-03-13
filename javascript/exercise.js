@@ -221,6 +221,7 @@ function find(array, target) {
     if (array.length < 2 && target == null) {
         return array;
     }
+    // solution 1:
     for (let i = 0; i < array.length; i++) {
         for (let j = i + 1; j < array.length; j++) {
             if (array[i] + array[j] === target) {
@@ -228,8 +229,16 @@ function find(array, target) {
             }
         }
     }
-
     return result;
+
+    // solution 2:
+    // for (let i = 0; i < array.length; i++) {
+    //     if (array[i] + array[i + 1] === target) {
+    //         result.push(array[i], array[i + 1]);
+    //     }
+    // }
+    // return result;
+
 }
 const nums = [12, 4, 65, 7, 2, 4];
 // should return 65,2
