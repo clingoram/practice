@@ -119,8 +119,10 @@ All elements in the matrix are distinct.
 // var luckyNumbers = function (matrix) {
 //     // find min and max element
 //     for (let i = 0; i < matrix.length; i++) {
-//         let min = Math.min(...matrix[i]);
-//         let max = Math.max(...matrix[i]);
+//         let min = Math.min(...matrix[i]); // 3,9,15
+//         let max = Math.max(...matrix[i]); // 8,3,17
+//         // console.log(min);
+//         console.log(max)
 //     }
 
 // };
@@ -133,14 +135,22 @@ All elements in the matrix are distinct.
 function tar(array, target) {
     let result = [];
 
-    // don't use for loop
-    // map? reduce?
+    // solution 1:for loop
+    // for (let i = 0; i < array.length; i++) {
+    //     if (array[i] + array[i - 1] === target) {
+    //         result.push(array[i], array[i - 1]);
+    //     }
+    // }
+    // return result;
 
-    return array.map((x) => {
-        return x + x === target
-    })
+    // if don't use for loop
+    // map? reduce? forEach?
+
+    return array.forEach(element => {
+        console.log(element - 1)
+    });
 }
 const a = [1, 2, 4, 4];
 const t = 8;
-// [4,4]
+// return : [4,4]
 console.log(tar(a, t));
