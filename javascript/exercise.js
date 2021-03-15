@@ -271,3 +271,31 @@ switch (money) {
         break;
 }
 console.log(p);
+
+
+// add to equal to target
+function tar(array, target) {
+
+    // solution 1:for loop
+    // let result = [];
+    // for (let i = 0; i < array.length; i++) {
+    //     if (array[i] + array[i - 1] === target) {
+    //         result.push(array[i], array[i - 1]);
+    //     }
+    // }
+    // return result;
+
+    // if don't use for loop
+    // map? reduce? forEach?
+
+    // solution 2:filter
+    // filter( )
+    // 將元素依序傳入callbackfn中運算，運算結果為boolean值，回傳運算結果為true的元素(element)所組成的陣列。
+    // return array.filter((x) => {
+    //     return x + x === target;
+    // })
+}
+const a = [1, 2, 4, 4];
+const t = 8;
+// return : [4,4]
+console.log(tar(a, t));
