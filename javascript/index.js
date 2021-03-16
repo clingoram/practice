@@ -35,7 +35,10 @@ Difficulty:Easy
 
 Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
 
-
+------------------------
+nums = int array
+至少要有一個負數，return 最大總和
+-----------------------
 
 Example 1:
 Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
@@ -55,14 +58,21 @@ Constraints:
 1 <= nums.length <= 3 * 104
 -105 <= nums[i] <= 105
 */
-// /**
-//  * @param {number[]} nums
-//  * @return {number}
-//  */
-// var maxSubArray = function (nums) {
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxSubArray = function (nums) {
+    if (nums.length < 1) {
+        return null;
+    }
 
-// };
-// const a = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
-// console.log(maxSubArray(a));
+    let max = Math.max(...nums);
+    console.log(max);
+};
+const a = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+// [4,-1,2,1] has the largest sum = 6.
+// return: 6
+console.log(maxSubArray(a));
 
 
