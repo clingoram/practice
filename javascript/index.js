@@ -62,17 +62,56 @@ Constraints:
  * @param {number[]} nums
  * @return {number}
  */
-var maxSubArray = function (nums) {
-    if (nums.length < 1) {
+// var maxSubArray = function (nums) {
+//     if (nums.length < 1) {
+//         return null;
+//     }
+
+//     let max = Math.max(...nums);
+//     console.log(max);
+// };
+// const a = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+// // [4,-1,2,1] has the largest sum = 6.
+// // return: 6
+// console.log(maxSubArray(a));
+
+
+/*
+22. Generate Parentheses
+Difficulty:Medium
+
+Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+
+-----------------
+n=數字
+return 出符合該數字前後一致的符號
+
+n=3
+return 3個()
+-------------------
+
+Example 1:
+Input: n = 3
+Output: ["((()))","(()())","(())()","()(())","()()()"]
+
+Example 2:
+Input: n = 1
+Output: ["()"]
+
+
+Constraints:
+1 <= n <= 8
+*/
+/**
+ * @param {number} n
+ * @return {string[]}
+ */
+var generateParenthesis = function (n) {
+    if (n.length === 0) {
         return null;
     }
 
-    let max = Math.max(...nums);
-    console.log(max);
 };
-const a = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
-// [4,-1,2,1] has the largest sum = 6.
-// return: 6
-console.log(maxSubArray(a));
-
-
+const n = 3;
+// should return: ["((()))","(()())","(())()","()(())","()()()"]
+console.log(generateParenthesis(n));
