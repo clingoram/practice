@@ -106,12 +106,21 @@ Constraints:
  * @param {number} n
  * @return {string[]}
  */
-var generateParenthesis = function (n) {
-    if (n.length === 0) {
-        return null;
-    }
+// var generateParenthesis = function (n) {
+//     if (n.length === 0) {
+//         return null;
+//     }
 
-};
-const n = 3;
-// should return: ["((()))","(()())","(())()","()(())","()()()"]
-console.log(generateParenthesis(n));
+// };
+// const n = 3;
+// // should return: ["((()))","(()())","(())()","()(())","()()()"]
+// console.log(generateParenthesis(n));
+
+
+// return max value
+function solve(lines) {
+    let a = Math.max(...lines);
+    console.log(a);
+}
+const n = [2, 3];
+solve(n);

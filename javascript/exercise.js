@@ -299,3 +299,53 @@ const a = [1, 2, 4, 4];
 const t = 8;
 // return : [4,4]
 console.log(tar(a, t));
+
+function test(a, b) {
+    if (a.length < 1 || b.length < 1) {
+        return;
+    }
+
+    // 差集
+    // return 1 3 5
+    // return a.filter((x) => {
+    //     return b.indexOf(x) === -1;
+    // })
+    // 6 8 10
+    // return b.filter((x) => {
+    //     return a.indexOf(x) === -1;
+    // })
+
+    // 絕對差集(補集)
+    // return 1 3 5 6 8 10
+    // return a.filter((x) => {
+    //     return b.indexOf(x) === -1;
+    // }).concat(b.filter((x) => {
+    //     return a.indexOf(x) === -1;
+    // }))
+
+    // 交集
+    // return 2 4
+    // return a.filter((x) => {
+    //     return b.indexOf(x) > -1;
+    // })
+
+    // 聯集
+    // return [1, 2, 3, 4, 5, 6, 8, 10]
+    return a.concat(b.filter((x) => {
+        return a.indexOf(x) === -1;
+    }))
+};
+let arr1 = [1, 2, 3, 4, 5];
+let arr2 = [2, 4, 6, 8, 10];
+console.log(test(arr1, arr2));
+
+// 9*9
+function go() {
+    for (let i = 2; i <= 10; i++) {
+        for (let j = 1; j < 10; j++) {
+            console.log(`${i} * ${j} = ${i * j}`);
+
+        }
+    }
+}
+console.log(go())
