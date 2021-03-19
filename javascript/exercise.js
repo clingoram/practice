@@ -348,4 +348,62 @@ function go() {
         }
     }
 }
-console.log(go())
+console.log(go());
+
+// 印出1-100的偶數
+function solve() {
+    for (let i = 1; i < 100; i++) {
+        if (i % 2 === 0) {
+            console.log(i);
+        }
+    }
+}
+console.log(solve());
+
+/*
+印出fizz buzz
+
+給一個數字n，印出1~n
+如果碰到3的倍數，改印fizz
+5的倍數，改印buzz
+同時是3和5的倍數，印出 fizz buzz
+*/
+function solveBuzz(n) {
+
+    // solution 1:
+    for (let i = 1; i <= n; i++) {
+        if (i % 15 === 0) {
+            console.log('fizz buzz');
+        } else if (i % 3 === 0) {
+            console.log('fizz');
+        } else if (i % 5 === 0) {
+            console.log('buzz');
+        } else {
+            console.log(i);
+        }
+    }
+}
+const n = 7;
+console.log(solveBuzz(n));
+
+
+// 找最小
+function solve(n) {
+
+    if (n.length < 1) {
+        return;
+    }
+    // solution 1:
+    // return Math.min(...n);
+
+    // solution 2:
+    let min = n[0]
+    for (let i = 0; i < n.length - 1; i++) {
+        if (n[i] < min) {
+            min = n[i];
+        }
+    }
+    return min;
+}
+const n = [12, 6, 5, 8, 15];
+console.log(solve(n));
