@@ -144,9 +144,15 @@ Constraints:
 // pseudo code: 把拿到的字串反過來，hello->hello
 function solveOne(n) {
     // solution 1:
-    return n.split("").reverse().join("");
+    // return n.split("").reverse().join("");
 
-    // how to use for loop?
+    // how to use for loop to reverse the string?
+    let str = '';
+    for (let i = 0; i < n.length; i++) {
+        str = n[i].split("").join("");
+        console.log(str)
+    }
+
 }
 const n = 'hello';
 console.log(solveOne(n));
