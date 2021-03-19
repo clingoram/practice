@@ -140,23 +140,13 @@ Constraints:
 // console.log(solve(n));
 
 
-// 找最小
-function solve(n) {
-
-    if (n.length < 1) {
-        return;
-    }
+// 字串反轉
+// pseudo code: 把拿到的字串反過來，hello->hello
+function solveOne(n) {
     // solution 1:
-    // return Math.min(...n);
+    return n.split("").reverse().join("");
 
-    // solution 2:
-    let min = n[0]
-    for (let i = 0; i < n.length - 1; i++) {
-        if (n[i] < min) {
-            min = n[i];
-        }
-    }
-    return min;
+    // how to use for loop?
 }
-const n = [12, 6, 5, 8, 15];
-console.log(solve(n));
+const n = 'hello';
+console.log(solveOne(n));

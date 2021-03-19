@@ -382,6 +382,21 @@ function solveBuzz(n) {
             console.log(i);
         }
     }
+
+    // solution 2:
+    // let res = [];
+    // for(let i = 1;i<=n;i++){
+    //     if(i % 15 === 0){
+    //         res.push('FizzBuzz');
+    //     }else if(i % 3 === 0){
+    //         res.push('Fizz');
+    //     }else if(i % 5 === 0){
+    //         res.push('Buzz');
+    //     }else{
+    //         res.push(i.toString());
+    //     }
+    // }
+    // return res;
 }
 const n = 7;
 console.log(solveBuzz(n));
@@ -407,3 +422,24 @@ function solve(n) {
 }
 const n = [12, 6, 5, 8, 15];
 console.log(solve(n));
+
+// 找最大值
+// 給一個陣列 arr，裡面全都包含了數字（整數），請輸出陣列中的最大值
+function solveThree(b) {
+    if (b.length < 1) {
+        return;
+    }
+    // solution 1:
+    // return Math.max(...b);
+
+    // solution 2:
+    let max = b[0];
+    for (let i = 0; i <= b.length; i++) {
+        if (b[i] > max) {
+            max = b[i];
+        }
+    }
+    return max;
+}
+const ag = [6, 8, 5, 9, 2]; // 9
+console.log(solveThree(ag));
