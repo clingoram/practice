@@ -118,9 +118,45 @@ Constraints:
 
 
 // return max value
-function solve(lines) {
-    let a = Math.max(...lines);
-    console.log(a);
+// function solve(lines) {
+//     if (lines.length < 1) {
+//         return;
+//     }
+//     for (let i = 0; i < lines.length; i++) {
+//         let spit = lines[i].split(' ');
+//         let a = Number(spit[0]);
+//         let b = Number(spit[1]);
+//         if (a === b) {
+//             return;
+//         }
+//         if (a > b) {
+//             return a;
+//         } else {
+//             return b;
+//         }
+//     }
+// }
+// const n = ['7', '3'];
+// console.log(solve(n));
+
+
+// 找最小
+function solve(n) {
+
+    if (n.length < 1) {
+        return;
+    }
+    // solution 1:
+    // return Math.min(...n);
+
+    // solution 2:
+    let min = n[0]
+    for (let i = 0; i < n.length - 1; i++) {
+        if (n[i] < min) {
+            min = n[i];
+        }
+    }
+    return min;
 }
-const n = [2, 3];
-solve(n);
+const n = [12, 6, 5, 8, 15];
+console.log(solve(n));
