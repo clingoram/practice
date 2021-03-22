@@ -1,3 +1,4 @@
+// debugger
 /*
 EG:
 寫在程式開始執行的地方:
@@ -62,18 +63,18 @@ Constraints:
  * @param {number[]} nums
  * @return {number}
  */
-// var maxSubArray = function (nums) {
-//     if (nums.length < 1) {
-//         return null;
-//     }
+var maxSubArray = function (nums) {
+    if (nums.length < 1) {
+        return null;
+    }
 
-//     let max = Math.max(...nums);
-//     console.log(max);
-// };
-// const a = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
-// // [4,-1,2,1] has the largest sum = 6.
-// // return: 6
-// console.log(maxSubArray(a));
+    let max = Math.max(...nums);
+    console.log(max);
+};
+const a = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+// [4,-1,2,1] has the largest sum = 6.
+// return: 6
+console.log(maxSubArray(a));
 
 
 /*
@@ -117,42 +118,6 @@ Constraints:
 // console.log(generateParenthesis(n));
 
 
-// return max value
-// function solve(lines) {
-//     if (lines.length < 1) {
-//         return;
-//     }
-//     for (let i = 0; i < lines.length; i++) {
-//         let spit = lines[i].split(' ');
-//         let a = Number(spit[0]);
-//         let b = Number(spit[1]);
-//         if (a === b) {
-//             return;
-//         }
-//         if (a > b) {
-//             return a;
-//         } else {
-//             return b;
-//         }
-//     }
-// }
-// const n = ['7', '3'];
-// console.log(solve(n));
 
 
-// 字串反轉
-// pseudo code: 把拿到的字串反過來，hello->hello
-function solveOne(n) {
-    // solution 1:
-    // return n.split("").reverse().join("");
 
-    // how to use for loop to reverse the string?
-    let str = '';
-    for (let i = 0; i < n.length; i++) {
-        str = n[i].split("").join("");
-        console.log(str)
-    }
-
-}
-const n = 'hello';
-console.log(solveOne(n));

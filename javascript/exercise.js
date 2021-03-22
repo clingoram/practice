@@ -352,6 +352,8 @@ console.log(go());
 
 // 印出1-100的偶數
 function solve() {
+    // step 1: 1-100
+    // step 2: 1-100的偶數 %2 === 0
     for (let i = 1; i < 100; i++) {
         if (i % 2 === 0) {
             console.log(i);
@@ -422,6 +424,42 @@ function solve(n) {
 }
 const n = [12, 6, 5, 8, 15];
 console.log(solve(n));
+
+// return max value
+function solve(lines) {
+    if (lines.length < 1) {
+        return;
+    }
+    // solution 1:
+    // return Math.max(...lines);
+
+    // solution 2:
+    let max = lines[0]; // or max = -Infinity;
+    for (let i = 0; i < lines.length; i++) {
+        if (lines[i] > max) {
+            max = lines[i];
+        }
+    }
+    return max;
+}
+const n = ['7', '3'];
+console.log(solve(n));
+
+// 字串反轉
+// pseudo code: 把拿到的字串反過來，hello->hello
+function solveOne(n) {
+    // solution 1:
+    // return n.split("").reverse().join("");
+
+    // how to use for loop to reverse the string?
+    let str = '';
+    for (let i = n.length - 1; i >= 0; i--) {
+        str += n[i];
+    }
+    return str;
+}
+const n = 'hello';
+console.log(solveOne(n));
 
 // 找最大值
 // 給一個陣列 arr，裡面全都包含了數字（整數），請輸出陣列中的最大值
