@@ -1,3 +1,4 @@
+// debugger
 /*
 EG:
 寫在程式開始執行的地方:
@@ -116,37 +117,18 @@ Constraints:
 // // should return: ["((()))","(()())","(())()","()(())","()()()"]
 // console.log(generateParenthesis(n));
 
+/*
+數字1(n)表示後面有幾個字串
+數字2(m)表示接下來有 m 個用空行分隔的數字
+EG:
+'2 yo man 3 4 2 1'
+n:2後面有 yo man的2個字串
+m:3後面有4 2 1 表示要把第4個字、第2個字、第1個字依序合起來
+*/
+// function com(str) {
 
-// return max value
-// function solve(lines) {
-//     if (lines.length < 1) {
-//         return;
-//     }
-//     for (let i = 0; i < lines.length; i++) {
-//         let spit = lines[i].split(' ');
-//         let a = Number(spit[0]);
-//         let b = Number(spit[1]);
-//         if (a === b) {
-//             return;
-//         }
-//         if (a > b) {
-//             return a;
-//         } else {
-//             return b;
-//         }
-//     }
 // }
-// const n = ['7', '3'];
-// console.log(solve(n));
+// const str = '2 yo man 3 4 2 1';
+// // aoy
+// console.log(com(str));
 
-
-// 字串反轉
-// pseudo code: 把拿到的字串反過來，hello->hello
-function solveOne(n) {
-    // solution 1:
-    return n.split("").reverse().join("");
-
-    // how to use for loop?
-}
-const n = 'hello';
-console.log(solveOne(n));

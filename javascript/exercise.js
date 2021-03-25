@@ -352,6 +352,8 @@ console.log(go());
 
 // 印出1-100的偶數
 function solve() {
+    // step 1: 1-100
+    // step 2: 1-100的偶數 %2 === 0
     for (let i = 1; i < 100; i++) {
         if (i % 2 === 0) {
             console.log(i);
@@ -423,6 +425,42 @@ function solve(n) {
 const n = [12, 6, 5, 8, 15];
 console.log(solve(n));
 
+// return max value
+function solve(lines) {
+    if (lines.length < 1) {
+        return;
+    }
+    // solution 1:
+    // return Math.max(...lines);
+
+    // solution 2:
+    let max = lines[0]; // or max = -Infinity;
+    for (let i = 0; i < lines.length; i++) {
+        if (lines[i] > max) {
+            max = lines[i];
+        }
+    }
+    return max;
+}
+const n = ['7', '3'];
+console.log(solve(n));
+
+// 字串反轉
+// pseudo code: 把拿到的字串反過來，hello->hello
+function solveOne(n) {
+    // solution 1:
+    // return n.split("").reverse().join("");
+
+    // how to use for loop to reverse the string?
+    let str = '';
+    for (let i = n.length - 1; i >= 0; i--) {
+        str += n[i];
+    }
+    return str;
+}
+const n = 'hello';
+console.log(solveOne(n));
+
 // 找最大值
 // 給一個陣列 arr，裡面全都包含了數字（整數），請輸出陣列中的最大值
 function solveThree(b) {
@@ -443,3 +481,81 @@ function solveThree(b) {
 }
 const ag = [6, 8, 5, 9, 2]; // 9
 console.log(solveThree(ag));
+
+// 找第二大值
+function findSecond(array) {
+    if (array.length < 1) {
+        return;
+    }
+    let max = -Infinity;
+    let secondMax = -Infinity;
+    let res = [];
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] > max) {
+            secondMax = max;
+            max = array[i];
+        } else if (array[i] > secondMax) {
+            max = array[i];
+        }
+    }
+    res.push(max, secondMax);
+    return res;
+}
+const arr = [5, 6, 7, 3];
+console.log(findSecond(arr));
+
+/*
+字串轉大寫
+ASCII code
+
+1.如何判斷該字串是小寫?
+String.fromCharCode:返回由指定的 UTF-16 代碼單元序列創建的字符串
+
+方法一:
+    檢查ASCII code是否介於97-122(小寫;大寫A-Z:65-90) 
+    index=array index
+    ASCII code -32 =小寫
+    string.fromCharCode(string.charCodeAt(index)-32)
+
+方法二:
+    直接比大小(字典序，前面小，越往後越大)
+    step 1.比大小
+    step 2.ASCII code -32 =小寫
+    string.fromCharCode(string.charCodeAt(index)-32)
+
+方法三:
+    string.toUpperCase()的內建涵式
+
+*/
+function checkStr(str) {
+    if (str.length === 0) {
+        return;
+    }
+    let ans = '';
+    // 方法1
+    // for (let i = 0; i < str.length; i++) {
+    //     let strCode = str.charCodeAt(i);
+    //     if (strCode >= 97 && strCode <= 122) {
+    //         ans += String.fromCharCode(strCode - 32);
+    //     }else{
+    //         ans += str[i];
+    //     }
+    // }
+    // return ans;
+
+    // 方法2:
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] >= 'a' && str[i] <= 'z') {
+            ans += String.fromCharCode(str.charCodeAt(i) - 32);
+        } else {
+            ans += str[i];
+        }
+    }
+    return ans;
+
+    //方法3:
+    // return str.toUpperCase();
+}
+const a = 'i need a job';
+console.log(checkStr(a));
