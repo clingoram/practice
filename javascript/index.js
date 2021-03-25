@@ -63,18 +63,18 @@ Constraints:
  * @param {number[]} nums
  * @return {number}
  */
-var maxSubArray = function (nums) {
-    if (nums.length < 1) {
-        return null;
-    }
+// var maxSubArray = function (nums) {
+//     if (nums.length < 1) {
+//         return null;
+//     }
 
-    let max = Math.max(...nums);
-    console.log(max);
-};
-const a = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
-// [4,-1,2,1] has the largest sum = 6.
-// return: 6
-console.log(maxSubArray(a));
+//     let max = Math.max(...nums);
+//     console.log(max);
+// };
+// const a = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+// // [4,-1,2,1] has the largest sum = 6.
+// // return: 6
+// console.log(maxSubArray(a));
 
 
 /*
@@ -117,7 +117,18 @@ Constraints:
 // // should return: ["((()))","(()())","(())()","()(())","()()()"]
 // console.log(generateParenthesis(n));
 
+/*
+數字1(n)表示後面有幾個字串
+數字2(m)表示接下來有 m 個用空行分隔的數字
+EG:
+'2 yo man 3 4 2 1'
+n:2後面有 yo man的2個字串
+m:3後面有4 2 1 表示要把第4個字、第2個字、第1個字依序合起來
+*/
+// function com(str) {
 
-
-
+// }
+// const str = '2 yo man 3 4 2 1';
+// // aoy
+// console.log(com(str));
 

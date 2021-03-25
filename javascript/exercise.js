@@ -481,3 +481,81 @@ function solveThree(b) {
 }
 const ag = [6, 8, 5, 9, 2]; // 9
 console.log(solveThree(ag));
+
+// 找第二大值
+function findSecond(array) {
+    if (array.length < 1) {
+        return;
+    }
+    let max = -Infinity;
+    let secondMax = -Infinity;
+    let res = [];
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] > max) {
+            secondMax = max;
+            max = array[i];
+        } else if (array[i] > secondMax) {
+            max = array[i];
+        }
+    }
+    res.push(max, secondMax);
+    return res;
+}
+const arr = [5, 6, 7, 3];
+console.log(findSecond(arr));
+
+/*
+字串轉大寫
+ASCII code
+
+1.如何判斷該字串是小寫?
+String.fromCharCode:返回由指定的 UTF-16 代碼單元序列創建的字符串
+
+方法一:
+    檢查ASCII code是否介於97-122(小寫;大寫A-Z:65-90) 
+    index=array index
+    ASCII code -32 =小寫
+    string.fromCharCode(string.charCodeAt(index)-32)
+
+方法二:
+    直接比大小(字典序，前面小，越往後越大)
+    step 1.比大小
+    step 2.ASCII code -32 =小寫
+    string.fromCharCode(string.charCodeAt(index)-32)
+
+方法三:
+    string.toUpperCase()的內建涵式
+
+*/
+function checkStr(str) {
+    if (str.length === 0) {
+        return;
+    }
+    let ans = '';
+    // 方法1
+    // for (let i = 0; i < str.length; i++) {
+    //     let strCode = str.charCodeAt(i);
+    //     if (strCode >= 97 && strCode <= 122) {
+    //         ans += String.fromCharCode(strCode - 32);
+    //     }else{
+    //         ans += str[i];
+    //     }
+    // }
+    // return ans;
+
+    // 方法2:
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] >= 'a' && str[i] <= 'z') {
+            ans += String.fromCharCode(str.charCodeAt(i) - 32);
+        } else {
+            ans += str[i];
+        }
+    }
+    return ans;
+
+    //方法3:
+    // return str.toUpperCase();
+}
+const a = 'i need a job';
+console.log(checkStr(a));
