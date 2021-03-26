@@ -132,3 +132,13 @@ m:3後面有4 2 1 表示要把第4個字、第2個字、第1個字依序合起�
 // // aoy
 // console.log(com(str));
 
+/*刪除(略過)特定字元 */
+function deleteStr(str) {
+    if (str.length < 1) {
+        return;
+    }
+
+
+};
+const str = 'today is friday.';
+console.log(deleteStr(str))
