@@ -487,6 +487,9 @@ function findSecond(array) {
     if (array.length < 1) {
         return;
     }
+    /*
+    一個是負無限大（-Infinity）一個是無限大（Infinity），找大的數目的時候預設變數是無限小，找小的數目預設它為無限大，和序列中的數字一一比對時才能由大取代小（負無限大），由小取代大（無限大）。
+    */
     let max = -Infinity;
     let secondMax = -Infinity;
     let res = [];
@@ -502,8 +505,27 @@ function findSecond(array) {
     res.push(max, secondMax);
     return res;
 }
-const arr = [5, 6, 7, 3];
+const arr = [5, 6, 7, 3]; // 6
 console.log(findSecond(arr));
+
+/**
+ * 找次小值
+ */
+function findSecMin(array) {
+    let min = Infinity;
+    let minest = Infinity;
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] < min) {
+            minest = min;
+            min = array[i];
+        } else if (array[i] > min) {
+            minest = array[i];
+        }
+    }
+    return minest;
+};
+const a = [5, 6, 7, 8]; // 6
+console.log(findSecMin(a));
 
 /*
 字串轉大寫
@@ -559,3 +581,62 @@ function checkStr(str) {
 }
 const a = 'i need a job';
 console.log(checkStr(a));
+
+/**
+ * 小寫轉大寫
+ * 大寫轉小寫
+ */
+function switchCase(string) {
+    if (string.length < 1) {
+        return;
+    }
+    let ans = '';
+    for (let i = 0; i < string.length; i++) {
+        let s = string.charCodeAt(i);
+        if (s >= 97 && s <= 122) {
+            ans += String.fromCharCode(s - 32);
+        } else if (s >= 65 && s <= 90) {
+            ans += String.fromCharCode(s + 32);
+        } else {
+            ans += string[i];
+        }
+    }
+    return ans;
+}
+const string = 'hElLo';
+console.log(switchCase(string));
+
+/*刪除(略過)特定字元 */
+function deleteStr(str, deleted) {
+    if (str.length < 1) {
+        return;
+    }
+    let ans = '';
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] !== deleted) {
+            ans += str[i];
+        }
+    }
+    return ans;
+};
+const str = 'today is friday.';
+let target = 'r';
+console.log(deleteStr(str, target));
+
+
+/**
+ * 找因數(1,3,5,15)
+ */
+function finsNum(n) {
+    if (n === 0) {
+        return;
+    }
+    for (let i = 0; i < n.length; i++) {
+        if (n % i === 0) {
+            return i;
+        }
+    }
+
+}
+const n = 30;
+console.log(finsNum(n));
