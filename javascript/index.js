@@ -132,31 +132,6 @@ m:3後面有4 2 1 表示要把第4個字、第2個字、第1個字依序合起�
 // // aoy
 // console.log(com(str));
 
-/*
-0-50的偶數
-虛擬碼:
-at first:
-    leti = 1
-    if i > 50 then exit
-    print i
-    i = i+1
-    jump to line 139
-
-then:
-    for(i from 0 to 50) do
-        print i 
-    end for
-*/
-function testOne(n) {
-    for (let i = 0; i < n - 1; i++) {
-        if (i % 2 === 0) {
-            console.log(i);
-        }
-
-    }
-}
-const n = 50;
-// console.log(testOne(n));
 
 /**
  * 9*9
@@ -172,7 +147,7 @@ function got() {
 
     }
 }
-got();
+// got();
 
 /*
 要拿水桶去裝水，但要求要每一次取水都能帶最少的水桶去，而且「每一個水桶一定都要裝滿」
@@ -182,8 +157,40 @@ got();
 target 要裝m個單位的水，要帶幾個水桶才行?
 EG.m=20，要帶2個水桶(容量16的水桶+容量4的水桶)
 */
-// function bucketWater(n) {
+function bucketWater(n) {
+    let result = [];
+    let count = 0;
+    let maxWater = Math.pow(2, 31); // 2的31次方
+    console.log(maxWater);
 
-// }
-// const m = 20;
-// console.log(bucketWater(m));
+    for (let i = 0; i < 31; i++) {
+
+    }
+    return count;
+}
+const m = 20;
+// 2(16+4)
+console.log(bucketWater(m));
+
+/*
+LIOJ 1010 - 靈魂伴侶
+
+a是用空格分隔的正整數
+如果分隔後，兩個數字相等
+return Yes;else return false;
+*/
+function soulMate(n) {
+    let s = n.split(" ");
+    let ans = '';
+    for (let i = 0; i < s.length; i++) {
+        if (s[0] === s[1]) {
+            ans = 'Yes';
+        } else {
+            ans = 'No';
+        }
+    }
+    return ans;
+}
+const a = '30 10';
+// return false
+console.log(soulMate(a));
