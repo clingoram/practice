@@ -132,3 +132,58 @@ m:3後面有4 2 1 表示要把第4個字、第2個字、第1個字依序合起�
 // // aoy
 // console.log(com(str));
 
+/*
+0-50的偶數
+虛擬碼:
+at first:
+    leti = 1
+    if i > 50 then exit
+    print i
+    i = i+1
+    jump to line 139
+
+then:
+    for(i from 0 to 50) do
+        print i 
+    end for
+*/
+function testOne(n) {
+    for (let i = 0; i < n - 1; i++) {
+        if (i % 2 === 0) {
+            console.log(i);
+        }
+
+    }
+}
+const n = 50;
+// console.log(testOne(n));
+
+/**
+ * 9*9
+ */
+function got() {
+    // start from 9 to 2
+    // eg.9*9=81 ~ 2*9=18
+    for (let i = 2; i <= 10; i++) {
+        // console.log(i)
+        for (let j = 1; j < 10; j++) {
+            console.log(`${i} * ${j} = ${j * i}`);
+        }
+
+    }
+}
+got();
+
+/*
+要拿水桶去裝水，但要求要每一次取水都能帶最少的水桶去，而且「每一個水桶一定都要裝滿」
+水桶容量都是2的倍數(2的N次方)，以下是水桶容量:
+1,2,4,6,8,16,32,64,128
+
+target 要裝m個單位的水，要帶幾個水桶才行?
+EG.m=20，要帶2個水桶(容量16的水桶+容量4的水桶)
+*/
+// function bucketWater(n) {
+
+// }
+// const m = 20;
+// console.log(bucketWater(m));
