@@ -640,3 +640,29 @@ function finsNum(n) {
 }
 const n = 30;
 console.log(finsNum(n));
+
+/*
+0-50的偶數
+虛擬碼:
+at first:
+    leti = 1
+    if i > 50 then exit
+    print i
+    i = i+1
+    jump to line 139
+
+then:
+    for(i from 0 to 50) do
+        print i 
+    end for
+*/
+function testOne(n) {
+    for (let i = 0; i < n - 1; i++) {
+        if (i % 2 === 0) {
+            console.log(i);
+        }
+
+    }
+}
+const n = 50;
+// console.log(testOne(n));
