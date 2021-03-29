@@ -162,6 +162,7 @@ function bucketWater(n) {
     let count = 0;
     let maxWater = Math.pow(2, 31); // 2的31次方
     console.log(maxWater);
+    let num = 2;
 
     for (let i = 0; i < 31; i++) {
 
@@ -173,24 +174,33 @@ const m = 20;
 console.log(bucketWater(m));
 
 /*
-LIOJ 1010 - 靈魂伴侶
+1002 - 數字比大小
 
-a是用空格分隔的正整數
-如果分隔後，兩個數字相等
-return Yes;else return false;
-*/
-function soulMate(n) {
-    let s = n.split(" ");
-    let ans = '';
-    for (let i = 0; i < s.length; i++) {
-        if (s[0] === s[1]) {
-            ans = 'Yes';
-        } else {
-            ans = 'No';
-        }
-    }
-    return ans;
-}
-const a = '30 10';
-// return false
-console.log(soulMate(a));
+輸入一共有許多行，每一行都包含兩個正整數 a, b
+請輸出這兩個之中比較大的那個數字
+若是碰到 a=b=0 代表輸入結束
+
+Input
+用空格隔開的兩正整數 a 與 b
+
+Output
+針對每一筆測試資料，請輸出比較大的那個數字，若是兩個一樣大則輸出任意一個數字皆可
+
+若是碰到 a=b=0 代表輸入結束，請勿做任何處理
+ */
+// function compareNum(n) {
+//     let toSplit = n.toString().split(" ");
+//     // console.log(toSplit);
+
+//     // let ans = '';
+//     for (let i = 0; i < toSplit.length; i++) {
+//         let int = parseInt(toSplit[i], 10);
+//         console.log(int);
+
+//     }
+//     // return ans;
+// }
+// const a = '1 1 2 3 0 0';
+// // 1
+// // 3
+// console.log(compareNum(a));
