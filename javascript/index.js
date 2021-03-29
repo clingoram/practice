@@ -205,3 +205,35 @@ Output
 // // 3
 // console.log(compareNum(a));
 
+
+/**
+LIOJ 1035
+簡易排序
+Description
+
+排序是學習演算法的時候第一個會學到的東西，有許多種排序方法，例如說泡沫排序、選擇排序、插入排序等等
+
+這些演算法其實對初學者來說都不算太容易，需要一點時間學習
+
+那為什麼這一題會叫做「簡易排序」呢？因為你只要留意一下輸入的範圍並且思考一下，應該就能得到一個比較簡單的排序方法！
+
+那就祝你順利囉！
+
+
+Input
+第一行為一個數字 N，1&lt;=N&lt;=2000001<=N<=200000，代表有幾個數字需要排序
+
+接下來 N 行每行都是一個正整數
+
+Output
+請輸出數列由小到大排序後的結果，每一個數字請用空行分開
+ */
+function sort(n) {
+    let a = n.toString().split(" ");
+
+    const uniqueSet = new Set(a);
+    return [...uniqueSet].sort().join(" ");
+}
+const a = '5 1 7 4 9 5';
+// 1 4 5 7 9
+console.log(sort(a));
