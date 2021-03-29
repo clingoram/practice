@@ -445,21 +445,6 @@ function solve(lines) {
 const n = ['7', '3'];
 console.log(solve(n));
 
-// 字串反轉
-// pseudo code: 把拿到的字串反過來，hello->hello
-function solveOne(n) {
-    // solution 1:
-    // return n.split("").reverse().join("");
-
-    // how to use for loop to reverse the string?
-    let str = '';
-    for (let i = n.length - 1; i >= 0; i--) {
-        str += n[i];
-    }
-    return str;
-}
-const n = 'hello';
-console.log(solveOne(n));
 
 // 找最大值
 // 給一個陣列 arr，裡面全都包含了數字（整數），請輸出陣列中的最大值
