@@ -265,29 +265,36 @@ Output
 若是成員的平均身高大於等於 183，請輸出：「real」，反之則輸出「fake」
 
 -------------------
+這裡給的資料是分行的，數值，OBJ，沒有引號
 給兩行資料
 第一行是總計有幾筆資料 5
 第二行是這些資料的數值  180 181 182 183 184
 要平均第二行的資料是否>183，有->real;無->fake
 
 */
-function av(b) {
-    // console.log(typeof b);
-    let s = b.toString().split(" ");
-    let index = s.indexOf("5");
-    if (index > -1) {
-        s.splice(index, 1);
-    }
+function av(lines) {
+    // lines[0] => 5
+    // line[1] =>180 181 182 183 184
     let sum = 0;
+    let dataLength = parseInt(lines[0].toString().split(" "), 10);
+    let datas = lines[1].toString().split(" ");
 
-    for (let i = 0; i < s.length; i++) {
-        sum += parseInt(s[i], 10);
+    if (dataLength !== datas.length) {
+        return;
     }
-    // console.log(sum / s.length);
+    // let index = s.indexOf("5");
+    // if (index > -1) {
+    //     s.splice(index, 1);
+    // }
+
+    for (let i = 0; i < datas.length; i++) {
+        sum += parseInt(datas[i], 10);
+    }
+    // console.log(sum / datas.length);
     // 平均
-    return (sum / s.length) ? 'fake' : 'real';
+    console.log((sum / datas.length) ? 'fake' : 'real');
 }
-const num = ['5 180 181 182 183 184'];
+const num = '5 180 181 182 183 184';
 // fake
 console.log(av(num));
 
