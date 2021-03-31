@@ -171,7 +171,7 @@ function bucketWater(n) {
 }
 const m = 20;
 // 2(16+4)
-console.log(bucketWater(m));
+// console.log(bucketWater(m));
 
 /*
 1002 - 數字比大小
@@ -188,20 +188,123 @@ Output
 
 若是碰到 a=b=0 代表輸入結束，請勿做任何處理
  */
-// function compareNum(n) {
-//     let toSplit = n.toString().split(" ");
-//     // console.log(toSplit);
+function compareNum(n) {
+    let toSplit = n.toString().split(" ");
+    console.log(toSplit);
 
-//     // let ans = '';
-//     for (let i = 0; i < toSplit.length; i++) {
-//         let int = parseInt(toSplit[i], 10);
-//         console.log(int);
+    // let ans = '';
+    for (let i = 0; i < toSplit.length; i++) {
+        let int = parseInt(toSplit[i], 10);
+        console.log(int);
 
-//     }
-//     // return ans;
-// }
-// const a = '1 1 2 3 0 0';
-// // 1
-// // 3
+    }
+    // return ans;
+}
+const a = '1 1 2 3 0 0'; // obj
+// 1
+// 3
 // console.log(compareNum(a));
 
+
+/**
+LIOJ 1035
+簡易排序
+Description
+
+排序是學習演算法的時候第一個會學到的東西，有許多種排序方法，例如說泡沫排序、選擇排序、插入排序等等
+
+這些演算法其實對初學者來說都不算太容易，需要一點時間學習
+
+那為什麼這一題會叫做「簡易排序」呢？因為你只要留意一下輸入的範圍並且思考一下，應該就能得到一個比較簡單的排序方法！
+
+那就祝你順利囉！
+
+
+Input
+第一行為一個數字 N，1&lt;=N&lt;=2000001<=N<=200000，代表有幾個數字需要排序
+
+接下來 N 行每行都是一個正整數
+
+Output
+請輸出數列由小到大排序後的結果，每一個數字請用空行分開
+ */
+// function sort(n) {
+//     // console.log(typeof n);
+//     let a = n.toString().split(" ");
+
+//     const uniqueSet = new Set(a);
+//     return [...uniqueSet].sort().join(" ");
+// }
+// const a = ['5 1 7 4 9 5'];
+// // 1 4 5 7 9
+// console.log(sort(a));
+
+/*
+1011
+員當初在戲劇圈都各自有一些演出，例如說顏行書曾經演過 MVP 情人，明道更是當時的三立偶像劇一哥，演出各種膾炙人口的戲劇。而其他三人雖然不是演主角，但在台灣的偶像劇裡面都很常見。
+
+除了演戲以外，其中兩人更是運動健將，例如說顏行書以前是打籃球的，是前中華台北男子籃球代表隊選手，王少偉小學的時候則是足球校隊，還曾經代表學校出國比賽。
+
+不過呢，雖然說 183 club 號稱平均身高為 183，但是根據維基百科的資料顯示，其實團員的平均身高才 180 而已，離 183 還有一段距離。猜測可能是 183 這個數字比 180 特別一點，才選做 183，而且這個數字還可以發行諧音歌曲：一把傘。
+
+小明身為 183 club 的粉絲，想要看看在演藝圈裡面有沒有其他人可以湊成新的 183 club，因此給了你一些身高要請你幫忙計算，看看他們是否能符合平均身高 >= 183 公分這個條件。
+
+
+Input
+第一行為一個數字 M（1&lt;=M&lt;=201<=M<=20），代表底下有幾筆身高
+
+第二行為 M 個用空格分開的正整數 H_{i}，100 &lt;= H_{i} &lt;= 200H 
+i
+ 	
+ ，100<=H 
+i
+ 	
+ <=200
+
+Output
+若是成員的平均身高大於等於 183，請輸出：「real」，反之則輸出「fake」
+
+-------------------
+這裡給的資料是分行的，數值，OBJ，沒有引號
+給兩行資料
+第一行是總計有幾筆資料 5
+第二行是這些資料的數值  180 181 182 183 184
+要平均第二行的資料是否>183，有->real;無->fake
+
+*/
+function av(lines) {
+    // lines[0] => 5
+    // line[1] =>180 181 182 183 184
+    let sum = 0;
+    let dataLength = parseInt(lines[0].toString().split(" "), 10);
+    let datas = lines[1].toString().split(" ");
+
+    if (dataLength !== datas.length) {
+        return;
+    }
+    // let index = s.indexOf("5");
+    // if (index > -1) {
+    //     s.splice(index, 1);
+    // }
+
+    for (let i = 0; i < datas.length; i++) {
+        sum += parseInt(datas[i], 10);
+    }
+    // console.log(sum / datas.length);
+    // 平均
+    console.log((sum / datas.length) ? 'fake' : 'real');
+}
+const num = '5 180 181 182 183 184';
+// fake
+console.log(av(num));
+
+/**
+ *1017
+
+ 第一行數字表示可以帶走的C項物品
+ 第二行之後，表示每項物品的價值
+ 要取所有物品中價值最高的C項，並把那C項價值加總
+ */
+function totalValue() {
+
+}
