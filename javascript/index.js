@@ -397,4 +397,56 @@ function totalValue(num, products) {
 }
 const item = 3; //可帶走的物品項目
 const products = [5, 1, 3, 5, 7, 9];// 每項物品最高價值，取三樣最高價值的物品並加總
-console.log(totalValue(item, products));
+// console.log(totalValue(item, products));
+
+
+/*
+codewar - 
+Count characters in your string
+
+The main idea is to count all the occurring characters in a string. If you have a string like aba, then the result should be {'a': 2, 'b': 1}.
+
+What if the string is empty? Then the result should be empty object literal, {}.
+
+Related Tags:
+FUNDAMENTALS STRINGS ASCII CHARACTER ENCODINGSFORMATS
+
+-----------------------------------------------------
+給一個字串 EG:aba
+去計算每個字母出現的次數
+回傳obj格式 => {a:2,b:1}
+若字串是空白的，回傳:{}
+ */
+function count(string) {
+    if (string.length === 0) {
+        return {};
+    }
+
+    // 把字串拆開
+    // 計算每個字母出現的次數
+    // use Map
+    let splitAlphabets = string.split("");
+    let m = new Map();
+    // solution 1:
+    for (let i = 0; i < splitAlphabets.length; i++) {
+        const element = splitAlphabets[i];
+        if (m.has(element)) {
+            m.set(element, m.get(element) + 1);
+        } else {
+            m.set(element, 1);
+        }
+    }
+
+
+    // solution 2:
+    // splitAlphabets.forEach(element => {
+    //     if (m.has(element)) {
+    //         m.set(element, m.get(element) + 1);
+    //     } else {
+    //         m.set(element, 1);
+    //     }
+    // });
+    return m;
+}
+const str = 'aba';
+console.log(count(str));
