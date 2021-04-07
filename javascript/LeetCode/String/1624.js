@@ -44,30 +44,30 @@ s contains only lowercase English letters.
  * @return {number}
  */
 var maxLengthBetweenEqualCharacters = function (s) {
-    if (s.length <= 1) {
-        return s;
-    }
-    let count = 0;
-    // string 分割
-    // 最前和最後字母是否一致
-    // 若一致，計算中間共幾個字母，否則回傳-1
+	if (s.length <= 1) {
+		return s;
+	}
+	let count = 0;
+	// string 分割
+	// 最前和最後字母是否一致
+	// 若一致，計算中間共幾個字母，否則回傳-1
 
-    // 只適用於第一個和最後一個字母相同範例:
-    // const lastCharacter = s[s.length - 1];
-    // if (s[0] === lastCharacter) {
-    //     return s.split("").length - 2;
-    // }
-    // return -1;
+	// 只適用於第一個和最後一個字母相同範例:
+	// const lastCharacter = s[s.length - 1];
+	// if (s[0] === lastCharacter) {
+	//     return s.split("").length - 2;
+	// }
+	// return -1;
 
-    for (let i = 0; i < s.length; i++) {
-        // 回傳給定元素於陣列中最後一個被找到之索引，若不存在於陣列中則回傳 -1。搜尋的方向為由陣列尾部向後（即向前）尋找，啟始於 fromIndex。
-        let str = s.lastIndexOf(s[i]);
-        // console.log(str);
-        if (i !== str) {
-            count = Math.max(count, str - i);
-        }
-    }
-    return count - 1;
+	for (let i = 0; i < s.length; i++) {
+		// 回傳給定元素於陣列中最後一個被找到之索引，若不存在於陣列中則回傳 -1。搜尋的方向為由陣列尾部向後（即向前）尋找，啟始於 fromIndex。
+		let str = s.lastIndexOf(s[i]);
+		// console.log(str);
+		if (i !== str) {
+			count = Math.max(count, str - i);
+		}
+	}
+	return count - 1;
 };
 const a = "scayofdzca";
 // return 6

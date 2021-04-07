@@ -27,15 +27,15 @@ The outputs [4,2,3,1], [2,4,1,3], and [4,2,1,3] would also be accepted.
  * @return {number[]}
  */
 var sortArrayByParity = function (A) {
-    if (A.length < 2) {
-        return A;
-    }
+	if (A.length < 2) {
+		return A;
+	}
 
-    let temp = [];
-    A.forEach(element => {
-        element % 2 == 0 ? temp.unshift(element) : temp.push(element);
-    });
-    return temp;
+	let temp = [];
+	A.forEach(element => {
+		element % 2 == 0 ? temp.unshift(element) : temp.push(element);
+	});
+	return temp;
 };
 
 const array = [3, 1, 2, 4];

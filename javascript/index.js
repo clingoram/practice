@@ -16,19 +16,19 @@ console.log(end);
 //放置於程式開始執行處--開始時間
 function countTime(fileName = null) {
 
-    let start_time = new Date().getTime();
-    let data = [
-        fileName,
-        start_time
-    ]
-    return data;
+	let start_time = new Date().getTime();
+	let data = [
+		fileName,
+		start_time
+	]
+	return data;
 }
 // 結束時間
 // 放置於程式執行結束處，回傳結果的結束時間
 function endTime(start) {
-    let end_time = new Date().getTime();
+	let end_time = new Date().getTime();
 
-    return start[0] + '執行時間:' + (end_time - start[1]) / 5000 + 'ms';
+	return start[0] + '執行時間:' + (end_time - start[1]) / 5000 + 'ms';
 }
 /*
 53. Maximum Subarray
@@ -137,15 +137,15 @@ m:3後面有4 2 1 表示要把第4個字、第2個字、第1個字依序合起�
  * 9*9
  */
 function got() {
-    // start from 9 to 2
-    // eg.9*9=81 ~ 2*9=18
-    for (let i = 2; i <= 10; i++) {
-        // console.log(i)
-        for (let j = 1; j < 10; j++) {
-            console.log(`${i} * ${j} = ${j * i}`);
-        }
+	// start from 9 to 2
+	// eg.9*9=81 ~ 2*9=18
+	for (let i = 2; i <= 10; i++) {
+		// console.log(i)
+		for (let j = 1; j < 10; j++) {
+			console.log(`${i} * ${j} = ${j * i}`);
+		}
 
-    }
+	}
 }
 // got();
 
@@ -158,16 +158,16 @@ target 要裝m個單位的水，要帶幾個水桶才行?
 EG.m=20，要帶2個水桶(容量16的水桶+容量4的水桶)
 */
 function bucketWater(n) {
-    let result = [];
-    let count = 0;
-    let maxWater = Math.pow(2, 31); // 2的31次方
-    console.log(maxWater);
-    let num = 2;
+	let result = [];
+	let count = 0;
+	let maxWater = Math.pow(2, 31); // 2的31次方
+	console.log(maxWater);
+	let num = 2;
 
-    for (let i = 0; i < 31; i++) {
+	for (let i = 0; i < 31; i++) {
 
-    }
-    return count;
+	}
+	return count;
 }
 const m = 20;
 // 2(16+4)
@@ -189,16 +189,16 @@ Output
 若是碰到 a=b=0 代表輸入結束，請勿做任何處理
  */
 function compareNum(n) {
-    let toSplit = n.toString().split(" ");
-    console.log(toSplit);
+	let toSplit = n.toString().split(" ");
+	console.log(toSplit);
 
-    // let ans = '';
-    for (let i = 0; i < toSplit.length; i++) {
-        let int = parseInt(toSplit[i], 10);
-        console.log(int);
+	// let ans = '';
+	for (let i = 0; i < toSplit.length; i++) {
+		let int = parseInt(toSplit[i], 10);
+		console.log(int);
 
-    }
-    // return ans;
+	}
+	// return ans;
 }
 const a = '1 1 2 3 0 0'; // obj
 // 1
@@ -273,26 +273,26 @@ Output
 
 */
 function av(lines) {
-    // lines[0] => 5
-    // line[1] =>180 181 182 183 184
-    let sum = 0;
-    let dataLength = parseInt(lines[0].toString().split(" "), 10);
-    let datas = lines[1].toString().split(" ");
+	// lines[0] => 5
+	// line[1] =>180 181 182 183 184
+	let sum = 0;
+	let dataLength = parseInt(lines[0].toString().split(" "), 10);
+	let datas = lines[1].toString().split(" ");
 
-    if (dataLength !== datas.length) {
-        return;
-    }
-    // let index = s.indexOf("5");
-    // if (index > -1) {
-    //     s.splice(index, 1);
-    // }
+	if (dataLength !== datas.length) {
+		return;
+	}
+	// let index = s.indexOf("5");
+	// if (index > -1) {
+	//     s.splice(index, 1);
+	// }
 
-    for (let i = 0; i < datas.length; i++) {
-        sum += parseInt(datas[i], 10);
-    }
-    // console.log(sum / datas.length);
-    // 平均
-    console.log((sum / datas.length) ? 'fake' : 'real');
+	for (let i = 0; i < datas.length; i++) {
+		sum += parseInt(datas[i], 10);
+	}
+	// console.log(sum / datas.length);
+	// 平均
+	console.log((sum / datas.length) ? 'fake' : 'real');
 }
 const num = '5 180 181 182 183 184';
 // fake
@@ -321,7 +321,7 @@ Description
 為了模擬小偷的思考模式，你的指導教授原本要拜託你寫一個程式來計算，給你一個物品清單，上面有每樣物品的重量 W_{i}W 
 i
  	
-  與價值 P_{i}P 
+	與價值 P_{i}P 
 i
  	
  ，還有小偷的背包能夠承受的重量 WW，問你小偷最多能偷到多少價值的東西。
@@ -377,22 +377,22 @@ sample out:
 回傳最高價格的加總
  */
 function totalValue(num, products) {
-    /*
-    依序找出最高價值前3名
-    之後把他們加總
-    */
+	/*
+	依序找出最高價值前3名
+	之後把他們加總
+	*/
 
-    // solution 1:
-    // 由大到小排序
-    let sorted = products.sort(function (a, b) {
-        return b - a;
-    });
-    // return sorted[0] + sorted[1] + sorted[2];
+	// solution 1:
+	// 由大到小排序
+	let sorted = products.sort(function (a, b) {
+		return b - a;
+	});
+	// return sorted[0] + sorted[1] + sorted[2];
 
-    // solution 2:
-    for (const item of sorted) {
+	// solution 2:
+	for (const item of sorted) {
 
-    }
+	}
 
 }
 const item = 3; //可帶走的物品項目
@@ -417,36 +417,52 @@ FUNDAMENTALS STRINGS ASCII CHARACTER ENCODINGSFORMATS
 回傳obj格式 => {a:2,b:1}
 若字串是空白的，回傳:{}
  */
-function count(string) {
-    if (string.length === 0) {
-        return {};
-    }
+function countString(string) {
+	if (string.length === 0) {
+		return {};
+	}
 
-    // 把字串拆開
-    // 計算每個字母出現的次數
-    // use Map
-    let splitAlphabets = string.split("");
-    let m = new Map();
-    // solution 1:
-    for (let i = 0; i < splitAlphabets.length; i++) {
-        const element = splitAlphabets[i];
-        if (m.has(element)) {
-            m.set(element, m.get(element) + 1);
-        } else {
-            m.set(element, 1);
-        }
-    }
+	// 把字串拆開
+	// 計算每個字母出現的次數
+	// use Map
+	let splitAlphabets = string.split("");
+	let result = {};
+
+	// solution 1:
+	// let m = new Map();
+	// for (let i = 0; i < splitAlphabets.length; i++) {
+	// 	if (m.has(splitAlphabets[i])) {
+	// 		m.set(splitAlphabets[i], m.get(splitAlphabets[i]) + 1);
+	// 	} else {
+	// 		m.set(splitAlphabets[i], 1);
+	// 	}
+	// }
+
+	// solution 2:
+	splitAlphabets.forEach(element => {
+		result[element] ? result[element]++ : result[element] = 1;
+	});
+	return result;
 
 
-    // solution 2:
-    // splitAlphabets.forEach(element => {
-    //     if (m.has(element)) {
-    //         m.set(element, m.get(element) + 1);
-    //     } else {
-    //         m.set(element, 1);
-    //     }
-    // });
-    return m;
+	// solution 3:
+	// let counts;
+	// for (let i = 0; i < string.length; i++) {
+	// 	// Get this character
+	// 	// Not all engines support [] on strings
+	// 	let chr = string.charAt(i);
+
+	// 	// Get the count for it, if we have one; we'll get `undefined` if we
+	// 	// don't know this character yet
+	// 	counts = result[chr];
+
+	// 	// If we have one, store that count plus one; if not, store one
+	// 	// We can rely on `count` being falsey if we haven't seen it before,
+	// 	// because we never store falsey numbers in the `counts` object.
+	// 	result[chr] = counts ? counts + 1 : 1;
+	// }
+
+	// return result;
 }
 const str = 'aba';
-console.log(count(str));
+console.log(countString(str));
