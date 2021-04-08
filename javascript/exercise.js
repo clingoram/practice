@@ -651,3 +651,15 @@ function testOne(n) {
 }
 const n = 50;
 // console.log(testOne(n));
+
+// 3 ways to clone obj
+const food = {
+    beef: 230,
+    pork: 100
+};
+// 1
+Object.assign({}, food);
+// 2
+let clone = { ...food };
+// 3
+JSON.parse(JSON.stringify(food));

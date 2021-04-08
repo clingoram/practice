@@ -16,19 +16,19 @@ console.log(end);
 //放置於程式開始執行處--開始時間
 function countTime(fileName = null) {
 
-    let start_time = new Date().getTime();
-    let data = [
-        fileName,
-        start_time
-    ]
-    return data;
+	let start_time = new Date().getTime();
+	let data = [
+		fileName,
+		start_time
+	]
+	return data;
 }
 // 結束時間
 // 放置於程式執行結束處，回傳結果的結束時間
 function endTime(start) {
-    let end_time = new Date().getTime();
+	let end_time = new Date().getTime();
 
-    return start[0] + '執行時間:' + (end_time - start[1]) / 5000 + 'ms';
+	return start[0] + '執行時間:' + (end_time - start[1]) / 5000 + 'ms';
 }
 /*
 53. Maximum Subarray
@@ -137,15 +137,15 @@ m:3後面有4 2 1 表示要把第4個字、第2個字、第1個字依序合起�
  * 9*9
  */
 function got() {
-    // start from 9 to 2
-    // eg.9*9=81 ~ 2*9=18
-    for (let i = 2; i <= 10; i++) {
-        // console.log(i)
-        for (let j = 1; j < 10; j++) {
-            console.log(`${i} * ${j} = ${j * i}`);
-        }
+	// start from 9 to 2
+	// eg.9*9=81 ~ 2*9=18
+	for (let i = 2; i <= 10; i++) {
+		// console.log(i)
+		for (let j = 1; j < 10; j++) {
+			console.log(`${i} * ${j} = ${j * i}`);
+		}
 
-    }
+	}
 }
 // got();
 
@@ -158,16 +158,16 @@ target 要裝m個單位的水，要帶幾個水桶才行?
 EG.m=20，要帶2個水桶(容量16的水桶+容量4的水桶)
 */
 function bucketWater(n) {
-    let result = [];
-    let count = 0;
-    let maxWater = Math.pow(2, 31); // 2的31次方
-    console.log(maxWater);
-    let num = 2;
+	let result = [];
+	let count = 0;
+	let maxWater = Math.pow(2, 31); // 2的31次方
+	console.log(maxWater);
+	let num = 2;
 
-    for (let i = 0; i < 31; i++) {
+	for (let i = 0; i < 31; i++) {
 
-    }
-    return count;
+	}
+	return count;
 }
 const m = 20;
 // 2(16+4)
@@ -189,16 +189,16 @@ Output
 若是碰到 a=b=0 代表輸入結束，請勿做任何處理
  */
 function compareNum(n) {
-    let toSplit = n.toString().split(" ");
-    console.log(toSplit);
+	let toSplit = n.toString().split(" ");
+	console.log(toSplit);
 
-    // let ans = '';
-    for (let i = 0; i < toSplit.length; i++) {
-        let int = parseInt(toSplit[i], 10);
-        console.log(int);
+	// let ans = '';
+	for (let i = 0; i < toSplit.length; i++) {
+		let int = parseInt(toSplit[i], 10);
+		console.log(int);
 
-    }
-    // return ans;
+	}
+	// return ans;
 }
 const a = '1 1 2 3 0 0'; // obj
 // 1
@@ -227,76 +227,36 @@ Input
 
 Output
 請輸出數列由小到大排序後的結果，每一個數字請用空行分開
+
+----------------------------------
+原始題目是2行，每行各有數字，但在VS CODE這樣會出錯，所以我把input資料都改成用陣列的方式呈現
+第一個數字是共有幾筆資料
+第二個之後是全部需要排序的資料
+回傳排序過的數字
  */
-// function sort(n) {
-//     // console.log(typeof n);
-//     let a = n.toString().split(" ");
+function sortNum(n) {
+	// console.log(typeof n);
 
-//     const uniqueSet = new Set(a);
-//     return [...uniqueSet].sort().join(" ");
-// }
-// const a = ['5 1 7 4 9 5'];
-// // 1 4 5 7 9
-// console.log(sort(a));
+	// 把共有幾筆資料分隔出來
+	let allData = parseInt(n[0].toString().split(" "), 10);
+	// console.log(allData);
 
-/*
-1011
-員當初在戲劇圈都各自有一些演出，例如說顏行書曾經演過 MVP 情人，明道更是當時的三立偶像劇一哥，演出各種膾炙人口的戲劇。而其他三人雖然不是演主角，但在台灣的偶像劇裡面都很常見。
+	// let a = n[1].split(" ");
+	// console.log(a);
+	for (let i = 1; i < n.length; i++) {
+		const element = n[i];
+		console.log(element)
+	}
+	// const uniqueSet = new Set(a);
 
-除了演戲以外，其中兩人更是運動健將，例如說顏行書以前是打籃球的，是前中華台北男子籃球代表隊選手，王少偉小學的時候則是足球校隊，還曾經代表學校出國比賽。
-
-不過呢，雖然說 183 club 號稱平均身高為 183，但是根據維基百科的資料顯示，其實團員的平均身高才 180 而已，離 183 還有一段距離。猜測可能是 183 這個數字比 180 特別一點，才選做 183，而且這個數字還可以發行諧音歌曲：一把傘。
-
-小明身為 183 club 的粉絲，想要看看在演藝圈裡面有沒有其他人可以湊成新的 183 club，因此給了你一些身高要請你幫忙計算，看看他們是否能符合平均身高 >= 183 公分這個條件。
-
-
-Input
-第一行為一個數字 M（1&lt;=M&lt;=201<=M<=20），代表底下有幾筆身高
-
-第二行為 M 個用空格分開的正整數 H_{i}，100 &lt;= H_{i} &lt;= 200H 
-i
- 	
- ，100<=H 
-i
- 	
- <=200
-
-Output
-若是成員的平均身高大於等於 183，請輸出：「real」，反之則輸出「fake」
-
--------------------
-這裡給的資料是分行的，數值，OBJ，沒有引號
-給兩行資料
-第一行是總計有幾筆資料 5
-第二行是這些資料的數值  180 181 182 183 184
-要平均第二行的資料是否>183，有->real;無->fake
-
-*/
-function av(lines) {
-    // lines[0] => 5
-    // line[1] =>180 181 182 183 184
-    let sum = 0;
-    let dataLength = parseInt(lines[0].toString().split(" "), 10);
-    let datas = lines[1].toString().split(" ");
-
-    if (dataLength !== datas.length) {
-        return;
-    }
-    // let index = s.indexOf("5");
-    // if (index > -1) {
-    //     s.splice(index, 1);
-    // }
-
-    for (let i = 0; i < datas.length; i++) {
-        sum += parseInt(datas[i], 10);
-    }
-    // console.log(sum / datas.length);
-    // 平均
-    console.log((sum / datas.length) ? 'fake' : 'real');
+	// console.log(uniqueSet)
+	// return [...uniqueSet].sort().join(" ");
 }
-const num = '5 180 181 182 183 184';
-// fake
-// console.log(av(num));
+const number = [5, 1, 7, 4, 9, 5];
+// 1 4 5 7 9
+console.log(sortNum(number));
+
+
 
 /**
 1017
@@ -321,7 +281,7 @@ Description
 為了模擬小偷的思考模式，你的指導教授原本要拜託你寫一個程式來計算，給你一個物品清單，上面有每樣物品的重量 W_{i}W 
 i
  	
-  與價值 P_{i}P 
+	與價值 P_{i}P 
 i
  	
  ，還有小偷的背包能夠承受的重量 WW，問你小偷最多能偷到多少價值的東西。
@@ -377,22 +337,22 @@ sample out:
 回傳最高價格的加總
  */
 function totalValue(num, products) {
-    /*
-    依序找出最高價值前3名
-    之後把他們加總
-    */
+	/*
+	依序找出最高價值前3名
+	之後把他們加總
+	*/
 
-    // solution 1:
-    // 由大到小排序
-    let sorted = products.sort(function (a, b) {
-        return b - a;
-    });
-    // return sorted[0] + sorted[1] + sorted[2];
+	// solution 1:
+	// 由大到小排序
+	let sorted = products.sort(function (a, b) {
+		return b - a;
+	});
+	// return sorted[0] + sorted[1] + sorted[2];
 
-    // solution 2:
-    for (const item of sorted) {
+	// solution 2:
+	for (const item of sorted) {
 
-    }
+	}
 
 }
 const item = 3; //可帶走的物品項目
@@ -401,52 +361,34 @@ const products = [5, 1, 3, 5, 7, 9];// 每項物品最高價值，取三樣最�
 
 
 /*
-codewar - 
-Count characters in your string
+Training JS #14: Methods of Number object--toString() and toLocaleString()
 
-The main idea is to count all the occurring characters in a string. If you have a string like aba, then the result should be {'a': 2, 'b': 1}.
+Coding in function colorOf. function accept 3 parameter:r g b. It means value of color red green and blue. the value range is 0-255.
 
-What if the string is empty? Then the result should be empty object literal, {}.
+Use toString(16) Convert numbers r g b to hex string form. at last, combine them to a web color code and return it.
 
-Related Tags:
-FUNDAMENTALS STRINGS ASCII CHARACTER ENCODINGSFORMATS
+the color code should starting with "#". and then use 2 characters per color.
 
------------------------------------------------------
-給一個字串 EG:aba
-去計算每個字母出現的次數
-回傳obj格式 => {a:2,b:1}
-若字串是空白的，回傳:{}
- */
-function count(string) {
-    if (string.length === 0) {
-        return {};
-    }
+for example:
+colorOf(255,0,0) should return "#ff0000"
+colorOf(0,111,0) should return "#006f00"
+colorOf(1, 2 ,3) should return "#010203"
+That's all of your work. My work is print your color code on your screen.
 
-    // 把字串拆開
-    // 計算每個字母出現的次數
-    // use Map
-    let splitAlphabets = string.split("");
-    let m = new Map();
-    // solution 1:
-    for (let i = 0; i < splitAlphabets.length; i++) {
-        const element = splitAlphabets[i];
-        if (m.has(element)) {
-            m.set(element, m.get(element) + 1);
-        } else {
-            m.set(element, 1);
-        }
-    }
+-----------------------------
+rgb = 三原色
+value range從0-255
+用toString(16) 16進制把數字轉換成字串，並把他們合在一起
+回傳前面帶有#的字串
 
+*/
+function colorOf(r, g, b) {
 
-    // solution 2:
-    // splitAlphabets.forEach(element => {
-    //     if (m.has(element)) {
-    //         m.set(element, m.get(element) + 1);
-    //     } else {
-    //         m.set(element, 1);
-    //     }
-    // });
-    return m;
+	// number convert to array and join
+	console.log(typeof r);
+
 }
-const str = 'aba';
-console.log(count(str));
+const r = 255;
+const g = 0;
+const b = 0;
+// console.log(colorOf(r, g, b));
