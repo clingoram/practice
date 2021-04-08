@@ -254,7 +254,7 @@ function sortNum(n) {
 }
 const number = [5, 1, 7, 4, 9, 5];
 // 1 4 5 7 9
-console.log(sortNum(number));
+// console.log(sortNum(number));
 
 
 
@@ -392,3 +392,4 @@ const r = 255;
 const g = 0;
 const b = 0;
 // console.log(colorOf(r, g, b));
+

@@ -663,3 +663,14 @@ Object.assign({}, food);
 let clone = { ...food };
 // 3
 JSON.parse(JSON.stringify(food));
+
+// 印出N個星星
+function printStars(stars) {
+    let str = '';
+    for (let i = 1; i <= stars; i++) {
+        str += '*';
+    }
+    console.log(str);
+}
+let stars = 5;
+console.log(printStars(stars));
