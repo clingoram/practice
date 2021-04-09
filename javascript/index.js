@@ -393,3 +393,28 @@ const g = 0;
 const b = 0;
 // console.log(colorOf(r, g, b));
 
+
+/*
+Remove First and Last Character Part Two
+Difficulty:Easy
+
+input array(str用逗號隔開)
+
+若input長度是<3，return null
+否則回傳移除前後各一字母的字串,逗號也得移除，以空格取代
+return string
+*/
+function array(arr) {
+	// console.log(arr.length);
+	// 判斷arr是否是null或長度小於4
+	let split = arr.toString().split("").join('').replace(/,/g, " ");
+	// console.log(split);
+
+	if (arr === '' || split.length <= 4 || arr === null) {
+		return null;
+	}
+
+	return split.slice(split[0], -2);
+}
+let a1 = ['efb,22,c'];
+console.log(array(a1));
