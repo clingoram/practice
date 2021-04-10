@@ -417,4 +417,18 @@ function array(arr) {
 	return split.slice(split[0], -2);
 }
 let a1 = ['efb,22,c'];
-console.log(array(a1));
+// console.log(array(a1));
+
+/**
+ * 兩個陣列，找出唯一的element
+ */
+function findNotDuplicate(a1, a2) {
+
+	if (a1.length === 0 || a2.length === 0) {
+		return;
+	}
+
+}
+const one = [1, 6, 8, 3];
+const two = [6, 3, 5, 8, 1];
+console.log(findNotDuplicate(one, two));
