@@ -317,27 +317,4 @@ function array(arr) {
 	return split.slice(split[0], -2);
 }
 let a1 = ['efb,22,c'];
-// console.log(array(a1));
-
-/**
- * 兩個陣列，找出不重複的element(差集)
- */
-function findNotDuplicate(a1, a2) {
-
-	if (a1.length === 0 || a2.length === 0) {
-		return;
-	}
-	// map?
-	// new Set?
-	// filter
-	// 先sort?
-
-	// return a2.filter((x) => {
-	// 	return a1.indexOf(x) === -1;
-	// })
-}
-const one = [1, 6, 8, 3];
-const two = [6, 3, 5, 8, 1];
-// 5
-// console.log(findNotDuplicate(one, two));
-
+console.log(array(a1));
