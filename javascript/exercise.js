@@ -341,8 +341,9 @@ console.log(test(arr1, arr2));
 
 // 9*9
 function go() {
-    for (let i = 2; i <= 10; i++) {
-        for (let j = 1; j < 10; j++) {
+    // i = A;j = B => A*B=......
+    for (let i = 2; i <= 9; i++) {
+        for (let j = 1; j <= 9; j++) {
             console.log(`${i} * ${j} = ${i * j}`);
 
         }
@@ -674,3 +675,45 @@ function printStars(stars) {
 }
 let stars = 5;
 console.log(printStars(stars));
+
+/*
+印出1-100的平方數
+EG. 9 = 3*3
+
+平方數就是開根號後是整數的
+也就是某數的平方
+如4為2的平方、9為3的平方
+4和9就稱為平方數
+平方數的因數有奇數個
+因為平方數是自己的平方根乘平方根
+所以因數會是奇數個
+
+
+如何判斷是平方數?
+1.開根號 Math.sqrt(n)，因結果可能是整數或者有小數點，所以要再第二步
+2.無條件捨去 Math.floor(n)，不管結果是整數或有餘數，都無條件捨去，變得整數還是整數，有小數的就捨去小數變成整數
+
+另一種想法:
+先把1-100平方數印出來
+*/
+function isSquare() {
+
+    // solution 1: 把所有數值全部印出來，不管數值是否是平方數，先印出來計算，再以數值是平數方的true/false呈現，所以會有很多個true/false
+    // for (let i = 1; i <= 100; i++) {
+    // 	console.log(counting(i));
+    // }
+
+    // solution 2: 只把屬於1-100平方數印出來
+    let a = 1;
+    while (a * a <= 100) {
+        console.log(a * a);
+        a++;
+    }
+    return a;
+}
+// for solution 1:
+function counting(n) {
+    let c = Math.floor(Math.sqrt(n));
+    return c * c === n;
+}
+console.log(isSquare());
