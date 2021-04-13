@@ -305,16 +305,16 @@ input array(str用逗號隔開)
 return string
 */
 function array(arr) {
-	// console.log(arr.length);
 	// 判斷arr是否是null或長度小於4
-	let split = arr.toString().split("").join('').replace(/,/g, " ");
+	let split = arr.toString().split("").join('');
 	// console.log(split);
 
 	if (arr === '' || split.length <= 4 || arr === null) {
 		return null;
 	}
 
-	return split.slice(split[0], -2);
+	return split.slice(2, -2).replace(/,\s+/g, "");
 }
-let a1 = ['efb,22,c'];
+let a1 = ['a db 4 3b 2 5'];
 console.log(array(a1));
+// return: db 4 3b 2 5
