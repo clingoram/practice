@@ -133,23 +133,9 @@ m:3後面有4 2 1 表示要把第4個字、第2個字、第1個字依序合起�
 // console.log(com(str));
 
 
-/**
- * 9*9
- */
-function got() {
-	// start from 9 to 2
-	// eg.9*9=81 ~ 2*9=18
-	for (let i = 2; i <= 10; i++) {
-		// console.log(i)
-		for (let j = 1; j < 10; j++) {
-			console.log(`${i} * ${j} = ${j * i}`);
-		}
-
-	}
-}
-// got();
-
 /*
+1008 幾個水桶
+
 要拿水桶去裝水，但要求要每一次取水都能帶最少的水桶去，而且「每一個水桶一定都要裝滿」
 水桶容量都是2的倍數(2的N次方)，以下是水桶容量:
 1,2,4,6,8,16,32,64,128
@@ -158,20 +144,23 @@ target 要裝m個單位的水，要帶幾個水桶才行?
 EG.m=20，要帶2個水桶(容量16的水桶+容量4的水桶)
 */
 function bucketWater(n) {
-	let result = [];
 	let count = 0;
-	let maxWater = Math.pow(2, 31); // 2的31次方
-	console.log(maxWater);
-	let num = 2;
+	// let maxWater = Math.pow(2, 31); // 2的31次方
+	// console.log(maxWater);
 
-	for (let i = 0; i < 31; i++) {
+	// n = 2的倍數相加
+	// 如何知道是否是2的倍數? %2 === 0
+	for (let i = 1; i <= n; i++) {
+		if (i % 2 === 0) {
+
+		}
 
 	}
 	return count;
 }
 const m = 20;
 // 2(16+4)
-// console.log(bucketWater(m));
+console.log(bucketWater(m));
 
 /*
 1002 - 數字比大小
@@ -206,92 +195,6 @@ const a = '1 1 2 3 0 0'; // obj
 // console.log(compareNum(a));
 
 
-/**
-LIOJ 1035
-簡易排序
-Description
-
-排序是學習演算法的時候第一個會學到的東西，有許多種排序方法，例如說泡沫排序、選擇排序、插入排序等等
-
-這些演算法其實對初學者來說都不算太容易，需要一點時間學習
-
-那為什麼這一題會叫做「簡易排序」呢？因為你只要留意一下輸入的範圍並且思考一下，應該就能得到一個比較簡單的排序方法！
-
-那就祝你順利囉！
-
-
-Input
-第一行為一個數字 N，1&lt;=N&lt;=2000001<=N<=200000，代表有幾個數字需要排序
-
-接下來 N 行每行都是一個正整數
-
-Output
-請輸出數列由小到大排序後的結果，每一個數字請用空行分開
-
-----------------------------------
-原始題目是2行，每行各有數字，但在VS CODE這樣會出錯，所以我把input資料都改成用陣列的方式呈現
-第一個數字是共有幾筆資料
-第二個之後是全部需要排序的資料
-回傳排序過的數字
- */
-function sortNum(n) {
-	// console.log(typeof n);
-
-	// 把共有幾筆資料分隔出來
-	let allData = parseInt(n[0].toString().split(" "), 10);
-	// console.log(allData);
-
-	// let a = n[1].split(" ");
-	// console.log(a);
-	for (let i = 1; i < n.length; i++) {
-		const element = n[i];
-		console.log(element)
-	}
-	// const uniqueSet = new Set(a);
-
-	// console.log(uniqueSet)
-	// return [...uniqueSet].sort().join(" ");
-}
-const number = [5, 1, 7, 4, 9, 5];
-// 1 4 5 7 9
-// console.log(sortNum(number));
-
-
-
-
-
-/*
-Training JS #14: Methods of Number object--toString() and toLocaleString()
-
-Coding in function colorOf. function accept 3 parameter:r g b. It means value of color red green and blue. the value range is 0-255.
-
-Use toString(16) Convert numbers r g b to hex string form. at last, combine them to a web color code and return it.
-
-the color code should starting with "#". and then use 2 characters per color.
-
-for example:
-colorOf(255,0,0) should return "#ff0000"
-colorOf(0,111,0) should return "#006f00"
-colorOf(1, 2 ,3) should return "#010203"
-That's all of your work. My work is print your color code on your screen.
-
------------------------------
-rgb = 三原色
-value range從0-255
-用toString(16) 16進制把數字轉換成字串，並把他們合在一起
-回傳前面帶有#的字串
-
-*/
-function colorOf(r, g, b) {
-
-	// number convert to array and join
-	console.log(typeof r);
-
-}
-const r = 255;
-const g = 0;
-const b = 0;
-// console.log(colorOf(r, g, b));
 
 
 /*
@@ -305,39 +208,59 @@ input array(str用逗號隔開)
 return string
 */
 function array(arr) {
-	// console.log(arr.length);
 	// 判斷arr是否是null或長度小於4
-	let split = arr.toString().split("").join('').replace(/,/g, " ");
+	let split = arr.toString().split("").join('');
 	// console.log(split);
 
 	if (arr === '' || split.length <= 4 || arr === null) {
 		return null;
 	}
 
-	return split.slice(split[0], -2);
+	return split.slice(2, -2).replace(/,\s+/g, "");
 }
-let a1 = ['efb,22,c'];
+let a1 = ['a db 4 3b 2 5'];
 // console.log(array(a1));
+// return: db 4 3b 2 5
 
-/**
- * 兩個陣列，找出不重複的element(差集)
+/*
+Find the stray number
+
+You are given an odd-length array of integers, in which all of them are the same, except for one single number.
+
+Complete the method which accepts such an array, and returns that single different number.
+
+The input array will always be valid! (odd-length >= 3)
+
+Examples
+[1, 1, 2] ==> 2
+[17, 17, 3, 17, 17, 17, 17] ==> 3
+
+input array是奇數長度的int，數字當中所有都一樣，只有一個數值不同
+input array int-length
+return int with one unique number
  */
-function findNotDuplicate(a1, a2) {
-
-	if (a1.length === 0 || a2.length === 0) {
+function stray(numbers) {
+	if (numbers.length < 1) {
 		return;
 	}
-	// map?
-	// new Set?
-	// filter
-	// 先sort?
 
-	// return a2.filter((x) => {
-	// 	return a1.indexOf(x) === -1;
-	// })
+	// solution 1:
+	let result = numbers.filter((x) => {
+		return numbers.indexOf(x) === x;
+	})
+	return parseInt(result, 10);
+
+
+	// let m = new Map();
+	// for (let i = 0; i < numbers.length; i++) {
+	// 	const element = numbers[i];
+	// 	if (m.has(element)) {
+	// 		m.set(element, m.get(element));
+	// 	}
+	// 	m.set(element, 1)
+	// }
+	// return m;
 }
-const one = [1, 6, 8, 3];
-const two = [6, 3, 5, 8, 1];
-// 5
-// console.log(findNotDuplicate(one, two));
-
+let numberStray = [6, 6, 8];
+// return 8
+// console.log(stray(numberStray));
