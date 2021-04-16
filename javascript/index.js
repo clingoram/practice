@@ -245,11 +245,15 @@ function stray(numbers) {
 	}
 
 	// solution 1:
-	let result = numbers.filter((x) => {
-		return numbers.indexOf(x) === x;
-	})
-	return parseInt(result, 10);
+	// const unique = [...new Set(numbers)];
+	// return unique;
 
+	// let unique = numbers.filter((x, a) => {
+	// 	return numbers.indexOf(x) === a;
+	// })
+	// return unique;
+
+	return numbers.filter((item, index) => numbers.indexOf(item) == index);
 
 	// let m = new Map();
 	// for (let i = 0; i < numbers.length; i++) {
@@ -260,7 +264,8 @@ function stray(numbers) {
 	// 	m.set(element, 1)
 	// }
 	// return m;
+
 }
-let numberStray = [6, 6, 8];
+let numberStray = [1, 1, 8];
 // return 8
-// console.log(stray(numberStray));
+console.log(stray(numberStray));
