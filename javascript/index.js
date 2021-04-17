@@ -245,27 +245,16 @@ function stray(numbers) {
 	}
 
 	// solution 1:
-	// const unique = [...new Set(numbers)];
-	// return unique;
+	for (let i = 0; i < numbers.length; i++) {
+		if (numbers[i] === numbers[i + 1]) {
+			// use splice to remove element
+			numbers.splice(numbers, 1)
+		}
+	}
+	return parseInt(numbers, 10);
 
-	// let unique = numbers.filter((x, a) => {
-	// 	return numbers.indexOf(x) === a;
-	// })
-	// return unique;
-
-	return numbers.filter((item, index) => numbers.indexOf(item) == index);
-
-	// let m = new Map();
-	// for (let i = 0; i < numbers.length; i++) {
-	// 	const element = numbers[i];
-	// 	if (m.has(element)) {
-	// 		m.set(element, m.get(element));
-	// 	}
-	// 	m.set(element, 1)
-	// }
-	// return m;
 
 }
-let numberStray = [1, 1, 8];
-// return 8
+let numberStray = [1, 1, 1, 1, 5];
+// return 5
 console.log(stray(numberStray));
