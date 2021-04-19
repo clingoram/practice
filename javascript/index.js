@@ -245,14 +245,26 @@ function stray(numbers) {
 	}
 
 	// solution 1:
+	// for (let i = 0; i < numbers.length; i++) {
+	// 	if (numbers[i] === numbers[i + 1]) {
+	// 		// use splice to remove element
+	// 		numbers.splice(numbers, 1)
+	// 	}
+	// }
+	// return parseInt(numbers, 10);
+
+	// map計算出現過的次數，最少的return
+	let m = new Map();
 	for (let i = 0; i < numbers.length; i++) {
-		if (numbers[i] === numbers[i + 1]) {
-			// use splice to remove element
-			numbers.splice(numbers, 1)
+		const element = numbers[i];
+		if (m.has(element)) {
+			m.set(element, m.get(element) + 1);
+		} else {
+			m.set(element, 1);
 		}
 	}
-	return parseInt(numbers, 10);
 
+	// return m;
 
 }
 let numberStray = [1, 1, 1, 1, 5];
