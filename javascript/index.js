@@ -270,3 +270,4 @@ function stray(numbers) {
 let numberStray = [1, 1, 1, 1, 5];
 // return 5
 console.log(stray(numberStray));
+
