@@ -245,22 +245,29 @@ function stray(numbers) {
 	}
 
 	// solution 1:
-	let result = numbers.filter((x) => {
-		return numbers.indexOf(x) === x;
-	})
-	return parseInt(result, 10);
-
-
-	// let m = new Map();
 	// for (let i = 0; i < numbers.length; i++) {
-	// 	const element = numbers[i];
-	// 	if (m.has(element)) {
-	// 		m.set(element, m.get(element));
+	// 	if (numbers[i] === numbers[i + 1]) {
+	// 		// use splice to remove element
+	// 		numbers.splice(numbers, 1)
 	// 	}
-	// 	m.set(element, 1)
 	// }
+	// return parseInt(numbers, 10);
+
+	// map計算出現過的次數，最少的return
+	let m = new Map();
+	for (let i = 0; i < numbers.length; i++) {
+		const element = numbers[i];
+		if (m.has(element)) {
+			m.set(element, m.get(element) + 1);
+		} else {
+			m.set(element, 1);
+		}
+	}
+
 	// return m;
+
 }
-let numberStray = [6, 6, 8];
-// return 8
-// console.log(stray(numberStray));
+let numberStray = [1, 1, 1, 1, 5];
+// return 5
+console.log(stray(numberStray));
+
