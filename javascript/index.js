@@ -84,8 +84,8 @@ Difficulty:Medium
 Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
 
 -----------------
-n=數字
-return 出符合該數字前後一致的符號
+input n=數字
+return 出()符合不同的完整排列方式
 
 n=3
 return 3個()
@@ -107,15 +107,15 @@ Constraints:
  * @param {number} n
  * @return {string[]}
  */
-// var generateParenthesis = function (n) {
-//     if (n.length === 0) {
-//         return null;
-//     }
+var generateParenthesis = function (n) {
+	if (n.length === 0) {
+		return null;
+	}
 
-// };
-// const n = 3;
-// // should return: ["((()))","(()())","(())()","()(())","()()()"]
-// console.log(generateParenthesis(n));
+};
+const n = 3;
+// should return: ["((()))","(()())","(())()","()(())","()()()"]
+console.log(generateParenthesis(n));
 
 /*
 數字1(n)表示後面有幾個字串
@@ -334,4 +334,4 @@ function naNumber(a1) {
 
 }
 let one = 5;
-console.log(naNumber(one));
+// console.log(naNumber(one));
