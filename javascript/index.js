@@ -115,7 +115,7 @@ var generateParenthesis = function (n) {
 };
 const n = 3;
 // should return: ["((()))","(()())","(())()","()(())","()()()"]
-console.log(generateParenthesis(n));
+// console.log(generateParenthesis(n));
 
 /*
 數字1(n)表示後面有幾個字串
@@ -125,11 +125,12 @@ EG:
 n:2後面有 yo man的2個字串
 m:3後面有4 2 1 表示要把第4個字、第2個字、第1個字依序合起來
 */
-// function com(str) {
+function com(str) {
+	let stringNumber = str[0]; // 有幾個字串
 
-// }
-// const str = '2 yo man 3 4 2 1';
-// // aoy
+}
+const str = '2 yo man 3 4 2 1';
+// aoy
 // console.log(com(str));
 
 
@@ -160,7 +161,7 @@ function bucketWater(n) {
 }
 const m = 20;
 // 2(16+4)
-console.log(bucketWater(m));
+// console.log(bucketWater(m));
 
 /*
 1002 - 數字比大小
@@ -192,7 +193,7 @@ function compareNum(n) {
 const a = '1 1 2 3 0 0'; // obj
 // 1
 // 3
-// console.log(compareNum(a));
+console.log(compareNum(a));
 
 
 
@@ -269,7 +270,7 @@ function stray(numbers) {
 }
 let numberStray = [1, 1, 1, 1, 5];
 // return 5
-console.log(stray(numberStray));
+// console.log(stray(numberStray));
 
 /**
  * 1025 水仙花數
@@ -329,9 +330,16 @@ Sample Output 1
  * 要如何判斷該數是幾位數
  * 如何取出各個數字
  */
-function naNumber(a1) {
+function digitCount(a1) {
+	if (a1 === 0) {
+		return 1;
+	}
 	let result = 0;
-
+	while (a1 != 0) {
+		al = Math.floor(a1 / 10);
+		result++;
+	}
+	return result;
 }
-let one = 5;
-// console.log(naNumber(one));
+let one = 10;
+// console.log(digitCount(one));
