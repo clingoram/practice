@@ -343,3 +343,5 @@ function digitCount(a1) {
 }
 let one = 10;
 // console.log(digitCount(one));
+
+
