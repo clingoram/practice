@@ -760,3 +760,59 @@ function isTorance(array) {
 }
 let check = [9, 7, 5, 3, 1, -1];
 console.log(isTorance(check));
+
+
+/*
+* 身分證驗證
+*
+* 範例身份證字號:
+*  A123456789
+*
+*  如何驗證:
+*   開頭英文字母換成數字，EG.A=10
+*     ==> 1 0 1 2 3 4 5 6 7 8 9
+*   然後再把每一個數字依序乘上1、9、8、7、6、5、4、3、2、1、1，最後再相加
+*     ==> 1*1+0*9+1*8+2*7+3*6+4*5+5*4+6*3+7*2+8*1+9*1 = 130
+*   130再除以開頭英文轉數字的10 = 130/10 = 13(有效)
+*   若整除(mod)無餘數，就是有效的身分證字號，反之則無效
+*
+*/
+function isvalidTaiwanId(string) {
+    // edge case
+    let number = new RegExp('[0-9]');
+
+    if (string.length < 10) {
+        return false;
+    }
+    if ((!string[0].matchAll(/[^A-Z]/gi))) {
+        return false;
+    }
+    if (!string.substr(1, string.length - 1).match(number)) {
+        return false;
+    }
+
+    const alphabetToString = string[0];
+    const toInt = StringtoInt(alphabetToString);
+
+    let n1 = Math.floor(toInt / 10);
+    let n2 = toInt % 10; // 取餘數
+    let sum = n1 * 1 + n2 * 9;
+
+    for (let i = 1; i < string.length - 1; i++) {
+        sum += string[i] * (9 - i);
+    }
+    sum += Number(string[9]);
+    return sum % 10 === 0;
+}
+// 字母轉數字
+function StringtoInt(n) {
+    const toMap = {
+        A: 10, B: 11, C: 12, D: 13, E: 14, F: 15, G: 16,
+        H: 17, I: 34, J: 18, K: 19, M: 21, N: 22, O: 35,
+        P: 23, Q: 24, T: 27, U: 28, V: 29, W: 32, X: 30,
+        Z: 33
+    }
+    return toMap[n];
+}
+const idString = 'A123456789';
+console.log(isvalidTaiwanId(idString));

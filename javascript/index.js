@@ -193,7 +193,7 @@ function compareNum(n) {
 const a = '1 1 2 3 0 0'; // obj
 // 1
 // 3
-console.log(compareNum(a));
+// console.log(compareNum(a));
 
 
 
