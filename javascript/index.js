@@ -84,8 +84,8 @@ Difficulty:Medium
 Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
 
 -----------------
-n=數字
-return 出符合該數字前後一致的符號
+input n=數字
+return 出()符合不同的完整排列方式
 
 n=3
 return 3個()
@@ -107,14 +107,14 @@ Constraints:
  * @param {number} n
  * @return {string[]}
  */
-// var generateParenthesis = function (n) {
-//     if (n.length === 0) {
-//         return null;
-//     }
+var generateParenthesis = function (n) {
+	if (n.length === 0) {
+		return null;
+	}
 
-// };
-// const n = 3;
-// // should return: ["((()))","(()())","(())()","()(())","()()()"]
+};
+const n = 3;
+// should return: ["((()))","(()())","(())()","()(())","()()()"]
 // console.log(generateParenthesis(n));
 
 /*
@@ -125,11 +125,12 @@ EG:
 n:2後面有 yo man的2個字串
 m:3後面有4 2 1 表示要把第4個字、第2個字、第1個字依序合起來
 */
-// function com(str) {
+function com(str) {
+	let stringNumber = str[0]; // 有幾個字串
 
-// }
-// const str = '2 yo man 3 4 2 1';
-// // aoy
+}
+const str = '2 yo man 3 4 2 1';
+// aoy
 // console.log(com(str));
 
 
@@ -160,7 +161,7 @@ function bucketWater(n) {
 }
 const m = 20;
 // 2(16+4)
-console.log(bucketWater(m));
+// console.log(bucketWater(m));
 
 /*
 1002 - 數字比大小
@@ -192,7 +193,7 @@ function compareNum(n) {
 const a = '1 1 2 3 0 0'; // obj
 // 1
 // 3
-// console.log(compareNum(a));
+console.log(compareNum(a));
 
 
 
@@ -269,5 +270,78 @@ function stray(numbers) {
 }
 let numberStray = [1, 1, 1, 1, 5];
 // return 5
-console.log(stray(numberStray));
+// console.log(stray(numberStray));
+
+/**
+ * 1025 水仙花數
+ *
+Description
+
+水仙花數（Narcissistic number）又被稱為自戀數或者是阿姆斯壯數，太數學的定義我們就不講了，詳情可以查維基百科。
+
+比較白話的定義為：「一個 n 位數的數字，每一個數字的 n 次方加總等於自身」
+
+例如說 153 是三位數，而 1^3 + 5^3 + 3^3 = 1531 
+3
+ +5 
+3
+ +3 
+3
+ =153，所以它就是一個水仙花數
+
+而 1634 是四位數，而 1^4 + 6^4 + 3^4 + 4^4 = 16341 
+4
+ +6 
+4
+ +3 
+4
+ +4 
+4
+ =1634，所以它也是一個水仙花數
+
+而數字 0~9 也都是水仙花數，因為一位數 n 的 1 次方一定會等於自己
+
+現在給你一個範圍 n 到 m，請你求出這範圍之中的水仙花數有哪些
+
+
+Input
+輸入為兩個用空白分割的正整數 N 與 M，1 &lt;= N &lt;= M &lt;= 10^61<=N<=M<=10 
+6
+ 
+
+Output
+請由小到大輸出從 N 到 M（包含 N 與 M）有哪些水仙花數，每個數字以空行分隔
+
+
+Sample Input 1 
+
+5 200
+
+Sample Output 1
+
+5
+6
+7
+8
+9
+153
+
+
+ * 要如何判斷該數是幾位數
+ * 如何取出各個數字
+ */
+function digitCount(a1) {
+	if (a1 === 0) {
+		return 1;
+	}
+	let result = 0;
+	while (a1 != 0) {
+		al = Math.floor(a1 / 10);
+		result++;
+	}
+	return result;
+}
+let one = 10;
+// console.log(digitCount(one));
+
 

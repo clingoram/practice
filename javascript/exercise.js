@@ -717,3 +717,46 @@ function counting(n) {
     return c * c === n;
 }
 console.log(isSquare());
+
+/*
+判斷等差數列
+公差 = 每個數之間的差一樣
+
+EG.
+[1,3,5,7,9];
+solution 1:
+    arr[1] - arr[0] == arr[2] - arr[1]
+    arr[3] - arr[2] == arr[4] - arr[3]
+
+solution 2:
+ A.先把公差算出來，arr[1] - arr[0]
+ B.判斷arr[i] - arr[i -1] 是否等於公差
+ 公差不一樣就不對
+ return true / false
+
+
+Edge Case:
+1. empty array
+2. only one index
+3. minus int 
+4. unsort array
+*/
+function isTorance(array) {
+    // edge case
+    if (array.length <= 1) {
+        return true;
+    }
+    array.sort((a, b) => a - b);
+
+    // 算出公差
+    let torance = array[1] - array[0];
+
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] - array[i - 1] !== torance) {
+            return false;
+        }
+    }
+    return true;
+}
+let check = [9, 7, 5, 3, 1, -1];
+console.log(isTorance(check));
