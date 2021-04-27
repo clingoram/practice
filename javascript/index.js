@@ -345,3 +345,38 @@ let one = 10;
 // console.log(digitCount(one));
 
 
+/**
+ * 找字
+ * 
+ * 給一字串，該字串有重複出現的字母，找出一個且重複出現次數>1的字母並回傳
+ * 
+ * EG:
+ * DBCABA 
+ * result: B
+ * 
+ * Input string
+ * return  string or null
+ */
+function findLetter(string) {
+	// edge case:
+	// if empty string return null;
+	// string length <1
+	if (string.length < 1) {
+		return;
+	}
+
+	// for loop and new Map to count the letter
+	let m = new Map();
+	for (let i = 0; i < string.length; i++) {
+		// console.log(string[i]);
+		if (m.has(string[i])) {
+			m.set(string[i], i++);
+			// m.set(string[i], 1);
+		}
+		m.set(string[i], 1);
+		// m.set(string[i], i++);
+	}
+	return m;
+}
+const s = 'DBCABA';
+console.log(findLetter(s));
