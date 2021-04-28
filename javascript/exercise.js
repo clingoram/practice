@@ -898,3 +898,38 @@ function regexString(string) {
 }
 const theString = 'A15Psfe3';
 console.log(regexString(theString));
+
+/**
+ * 數字位數加總
+ * EG:1234 = 1+2+3+4 = 10
+ * 
+ * input int
+ * return int
+ * 
+ */
+function sumNumber(num) {
+
+    // solution 1:
+    // if (num < 0) {
+    // 	num = num * -1;
+    // }
+    // let sum = 0;
+    // while (num != 0) {
+    // 	sum += num % 10;
+    // 	num = Math.floor(num / 10);
+    // }
+    // return sum;
+
+
+    // solution 2
+    // 把num變字串
+    num = num + '';
+    let sum = 0;
+    for (let i = 0; i < num.length; i++) {
+        // 字串變數字
+        sum += Number(num[i]);
+    }
+    return sum;
+}
+let sum = 1234;
+console.log(sumNumber(sum));
