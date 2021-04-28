@@ -359,24 +359,35 @@ let one = 10;
  */
 function findLetter(string) {
 	// edge case:
-	// if empty string return null;
-	// string length <1
-	if (string.length < 1) {
+	// if empty string,return null;
+	// if string length < 1,return null
+	if (string.length === 0) {
 		return;
 	}
 
 	// for loop and new Map to count the letter
 	let m = new Map();
-	for (let i = 0; i < string.length; i++) {
-		// console.log(string[i]);
-		if (m.has(string[i])) {
-			m.set(string[i], i++);
-			// m.set(string[i], 1);
+	let ans = '';
+	let count = 0;
+
+	for (const k of string) {
+		// console.log(k);
+		if (m.has(k)) {
+			m.set(k, count++);
 		}
-		m.set(string[i], 1);
-		// m.set(string[i], i++);
+		m.set(k, count + 1);
 	}
+
+	// for (let i = 0; i <= string.length; i++) {
+	// 	console.log(string[i]);
+	// 	if (m.has(string[i])) {
+	// 		m.set(string[i], i++);
+	// 	}
+	// 	m.set(string[i], 1);
+	// }
 	return m;
 }
-const s = 'DBCABA';
-console.log(findLetter(s));
+let letter = 'DBCABAA';
+// should return: 'B'
+// D:1,	B:2,	C:1,	A:3
+console.log(findLetter(letter));
