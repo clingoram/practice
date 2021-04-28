@@ -193,7 +193,7 @@ function compareNum(n) {
 const a = '1 1 2 3 0 0'; // obj
 // 1
 // 3
-console.log(compareNum(a));
+// console.log(compareNum(a));
 
 
 
@@ -345,3 +345,49 @@ let one = 10;
 // console.log(digitCount(one));
 
 
+/**
+ * 找字
+ * 
+ * 給一字串，該字串有重複出現的字母，找出一個且重複出現次數>1的字母並回傳
+ * 
+ * EG:
+ * DBCABA 
+ * result: B
+ * 
+ * Input string
+ * return  string or null
+ */
+function findLetter(string) {
+	// edge case:
+	// if empty string,return null;
+	// if string length < 1,return null
+	if (string.length === 0) {
+		return;
+	}
+
+	// for loop and new Map to count the letter
+	let m = new Map();
+	let ans = '';
+	let count = 0;
+
+	for (const k of string) {
+		// console.log(k);
+		if (m.has(k)) {
+			m.set(k, count++);
+		}
+		m.set(k, count + 1);
+	}
+
+	// for (let i = 0; i <= string.length; i++) {
+	// 	console.log(string[i]);
+	// 	if (m.has(string[i])) {
+	// 		m.set(string[i], i++);
+	// 	}
+	// 	m.set(string[i], 1);
+	// }
+	return m;
+}
+let letter = 'DBCABAA';
+// should return: 'B'
+// D:1,	B:2,	C:1,	A:3
+console.log(findLetter(letter));

@@ -760,3 +760,141 @@ function isTorance(array) {
 }
 let check = [9, 7, 5, 3, 1, -1];
 console.log(isTorance(check));
+
+
+/*
+* 身分證驗證
+*
+* 範例身份證字號:
+*  A123456789
+*
+*  如何驗證:
+*   開頭英文字母換成數字，EG.A=10
+*     ==> 1 0 1 2 3 4 5 6 7 8 9
+*   然後再把每一個數字依序乘上1、9、8、7、6、5、4、3、2、1、1，最後再相加
+*     ==> 1*1+0*9+1*8+2*7+3*6+4*5+5*4+6*3+7*2+8*1+9*1 = 130
+*   130再除以開頭英文轉數字的10 = 130/10 = 13(有效)
+*   若整除(mod)無餘數，就是有效的身分證字號，反之則無效
+*
+*/
+function isvalidTaiwanId(string) {
+    // edge case
+    let number = new RegExp('[0-9]');
+
+    if (string.length < 10) {
+        return false;
+    }
+    if ((!string[0].matchAll(/[^A-Z]/gi))) {
+        return false;
+    }
+    if (!string.substr(1, string.length - 1).match(number)) {
+        return false;
+    }
+
+    const alphabetToString = string[0];
+    const toInt = StringtoInt(alphabetToString);
+
+    let n1 = Math.floor(toInt / 10);
+    let n2 = toInt % 10; // 取餘數
+    let sum = n1 * 1 + n2 * 9;
+
+    for (let i = 1; i < string.length - 1; i++) {
+        sum += string[i] * (9 - i);
+    }
+    sum += Number(string[9]);
+    return sum % 10 === 0;
+}
+// 字母轉數字
+function StringtoInt(n) {
+    const toMap = {
+        A: 10, B: 11, C: 12, D: 13, E: 14, F: 15, G: 16,
+        H: 17, I: 34, J: 18, K: 19, M: 21, N: 22, O: 35,
+        P: 23, Q: 24, T: 27, U: 28, V: 29, W: 32, X: 30,
+        Z: 33
+    }
+    return toMap[n];
+}
+const idString = 'A123456789';
+console.log(isvalidTaiwanId(idString));
+
+/**
+ * Regex
+ * 
+ * 1. 檢查手機號碼，長度10
+ * 2. 檢查號碼+英文字母(身分證驗證)，長度10
+ * 3. 檢查是否是email，可能內容包含英文大小寫、數字、底線，@之前長度>8
+ * 4. 密碼，總長度8
+ */
+function regexString(string) {
+
+    /*
+    驗證手機:
+    1. 手機是10位數
+    2. string是手機號碼，先檢查開頭是否是09
+    3. 其他8位數是否是數字
+    切割字串:
+    string.substr(0, 2)
+    substr 從開始結取特定的字串長度，範圍參數可以使用負數
+    string.substring(0, 2)
+    substring 則是從開始結取至設定的結尾字符前一個位置，範圍參數不能使用負數。
+    */
+    // const pattern = /^[0-9]{8}/;
+    // if (string.length != 10) {
+    // 	return false;
+    // }
+
+    // if (parseInt(string.substr(0, 2), 10) !== 09) {
+    // 	return false;
+    // }
+
+    // if (string.substr(2, string.length - 1).match(pattern)) {
+    // 	return false;
+    // }
+    // return true;
+
+    /*
+    驗證email:
+        1. 必須以一個以上的文字&數字開頭
+        2. @ 之前可以出現 1 個以上的文字、數字與「-」的組合，例如 -abc-
+        3. @ 之前可以出現 1 個以上的文字、數字與「.」的組合，例如 .abc.
+        4. @ 之前以上兩項以 or 的關係出現，並且出現 0 次以上
+        5. 中間一定要出現一個 @
+        6. @ 之後出現一個以上的大小寫英文及數字的組合
+        7. @ 之後只能出現「.」或是「-」，但這兩個字元不能連續時出現
+        8. @ 之後出現 0 個以上的「.」或是「-」配上大小寫英文及數字的組合
+        9. @ 之後出現 1 個以上的「.」配上大小寫英文及數字的組合，結尾需為大小寫英文
+    */
+    // ^\w+：@ 之前必須以一個以上的文字&數字開頭，例如 abc
+    // ((-\w+)：@ 之前可以出現 1 個以上的文字、數字或「-」的組合，例如 -abc-
+    // (\.\w+))：@ 之前可以出現 1 個以上的文字、數字或「.」的組合，例如 .abc.
+    // ((-\w+)|(\.\w+))*：以上兩個規則以 or 的關係出現，並且出現 0 次以上 (所以不能 –. 同時出現)
+    // @：中間一定要出現一個 @
+    // [A-Za-z0-9]+：@ 之後出現 1 個以上的大小寫英文及數字的組合
+    // (\.|-)：@ 之後只能出現「.」或是「-」，但這兩個字元不能連續時出現
+    // ((\.|-)[A-Za-z0-9]+)*：@ 之後出現 0 個以上的「.」或是「-」配上大小寫英文及數字的組合
+    // \.[A-Za-z]+$/：@ 之後出現 1 個以上的「.」配上大小寫英文及數字的組合，結尾需為大小寫英文
+
+    // const pattern = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+    // if (!string.match(pattern)) {
+    // 	return false;
+    // }
+    // return true;
+
+    /**
+     * 驗證密碼:
+     * 大小寫a-z
+     * 0-9，至少3個
+     * 至少8個字元
+     */
+    const pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+    // 一個括弧=一個group
+    // .* 則是任何字元出現 0 次以上的
+    // ?= 沒有設定在誰後面，但是一定要接符合條件的字元，可以當作一定要有的意思
+    if (!string.match(pattern)) {
+        return false;
+    }
+    return true;
+
+}
+const theString = 'A15Psfe3';
+console.log(regexString(theString));
