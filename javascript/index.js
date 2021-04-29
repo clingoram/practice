@@ -391,3 +391,41 @@ let letter = 'DBCABAA';
 // should return: 'B'
 // D:1,	B:2,	C:1,	A:3
 console.log(findLetter(letter));
+
+
+/**
+ * Expressions Matter
+ *
+ * Given three integers a ,b ,c, return the largest number obtained after inserting the following operators and brackets: +, *, ()
+ * In other words , try every combination of a,b,c with [*+()] , and return the Maximum Obtained
+ *
+ *
+ * With the numbers are 1, 2 and 3 , here are some ways of placing signs and brackets:
+ * 1 * (2 + 3) = 5
+ * 1 * 2 * 3 = 6
+ * 1 + 2 * 3 = 7
+ * (1 + 2) * 3 = 9
+ * So the maximum value that you can obtain is 9.
+ *
+ * Input:
+ * 正整數a、b、c
+ * 數字範圍:1-10之間
+ * 可以使用同個運算符號>1次
+ * a、b、c一定得依照順序
+ *
+ * return:
+ * int
+ *
+ * --------------------------
+ * 給3個正整數，可以使用運算符: +、*、()做運算，且可以使用同個符號>1次(也代表有些符號可以不使用)
+ * 運用不同的組合方式做運算，且運算時，abc一定得依照順序
+ * 回傳運算過後最大數
+ */
+function expressionMatter(a, b, c) {
+	return a * (b + c);
+}
+const v1 = 1;
+const v2 = 2;
+const v3 = 3;
+// should return:9
+console.log(expressionMatter(v1, v2, v3));
