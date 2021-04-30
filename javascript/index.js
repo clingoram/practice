@@ -366,7 +366,6 @@ function findLetter(string) {
 	}
 
 	let result = {};
-
 	[...string].forEach(element => {
 		result[element] ? result[element]++ : result[element] = 1;
 	});
@@ -377,26 +376,36 @@ function findLetter(string) {
 
 	// obj to array 
 	// Object.keys(result).map((key) => [key, result[key]]);
-	for (const key in result) {
-		// key = alphabet
-		console.log(key);
+	// for (const key in result) {
+	// key = alphabet
+	// console.log(key);
 
-		// 	// if (result[key] >= 2) {
-		// 	// 	return key;
-		// 	// }
-		// 	// Object.hasOwnProperty.call(result, key)
-		// 	// if (result.hasOwnProperty(key)) {
-		// 	// 	const element = result[key];
-		// 	// 	console.log(element)
-		// 	// }
+	// 	// if (result[key] >= 2) {
+	// 	// 	return key;
+	// 	// }
+	// 	// Object.hasOwnProperty.call(result, key)
+	// 	// if (result.hasOwnProperty(key)) {
+	// 	// 	const element = result[key];
+	// 	// 	console.log(element)
+	// 	// }
+	// }
+
+	// console.log(result);
+
+	for (const [key, value] of Object.entries(result)) {
+		console.log(key, value)
+
 	}
-	// return Object.keys(result).map((key) => [key, result[key]]);
-	// return result;
+	// const map = new Map(Object.entries(result));
+	// return map;
+	// return Object.entries(result);
+
+
 }
 // let letter = 'DBCABAA';
 // should return: 'B' as string
 // D:1,	B:2,	C:1,	A:3
-let letter = 'DABCCDBEFAABC'; // C
+let letter = 'DADBCEFB'; // D
 
 console.log(findLetter(letter));
 
