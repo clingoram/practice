@@ -370,7 +370,7 @@ function findLetter(string) {
 	[...string].forEach(element => {
 		result[element] ? result[element]++ : result[element] = 1;
 	});
-	// 假設不知道第一個重複出現的是哪個字母，如何回傳該字母 => 找第一個出現次數>=2
+	// 假設不知道第一個重複出現的是哪個字母，如何回傳該字母 => 要能維持跟原字串一樣的順序且找第一個出現次數>=2
 	// ABCD ABC
 	// BCDEF BEDEF
 	// 跟原自串比對?
@@ -378,24 +378,26 @@ function findLetter(string) {
 	// obj to array 
 	// Object.keys(result).map((key) => [key, result[key]]);
 	for (const key in result) {
-		console.log(result[key]);
+		// key = alphabet
+		console.log(key);
 
-		if (result[key] >= 2) {
-			return key;
-		}
-		// Object.hasOwnProperty.call(result, key)
-		// if (result.hasOwnProperty(key)) {
-		// 	const element = result[key];
-		// 	console.log(element)
-		// }
+		// 	// if (result[key] >= 2) {
+		// 	// 	return key;
+		// 	// }
+		// 	// Object.hasOwnProperty.call(result, key)
+		// 	// if (result.hasOwnProperty(key)) {
+		// 	// 	const element = result[key];
+		// 	// 	console.log(element)
+		// 	// }
 	}
 	// return Object.keys(result).map((key) => [key, result[key]]);
+	// return result;
 }
 // let letter = 'DBCABAA';
-let letter = 'ABCDBEFAABC'; // B
-
 // should return: 'B' as string
 // D:1,	B:2,	C:1,	A:3
+let letter = 'DABCCDBEFAABC'; // C
+
 console.log(findLetter(letter));
 
 
