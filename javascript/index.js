@@ -355,7 +355,7 @@ let one = 10;
  * result: B
  * 
  * Input string
- * return  string or null
+ * return string or null
  */
 function findLetter(string) {
 	// edge case:
@@ -365,30 +365,36 @@ function findLetter(string) {
 		return;
 	}
 
-	// for loop and new Map to count the letter
-	let m = new Map();
-	let ans = '';
-	let count = 0;
+	let result = {};
 
-	for (const k of string) {
-		// console.log(k);
-		if (m.has(k)) {
-			m.set(k, count++);
+	[...string].forEach(element => {
+		result[element] ? result[element]++ : result[element] = 1;
+	});
+	// 假設不知道第一個重複出現的是哪個字母，如何回傳該字母 => 找第一個出現次數>=2
+	// ABCD ABC
+	// BCDEF BEDEF
+	// 跟原自串比對?
+
+	// obj to array 
+	// Object.keys(result).map((key) => [key, result[key]]);
+	for (const key in result) {
+		console.log(result[key]);
+
+		if (result[key] >= 2) {
+			return key;
 		}
-		m.set(k, count + 1);
+		// Object.hasOwnProperty.call(result, key)
+		// if (result.hasOwnProperty(key)) {
+		// 	const element = result[key];
+		// 	console.log(element)
+		// }
 	}
-
-	// for (let i = 0; i <= string.length; i++) {
-	// 	console.log(string[i]);
-	// 	if (m.has(string[i])) {
-	// 		m.set(string[i], i++);
-	// 	}
-	// 	m.set(string[i], 1);
-	// }
-	return m;
+	// return Object.keys(result).map((key) => [key, result[key]]);
 }
-let letter = 'DBCABAA';
-// should return: 'B'
+// let letter = 'DBCABAA';
+let letter = 'ABCDBEFAABC'; // B
+
+// should return: 'B' as string
 // D:1,	B:2,	C:1,	A:3
 console.log(findLetter(letter));
 
@@ -428,4 +434,4 @@ const v1 = 1;
 const v2 = 2;
 const v3 = 3;
 // should return:9
-console.log(expressionMatter(v1, v2, v3));
+// console.log(expressionMatter(v1, v2, v3));
