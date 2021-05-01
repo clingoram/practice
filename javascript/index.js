@@ -117,13 +117,13 @@ const n = 3;
 // should return: ["((()))","(()())","(())()","()(())","()()()"]
 // console.log(generateParenthesis(n));
 
-/*
-數字1(n)表示後面有幾個字串
-數字2(m)表示接下來有 m 個用空行分隔的數字
-EG:
-'2 yo man 3 4 2 1'
-n:2後面有 yo man的2個字串
-m:3後面有4 2 1 表示要把第4個字、第2個字、第1個字依序合起來
+/**
+* 數字1(n)表示後面有幾個字串
+* 數字2(m)表示接下來有 m 個用空行分隔的數字
+* EG:
+* '2 yo man 3 4 2 1'
+* n:2後面有 yo man的2個字串
+* m:3後面有4 2 1 表示要把第4個字、第2個字、第1個字依序合起來
 */
 function com(str) {
 	let stringNumber = str[0]; // 有幾個字串
@@ -134,15 +134,15 @@ const str = '2 yo man 3 4 2 1';
 // console.log(com(str));
 
 
-/*
-1008 幾個水桶
-
-要拿水桶去裝水，但要求要每一次取水都能帶最少的水桶去，而且「每一個水桶一定都要裝滿」
-水桶容量都是2的倍數(2的N次方)，以下是水桶容量:
-1,2,4,6,8,16,32,64,128
-
-target 要裝m個單位的水，要帶幾個水桶才行?
-EG.m=20，要帶2個水桶(容量16的水桶+容量4的水桶)
+/**
+* 1008 幾個水桶
+*
+* 要拿水桶去裝水，但要求要每一次取水都能帶最少的水桶去，而且「每一個水桶一定都要裝滿」
+* 水桶容量都是2的倍數(2的N次方)，以下是水桶容量:
+* 1,2,4,6,8,16,32,64,128
+* 
+* target 要裝m個單位的水，要帶幾個水桶才行?
+* EG.m=20，要帶2個水桶(容量16的水桶+容量4的水桶)
 */
 function bucketWater(n) {
 	let count = 0;
@@ -355,7 +355,7 @@ let one = 10;
  * result: B
  * 
  * Input string
- * return  string or null
+ * return string or null
  */
 function findLetter(string) {
 	// edge case:
@@ -365,29 +365,84 @@ function findLetter(string) {
 		return;
 	}
 
-	// for loop and new Map to count the letter
-	let m = new Map();
-	let ans = '';
-	let count = 0;
+	let result = {};
+	[...string].forEach(element => {
+		result[element] ? result[element]++ : result[element] = 1;
+	});
+	// 假設不知道第一個重複出現的是哪個字母，如何回傳該字母 => 要能維持跟原字串一樣的順序且找第一個出現次數>=2
+	// ABCD ABC
+	// BCDEF BEDEF
+	// 跟原自串比對?
 
-	for (const k of string) {
-		// console.log(k);
-		if (m.has(k)) {
-			m.set(k, count++);
-		}
-		m.set(k, count + 1);
-	}
+	// obj to array 
+	// Object.keys(result).map((key) => [key, result[key]]);
+	// for (const key in result) {
+	// key = alphabet
+	// console.log(key);
 
-	// for (let i = 0; i <= string.length; i++) {
-	// 	console.log(string[i]);
-	// 	if (m.has(string[i])) {
-	// 		m.set(string[i], i++);
-	// 	}
-	// 	m.set(string[i], 1);
+	// 	// if (result[key] >= 2) {
+	// 	// 	return key;
+	// 	// }
+	// 	// Object.hasOwnProperty.call(result, key)
+	// 	// if (result.hasOwnProperty(key)) {
+	// 	// 	const element = result[key];
+	// 	// 	console.log(element)
+	// 	// }
 	// }
-	return m;
+
+	// console.log(result);
+
+	for (const [key, value] of Object.entries(result)) {
+		console.log(key, value)
+
+	}
+	// const map = new Map(Object.entries(result));
+	// return map;
+	// return Object.entries(result);
+
+
 }
-let letter = 'DBCABAA';
-// should return: 'B'
+// let letter = 'DBCABAA';
+// should return: 'B' as string
 // D:1,	B:2,	C:1,	A:3
+let letter = 'DADBCEFB'; // D
+
 console.log(findLetter(letter));
+
+
+/**
+ * Expressions Matter
+ *
+ * Given three integers a ,b ,c, return the largest number obtained after inserting the following operators and brackets: +, *, ()
+ * In other words , try every combination of a,b,c with [*+()] , and return the Maximum Obtained
+ *
+ *
+ * With the numbers are 1, 2 and 3 , here are some ways of placing signs and brackets:
+ * 1 * (2 + 3) = 5
+ * 1 * 2 * 3 = 6
+ * 1 + 2 * 3 = 7
+ * (1 + 2) * 3 = 9
+ * So the maximum value that you can obtain is 9.
+ *
+ * Input:
+ * 正整數a、b、c
+ * 數字範圍:1-10之間
+ * 可以使用同個運算符號>1次
+ * a、b、c一定得依照順序
+ *
+ * return:
+ * int
+ *
+ * --------------------------
+ * 給3個正整數，可以使用運算符: +、*、()做運算，且可以使用同個符號>1次(也代表有些符號可以不使用)
+ * 運用不同的組合方式做運算，且運算時，abc一定得依照順序
+ * 回傳運算過後最大數
+ */
+function expressionMatter(a, b, c) {
+	return a * (b + c);
+}
+const v1 = 1;
+const v2 = 2;
+const v3 = 3;
+// should return:9
+// console.log(expressionMatter(v1, v2, v3));
