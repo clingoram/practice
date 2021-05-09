@@ -383,3 +383,32 @@ const v3 = 3;
 // should return:9
 // console.log(expressionMatter(v1, v2, v3));
 
+
+/**
+ * @param {number[][]} accounts
+ * @return {number}
+ */
+var maximumWealth = function (accounts) {
+	if (accounts.length === 0) {
+		return;
+	}
+
+	// solution 1:
+	// let sum = 0;
+	// for (let i = 0; i < accounts.length; i++) {
+	// 	let temp = 0;
+	// 	for (let j = 0; j < accounts[i].length; j++) {
+	// 		temp += accounts[i][j];
+	// 	}
+	// 	sum = Math.max(sum, temp);
+	// }
+	// return sum;
+
+	// solution 2:
+	return accounts.map(element =>
+		element.reduce((prev, current) => prev + current
+		));
+};
+let accounts = [[1, 5], [7, 3], [3, 5]];
+// return 10
+console.log(maximumWealth(accounts));
