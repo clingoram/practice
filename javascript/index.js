@@ -134,67 +134,6 @@ const str = '2 yo man 3 4 2 1';
 // console.log(com(str));
 
 
-/**
-* 1008 幾個水桶
-*
-* 要拿水桶去裝水，但要求要每一次取水都能帶最少的水桶去，而且「每一個水桶一定都要裝滿」
-* 水桶容量都是2的倍數(2的N次方)，以下是水桶容量:
-* 1,2,4,6,8,16,32,64,128
-* 
-* target 要裝m個單位的水，要帶幾個水桶才行?
-* EG.m=20，要帶2個水桶(容量16的水桶+容量4的水桶)
-*/
-function bucketWater(n) {
-	let count = 0;
-	// let maxWater = Math.pow(2, 31); // 2的31次方
-	// console.log(maxWater);
-
-	// n = 2的倍數相加
-	// 如何知道是否是2的倍數? %2 === 0
-	for (let i = 1; i <= n; i++) {
-		if (i % 2 === 0) {
-
-		}
-
-	}
-	return count;
-}
-const m = 20;
-// 2(16+4)
-// console.log(bucketWater(m));
-
-/*
-1002 - 數字比大小
-
-輸入一共有許多行，每一行都包含兩個正整數 a, b
-請輸出這兩個之中比較大的那個數字
-若是碰到 a=b=0 代表輸入結束
-
-Input
-用空格隔開的兩正整數 a 與 b
-
-Output
-針對每一筆測試資料，請輸出比較大的那個數字，若是兩個一樣大則輸出任意一個數字皆可
-
-若是碰到 a=b=0 代表輸入結束，請勿做任何處理
- */
-function compareNum(n) {
-	let toSplit = n.toString().split(" ");
-	console.log(toSplit);
-
-	// let ans = '';
-	for (let i = 0; i < toSplit.length; i++) {
-		let int = parseInt(toSplit[i], 10);
-		console.log(int);
-
-	}
-	// return ans;
-}
-const a = '1 1 2 3 0 0'; // obj
-// 1
-// 3
-// console.log(compareNum(a));
-
 
 
 
@@ -370,9 +309,6 @@ function findLetter(string) {
 		result[element] ? result[element]++ : result[element] = 1;
 	});
 	// 假設不知道第一個重複出現的是哪個字母，如何回傳該字母 => 要能維持跟原字串一樣的順序且找第一個出現次數>=2
-	// ABCD ABC
-	// BCDEF BEDEF
-	// 跟原自串比對?
 
 	// obj to array 
 	// Object.keys(result).map((key) => [key, result[key]]);
@@ -393,7 +329,7 @@ function findLetter(string) {
 	// console.log(result);
 
 	for (const [key, value] of Object.entries(result)) {
-		console.log(key, value)
+		// console.log(key, value)
 
 	}
 	// const map = new Map(Object.entries(result));
@@ -407,7 +343,7 @@ function findLetter(string) {
 // D:1,	B:2,	C:1,	A:3
 let letter = 'DADBCEFB'; // D
 
-console.log(findLetter(letter));
+// console.log(findLetter(letter));
 
 
 /**
@@ -446,3 +382,4 @@ const v2 = 2;
 const v3 = 3;
 // should return:9
 // console.log(expressionMatter(v1, v2, v3));
+
