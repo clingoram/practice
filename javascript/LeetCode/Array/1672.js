@@ -47,12 +47,43 @@ Output: 17
  */
 var maximumWealth = function (accounts) {
 
+    if (accounts.length === 0) {
+        return;
+    }
+
+    // solution 1:
     const temp = accounts.map((account) =>
         account.reduce((previous, current) => previous + current)
     );
     // console.log(temp.sort((a, b) => b - a)[0]);
     return temp.sort((a, b) => b - a)[0];
 
+    // solution 2:
+    // let sum = 0;
+    // for (let i = 0; i < accounts.length; i++) {
+    // 	let temp = 0;
+    // 	for (let j = 0; j < accounts[i].length; j++) {
+    // 		temp += accounts[i][j];
+    // 	}
+    // 	sum = Math.max(sum, temp);
+    // }
+    // return sum;
+
+    // solution 3:
+    // let max = 0;
+    // let min = 0;
+    // for (let i = 0; i < accounts.length; i++) {
+    // 	for (let j = 0; j < accounts[i].length; j++) {
+    // 		max += accounts[i][j];
+    // 	}
+    // 	if (max > min) {
+    // 		min = max;
+    // 		max = 0;
+    // 	} else {
+    // 		max = 0;
+    // 	}
+    // }
+    // return min;
 };
 
 // 加總accounts各個array

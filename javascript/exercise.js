@@ -18,7 +18,14 @@ function sumArray(arr) {
     return result;
 
     // solution 2:
+    // for (const key in arr) {
+    //     result+=arr[key];
+    // }
+    // return result;
+
+    // solution 3:
     // return arr.reduce((a, b) => a + b, 0);
+
 }
 const arr = [4];
 console.log(sumArray(arr));
@@ -933,3 +940,20 @@ function sumNumber(num) {
 }
 let sum = 1234;
 console.log(sumNumber(sum));
+
+
+// 以下不管是用map、forEach、for loop都是一樣的結果
+const array1 = [1, 4, 9, 16];
+// const map1 = array1.map(x => x * 2);
+//console.log(map1);
+
+let result = [];
+//array1.forEach(element=>{
+// result.push(element*2);
+//})
+for (let i = 0; i < array1.length; i++) {
+    result.push(array1[i] * 2);
+}
+console.log(result);
+// expected output: Array [2, 8, 18, 32]
+

@@ -44,6 +44,8 @@ var shuffle = function (nums, n) {
     let result = [];
     // x1,x2,x3,y1,y2,y3....，index都只有到3
     for (let i = 0; i < n; i++) {
+        // console.log(nums[i]); // 2,5,1
+        // console.log(nums[i + n]); // 3,4,7，從陣列 index0開始數，+N = 該陣列第N個位置
         result.push(nums[i], nums[i + n]);
         // result.push(nums[i + n]);
     }
