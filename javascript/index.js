@@ -425,6 +425,7 @@ const v3 = 3;
 function validCreditcard(num) {
 	let card = removeDash(num);
 	let sum = evenDigitsCount(card) - oddDigitsCount(card);
+	console.log(sum);
 }
 function removeDash(str) {
 	let result = '';
