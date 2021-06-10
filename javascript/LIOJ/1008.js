@@ -15,13 +15,13 @@ function bucketWater(n) {
   // solution 1:
   // let arr = [];
   // for (let i = 1; i <= 2 ** 31; i *= 2) {
-  // 	arr.push(i);
+  //   arr.push(i);
   // }
   // for (let i = arr.length - 1; i >= 0; i--) {
-  // 	if (arr[i] <= n) {
-  // 		n -= arr[i];
-  // 		count++;
-  // 	}
+  //   if (arr[i] <= n) {
+  //     n -= arr[i];
+  //     count++;
+  //   }
   // }
   // return count;
 
