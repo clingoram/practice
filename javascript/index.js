@@ -39,6 +39,8 @@ Given an integer array nums, find the contiguous subarray (containing at least o
 ------------------------
 nums = int array
 至少要有一個負數，return 最大總和
+elements中是要連續且有最大正值的elements
+return 最大總和
 -----------------------
 
 Example 1:
@@ -63,18 +65,18 @@ Constraints:
  * @param {number[]} nums
  * @return {number}
  */
-// var maxSubArray = function (nums) {
-//     if (nums.length < 1) {
-//         return null;
-//     }
+var maxSubArray = function (nums) {
+	if (nums.length < 1) {
+		return null;
+	}
 
-//     let max = Math.max(...nums);
-//     console.log(max);
-// };
-// const a = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
-// // [4,-1,2,1] has the largest sum = 6.
-// // return: 6
-// console.log(maxSubArray(a));
+	let max = Math.max(...nums);
+	console.log(max);
+};
+const a = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+// [4,-1,2,1] has the largest sum = 6 => -1+4+2+1
+// return: 6
+console.log(maxSubArray(a));
 
 
 /*
@@ -132,58 +134,3 @@ function com(str) {
 const str = '2 yo man 3 4 2 1';
 // aoy
 // console.log(com(str));
-
-/**
- * 找字
- * 
- * 給一字串，該字串有重複出現的字母，找出一個且重複出現次數>1的字母並回傳
- * 
- * EG:
- * DBCABA 
- * result: B
- * 
- * Input string
- * return string or null
- */
-function findLetter(string) {
-	// edge case:
-	// if empty string,return null;
-	// if string length < 1,return null
-	if (string.length === 0) {
-		return;
-	}
-	// 假設不知道第一個重複出現的是哪個字母，如何回傳該字母 => 要能維持跟原字串一樣的順序且找第一個出現次數>=2
-
-	// let result = {};
-	// [...string].forEach(element => {
-	// 	result[element] ? result[element]++ : result[element] = 1;
-	// });
-
-	// for (const [key, value] of Object.entries(result)) {
-	// 	console.log(key, value)
-	// }
-
-	// const map = new Map(Object.entries(result));
-	// return map;
-	// return Object.entries(result);
-
-	let m = new Map();
-	// way 1
-	[...string].forEach(element => {
-		m.has(element) ? m.set(element, m.get(element) + 1) : m.set(element, 1);
-	})
-	// way 2
-	// for (let i = 0; i < string.length; i++) {
-	// 	m.has(string[i]) ? m.set(string[i], m.get(string[i]) + 1) : m.set(string[i], 1);
-	// }
-
-	for (const [key, value] of m.entries()) {
-
-	}
-
-}
-// let letter = 'DBCABAA';
-// should return: 'B' as string
-// D:1,	B:2,	C:1,	A:3
-let letter = 'DADBCEFB'; // D
-console.log(findLetter(letter));
