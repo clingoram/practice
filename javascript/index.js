@@ -76,7 +76,7 @@ var maxSubArray = function (nums) {
 const a = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
 // [4,-1,2,1] has the largest sum = 6 => -1+4+2+1
 // return: 6
-console.log(maxSubArray(a));
+// console.log(maxSubArray(a));
 
 
 /*
