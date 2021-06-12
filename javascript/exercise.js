@@ -957,3 +957,36 @@ for (let i = 0; i < array1.length; i++) {
 console.log(result);
 // expected output: Array [2, 8, 18, 32]
 
+/**
+ * remove duplicates from array
+ */
+function rDuplicates(array) {
+    // solution 1
+    // return [...new Set(array)];
+
+    // solution 2
+    return array.filter((a, index) => {
+        return array.indexOf(a) === index;
+    })
+
+    // solution 3
+    // let unique = [];
+    // array.forEach((c) => {
+    // 	if (!unique.includes(c)) {
+    // 		unique.push(c);
+    // 	}
+    // })
+    // return unique;
+
+    // solution 4
+    // let unique = array.reduce(function (accumlator, current) {
+    // 	if (accumlator.indexOf(current) === -1) {
+    // 		accumlator.push(current);
+    // 	}
+    // 	return accumlator;
+    // }, [])
+    // return unique;
+
+}
+let chars = ['A', 'B', 'C', 'A', 'D'];
+console.log(rDuplicates(chars));
