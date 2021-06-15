@@ -134,3 +134,4 @@ function com(str) {
 const str = '2 yo man 3 4 2 1';
 // aoy
 // console.log(com(str));
+
