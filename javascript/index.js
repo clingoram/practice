@@ -110,14 +110,11 @@ Constraints:
  * @return {string[]}
  */
 var generateParenthesis = function (n) {
-	if (n.length === 0) {
-		return null;
-	}
 
 };
 const n = 3;
 // should return: ["((()))","(()())","(())()","()(())","()()()"]
-// console.log(generateParenthesis(n));
+console.log(generateParenthesis(n));
 
 /**
 * 數字1(n)表示後面有幾個字串
