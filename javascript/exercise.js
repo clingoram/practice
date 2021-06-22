@@ -826,7 +826,7 @@ console.log(isvalidTaiwanId(idString));
 
 /**
  * Regex
- * 
+ * https://atedev.wordpress.com/2007/11/23/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F-regular-expression/
  * 1. 檢查手機號碼，長度10
  * 2. 檢查號碼+英文字母(身分證驗證)，長度10
  * 3. 檢查是否是email，可能內容包含英文大小寫、數字、底線，@之前長度>8

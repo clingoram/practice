@@ -1,19 +1,20 @@
 // debugger
+
 /*
 EG:
 寫在程式開始執行的地方:
 let functionName = 'twoSum';
 let start = countTime(functionName);
+
 放置於程式執行結束處:
 let end = endTime(start);
 console.log(end);
 */
 /**
+ * 放置於程式開始執行處--開始時間
  * 
  * @param {string} fileName 執行function名稱
- */
-
-//放置於程式開始執行處--開始時間
+ * */
 function countTime(fileName = null) {
 
 	let start_time = new Date().getTime();
@@ -23,8 +24,12 @@ function countTime(fileName = null) {
 	]
 	return data;
 }
-// 結束時間
-// 放置於程式執行結束處，回傳結果的結束時間
+/**
+ * 結束時間
+ * 放置於程式執行結束處，回傳結果的結束時間
+ * 
+ * @param {variable} start 開始執行程式的變數
+ */
 function endTime(start) {
 	let end_time = new Date().getTime();
 
@@ -110,8 +115,8 @@ Constraints:
  * @return {string[]}
  */
 var generateParenthesis = function (n) {
-	if (n.length === 0) {
-		return null;
+	if (n < 1) {
+		return;
 	}
 
 };
@@ -129,9 +134,11 @@ const n = 3;
 */
 function com(str) {
 	let stringNumber = str[0]; // 有幾個字串
+	console.log(stringNumber);
 
 }
 const str = '2 yo man 3 4 2 1';
 // aoy
 // console.log(com(str));
+
 
