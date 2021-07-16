@@ -182,19 +182,108 @@ var findLongestWord = function (s, dictionary) {
 	let splitDict = dictionary.join('').split(''); // obj
 
 	let result = [];
+	let str = '';
 
 	for (let i = 0; i < splitDict.length; i++) {
-		// console.log(splitDict[i]);
-		// console.log(splitS[i]);
-
-		if (splitDict[i] === splitS[i]) {
-			result.push(splitDict[i]);
-		}
 	}
-	console.log(result);
+	// console.log(result);
 	// return result;
 };
 const s = "abpcplea", dictionary = ["ale", "apple", "monkey", "plea"];
 // no 'b','c' in dictionary
 // apple
 // console.log(findLongestWord(s, dictionary));
+
+
+
+/**
+ * 121. Best Time to Buy and Sell Stock
+ * Difficulty:Easy
+ *
+ * You are given an array prices where prices[i] is the price of a given stock on the ith day.
+ *
+ * You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+ *
+ * Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+ *
+ * ---------------------------------
+ * Input array
+ * Output int
+ * 
+ * array key = 天數;value = prices
+ * 一天要買股票一天賣股票，找出買賣股票最大獲利值
+ * -----------------------------------
+ * Example 1:
+ * Input: prices = [7,1,5,3,6,4]
+ * Output: 5
+ * Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+ * Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+ *
+ * Example 2:
+ * Input: prices = [7,6,4,3,1]
+ * Output: 0
+ * Explanation: In this case, no transactions are done and the max profit = 0.
+ *
+ * Constraints:
+ * 1 <= prices.length <= 105
+ * 0 <= prices[i] <= 104
+ */
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function (prices) {
+
+	if (prices.length < 1) {
+		return;
+	}
+
+	let min = prices[0];
+	let max = 0;
+	for (let i = 0; i < prices.length; i++) {
+
+	}
+};
+const prices = [7, 1, 5, 3, 6, 4];
+// 5
+// console.log(maxProfit(prices));
+
+/**
+ * 350.Intersection of Two Arrays II
+ * Difficulty:Easy
+ *
+ * Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must appear as many times as it shows in both arrays and you may return the result in any order.
+ *
+ *
+ * Example 1:
+ * Input: nums1 = [1,2,2,1], nums2 = [2,2]
+ * Output: [2,2]
+ *
+ * Example 2:
+ * Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+ * Output: [4,9]
+ * Explanation: [9,4] is also accepted.
+ *
+ *
+ * Constraints:
+ * 1 <= nums1.length, nums2.length <= 1000
+ * 0 <= nums1[i], nums2[i] <= 1000
+ *
+ * Follow up:
+ *
+ * What if the given array is already sorted? How would you optimize your algorithm?
+ * What if nums1's size is small compared to nums2's size? Which algorithm is better?
+ * What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
+ */
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+var intersect = function (nums1, nums2) {
+
+};
+const nums1 = [4, 9, 5], nums2 = [9, 4, 9, 8, 4];
+// [4,9]
+console.log(intersect(nums1, nums2));
+
