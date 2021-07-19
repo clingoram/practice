@@ -141,3 +141,110 @@ const str = '2 yo man 3 4 2 1';
 // aoy
 // console.log(com(str));
 
+/**
+ * 524. Longest Word in Dictionary through Deleting
+ * Difficulty:Medium
+ * 
+ * Given a string s and a string array dictionary, return the longest string in the dictionary that can be formed by deleting some of the given string characters. 
+ * If there is more than one possible result, return the longest word with the smallest lexicographical order. 
+ * If there is no possible result, return the empty string.
+ * 
+ * 
+ * 
+ * Example 1:
+ * Input: s = "abpcplea", dictionary = ["ale","apple","monkey","plea"]
+ * Output: "apple"
+ * 
+ * Example 2:
+ * Input: s = "abpcplea", dictionary = ["a","b","c"]
+ * Output: "a"
+ * 
+ * Constraints:
+ * 1 <= s.length <= 1000
+ * 1 <= dictionary.length <= 1000
+ * 1 <= dictionary[i].length <= 1000
+ * s and dictionary[i] consist of lowercase English letters.
+ */
+/**
+ * @param {string} s
+ * @param {string[]} dictionary
+ * @return {string}
+ */
+var findLongestWord = function (s, dictionary) {
+	let pattern = /^[a-z]+$/;
+	if (!s.match(pattern) || !s.match(pattern).join("")) {
+		return;
+	}
+
+	// split string s
+	// array.push(), array.pop()
+	let splitS = s.split(''); // obj
+	let splitDict = dictionary.join('').split(''); // obj
+
+	let result = [];
+	let str = '';
+
+	for (let i = 0; i < splitDict.length; i++) {
+	}
+	// console.log(result);
+	// return result;
+};
+const s = "abpcplea", dictionary = ["ale", "apple", "monkey", "plea"];
+// no 'b','c' in dictionary
+// apple
+// console.log(findLongestWord(s, dictionary));
+
+
+
+/**
+ * 121. Best Time to Buy and Sell Stock
+ * Difficulty:Easy
+ *
+ * You are given an array prices where prices[i] is the price of a given stock on the ith day.
+ *
+ * You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+ *
+ * Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+ *
+ * ---------------------------------
+ * Input array
+ * Output int
+ * 
+ * array key = 天數;value = prices
+ * 一天要買股票一天賣股票，找出買賣股票最大獲利值
+ * -----------------------------------
+ * Example 1:
+ * Input: prices = [7,1,5,3,6,4]
+ * Output: 5
+ * Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+ * Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+ *
+ * Example 2:
+ * Input: prices = [7,6,4,3,1]
+ * Output: 0
+ * Explanation: In this case, no transactions are done and the max profit = 0.
+ *
+ * Constraints:
+ * 1 <= prices.length <= 105
+ * 0 <= prices[i] <= 104
+ */
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function (prices) {
+
+	if (prices.length < 1) {
+		return;
+	}
+
+	let min = prices[0];
+	let max = 0;
+	for (let i = 0; i < prices.length; i++) {
+
+	}
+};
+const prices = [7, 1, 5, 3, 6, 4];
+// 5
+// console.log(maxProfit(prices));
+
