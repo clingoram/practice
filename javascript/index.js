@@ -238,13 +238,53 @@ var maxProfit = function (prices) {
 		return;
 	}
 
-	let min = prices[0];
-	let max = 0;
+	let sum = 0;
 	for (let i = 0; i < prices.length; i++) {
-
+		sum += prices[i] - prices[i + 1];
 	}
+	return sum;
 };
 const prices = [7, 1, 5, 3, 6, 4];
 // 5
 // console.log(maxProfit(prices));
 
+/**
+ * 43. Multiply Strings
+ * Difficulty:Medium
+ *
+ * Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2, also represented as a string.
+ * Note: You must not use any built-in BigInteger library or convert the inputs to integer directly.
+ *
+ * Input num1 and num2 are 非負數以字串方式呈現
+ * Output num1 * num2(以字串方式呈現)
+ * 不能使用內建含式或直接把Input轉成數字
+ * -------------------------------------------
+ * Example 1:
+ * Input: num1 = "2", num2 = "3"
+ * Output: "6"
+ *
+ * Example 2:
+ * Input: num1 = "123", num2 = "456"
+ * Output: "56088"
+ *
+ * Constraints:
+ * 1 <= num1.length, num2.length <= 200
+ * num1 and num2 consist of digits only.
+ * Both num1 and num2 do not contain any leading zero, except the number 0 itself.
+ */
+/**
+ * @param {string} num1
+ * @param {string} num2
+ * @return {string}
+ */
+var multiply = function (num1, num2) {
+
+	let pattern = /^[0-9]+gi/;
+	if (!Number(num1).match(pattern) || !Number(num2).match(pattern) || Number(num1) === 0 || Number(num2) === 0) {
+		return;
+	}
+
+};
+const num1 = "2", num2 = "3";
+// 6
+console.log(multiply(num1, num2));
