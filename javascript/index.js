@@ -37,8 +37,6 @@ function endTime(start) {
 }
 
 
-
-
 /*
 22. Generate Parentheses
 Difficulty:Medium
@@ -131,7 +129,6 @@ var findLongestWord = function (s, dictionary) {
 		return;
 	}
 
-	// split string s
 	// array.push(), array.pop()
 	let splitS = s.split(''); // obj
 	let splitDict = dictionary.join('').split(''); // obj
@@ -140,68 +137,15 @@ var findLongestWord = function (s, dictionary) {
 	let str = '';
 
 	for (let i = 0; i < splitDict.length; i++) {
+		splitS.includes(splitDict[i])
 	}
-	// console.log(result);
-	// return result;
+	return result;
 };
 const s = "abpcplea", dictionary = ["ale", "apple", "monkey", "plea"];
 // no 'b','c' in dictionary
-// apple
-// console.log(findLongestWord(s, dictionary));
+// return apple
+console.log(findLongestWord(s, dictionary));
 
-
-
-/**
- * 121. Best Time to Buy and Sell Stock
- * Difficulty:Easy
- *
- * You are given an array prices where prices[i] is the price of a given stock on the ith day.
- *
- * You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
- *
- * Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
- *
- * ---------------------------------
- * Input array
- * Output int
- * 
- * array key = 天數;value = prices
- * 一天要買股票一天賣股票，找出買賣股票最大獲利值
- * -----------------------------------
- * Example 1:
- * Input: prices = [7,1,5,3,6,4]
- * Output: 5
- * Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
- * Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
- *
- * Example 2:
- * Input: prices = [7,6,4,3,1]
- * Output: 0
- * Explanation: In this case, no transactions are done and the max profit = 0.
- *
- * Constraints:
- * 1 <= prices.length <= 105
- * 0 <= prices[i] <= 104
- */
-/**
- * @param {number[]} prices
- * @return {number}
- */
-var maxProfit = function (prices) {
-
-	if (prices.length < 1) {
-		return;
-	}
-
-	let sum = 0;
-	for (let i = 0; i < prices.length; i++) {
-		sum += prices[i] - prices[i + 1];
-	}
-	return sum;
-};
-const prices = [7, 1, 5, 3, 6, 4];
-// 5
-// console.log(maxProfit(prices));
 
 /**
  * 43. Multiply Strings
@@ -234,14 +178,17 @@ const prices = [7, 1, 5, 3, 6, 4];
  */
 var multiply = function (num1, num2) {
 
-	let pattern = /^[0-9]+gi/;
+	let pattern = /^[0-9]+$/;
 
 	if (!num1.match(pattern) || !num2.match(pattern) || Number(num1) === 0 || Number(num2) === 0) {
 		return;
 	}
 
 
+
 };
-const num1 = "2", num2 = "3";
-// 6
+// const num1 = "2", num2 = "3";
+// "6"
+const num1 = "123", num2 = "456";
+// "56088"
 // console.log(multiply(num1, num2));
