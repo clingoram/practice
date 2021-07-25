@@ -69,6 +69,8 @@ var romanToInt = function (s) {
     return;
   }
   const roman = { 'I': 1, 'IV': 4, 'V': 5, 'IX': 9, 'X': 10, 'XL': 40, 'L': 50, 'XC': 90, 'C': 100, 'CD': 400, 'D': 500, 'CM': 900, 'M': 1000 };
+
+  // solution 1.Runtime took 144 ms
   let n = 0;
   for (let i = 0; i < s.length; i++) {
     n += roman[s[i]];
@@ -80,7 +82,19 @@ var romanToInt = function (s) {
     }
   }
   return n;
-  // console.log(n);
+
+
+  // solution 2.Runtime took 136 ms
+
+  // let sum = 0;
+  // for (let i = 0; i < s.length; i += 1) {
+  //   if (roman[s[i]] < roman[s[i + 1]]) {
+  //     sum -= roman[s[i]];
+  //   } else {
+  //     sum += roman[s[i]];
+  //   }
+  // }
+  // return sum;
 };
 const s = "IV";
 // 9

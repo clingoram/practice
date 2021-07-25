@@ -144,7 +144,7 @@ var findLongestWord = function (s, dictionary) {
 const s = "abpcplea", dictionary = ["ale", "apple", "monkey", "plea"];
 // no 'b','c' in dictionary
 // return apple
-console.log(findLongestWord(s, dictionary));
+// console.log(findLongestWord(s, dictionary));
 
 
 /**
@@ -192,3 +192,4 @@ var multiply = function (num1, num2) {
 const num1 = "123", num2 = "456";
 // "56088"
 // console.log(multiply(num1, num2));
+
