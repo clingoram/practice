@@ -481,7 +481,8 @@ function findSecond(array) {
         return;
     }
     /*
-    一個是負無限大（-Infinity）一個是無限大（Infinity），找大的數目的時候預設變數是無限小，找小的數目預設它為無限大，和序列中的數字一一比對時才能由大取代小（負無限大），由小取代大（無限大）。
+    一個是負無限大（-Infinity）一個是無限大（Infinity），找大的數目的時候預設變數是無限小，
+    找小的數目預設它為無限大，和序列中的數字一一比對時才能由大取代小（負無限大），由小取代大（無限大）。
     */
     let max = -Infinity;
     let secondMax = -Infinity;

@@ -35,53 +35,6 @@ function endTime(start) {
 
 	return start[0] + '執行時間:' + (end_time - start[1]) / 5000 + 'ms';
 }
-/*
-53. Maximum Subarray
-Difficulty:Easy
-
-Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
-
-------------------------
-nums = int array
-至少要有一個負數，return 最大總和
-elements中是要連續且有最大正值的elements
-return 最大總和
------------------------
-
-Example 1:
-Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
-Output: 6
-Explanation: [4,-1,2,1] has the largest sum = 6.
-
-Example 2:
-Input: nums = [1]
-Output: 1
-
-Example 3:
-Input: nums = [5,4,-1,7,8]
-Output: 23
-
-
-Constraints:
-1 <= nums.length <= 3 * 104
--105 <= nums[i] <= 105
-*/
-/**
- * @param {number[]} nums
- * @return {number}
- */
-var maxSubArray = function (nums) {
-	if (nums.length < 1) {
-		return null;
-	}
-
-	let max = Math.max(...nums);
-	console.log(max);
-};
-const a = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
-// [4,-1,2,1] has the largest sum = 6 => -1+4+2+1
-// return: 6
-// console.log(maxSubArray(a));
 
 
 /*
@@ -176,7 +129,6 @@ var findLongestWord = function (s, dictionary) {
 		return;
 	}
 
-	// split string s
 	// array.push(), array.pop()
 	let splitS = s.split(''); // obj
 	let splitDict = dictionary.join('').split(''); // obj
@@ -185,66 +137,59 @@ var findLongestWord = function (s, dictionary) {
 	let str = '';
 
 	for (let i = 0; i < splitDict.length; i++) {
+		splitS.includes(splitDict[i])
 	}
-	// console.log(result);
-	// return result;
+	return result;
 };
 const s = "abpcplea", dictionary = ["ale", "apple", "monkey", "plea"];
 // no 'b','c' in dictionary
-// apple
+// return apple
 // console.log(findLongestWord(s, dictionary));
 
 
-
 /**
- * 121. Best Time to Buy and Sell Stock
- * Difficulty:Easy
+ * 43. Multiply Strings
+ * Difficulty:Medium
  *
- * You are given an array prices where prices[i] is the price of a given stock on the ith day.
+ * Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2, also represented as a string.
+ * Note: You must not use any built-in BigInteger library or convert the inputs to integer directly.
  *
- * You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
- *
- * Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
- *
- * ---------------------------------
- * Input array
- * Output int
- * 
- * array key = 天數;value = prices
- * 一天要買股票一天賣股票，找出買賣股票最大獲利值
- * -----------------------------------
+ * Input num1 and num2 are 非負數以字串方式呈現
+ * Output num1 * num2(以字串方式呈現)
+ * 不能使用內建含式或直接把Input轉成數字
+ * -------------------------------------------
  * Example 1:
- * Input: prices = [7,1,5,3,6,4]
- * Output: 5
- * Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
- * Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+ * Input: num1 = "2", num2 = "3"
+ * Output: "6"
  *
  * Example 2:
- * Input: prices = [7,6,4,3,1]
- * Output: 0
- * Explanation: In this case, no transactions are done and the max profit = 0.
+ * Input: num1 = "123", num2 = "456"
+ * Output: "56088"
  *
  * Constraints:
- * 1 <= prices.length <= 105
- * 0 <= prices[i] <= 104
+ * 1 <= num1.length, num2.length <= 200
+ * num1 and num2 consist of digits only.
+ * Both num1 and num2 do not contain any leading zero, except the number 0 itself.
  */
 /**
- * @param {number[]} prices
- * @return {number}
+ * @param {string} num1
+ * @param {string} num2
+ * @return {string}
  */
-var maxProfit = function (prices) {
+var multiply = function (num1, num2) {
 
-	if (prices.length < 1) {
+	let pattern = /^[0-9]+$/;
+
+	if (!num1.match(pattern) || !num2.match(pattern) || Number(num1) === 0 || Number(num2) === 0) {
 		return;
 	}
 
-	let min = prices[0];
-	let max = 0;
-	for (let i = 0; i < prices.length; i++) {
 
-	}
+
 };
-const prices = [7, 1, 5, 3, 6, 4];
-// 5
-// console.log(maxProfit(prices));
+// const num1 = "2", num2 = "3";
+// "6"
+const num1 = "123", num2 = "456";
+// "56088"
+// console.log(multiply(num1, num2));
 
