@@ -36,19 +36,25 @@ Only one valid answer exists.
  */
 var twoSum = function (nums, target) {
 
-    // solution 1:
+    /*
+    solution 1:
+    Brute Force暴力解法.時間複雜度 O(N^2) -- Bad
+     */
     if (nums.length < 2) {
         return;
     }
-    for (let index = 0; index < nums.length; index++) {
+    for (let i = 0; i < nums.length; i++) {
         for (let j = 0; j < nums.length; j++) {
-            if (nums[index] + nums[j] == target && index != j) {
-                return [index, j];
+            if (nums[i] + nums[j] == target && i != j) {
+                return [i, j];
             }
         }
     }
 
-    // solution 2:
+    /**
+     * solution 2:
+     * Hash Table - use map.時間複雜度 O(N) -- Better than solution 1.
+     */
     // let map = new Map();
     // if (array.length < 2 && target == null) {
     //     return array;
@@ -63,3 +69,8 @@ var twoSum = function (nums, target) {
     // }
     // return [];
 };
+const nums = [3, 2, 4];
+const target = 6;
+// Output: [1,2]
+// nums[1] + nums[2] = 6
+console.log(twoSum(nums, target));
