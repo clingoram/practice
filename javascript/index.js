@@ -193,3 +193,48 @@ const num1 = "123", num2 = "456";
 // "56088"
 // console.log(multiply(num1, num2));
 
+
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function (nums, target) {
+
+	// two pointer solution.Big O(n)
+	if (nums.length < 1 || !target) {
+		return;
+	}
+
+	nums.sort((a, b) => a - b);
+
+	let left = 0;
+	let right = nums.length - 1;
+	let result = [];
+
+	while (left < right) {
+		if (nums[left] + nums[right] === target) {
+			// return [left + 1, right + 1];
+			result.push(left, right);
+			left++;
+			right--;
+		} else if (nums[left] + nums[right] < target) {
+			left++;
+		} else {
+			right--;
+		}
+	}
+	return result;
+};
+// const target = 9;
+// const nums = [2, 7, 11, 15];
+//            ^          ^
+// Output: [0,1]
+// Output: Because nums[0] + nums[1] == 9, we return [0, 1].
+
+const nums = [3, 2, 4];
+const target = 6;
+// Output: [1,2]
+// nums[1] + nums[2] = 6
+console.log(twoSum(nums, target));
