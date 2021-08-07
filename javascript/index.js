@@ -78,31 +78,12 @@ const n = 3;
 // console.log(generateParenthesis(n));
 
 /**
-* 數字1(n)表示後面有幾個字串
-* 數字2(m)表示接下來有 m 個用空行分隔的數字
-* EG:
-* '2 yo man 3 4 2 1'
-* n:2後面有 yo man的2個字串
-* m:3後面有4 2 1 表示要把第4個字、第2個字、第1個字依序合起來
-*/
-function com(str) {
-	let stringNumber = str[0]; // 有幾個字串
-	console.log(stringNumber);
-
-}
-const str = '2 yo man 3 4 2 1';
-// aoy
-// console.log(com(str));
-
-/**
  * 524. Longest Word in Dictionary through Deleting
  * Difficulty:Medium
  * 
  * Given a string s and a string array dictionary, return the longest string in the dictionary that can be formed by deleting some of the given string characters. 
  * If there is more than one possible result, return the longest word with the smallest lexicographical order. 
  * If there is no possible result, return the empty string.
- * 
- * 
  * 
  * Example 1:
  * Input: s = "abpcplea", dictionary = ["ale","apple","monkey","plea"]
@@ -237,4 +218,5 @@ const nums = [3, 2, 4];
 const target = 6;
 // Output: [1,2]
 // nums[1] + nums[2] = 6
-console.log(twoSum(nums, target));
+// console.log(twoSum(nums, target));
+
