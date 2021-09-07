@@ -9,12 +9,27 @@
 <body>
     <div id="app">
         <h1>Hi</h1>
-        <p>this is practice</p>
-        <p>can you see it?</p>
-        <div id="section">
+        <p>This is practice</p>
+        <p>Can you see it?</p>
+        <!-- vue -->
+        <div id="section-for-vue">
+            <!-- <p v-once>Use v-once for never change: {{ message }}</p> -->
+            <p>{{message}}</p>
 
+            <!-- <span>Using v-html directive(Very danger):</span>
+            <p v-html="html">{{html}} </p>
+            <p v-text="html">{{html}}</p> -->
+            <p>Hello in {{ copyright }}</p>
         </div>
+
     </div>
+
+
+    <!-- to load app.js template html id -->
+    <script type="text/x-template" id="test">
+        <span style="color:red">Turn red</span>
+    </script>
+
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"
@@ -22,9 +37,12 @@
     <script src="javascript/index.js"></script>
     <!-- Vue.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script>
+    <script src="javascript/vue/app.js"></script>
+    <!-- Vue.js debug tool.
+          在git bash code/打上"vue-devtools"，就會啟動Vue dev tool。
+          所有跟Vue.js有關的都能用，要附上js以下連結 -->
+    <script src="http://localhost:8098"></script>
 
-    </script>
 </body>
 
 </html>
