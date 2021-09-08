@@ -13,23 +13,13 @@
         <p>Can you see it?</p>
         <!-- vue -->
         <div id="section-for-vue">
-            <!-- <p v-once>Use v-once for never change: {{ message }}</p> -->
             <p>{{message}}</p>
-
-            <!-- <span>Using v-html directive(Very danger):</span>
-            <p v-html="html">{{html}} </p>
-            <p v-text="html">{{html}}</p> -->
+            <p>Computed: {{ reverseMessageCom }}</p>
+            <p>Methods: {{ reverseMessage() }}</p>
             <p>Hello in {{ copyright }}</p>
         </div>
 
     </div>
-
-
-    <!-- to load app.js template html id -->
-    <script type="text/x-template" id="test">
-        <span style="color:red">Turn red</span>
-    </script>
-
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"
