@@ -13,13 +13,11 @@
         <p>Can you see it?</p>
         <!-- vue -->
         <div id="section-for-vue">
-            <p>{{ message }}</p>
-            <p>{{wholeName}}</p>
-            <!-- <p>Computed: {{ reverseMessageCom }}</p>
-            <p>Computed: {{ m1 }}</p>
-            <p>Methods: {{ reverseMessage() }}</p> -->
-            <input v-model="question">
-            <p>Hello in {{ copyright }}</p>
+            <!-- v-bind，把資料綁定，透過後台做串接改動，變成由資料控制畫面，資料可以連動更改。只要是DOM屬性，都可以用v-bind做調配-->
+            <a v-bind:href="link.href" v-bind:target="link.target" v-bind:style="{color:link.fontColor}">{{ link.content
+                }}</a>
+            <!-- 由後端控制樣式，要用class(v-bind:class="") -->
+            <input v-bind:type="input.type">
         </div>
 
     </div>
