@@ -13,9 +13,12 @@
         <p>Can you see it?</p>
         <!-- vue -->
         <div id="section-for-vue">
-            <p>{{message}}</p>
-            <p>Computed: {{ reverseMessageCom }}</p>
-            <p>Methods: {{ reverseMessage() }}</p>
+            <p>{{ message }}</p>
+            <p>{{wholeName}}</p>
+            <!-- <p>Computed: {{ reverseMessageCom }}</p>
+            <p>Computed: {{ m1 }}</p>
+            <p>Methods: {{ reverseMessage() }}</p> -->
+            <input v-model="question">
             <p>Hello in {{ copyright }}</p>
         </div>
 
