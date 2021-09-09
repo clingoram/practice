@@ -7,15 +7,40 @@
 </head>
 
 <body>
-    <!-- <script src="javascript/data_structures/linked_list_2.js"></script> -->
+    <div id="app">
+        <h1>Hi</h1>
+        <p>This is practice</p>
+        <p>Can you see it?</p>
+        <!-- vue -->
+        <div id="section-for-vue">
+            <!-- v-bind，把資料綁定，透過後台做串接改動，變成由資料控制畫面，資料可以連動更改。只要是DOM屬性，都可以用v-bind做調配-->
+            <a v-bind:href="link.href" v-bind:target="link.target" v-bind:style="{color:link.fontColor}">{{ link.content
+                }}</a>
+            <!-- 由後端控制樣式，要用class(v-bind:class="") -->
+            <input v-bind:type="input.type">
+
+            <div class="static" v-bind:class="classComponent">Computed v-bind:class Show text</div>
+            <div class="static" v-bind:class="classObj" v-bind:style="styleObj">Bind-class</div>
+            <div v-bind:class="classArray">Bind-Array
+            </div>
+            <div v-bind:class="[isActive ? activeClass : '', errorClass]">Bind-Array 1</div>
+
+        </div>
+
+    </div>
+
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="javascript/index.js"></script>
-    <!-- <script src="javascript/time.js"></script> -->
+    <!-- Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="javascript/vue/app.js"></script>
+    <!-- Vue.js debug tool.
+          在git bash code/打上"vue-devtools"，就會啟動Vue dev tool。
+          所有跟Vue.js有關的都能用，要附上js以下連結 -->
+    <script src="http://localhost:8098"></script>
 
-    <h1>Hi</h1>
-    <p>this is practice</p>
-    <p>can you see it?</p>
 </body>
 
 </html>
