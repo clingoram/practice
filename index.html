@@ -18,6 +18,11 @@
                 }}</a>
             <!-- 由後端控制樣式，要用class(v-bind:class="") -->
             <input v-bind:type="input.type">
+            <div class="static" v-bind:class="classComponent">Computed v-bind:class Show text</div>
+            <div class="static" v-bind:class="classObj">Bind-class</div>
+            <div :class="classArray">Bind-Array</div>
+            <div :class="[isActive ? activeClass : '', errorClass]">Bind-Array 1</div>
+
         </div>
 
     </div>
