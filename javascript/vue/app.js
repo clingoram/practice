@@ -8,13 +8,15 @@ let vm = new Vue({
       errorClass: 'text-danger',
       link: {
         content: 'Google',
-        href: "http://www.google.com/",
-        target: "_blank",
-        fontColor: "red"
+        href: 'http://www.google.com/',
+        target: '_blank',
+        // for style
+        fontColor: 'red'
       },
       input: {
-        type: "text"
+        type: 'text'
       },
+      // object
       classObj: {
         // key:value
         aaa: true,
@@ -22,6 +24,11 @@ let vm = new Vue({
       },
       // 比class obj還差一些，因為這樣他在HTML上會顯示全部陣列，容易出錯。也能用三元運算式(不好)
       classArray: ['apple', 'orange'],
+      // for style(use obj type)
+      styleObj: {
+        color: 'green',
+        fontSize: '30px'
+      }
     }
   },
   computed: {
