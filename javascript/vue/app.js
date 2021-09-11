@@ -8,6 +8,15 @@ let vm = new Vue({
   el: '#section-for-vue',
   data() {
     return {
+      /*
+       Event Handling.
+       v-on
+      */
+      count: 0,
+      eventArray: ['apple', 'pineapple', 'watermelon'],
+      /*
+       Rendering start
+      */
       // 若show=true(顯示)
       show: false,
       type: 'A', // defalut
@@ -27,10 +36,16 @@ let vm = new Vue({
         ],
       // array.no key:value
       color: ['red', 'blue', 'orange', 'pink']
+      /*
+      Rendering end
+      */
     }
   },
-  // 做一次會cache(暫存)下來;methods:每次都會做
+  // computed:資料處理資料，做一次會cache(暫存)下來;methods:每次都會做;watch:資料傳事件、資料傳行為(監聽資料，若有更改，傳到行為)
   computed: {
+    /*
+      Rendering start
+    */
     conditionalContent: function () {
       return mapping[this.type] || 'No content';
     },
@@ -39,6 +54,15 @@ let vm = new Vue({
       return this.music.filter(function (singer) {
         return singer.gender === 'F';
       })
+    }
+    /*
+     Rendering end
+    */
+  },
+  methods: {
+    // event
+    clickHandler: function (event) {
+      this.count = event.target
     }
   }
 })

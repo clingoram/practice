@@ -13,6 +13,7 @@
         <p>Can you see it?</p>
         <!-- vue -->
         <div id="section-for-vue">
+            <!-- D-5 Rendering -->
             <!-- 就算false還是會render，只是把它縮成小標籤而已，若頻繁切換、交互，不建議用v-if，因為v-if在做抽換dom的動作(不斷的更新dom tree，需要整個重新render、計算，使用queryselector也拿不到)，v-if若初始render是false不會做直到第一次是true，
                 如果是要做使用者互動居多，應該要用v-show(顯示或隱藏是使用CSS做處理)比較好 ，queryselector可以拿到，但不支援template(group)
 
@@ -41,6 +42,16 @@
                     {{value}}
                 </li>
             </ul>
+
+            <!-- D-6 v-on Event Handling 事件偵聽 -->
+            <button v-on:click="count+=1">+1</button>
+            <button v-on:click="count-=1">-1</button>
+            <p>Count結果: {{ count }}</p>
+
+            <button v-for="(value,index) in eventArray" v-on:click="count = index">{{ index }}</button>
+            <div>
+                <h3 v-for="(value,index) in eventArray" v-show="index === count">{{ value }}</h3>
+            </div>
         </div>
 
     </div>
