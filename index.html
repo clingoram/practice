@@ -11,48 +11,6 @@
         <h1>Hi</h1>
         <p>This is practice</p>
         <p>Can you see it?</p>
-        <!-- vue -->
-        <div id="section-for-vue">
-            <!-- D-5 Rendering -->
-            <!-- 就算false還是會render，只是把它縮成小標籤而已，若頻繁切換、交互，不建議用v-if，因為v-if在做抽換dom的動作(不斷的更新dom tree，需要整個重新render、計算，使用queryselector也拿不到)，v-if若初始render是false不會做直到第一次是true，
-                如果是要做使用者互動居多，應該要用v-show(顯示或隱藏是使用CSS做處理)比較好 ，queryselector可以拿到，但不支援template(group)
-
-            v-if 不要搭配v-for ，因為v-for會每個都做，若要全部都做，在個別隱藏，1.v-show 2.在源頭改-->
-            <h1 v-show="show">Hello</h1>
-            <div>{{ conditionalContent }}</div>
-
-            <ul>
-                <!-- list render寫法，v-for可以render:陣列、物件、數字、字串，但陣列物件比較推薦。寫法大概有3種 -->
-                <li v-for="s in music" :key="s.song" v-show="s.gender === 'M'">
-                    在v-show判斷: {{s.singer }} - {{s.song}}
-                </li>
-                <br>
-                <li v-for="s in filterMusic">
-                    在源頭過濾:{{s.singer }} - {{s.song}}
-                </li>
-                <br>
-                <!-- index是第幾個key(順序)，:key應該要綁專屬的key(因為不重複) -->
-                <li v-for="(value,index) in person" :key="index.name">
-                    Name:{{value.name }}.Age:{{value.age}}
-                    {{value.description}}
-                </li>
-                <br>
-                <!-- 如果只是單純的靜態文字，不會甚麼變動，可以不用綁定key -->
-                <li v-for="value of color">
-                    {{value}}
-                </li>
-            </ul>
-
-            <!-- D-6 v-on Event Handling 事件偵聽 -->
-            <button v-on:click="count+=1">+1</button>
-            <button v-on:click="count-=1">-1</button>
-            <p>Count結果: {{ count }}</p>
-
-            <button v-for="(value,index) in eventArray" v-on:click="count = index">{{ index }}</button>
-            <div>
-                <h3 v-for="(value,index) in eventArray" v-show="index === count">{{ value }}</h3>
-            </div>
-        </div>
 
     </div>
 
@@ -60,14 +18,6 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="javascript/index.js"></script>
-    <!-- Vue.js -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script src="javascript/vue/app.js"></script>
-    <!-- Vue.js debug tool.
-          在git bash code/打上"vue-devtools"，就會啟動Vue dev tool。
-          所有跟Vue.js有關的都能用，要附上js以下連結 -->
-    <script src="http://localhost:8098"></script>
-
 </body>
 
 </html>
