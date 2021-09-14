@@ -4,15 +4,53 @@
 <head>
   <meta charset="utf-8">
   <title>My Vue test page</title>
+</head>
 
 <body>
+  <!-- D7 v-model 雙向資料綁定(畫面跟資料直接相互影響，畫面可以改資料;資料可以變動畫面) two-way data bindings -->
   <div id="app">
+    <input type="text" v-model="textHere" placeholder="立即更新" />
+    <p>{{textHere}}</p>
+
+    <input type="text" v-model.lazy="textLazy" placeholder="打完字後，滑鼠離開input，才會更新" />
+    <p>{{textLazy}}</p>
+
+    <input type="checkbox" v-model="check">你{{checkText}}
+    <br>
+    <!-- 複選的checkbox，要用陣列形式 -->
+    <span v-for="num in 5" style="list-style: none;">
+      <!-- 用v-bind:value綁定數字迴圈 -->
+      <input type="checkbox" v-model="numberArray" v-bind:value="num" />
+      {{num}}
+    </span>
+    <br>
+    依照所選的順序來push:{{numberArray}}
+
   </div>
-  </head>
+
   <!-- Vue.js -->
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <script src="http://localhost:8098"></script>
   <script>
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          textHere: 'hey',
+          textLazy: 'Morning',
+          check: true,
+          numberArray: []
+        }
+      },
+      computed: {
+        checkText() {
+          return this.check === true ? '同意' : '不同意';
+        }
+      },
+      methods: {
+
+      }
+    })
   </script>
 </body>
 
