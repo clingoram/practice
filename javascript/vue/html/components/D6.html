@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>My Vue test page</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- D-6 v-on Event Handling 事件偵聽 -->
+    <button v-on:click="count+=1">+1</button>
+    <button v-on:click="count-=1">-1</button>
+    <p>Count結果: {{ count }}</p>
+
+    <!-- 不管是events、Methods in Inline Handlers、Methods in Inline Handlers2，結果都一樣 -->
+    <!-- 1 -->
+    <!-- <button v-for="(value,index) in eventFruitArray" v-on:click="count = index">Events: {{ index }}</button> -->
+
+    <!-- 2 -->
+    <!-- <button v-for="(value,index) in eventFruitArray" @click="clickHandler" v-bind:data-index="index">Methods in
+                Inline
+                Handlers(傳event): {{ index }}</button> -->
+
+    <!-- 3 -->
+    <button v-for="(value,index) in eventFruitArray" @click="clickHandler2(index,$event)"
+      v-bind:data-index="index">Methods in
+      Inline Handlers 2(傳index): {{ index }}</button>
+    <div>
+      <div>
+        <h3 v-for="(value,index) in eventFruitArray" v-show="index === count">{{ value }}</h3>
+      </div>
+    </div>
+    <br>
+    <!-- Event Modifiers. EG.nest -->
+    <!-- 若沒有加上@click.capture的話，執行順序是用bubbling方式從內到外(3-2-1)。加上capture，是從外到內，把1變成最高層 -->
+    <!-- self則是看target是否是自己，會分層觸發，最內層是按了按鍵就能觸發，往外漸漸觸發其他 -->
+    <div @click.self="nestClick(1)" style="border:5px solid">
+      <p @click.self="nestClick(2)" style="border:2px solid red"> 第二
+        <button v-on:click.self="nestClick(3)">GOGO</button>
+      </p>
+    </div>
+    <!-- System Modifier Keys & Mouse Button Modifiers -->
+    <!-- .exact -->
+    <button v-on:click.ctrl.exact="onCtrlClick">跟ctrl: A</button>
+    <button v-on:click.exact="onClick">只能單純按滑鼠: Mouse</button>
+    <button v-on:click.middle="onClickMiddle">只能單純按滑鼠滾輪: Mouse</button>
+  </div>
+
+  <!-- Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="http://localhost:8098"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          /*
+           Event Handling.
+           v-on
+          */
+          count: 0,
+          eventFruitArray: ["apple", "pineapple", "watermelon"],
+        };
+      },
+      methods: {
+        /* 
+        Event Handling. 事件綁定/處理
+        */
+        // 1. 把function name給對方，讓對方幫我偵聽。
+        // 前面HTML的邏輯要保留到這個method，變成不只是單純處理資料
+        clickHandler: function (event) {
+          // console.log(event);
+          // dataset會把物體字串化。有兩種方法:*1和passInt
+          this.count = event.target.dataset.index * 1;
+        },
+        // 2.當我按下去的時候，執行這個涵式(呼叫、執行)。
+        // 前面的邏輯由HTML自己處理好，這裏是單純的處理資料。比1好
+        clickHandler2: function (index, event) {
+          // console.log(index);
+          this.count = index;
+        },
+        // nest. for self,capture,stop,prevent,etc.
+        nestClick: function (num) {
+          console.log(num);
+        },
+        // ctrl.exact，只有同時按下滑鼠跟ctrl，才會觸發
+        onCtrlClick: function () {
+          console.log("也有按ctrl");
+        },
+        // 不能按其他鍵盤按鍵，只有點滑鼠有效
+        onClick: function () {
+          console.log("只點滑鼠");
+        },
+        onClickMiddle: function () {
+          console.log("mouse middle clicked");
+        },
+      },
+    })
+  </script>
+
+</body>
+
+</html>
