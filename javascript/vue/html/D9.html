@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <title>My Vue test page</title>
+</head>
+
+<body>
+  <!-- D9 Component 模組化-->
+  <div id="app">
+    <!-- 由外到內 -->
+    <input-component v-on:custom-input="inputHandler" v-model="inputText"></input-component>
+    <!-- 由內到外，類似獨立處理文字資料 -->
+    <input-component2 v-on:custom-input="input2Handler"></input-component2>
+
+    <filter-component v-on:filter="filterHandler"></filter-component>
+
+    <ul>
+      <list-component v-for="item of filterData" v-bind:key="item.timestamp" v-bind:item="item" v-bind:editing="editing"
+        v-on:delete="deleteHandler" v-on:edit="editHandler" v-on:done="completeHandler" v-on:cancel="cancelHandelr"
+        v-on:change="changeHandler">
+      </list-component>
+    </ul>
+  </div>
+
+  <!-- Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="http://localhost:8098"></script>
+  <script>
+    /*
+    重點:
+    1. 可重複利用
+    2. 分類管理(個別功能切開，只變成單一功能)
+    
+    要釐清資料從屬關係(模組是否擁有該資料)。
+
+    props:
+    從外層把資料分享(借)到內層去做顯示的動作，但是用單向資料(就是內層不能改資料)，若內層要改，需要請求外層同意。
+    內層通知外層(若要更改，要偵聽事件 v-on):
+    $emit(Emitting a Value With an Event)
+    $emit(名字,value)
+
+    若要在外面component(外層)接v-model，裡面component(內層)要綁value事件(EG.v-bind:value="value"、 props: ['value'])
+    */
+    // 篩選button
+    Vue.component("filter-component", {
+      data: function () {
+        return {
+          buttonList: [
+            { text: '全部', value: 'all' },
+            { text: '已完成', value: 'done' },
+            { text: '未完成', value: 'unfinish' }
+          ]
+        }
+      },
+      template: `
+      <p>
+        <button v-for="item of buttonList" v-bind:key="item.text" v-on:click="$emit('filter',item.value)">{{item.text}}</button>
+      </p>
+      `
+    });
+
+    // -------------------------
+    // Input
+
+    // 外到內(把資料從外層傳到內層component)，內部若更該資料，再由內部通知外部，外部做更改畫面(處理別人/外層的資料)
+    // 要釐清資料從屬關係(模組是否擁有該資料)。否則很容易出問題
+    // 使用props
+    Vue.component("input-component", {
+      // 對應v-bind:value
+      props: ['value'],
+      data() {
+        return {
+          compositionstatus: false,
+        }
+      },
+      //  v-on:input="$emit('input',$event.target.value)"的input是使用者在input打字的動作(事件)
+      template: `
+      <p>
+        <input type="text" v-bind:value="value" v-on:input="$emit('input',$event.target.value)" v-on:compositionstart="createStartData"
+        v-on:compositionend="createEndData" v-on:keyup.enter="inputHandler">
+      </p>
+      `,
+      methods: {
+        // Create
+        createStartData: function () {
+          // 確認是否開始輸入(適用enter)
+          this.compositionstatus = true;
+        },
+        createEndData: function () {
+          // 確認是否已經停止輸入(適用enter)
+          this.compositionstatus = false;
+        },
+        inputHandler: function () {
+          if (this.compositionstatus) {
+            return false;
+          }
+          // 使用者按enter做更新的事件
+          this.$emit("custom-input");
+        },
+      }
+    });
+
+
+    // 內到外，資料是屬於自己的，由自己處理，不是外層的
+    Vue.component("input-component2", {
+      data() {
+        return {
+          inputText: '',
+          compositionstatus: false,
+        }
+      },
+      //  認為v-model="inputText"是屬於模組的
+      template: `
+      <p>
+        <input type="text" v-model="inputText" v-on:compositionstart="createStartData"
+        v-on:compositionend="createEndData" v-on:keyup.enter="inputHandler">
+      </p>
+      `,
+      methods: {
+        // Create
+        createStartData: function () {
+          // 確認是否開始輸入(適用enter)
+          this.compositionstatus = true;
+        },
+        createEndData: function () {
+          // 確認是否已經停止輸入(適用enter)
+          this.compositionstatus = false;
+        },
+        inputHandler: function () {
+          if (this.compositionstatus) {
+            return false;
+          }
+          // 使用者按enter做更新的事件
+          this.$emit("custom-input", this.inputText);
+          this.inputText = '';
+        },
+      }
+    });
+    // -----------------------------
+
+    // 列表模組。
+    // 1.綁物件(一整個包起來傳過去)
+    // 2.傳資料(有多少筆資料傳幾個)
+    // 不要傳陣列!!!!
+    Vue.component("list-component", {
+      props: ["item", "editing"],
+      data() {
+        return {
+          editingText: '',
+        }
+      },
+      template: `
+      <li>
+
+        <template v-if="editing === item">
+          <input type="text" v-model="editingText">
+          <button v-on:click="completeHandler">完成</button>
+          <button v-on:click="cancelHandelr">取消</button>
+        </template>
+
+        <template v-else>
+          <input type="checkbox" v-model="item.status">
+          {{ item.content }}
+          <button v-on:click="deleteHandler(item)">刪除</button>
+          <button v-on:click="editHandler(item)">更新</button>
+        </template>
+
+      </li>
+      `,
+      computed: {
+        status: {
+          get() {
+            // get的時候直接return status
+            return this.item.status;
+          },
+          set(value) {
+            // set的時候，通知外面要改資料了
+            this.$emit("change", this.item.value);
+          }
+        }
+      },
+      methods: {
+        // Delete
+        deleteHandler: function (item) {
+          this.$emit("delete", item);
+        },
+        // Update(對外通知要更新)
+        editHandler: function (item) {
+          this.$emit('edit', item);
+          this.editingText = item.content;
+        },
+        completeHandler: function () {
+          this.$emit('done', this.editingText);
+          this.cancelHandelr();
+        },
+        cancelHandelr: function () {
+          this.editingText = '';
+          this.$emit('cancel');
+        }
+      }
+    });
+
+    // main
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          inputText: '',
+          list: [],
+          editing: null,
+          show: 'all'
+        }
+      },
+      computed: {
+        // Read
+        filterData: function () {
+          // 取全部、已完成、未完成資料，並做分類
+          if (this.show === 'all') {
+            return this.list;
+          } else if (this.show === 'done') {
+            return this.list.filter(function (item) {
+              return item.status === true;
+            })
+          } else if (this.show === 'unfinish') {
+            return this.list.filter(function (item) {
+              return item.status === false;
+            })
+          } else {
+            return [];
+          }
+        }
+      },
+      methods: {
+        // component 偵聽事件
+        filterHandler: function (value) {
+          this.show = value;
+        },
+        // 外到內，處理enter push
+        inputHandler: function () {
+          this.list.push({
+            timestamp: new Date().getTime(),
+            status: false,
+            content: this.inputText
+          });
+          this.inputText = '';
+        },
+        // 內到外
+        input2Handler: function (value) {
+          this.list.push({
+            timestamp: new Date().getTime(),
+            status: false,
+            content: value
+          });
+        },
+        // Delete
+        deleteHandler: function (item) {
+          // 產生新陣列:
+          // filter(可篩選不同的條件)
+          this.list = this.list.filter(function (target) {
+            return target != item;
+          })
+          // splice(指能針對index做篩選)
+          // this.list.splice(index, 1);
+        },
+        // Update
+        editHandler: function (item) {
+          this.editing = item;
+        },
+        completeHandler: function (value) {
+          this.editing.content = value;
+        },
+        cancelHandelr: function () {
+          this.editing = null;
+        },
+        changeHandler: function (item, value) {
+          item.status = value;
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

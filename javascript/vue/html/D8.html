@@ -9,11 +9,14 @@
   <!-- D8. CRUD ToDoList-->
   <div id="app">
     <p>
-      <input type="text" v-model="inputText" v-on:compositionstart="createStartData"
-        v-on:compositionstart="createEndData" v-on:keyup.enter="inputHandler">
+      <input type="text" v-model="inputText" v-on:compositionstart="createStartData" v-on:compositionend="createEndData"
+        v-on:keyup.enter="inputHandler">
+    </p>
+    <p>
       <button v-on:click="show = 'all'">全部</button>
       <button v-on:click="show = 'done'">已完成</button>
       <button v-on:click="show = 'unfinish'">未完成</button>
+
     </p>
     <ul>
       <li v-for="item of filterData" v-bind:key="item.timestamp">
