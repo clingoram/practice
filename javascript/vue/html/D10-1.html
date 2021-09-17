@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>My Vue test page</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- D10-1 Component Registration and Props. 組件封裝與資料傳遞-->
+    <!-- 1.放props，靜態 -->
+    <basic-component basic-name="Mavis" active></basic-component>
+    <!-- 2.動態 v-bind props(若不綁定，型態怎樣都是字串) -->
+    <basic-component v-bind:basic-name="name" v-bind:is-active=true></basic-component>
+    <!-- 3.v-bind computed function 直接綁定所有物件-->
+    <basic-component v-bind="basicBind"></basic-component>
+
+    <input-component checked></input-component>
+  </div>
+
+  <!-- Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="http://localhost:8098"></script>
+  <script>
+    const InputComponent = {
+      template: `
+        <label><input type="checkbox" /></label>
+      `,
+      // 原本會在label內，但加上下面這行，會把checkbox降級，只會出現在input
+      inheritAttrs: false
+    };
+
+    const BasicComponent = {
+      template: `
+      <div>{{ basicName }}</div>
+      `,
+      // 陣列形式(無法指定型別)
+      // props: ['basicName'],
+      // 物件形式(指定綁定型別)
+      props: {
+        // Prop Validation
+        basicName: {
+          type: String,
+          required: true,
+        },
+        active: Boolean,
+        "is-active": Boolean,
+        count: {
+          type: Number,
+          default: 0
+        },
+        array: {
+          type: Array,
+          default: undefined
+        }
+      },
+    };
+    Vue.component("basic-component", BasicComponent);
+    Vue.component("input-component", InputComponent);
+
+
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          name: 'L',
+          'is-active': true,
+          count: 0
+        }
+      },
+      computed: {
+        // 3.綁定物件的所有property，並用v-bind直接傳過去
+        basicBind() {
+          return {
+            'basicName': this.name,
+            active: true,
+            'is-active': true,
+            count: this.count
+          }
+        }
+      }
+    })
+  </script>
+
+</body>
+
+</html>
