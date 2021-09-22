@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>My Vue test page</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- D11. Custom Events 組件自定事件與通知 -->
+
+    <!-- <basic-component v-model="test" v-on:component-event="eventHandler" v-bind:title.sync="title"></basic-component> -->
+    <basic-component v-model="test" v-bind:title.sync="title"></basic-component>
+    <!-- 全部雙向綁定v-bind.sync -->
+  </div>
+
+  <!-- Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="http://localhost:8098"></script>
+  <script>
+    /*
+    重點:
+    A.Custom Events不會自動轉換命名，你寫甚麼，Vue.JS就是甚麼(Vue.JS推薦用kebab Case)
+    B.用$emit去打事件
+    C.要區分客製化事件可以用.native
+
+    常見命名方式(以常見度作為排序):
+    1.駝峰式(Camel Case)
+      命名方式為單字的首字母大寫，又可以分為大駝峰(upper camel case)與小駝峰(lower camel case)
+
+      小駝峰(lower camel case):
+      第一個單字的首字母小寫，其餘單字首字母大寫
+      例如：firstName、userPhone
+
+      大駝峰(upper camel case,Pascal Case):
+      第一個單字的首字母大寫，其餘單字首字母大寫
+      例如：FirstName、UserPhone
+
+    2.Pascal Case
+      所有的字母的首字母都是大寫
+      例如:UserLoginHistory
+    
+    3.kebab Case(spinal-case,Train-Case,Lisp-case)
+      單字與單字間使用連接符號"-"，有多種稱呼
+      例如：first-name、user-phone
+
+    4.Snake Case
+      單字與單字間使用下劃線分隔
+      例如：first_name、user_phone
+
+    ---------------------------------------
+    雙向綁定(v-model只能用一個，若多個用 .sync，但盡量不要太多個雙向綁定，最多3個就好):
+    v-model預設是要綁value、input event，通常用在form表dom(預設綁定會出現$attrs，會有value:true/false)，
+    但也能在component綁定，變成客製化事件(由內打到外)，客製化不需要綁事件，客製化的value=model prop;model event:event。
+    若要用客製化事件，要用model。
+
+    */
+    Vue.component("basic-component", {
+      template: `<div class="basic-component" v-on:click="clickHandler">Basic {{ title }}</div>`,
+      // 客製化事件:
+      model: {
+        prop: "active",// 綁在哪個身上
+        event: "component-event" // event名稱，會發生甚麼event(預設:input value)
+      },
+      props: {
+        active: {
+          type: Boolean,
+          default: false
+        },
+        title: {
+          type: String,
+          required: true
+        },
+        // 若把客製化事件的model刪除，就得這樣寫v-model的預設:
+        // 要有value、input，但這樣容易跟其他的value、input搞混，所以客製化事件比較好
+        // value: {
+        //   type: Boolean,
+        //   default: false
+        // }
+      },
+      methods: {
+        // 點擊內層component的clickHandler會進一步觸發外層的vue(v-on:component-event="eventHandler")
+        // 類似內層要修改，通知外層做對應的改變
+        clickHandler: function () {
+
+          // this.$emit('event name', model prop);
+          // Custom Events:
+          this.$emit('component-event', !this.active);
+          // v-model 預設:
+          // this.$emit('input', !this.active);
+
+          // sync
+          this.$emit('update:title', 'newTitle')
+        }
+      }
+    });
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          test: true,
+          title: "Hello"
+        }
+      },
+      methods: {
+        eventHandler: function (value) {
+          this.title = value;
+          console.log('is event');
+        }
+      }
+
+    })
+  </script>
+
+</body>
+
+</html>
