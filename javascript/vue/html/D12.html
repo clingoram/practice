@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>My Vue test page</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- D12.組件與自定 Slot -->
+
+    <!-- <basic-component v-model="test" v-on:component-event="eventHandler" v-bind:title.sync="title"></basic-component> -->
+    <basic-component title="Hello">
+      <!-- 內外層區分明顯，若找不到父層的資料就用子層的代替。沒有特別指定位置/區分的內容會被丟到父層 root -->
+      {{ insideData.firstName }}
+
+      <!-- 指定要使用子元件並綁在哪裡 v-slot:header -->
+      <template v-slot:header>
+        這裡有打字，就會使用root，沒有就會使用子元件的header
+      </template>
+      <template v-slot:default>
+        <!-- main的意思 -->
+        <!-- <p>And another one.</p> -->
+      </template>
+
+      <!-- 自己設定並綁定 -->
+      <template v-slot:default="props">
+        {{ props.data.firstName }}
+      </template>
+
+      <template v-slot:footer>
+        顯示Root的Footer
+      </template>
+    </basic-component>
+    <!-- 全部雙向綁定v-bind.sync -->
+  </div>
+
+  <!-- Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="http://localhost:8098"></script>
+  <script>
+    /*
+    slot:
+    <slot></slot> 
+    要把某個東西插在指定的位置上。
+    適合用在結構比較複雜，元件內容可以重複使用的地方。簡單說就是在 component(子層) 中可以預留空間，在父層再把內容放進去。
+    內外層區分明顯，若找不到父層的資料就用子層的代替。
+
+    調整內容(傳遞資料)方法:
+    1.props emit:
+
+    2.slot:
+
+
+    */
+    Vue.component("basic-component", {
+      template:
+        `<div class="basic-component">
+          <header>
+            <slot name="header">This is Header</slot> 
+          </header>
+          <main>
+            <slot v-bind:data="insideData">{{ insideData.firstName }}</slot> 
+          </main>
+          <footer>
+            <slot name="footer">This Is Footer</slot> 
+          </footer>
+        Basic Slot {{ title }} 
+      </div>`,
+      data() {
+        // 內層資料
+        return {
+          msg: 'world',
+          insideData: {
+            firstName: 'Yung Sum',
+            familyName: 'Kim'
+          }
+        }
+      },
+      props: {
+        title: {
+          type: String,
+          required: true
+        }
+      }
+    });
+
+    new Vue({
+      el: '#app',
+      data() {
+        // 外層資料
+        return {
+          msg: 'Morning',
+          insideData: {
+            firstName: 'Solar',
+            familyName: 'Kim'
+          }
+        }
+      }
+
+    })
+  </script>
+
+</body>
+
+</html>
