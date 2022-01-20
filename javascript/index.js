@@ -105,6 +105,10 @@ const n = 3;
  * @return {string}
  */
 var findLongestWord = function (s, dictionary) {
+	/**
+	 * Input string & array.
+	 * Output string.
+	 */
 	let pattern = /^[a-z]+$/;
 	if (!s.match(pattern) || !s.match(pattern).join("")) {
 		return;
@@ -122,10 +126,11 @@ var findLongestWord = function (s, dictionary) {
 	}
 	return result;
 };
-const s = "abpcplea", dictionary = ["ale", "apple", "monkey", "plea"];
+const s = "abpcplea";
+const dictionary = ["ale", "apple", "monkey", "plea"];
 // no 'b','c' in dictionary
 // return apple
-// console.log(findLongestWord(s, dictionary));
+console.log(findLongestWord(s, dictionary));
 
 
 /**
