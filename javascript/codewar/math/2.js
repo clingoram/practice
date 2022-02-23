@@ -33,6 +33,9 @@ function digital_root(n) {
     n = sum;
   }
   return n;
+
+  // Solution 2.Runtime took 784 ms.
+  // return (n - 1) % 9 + 1;
 }
 let num = 456;
 // 6 
