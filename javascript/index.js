@@ -130,7 +130,7 @@ const s = "abpcplea";
 const dictionary = ["ale", "apple", "monkey", "plea"];
 // no 'b','c' in dictionary
 // return apple
-console.log(findLongestWord(s, dictionary));
+// console.log(findLongestWord(s, dictionary));
 
 
 /**
