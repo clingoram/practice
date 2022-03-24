@@ -1,5 +1,6 @@
 # practice
 <h1>目的</h1>
-1. 用來練習JS、Python
-2. GIT
-3. LeetCode 題目
+1. 主要用來練習JS，和少許的Python
+2. 題目來源:
+- LeetCode 
+- CodeWars
