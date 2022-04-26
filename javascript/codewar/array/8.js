@@ -23,12 +23,15 @@ function isOddHeavy(n) {
   */
   const odd = [];
   const even = [];
-  for (let i = 0; i < n.length; i++) {
+  n.forEach(function (i) {
     if (i % 2 === 0) {
-      even.push(n[i]);
+      even.push(i);
     } else {
-      odd.push(n[i]);
+      odd.push(i);
     }
-  }
-  return JSON.stringify(odd) > JSON.stringify(even);
+  });
+
+  let sortedOdd = odd.sort((a, b) => a - b);
+  let sortedEven = even.sort((a, b) => a - b);
+  return sortedOdd.length === 0 || sortedOdd[0] < sortedEven[sortedEven.length - 1] ? false : true;
 }

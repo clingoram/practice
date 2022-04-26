@@ -224,4 +224,3 @@ const target = 6;
 // Output: [1,2]
 // nums[1] + nums[2] = 6
 // console.log(twoSum(nums, target));
-
