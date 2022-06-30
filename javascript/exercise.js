@@ -481,7 +481,8 @@ function findSecond(array) {
         return;
     }
     /*
-    一個是負無限大（-Infinity）一個是無限大（Infinity），找大的數目的時候預設變數是無限小，找小的數目預設它為無限大，和序列中的數字一一比對時才能由大取代小（負無限大），由小取代大（無限大）。
+    一個是負無限大（-Infinity）一個是無限大（Infinity），找大的數目的時候預設變數是無限小，
+    找小的數目預設它為無限大，和序列中的數字一一比對時才能由大取代小（負無限大），由小取代大（無限大）。
     */
     let max = -Infinity;
     let secondMax = -Infinity;
@@ -826,7 +827,7 @@ console.log(isvalidTaiwanId(idString));
 
 /**
  * Regex
- * 
+ * https://atedev.wordpress.com/2007/11/23/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F-regular-expression/
  * 1. 檢查手機號碼，長度10
  * 2. 檢查號碼+英文字母(身分證驗證)，長度10
  * 3. 檢查是否是email，可能內容包含英文大小寫、數字、底線，@之前長度>8
@@ -957,3 +958,36 @@ for (let i = 0; i < array1.length; i++) {
 console.log(result);
 // expected output: Array [2, 8, 18, 32]
 
+/**
+ * remove duplicates from array
+ */
+function rDuplicates(array) {
+    // solution 1
+    // return [...new Set(array)];
+
+    // solution 2
+    return array.filter((a, index) => {
+        return array.indexOf(a) === index;
+    })
+
+    // solution 3
+    // let unique = [];
+    // array.forEach((c) => {
+    // 	if (!unique.includes(c)) {
+    // 		unique.push(c);
+    // 	}
+    // })
+    // return unique;
+
+    // solution 4
+    // let unique = array.reduce(function (accumlator, current) {
+    // 	if (accumlator.indexOf(current) === -1) {
+    // 		accumlator.push(current);
+    // 	}
+    // 	return accumlator;
+    // }, [])
+    // return unique;
+
+}
+let chars = ['A', 'B', 'C', 'A', 'D'];
+console.log(rDuplicates(chars));

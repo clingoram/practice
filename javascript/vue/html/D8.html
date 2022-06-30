@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <title>My Vue test page</title>
+</head>
+
+<body>
+  <!-- D8. CRUD ToDoList-->
+  <div id="app">
+    <p>
+      <input type="text" v-model="inputText" v-on:compositionstart="createStartData" v-on:compositionend="createEndData"
+        v-on:keyup.enter="inputHandler">
+    </p>
+    <p>
+      <button v-on:click="show = 'all'">全部</button>
+      <button v-on:click="show = 'done'">已完成</button>
+      <button v-on:click="show = 'unfinish'">未完成</button>
+
+    </p>
+    <ul>
+      <li v-for="item of filterData" v-bind:key="item.timestamp">
+
+        <template v-if="editing === item">
+          <input type="text" v-model="editingText">
+          <button v-on:click="completeHandler">完成</button>
+          <button v-on:click="cancelHandelr">取消</button>
+        </template>
+
+        <template v-else>
+          <input type="checkbox" v-model="item.status">
+          {{ item.content }}
+          <!-- 較好的做法是拿ID去做更新與刪除，因為index是資料(0,1,2,3,4...)的順序，很容易出問題 -->
+          <button v-on:click="deleteHandler(item)">刪除</button>
+          <button v-on:click="editHandler(item)">更新</button>
+        </template>
+
+      </li>
+    </ul>
+  </div>
+
+  <!-- Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="http://localhost:8098"></script>
+  <script>
+    /*
+    + 雙向資料綁定(v-model)
+    + 事件綁定(v-on)
+      - 鍵盤事件:偵測鍵盤按鍵是否按enter(keyup.enter)
+    + 列表渲染(v-for)
+    + v-show、v-if
+
+    1.輸入框、Button(已完成、未完成)
+    2.按enter後，使用者可以馬上看到他輸入的內容
+    3.可以把資料清空、更新
+    */
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          inputText: '',
+          list: [],
+          compositionstatus: false,
+          editing: null,
+          editingText: '',
+          show: 'all'
+        }
+      },
+      //
+      computed: {
+        // Read
+        filterData: function () {
+          // 取全部、已完成、未完成資料，並做分類
+          if (this.show === 'all') {
+            return this.list;
+          } else if (this.show === 'done') {
+            return this.list.filter(function (item) {
+              return item.status === true;
+            })
+          } else if (this.show === 'unfinish') {
+            return this.list.filter(function (item) {
+              return item.status === false;
+            })
+          } else {
+            return [];
+          }
+        }
+      },
+      // 處理使用者互動、行為
+      methods: {
+        // Create
+        createStartData: function () {
+          // 確認是否開始輸入(適用enter)
+          this.compositionstatus = true;
+        },
+        createEndData: function () {
+          // 確認是否已經停止輸入(適用enter)
+          this.compositionstatus = false;
+        },
+        inputHandler: function () {
+          if (this.compositionstatus) {
+            return false;
+          }
+          this.list.push({
+            timestamp: new Date().getTime(),
+            status: false,
+            content: this.inputText
+          })
+          this.inputText = '';
+        },
+        // Delete
+        deleteHandler: function (item) {
+          // 產生新陣列:
+          // filter(可篩選不同的條件)
+          this.list = this.list.filter(function (target) {
+            return target != item;
+          })
+          // splice(指能針對index做篩選)
+          // this.list.splice(index, 1);
+        },
+        // Update
+        editHandler: function (item) {
+          this.editing = item;
+          this.editingText = item.content;
+        },
+        completeHandler: function () {
+          this.editing.content = this.editingText;
+          this.cancelHandelr();
+        },
+        cancelHandelr: function () {
+          this.editingText = '';
+          this.editing = null;
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

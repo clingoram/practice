@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>My Vue test page</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- D13 是做動畫，跟CSS有關，所以沒看 -->
+    <!-- D14 Mixin 與 Directive -->
+    <button v-on:click="log">Log</button>
+
+    <!-- Directive是要操作DOM時，算是前端優化才會用到，在此我沒有寫太多筆記和練習 -->
+    <button>Add</button>
+    <my-input v-for="num of count" :key="num"></my-input>
+  </div>
+
+  <!-- Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="http://localhost:8098"></script>
+  <script>
+    /*
+    mixin 就是為了製作共用的功能(compute/methods/watch)
+
+    Mixins 是一種讓元件共用功能的方法，使用方式即是將共用功能以物件（以下稱為 mixin object）的方式傳入 mixins option。
+    mixin object 可傳入所有元件的任何 option，例如：data、computed 、created或 methods。當元件選用 Mixins 時，使用的 mixin object 會和此元件的其他 option 混用。
+
+    Option Merging(誰先蓋誰，誰先誰後)，但很容易搞混:
+   
+    1.Hooks
+    當元件與使用的 mixin object 有相同的 option 時，如果是鉤子（hooks），例如created, mounted, updated…，那 mixin 的和 component 的動作全部會被塞進一個陣列。
+    因此皆能被執行，但mixin 物件中的鉤子會先被執行。
+
+    2.Methods
+    如果是 Methods、Components 或 Directives，有衝突時會選用元件的 option，就是以 component 本身的為主。(data 也是)
+
+    3.Global mixin
+    若用global，會影響到所有的vue模組。非常危險!!!!!
+
+    */
+
+    /*
+    Hooks:
+    當元件與使用的 mixin object 有相同的 option 時，如果是鉤子（hooks），例如created, mounted, updated…，那 mixin 的和 component 的動作全部會被塞進一個陣列。
+    因此皆能被執行，但mixin 物件中的鉤子會先被執行。
+
+    在created或其他(mounted, updated)，都會被執行，但執行順序是myMixin、myMixin2。
+
+    Methods:
+    放在methods是後蓋前，結果是擇一，因此myMixin不會被執行，只有myMixin2會被執行。
+
+    在自己的component(new Vue)，created是最後發生的:
+    發生順序:1、2、created
+    按下button:self
+
+
+    */
+    const myMixin = {
+      created() {
+        console.log('1');
+      },
+      methods: {
+        log(playload) {
+          console.log(`Log 1: ${playload}`);
+        }
+      }
+    }
+    const myMixin2 = {
+      created() {
+        console.log('2');
+      },
+      methods: {
+        log(playload) {
+          console.log(`Log 2: ${playload}`);
+        }
+      }
+    }
+
+    const myInput = {
+      template: `<p><input /></p>`
+    }
+    // Vue.component('my-input', myInput);
+
+    new Vue({
+      el: '#app',
+      mixins: [myMixin, myMixin2],
+      components: {
+        myInput
+      },
+      data() {
+        return {
+          count: 0
+        }
+      },
+      methods: {
+        clickHandler() {
+          console.log('clicked');
+        },
+        log() {
+          console.log('self');
+        }
+      },
+      created() {
+        console.log('created');
+      }
+    })
+  </script>
+
+</body>
+
+</html>
