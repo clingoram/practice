@@ -277,4 +277,11 @@ function order(words) {
 }
 let str = "4of Fo1r pe6ople g3ood th5e the2";
 // "Fo1r the2 g3ood 4of th5e pe6ople"
-console.log(order(str));
+// console.log(order(str));
+
+//------------------
+var a = 1, c = [0];
+var b = a, d = c;
+a = 2; c.push(1);
+console.log(b + d);
+// 10,1
