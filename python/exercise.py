@@ -61,3 +61,34 @@ def fib(a,b):
 a = 0
 b = 1
 fib(a,b)
+
+# 條件式
+def conditional(x):
+  string = ''
+  # 條件式，用if else，Python似乎沒有switch..case...用法
+  if len(x) <= 5:
+    string = 'Small'
+  elif len(x) >= 5 and len(x) <= 10:
+    string = 'Medium'
+  else:
+    string = 'Large'
+
+  print(string)
+
+s = 'English Alphabets has 26 letters.'
+conditional(s)
+
+# for loop
+def loop(n):
+  # for loop
+  for w in n:
+    # 印出list的key和該元素的長度
+    print(w,len(w))
+
+
+word = ['cat','fish','elephant','lion']
+loop(word)
+
+str = str(6) # 宣告變數為字串6
+a = int(5) #宣告變數為數值5
+print(type(str))
