@@ -4,16 +4,12 @@ python xxx.py(檔案名稱)
 
 就會執行該檔案
 """
-import numbers
+# 費氏數列
+def fib(a,b):
+    while a < 10:
+        print(a)
+        a,b = b,a+b
 
-
-def ego(n,m):
-    print(n+m)
-
-
-number1 = 12
-number2 = 6
-ego(number1,number2)
-
-text = ('dgjdogkd;gfdlg;dfg;dg''fsfdsfdfdfdfd')
-print(text)
+a = 0
+b = 1
+fib(a,b)
