@@ -1,5 +1,6 @@
-def ego():
-    print('hey')
+"""
+這用於python練習，在CMD打上:
+python xxx.py(檔案名稱)
 
-
-ego()
+就會執行該檔案
+"""
