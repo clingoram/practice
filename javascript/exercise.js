@@ -799,8 +799,8 @@ function isvalidTaiwanId(string) {
         return false;
     }
 
-    const alphabetToString = string[0];
-    const toInt = StringtoInt(alphabetToString);
+    const ToString = string[0];
+    const toInt = StringtoInt(ToString);
 
     let n1 = Math.floor(toInt / 10);
     let n2 = toInt % 10; // 取餘數
