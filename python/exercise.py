@@ -89,6 +89,29 @@ def loop(n):
 word = ['cat','fish','elephant','lion']
 loop(word)
 
-str = str(6) # 宣告變數為字串6
+astr = str(6) # 宣告變數為字串6
 a = int(5) #宣告變數為數值5
 print(type(str))
+
+# 類似Java scanner，可以跟使用者互動
+day = input("What day is today?")
+print("Today is " + day)
+
+# 轉型別:
+# float()
+# bool()
+# str()
+# int()
+first = input("First: ")
+second = input("Second: ")
+sum = int(first) + int(second)
+print(sum)
+
+year = input("Which year?") # data type return as string 
+minus = 2022 - int(year)
+print(minus)
+
+
+# String
+fruit = "Apple a day"
+print(fruit.replace("p","m"))
