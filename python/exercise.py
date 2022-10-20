@@ -115,3 +115,10 @@ print(minus)
 # String
 fruit = "Apple a day"
 print(fruit.replace("p","m"))
+
+# // mean Floor division(向下取整數)
+print(7 // 3)
+
+x = 2
+y = 5
+print(x ** y) # same as 2*2*2*2*2 => 2的5次方 = pow(2, 5)
