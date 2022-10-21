@@ -3,7 +3,7 @@
 python xxx.py(檔案名稱)
 
 就會執行該檔案
+
+如何知道Python version?
+python -V
 """
-# String
-fruit = "Apple a day"
-print(fruit.replace("p","m"))
