@@ -122,3 +122,27 @@ print(7 // 3)
 x = 2
 y = 5
 print(x ** y) # same as 2*2*2*2*2 => 2的5次方 = pow(2, 5)
+
+weight = int(input("Weight: "))
+unit = input("Kg or Lbs: ")
+converted = ""
+if unit.upper() == 'K':
+  converted = weight / 0.45
+elif unit.upper() == 'L':
+  converted = weight * 0.45
+else:
+  converted = "Please type K or L."
+print(str(converted))
+
+# 階梯
+i = 1
+while i <=5:
+  print(i * "*")
+  i+=1
+
+# List
+names = ["Amy","Bob","Kevin","Davis"]
+add = "Jessi"
+print(names[-2]) # 最後面
+names.append(add) # array push
+print(names)
