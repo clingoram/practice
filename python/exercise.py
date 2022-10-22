@@ -143,6 +143,7 @@ while i <=5:
 # List
 names = ["Amy","Bob","Kevin","Davis"]
 add = "Jessi"
+numbers = [1,6,3,8,3]
 print(names[-2]) # 最後面
 names.append(add) # array push
 print(names)
@@ -154,3 +155,28 @@ i = 0
 while i < len(names):
   print(names[i])
   i+=1
+
+# List
+# 兩種方式印出陣列
+from unicodedata import name
+
+# print(names[1:])
+names.extend(numbers) # array merge or array push
+names.extend("Alen") # 後面放字串的話，會把該字串拆開 "apple" => 'a','p','p','l','e'
+names.insert(1,"Jo") # 把位置1的名子改成Jo
+names.index("Bob") # find the name
+numbers.count(3)
+print(names)
+print(numbers)
+
+tt = [1,2,3,4,5,6,7]
+pt = tt*3 # 陣列重複: array * 重複次數
+print(pt)
+
+# array[start index:end index - 1]
+# print(tt[2:4])
+# 加上list => 這個陣列總共有幾個
+# print(list(tt[2:4]))
+# 刪除元素[index start:end index - 1]
+del tt[1:3]
+print(list[tt])

@@ -7,18 +7,32 @@ python xxx.py(檔案名稱)
 如何知道Python version?
 python -V
 """
-# List
-# 兩種方式印出陣列
-from unicodedata import name
+# Tuple (元組)：不能修改的List
+# 優點：執行速度比list快，儲存在Tuple的資料比較安全
+# https://ithelp.ithome.com.tw/articles/10200547
+test = (4,6)
+# print 6
+# print(test[1]) 
 
 
-names = ["Amy","Bob","Kevin","Davis"]
-numbers = [1,6,3,8,3]
-# print(names[1:])
-names.extend(numbers) # array merge or array push
-names.extend("Alen") # 後面放字串的話，會把該字串拆開 "apple" => 'a','p','p','l','e'
-names.insert(1,"Jo") # 把位置1的名子改成Jo
-names.index("Bob") # find the name
-numbers.count(3)
-print(names)
-print(numbers)
+'''
+在list中加入元素:
+A.append(E)：在A串列最後面加入E元素
+A.extend(B)：在A串列中加入B串列的元素
+A.insert(B)：在A串列中參數1的位置上加入B串列
+
+移除串列的元素:
+pop()：取出串列中最後一個元素，並且移除元素
+A.remove(E)：移除A串列中第一個出現E元素
+
+reverse()：反轉串列的順序
+sort()：將串列做排序
+'''
+color = ["red","green","blue"]
+color.append("orange")
+color.extend(["purple","pink"])
+color.insert(2,"grey")
+color.pop()
+color.remove("blue")
+color.reverse()
+print(color)
