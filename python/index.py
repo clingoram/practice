@@ -28,11 +28,36 @@ A.remove(E)：移除A串列中第一個出現E元素
 reverse()：反轉串列的順序
 sort()：將串列做排序
 '''
-color = ["red","green","blue"]
-color.append("orange")
-color.extend(["purple","pink"])
-color.insert(2,"grey")
-color.pop()
-color.remove("blue")
-color.reverse()
-print(color)
+# color = ["red","green","blue"]
+# color.append("orange")
+# color.extend(["purple","pink"])
+# color.insert(2,"grey")
+# color.pop()
+# color.remove("blue")
+# color.reverse()
+# print(color,sep = '\n')
+
+from math import gcd
+
+
+
+def gcdOfStrings(self, str1, str2):
+  """
+  :type str1: str
+  :type str2: str
+  :rtype: str
+  """
+  # str1 length % str2 length = res
+  # EG.str1 = "ABCABC", str2 = "ABC" => 6 % 3 => 2(擷取str1最前面2個字)
+  if ( str1 + str2 ) != ( str2 + str1 ):
+    print("")
+  elif str1 == str2:
+    print(str1)
+  else:
+    length_by_gcd = gcd(len(str1), len(str2))
+
+    print(str1[:length_by_gcd])
+
+str1 = "LEET"
+str2 = "CODE"
+gcdOfStrings(str1,str2)
