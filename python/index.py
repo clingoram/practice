@@ -61,6 +61,3 @@ def gcdOfStrings(self, str1, str2):
 # str1 = "LEET"
 # str2 = "CODE"
 # gcdOfStrings(str1,str2)
-
-test = "apple"
-print(test)
