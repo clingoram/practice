@@ -225,60 +225,7 @@ const target = 6;
 // nums[1] + nums[2] = 6
 // console.log(twoSum(nums, target));
 
-/**
- * Your order, please
- * 
- * Your task is to sort a given string. Each word in the string will contain a single number. This number is the position the word should have in the result.
- * 
- * Note: Numbers can be from 1 to 9. So 1 will be the first word (not 0).
- * 
- * If the input string is empty, return an empty string. The words in the input String will only contain valid consecutive numbers.
- * 
- * Examples
- * "is2 Thi1s T4est 3a"  -->  "Thi1s is2 3a T4est"
- * "4of Fo1r pe6ople g3ood th5e the2"  -->  "Fo1r the2 g3ood 4of th5e pe6ople"
- * ""  -->  ""
- */
 
-function order(words) {
-	/*
-	input string with number.
-	依據該字串內每個單字所屬的數字做asc排序並回傳正確順序
-	*/
-	let convertToArray = words.split(' ');
-	let numberPattern = /\d+/g;
-	// let result = [];
-	// console.log(words.split(' '));
-
-	for (let i = 0; i < convertToArray.length; i++) {
-		let number = convertToArray[i].match(numberPattern);
-		// convertToArray[i].stroke = convertToArray[i][number];
-		// console.log(number);
-		// let strPattern = convertToArray[i].replace(/[0-9]/g, '');
-		// console.log(strPattern);
-		// console.log(result[number]);
-	}
-
-	let newObjects = convertToArray.map(obj => {
-		return {
-			number: obj.number,
-			value: obj.convertToArray
-		}
-	})
-
-	console.log(newObjects);
-	//   let json = words.split(' ');
-	//   var output = [];
-	//   json.forEach(function (item) {
-	// //         output.push(item.replace(/\'/g, '').split(/(\d+)/).filter(Boolean));
-	//         output.push(item.replace(/\'/g,'').split(/(\d+)/).filter(Boolean));
-
-	//     });
-	//   console.log(output)
-}
-let str = "4of Fo1r pe6ople g3ood th5e the2";
-// "Fo1r the2 g3ood 4of th5e pe6ople"
-// console.log(order(str));
 
 /**
  * Check the exam
@@ -320,5 +267,51 @@ function checkExam(array1, array2) {
 	}
 	return sum < 0 ? 0 : sum;
 }
-console.log(checkExam(["a", "a", "c", "b"], ["a", "a", "b", ""]));
+// console.log(checkExam(["a", "a", "c", "b"], ["a", "a", "b", ""]));
 // 7
+
+/**
+ * 2677. Chunk Array
+ * 
+ * Given an array arr and a chunk size size, return a chunked array. A chunked array contains the original elements in arr, but consists of subarrays each of length size. 
+ * The length of the last subarray may be less than size if arr.length is not evenly divisible by size.
+ * You may assume the array is the output of JSON.parse. In other words, it is valid JSON.
+ * Please solve it without using lodash's _.chunk function.
+ * 
+ * Example 1:
+ * Input: arr = [1,2,3,4,5], size = 1
+ * Output: [[1],[2],[3],[4],[5]]
+ * Explanation: The arr has been split into subarrays each with 1 element.
+ * 
+ * Example 2:
+ * Input: arr = [1,9,6,3,2], size = 3
+ * Output: [[1,9,6],[3,2]]
+ * Explanation: The arr has been split into subarrays with 3 elements. However, only two elements are left for the 2nd subarray.
+ * 
+ * Example 3:
+ * Input: arr = [8,5,3,2,6], size = 6
+ * Output: [[8,5,3,2,6]]
+ * Explanation: Size is greater than arr.length thus all elements are in the first subarray.
+ * 
+ * Example 4:
+ * Input: arr = [], size = 1
+ * Output: []
+ * Explanation: There are no elements to be chunked so an empty array is returned.
+ *  
+ * 
+ * Constraints:
+ * arr is a valid JSON array
+ * 2 <= JSON.stringify(arr).length <= 105
+ * 1 <= size <= arr.length + 1
+ */
+/**
+ * @param {Array} arr
+ * @param {number} size
+ * @return {Array[]}
+ */
+var chunk = function (arr, size) {
+	/**
+	 * 給兩個參數，分別是數字陣列arr和數值size
+	 * 
+	 */
+};
