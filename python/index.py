@@ -49,14 +49,14 @@ def gcdOfStrings(self, str1, str2):
   """
   # str1 length % str2 length = res
   # EG.str1 = "ABCABC", str2 = "ABC" => 6 % 3 => 2(擷取str1最前面2個字)
-#   if ( str1 + str2 ) != ( str2 + str1 ):
-#     print("")
-#   elif str1 == str2:
-#     print(str1)
-#   else:
-#     length_by_gcd = gcd(len(str1), len(str2))
+  # if ( str1 + str2 ) != ( str2 + str1 ):
+  #   print("")
+  # elif str1 == str2:
+  #   print(str1)
+  # else:
+  #   length_by_gcd = gcd(len(str1), len(str2))
 
-#     print(str1[:length_by_gcd])
+  #   print(str1[:length_by_gcd])
 
 # str1 = "LEET"
 # str2 = "CODE"
