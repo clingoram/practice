@@ -61,3 +61,10 @@ def gcdOfStrings(self, str1, str2):
 # str1 = "LEET"
 # str2 = "CODE"
 # gcdOfStrings(str1,str2)
+
+def checkExist(arr:list,item:int):
+  return True if item in arr else False
+
+array = [1,2,3,4]
+item = 3
+checkExist(array,item)
