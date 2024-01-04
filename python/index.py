@@ -8,6 +8,3 @@ python xxx.py(檔案名稱)
 python -V
 """
 
-aa = [12,6]
-aa.append(24)
-print(aa)
