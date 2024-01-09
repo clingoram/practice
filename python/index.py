@@ -8,3 +8,5 @@ python xxx.py(檔案名稱)
 python -V
 """
 
+n = -5
+print(round(0.5))
