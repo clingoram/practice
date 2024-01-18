@@ -42,4 +42,11 @@ def best_friend(txt:str, a:str, b:str):
 text = "he headed to the store"
 target_one = "h"
 target_two = "e"
-best_friend(text,target_one,target_two)
+# True
+
+# text ="we found your dynamite"
+# target_one = "d"
+# target_two = "y"
+# False
+answer = best_friend(text,target_one,target_two)
+print(answer)
