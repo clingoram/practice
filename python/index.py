@@ -7,3 +7,5 @@ python xxx.py(檔案名稱)
 如何知道Python version?
 python -V
 """
+for i in range(len("alphabets")):
+  print(i)
