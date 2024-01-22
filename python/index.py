@@ -7,7 +7,3 @@ python xxx.py(檔案名稱)
 如何知道Python version?
 python -V
 """
-
-aa = [12,6]
-aa.append(24)
-print(aa)

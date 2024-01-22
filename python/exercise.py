@@ -52,6 +52,10 @@ combine = [fruit,color]
 print(combine)
 print(combine[0]) # 取出第一個陣列
 
+# tuple:裡面的值無法被更改，頂多只能指定print某個index值
+coordinates = (2,3)
+print(coordinates[1])
+
 # 費氏數列
 def fib(a,b):
     while a < 10:
