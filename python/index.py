@@ -16,8 +16,16 @@ python -V
 
 # oop
 # from file name(module) import the class.
-from oop.Fruit import Fruit
-fruits = Fruit("Apple",3,5)
+# from oop.Fruit import Fruit
+# from oop.Melon import Melon
+# fruits = Fruit("Apple",3,5)
 # print(fruits.calculate())
 
-print(5/3)
+# fruits = Fruit()
+# fruits.make_watering()
+
+# v = Melon()
+# v.make_seedling()
+# v.palnt()
+
+
