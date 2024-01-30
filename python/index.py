@@ -27,3 +27,19 @@ python -V
 # v = Melon()
 # v.make_seedling()
 # v.palnt()
+
+
+def diagonalDifference(arr):
+  '''
+  Diagonal Difference
+  Complete the 'diagonalDifference' function below.
+
+  The function is expected to return an INTEGER.
+  The function accepts 2D_INTEGER_ARRAY arr as parameter.
+  '''
+  left = 0
+  right = 0
+  for i in range(len(arr)):
+    left += arr[i][i]
+    right += arr[i][len(arr) - 1 - i]
+  return abs(left - right)
