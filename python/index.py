@@ -43,3 +43,5 @@ def diagonalDifference(arr):
     left += arr[i][i]
     right += arr[i][len(arr) - 1 - i]
   return abs(left - right)
+
+
