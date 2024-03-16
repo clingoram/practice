@@ -29,6 +29,10 @@ python -V
 # v.palnt()
 
 
+from collections import defaultdict
+from typing import Counter
+
+
 def diagonalDifference(arr):
   '''
   Diagonal Difference
