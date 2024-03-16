@@ -22,6 +22,8 @@ Constraints:
 1 <= nums.length <= 100
 1 <= nums[i] <= 100
 '''
+from collections import defaultdict
+from typing import Counter
 class Solution:
   def numIdenticalPairs(self, nums: list[int]) -> int:
     '''
