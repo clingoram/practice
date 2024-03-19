@@ -29,7 +29,9 @@ python -V
 # v.palnt()
 
 
-from collections import defaultdict
+
+
+
 from typing import Counter
 
 
@@ -49,3 +51,21 @@ def diagonalDifference(arr):
   return abs(left - right)
 
 
+def shortestCompletingWord(self, licensePlate: str, words: list[str]) -> str:
+    # license_chars = [char.lower() for char in licensePlate if char.isalpha()]
+    # license_count = Counter(license_chars)
+    # words.sort(key=len)
+    # for word in words:
+    #     word_count = Counter(word)
+    #     if all(word_count[char] >= license_count[char] for char in license_count):
+    #         return word
+
+  charsCount = []
+  for char in licensePlate:
+    if char.isalpha():
+      charsCount.append(Counter(char))
+  print(words)
+        
+licensePlate = "1s3 PSt"
+words = ["step","steps","stripe","stepple"]
+print(shortestCompletingWord(licensePlate, words))
