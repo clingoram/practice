@@ -59,3 +59,4 @@ def shortestCompletingWord(licensePlate: str, words: list[str]) -> str:
 licensePlate = "1s3 PSt"
 words = ["step","steps","stripe","stepple"]
 # print(shortestCompletingWord(licensePlate, words))
+
