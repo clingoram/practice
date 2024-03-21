@@ -28,8 +28,6 @@ python -V
 # v.make_seedling()
 # v.palnt()
 
-
-import re
 from typing import Counter
 
 
@@ -61,5 +59,3 @@ def shortestCompletingWord(licensePlate: str, words: list[str]) -> str:
 licensePlate = "1s3 PSt"
 words = ["step","steps","stripe","stepple"]
 # print(shortestCompletingWord(licensePlate, words))
-
-
