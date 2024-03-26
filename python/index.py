@@ -109,4 +109,5 @@ def isAcronym(words: list[str], s: str) -> bool:
 words =["never","gonna","give","up","on","you"]
 s = "ngguoy"
 # true
-print(isAcronym(words,s))
+# print(isAcronym(words,s))
+
