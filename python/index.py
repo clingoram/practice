@@ -28,7 +28,7 @@ python -V
 # v.make_seedling()
 # v.palnt()
 
-from functools import reduce
+
 from typing import Counter
 
 
