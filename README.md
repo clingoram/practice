@@ -4,3 +4,6 @@
 2. 題目來源:
 - LeetCode 
 - CodeWars
+
+雖是JavaScript，但實際上使用Node.js，因此不需要打開瀏覽器便可執行JS的環境
+CMD打上node app.js

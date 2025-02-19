@@ -17,12 +17,12 @@ console.log(end);
  * */
 function countTime(fileName = null) {
 
-	let start_time = new Date().getTime();
-	let data = [
-		fileName,
-		start_time
-	]
-	return data;
+  let start_time = new Date().getTime();
+  let data = [
+    fileName,
+    start_time
+  ]
+  return data;
 }
 /**
  * 結束時間
@@ -31,9 +31,9 @@ function countTime(fileName = null) {
  * @param {variable} start 開始執行程式的變數
  */
 function endTime(start) {
-	let end_time = new Date().getTime();
+  let end_time = new Date().getTime();
 
-	return start[0] + '執行時間:' + (end_time - start[1]) / 5000 + 'ms';
+  return start[0] + '執行時間:' + (end_time - start[1]) / 5000 + 'ms';
 }
 
 
@@ -68,9 +68,9 @@ Constraints:
  * @return {string[]}
  */
 var generateParenthesis = function (n) {
-	if (n < 1) {
-		return;
-	}
+  if (n < 1) {
+    return;
+  }
 
 };
 const n = 3;
@@ -105,26 +105,26 @@ const n = 3;
  * @return {string}
  */
 var findLongestWord = function (s, dictionary) {
-	/**
-	 * Input string & array.
-	 * Output string.
-	 */
-	let pattern = /^[a-z]+$/;
-	if (!s.match(pattern) || !s.match(pattern).join("")) {
-		return;
-	}
+  /**
+   * Input string & array.
+   * Output string.
+   */
+  let pattern = /^[a-z]+$/;
+  if (!s.match(pattern) || !s.match(pattern).join("")) {
+    return;
+  }
 
-	// array.push(), array.pop()
-	let splitS = s.split(''); // obj
-	let splitDict = dictionary.join('').split(''); // obj
+  // array.push(), array.pop()
+  let splitS = s.split(''); // obj
+  let splitDict = dictionary.join('').split(''); // obj
 
-	let result = [];
-	let str = '';
+  let result = [];
+  let str = '';
 
-	for (let i = 0; i < splitDict.length; i++) {
-		splitS.includes(splitDict[i])
-	}
-	return result;
+  for (let i = 0; i < splitDict.length; i++) {
+    splitS.includes(splitDict[i])
+  }
+  return result;
 };
 const s = "abpcplea";
 const dictionary = ["ale", "apple", "monkey", "plea"];
@@ -164,11 +164,11 @@ const dictionary = ["ale", "apple", "monkey", "plea"];
  */
 var multiply = function (num1, num2) {
 
-	let pattern = /^[0-9]+$/;
+  let pattern = /^[0-9]+$/;
 
-	if (!num1.match(pattern) || !num2.match(pattern) || Number(num1) === 0 || Number(num2) === 0) {
-		return;
-	}
+  if (!num1.match(pattern) || !num2.match(pattern) || Number(num1) === 0 || Number(num2) === 0) {
+    return;
+  }
 
 
 
@@ -188,30 +188,30 @@ const num1 = "123", num2 = "456";
  */
 var twoSum = function (nums, target) {
 
-	// two pointer solution.Big O(n)
-	if (nums.length < 1 || !target) {
-		return;
-	}
+  // two pointer solution.Big O(n)
+  if (nums.length < 1 || !target) {
+    return;
+  }
 
-	nums.sort((a, b) => a - b);
+  nums.sort((a, b) => a - b);
 
-	let left = 0;
-	let right = nums.length - 1;
-	let result = [];
+  let left = 0;
+  let right = nums.length - 1;
+  let result = [];
 
-	while (left < right) {
-		if (nums[left] + nums[right] === target) {
-			// return [left + 1, right + 1];
-			result.push(left, right);
-			left++;
-			right--;
-		} else if (nums[left] + nums[right] < target) {
-			left++;
-		} else {
-			right--;
-		}
-	}
-	return result;
+  while (left < right) {
+    if (nums[left] + nums[right] === target) {
+      // return [left + 1, right + 1];
+      result.push(left, right);
+      left++;
+      right--;
+    } else if (nums[left] + nums[right] < target) {
+      left++;
+    } else {
+      right--;
+    }
+  }
+  return result;
 };
 // const target = 9;
 // const nums = [2, 7, 11, 15];
@@ -242,77 +242,31 @@ const target = 6;
  * checkExam(["b", "c", "b", "a"], ["",  "a", "a", "c"]) → 0
  */
 function checkExam(array1, array2) {
-	/**
-	 * 給兩個字串陣列參數，檢查這兩個參數中的元素有哪些不一樣，再依據他們的比對結果作加減分
-	 * 一樣:+4分
-	 * 不一樣:-1
-	 * 空:+0
-	 * ---------
-	 * 參數長度會相等，可能會有空字串
-	 * 比對兩個參數元素
-	 */
-	let sum = 0;
-	if (array1.length !== array2.length) {
-		return;
-	}
-	for (let i = 0; i < array1.length; i++) {
-		if (array1[i] === array2[i]) {
-			sum = sum + 4;
-		} else if (array1[i] !== array2[i]) {
-			sum = sum - 1;
-		}
-		if (array1[i] === "" || array2[i] === "") {
-			sum = sum;
-		}
-	}
-	return sum < 0 ? 0 : sum;
+  /**
+   * 給兩個字串陣列參數，檢查這兩個參數中的元素有哪些不一樣，再依據他們的比對結果作加減分
+   * 一樣:+4分
+   * 不一樣:-1
+   * 空:+0
+   * ---------
+   * 參數長度會相等，可能會有空字串
+   * 比對兩個參數元素
+   */
+  let sum = 0;
+  if (array1.length !== array2.length) {
+    return;
+  }
+  for (let i = 0; i < array1.length; i++) {
+    if (array1[i] === array2[i]) {
+      sum = sum + 4;
+    } else if (array1[i] !== array2[i]) {
+      sum = sum - 1;
+    }
+    if (array1[i] === "" || array2[i] === "") {
+      sum = sum;
+    }
+  }
+  return sum < 0 ? 0 : sum;
 }
 // console.log(checkExam(["a", "a", "c", "b"], ["a", "a", "b", ""]));
 // 7
-
-/**
- * 2677. Chunk Array
- * 
- * Given an array arr and a chunk size size, return a chunked array. A chunked array contains the original elements in arr, but consists of subarrays each of length size. 
- * The length of the last subarray may be less than size if arr.length is not evenly divisible by size.
- * You may assume the array is the output of JSON.parse. In other words, it is valid JSON.
- * Please solve it without using lodash's _.chunk function.
- * 
- * Example 1:
- * Input: arr = [1,2,3,4,5], size = 1
- * Output: [[1],[2],[3],[4],[5]]
- * Explanation: The arr has been split into subarrays each with 1 element.
- * 
- * Example 2:
- * Input: arr = [1,9,6,3,2], size = 3
- * Output: [[1,9,6],[3,2]]
- * Explanation: The arr has been split into subarrays with 3 elements. However, only two elements are left for the 2nd subarray.
- * 
- * Example 3:
- * Input: arr = [8,5,3,2,6], size = 6
- * Output: [[8,5,3,2,6]]
- * Explanation: Size is greater than arr.length thus all elements are in the first subarray.
- * 
- * Example 4:
- * Input: arr = [], size = 1
- * Output: []
- * Explanation: There are no elements to be chunked so an empty array is returned.
- *  
- * 
- * Constraints:
- * arr is a valid JSON array
- * 2 <= JSON.stringify(arr).length <= 105
- * 1 <= size <= arr.length + 1
- */
-/**
- * @param {Array} arr
- * @param {number} size
- * @return {Array[]}
- */
-var chunk = function (arr, size) {
-	/**
-	 * 給兩個參數，分別是數字陣列arr和數值size
-	 * 
-	 */
-};
 
