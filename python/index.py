@@ -7,6 +7,7 @@ python xxx.py(檔案名稱)
 如何知道Python version?
 python -V
 """
+from operator import le
 from typing import List
 # module
 # import basic.algo.linearSearch
@@ -119,14 +120,99 @@ nums[i].length == n
 nums[i] is either '0' or '1'.
 All the strings of nums are unique.
 '''
+# class Solution:
+#   def findDifferentBinaryString(self, nums: List[str]) -> str:
+
+
+# nums = ["111","011","001"]
+# # 101
+# a = Solution()
+# print(a.findDifferentBinaryString(nums))
+
 class Solution:
-  def findDifferentBinaryString(self, nums: List[str]) -> str:
-   s = Set()
-   for i in range(len(nums)):
-     s.add(int(nums[i]),2)
+    '''
+    3264. Final Array State After K Multiplication Operations I
 
+    You are given an integer array nums, an integer k, and an integer multiplier.
+    You need to perform k operations on nums. In each operation:
+      Find the minimum value x in nums. If there are multiple occurrences of the minimum value, select the one that appears first.
+      Replace the selected minimum value x with x * multiplier.
+    Return an integer array denoting the final state of nums after performing all k operations.
 
-nums = ["111","011","001"]
-# 101
+    Hints:
+    1. Maintain sorted pairs (nums[index], index) in a priority queue.
+    2. Simulate the operation k times.
+
+    Example 1:
+    Input: nums = [2,1,3,5,6], k = 5, multiplier = 2
+    Output: [8,4,6,5,6]
+    Explanation:
+      Operation	Result
+      After operation 1	[2, 2, 3, 5, 6]
+      After operation 2	[4, 2, 3, 5, 6]
+      After operation 3	[4, 4, 3, 5, 6]
+      After operation 4	[4, 4, 6, 5, 6]
+      After operation 5	[8, 4, 6, 5, 6]
+    
+    Example 2:
+    Input: nums = [1,2], k = 3, multiplier = 4
+    Output: [16,8]
+    Explanation:
+      Operation	Result
+      After operation 1	[4, 2]
+      After operation 2	[4, 8]
+      After operation 3	[16, 8]
+    
+
+    Constraints:
+    1 <= nums.length <= 100
+    1 <= nums[i] <= 100
+    1 <= k <= 10
+    1 <= multiplier <= 5
+
+    3個參數:int array nums.int k & int multiplier
+    需在nums上操作K次，每次找出nums中最小值X，若有重複多個最小值出現，則取第一個出現的
+    將X汰換成 X * multiplier
+    回傳在操作K次上述步驟後的num
+    '''
+    def getFinalState(self, nums: List[int], k: int, multiplier: int) -> List[int]:
+      # solution 1
+      # for _ in range(k):
+      #   minIndex = 0
+      #   for i in range(len(nums)):
+      #     if nums[i] < nums[minIndex]:
+      #       minIndex =i
+      #   nums[minIndex] *= multiplier
+      # return nums
+
+      # Solution 2.
+      # for _ in range(k):
+      #    x = nums.index(min(nums))
+      #    nums[x] *= multiplier
+      # return nums
+
+      op = 0
+      while op < k:
+        x = min(nums)
+        j = 0
+        for i in range(len(nums)):
+          if nums[i] < x:
+            x = nums[i]
+            j = i
+
+        op+=1
+        nums[j] *= multiplier
+
+      # while(op < k):
+      #   min = newNums[0]
+      #   newNums.remove(min)
+      #   newNums.append(min * multiplier)
+      #   op+=1
+      return nums
+
+nums = [2,1,3,5,6]
+k = 5
+multiplier = 2
+# [8,4,6,5,6]
 a = Solution()
-print(a.findDifferentBinaryString(nums))
+print(a.getFinalState(nums,k,multiplier))
