@@ -320,7 +320,7 @@ var getHappyString = function (n, k) {
   // 只會有a、b、c
   // 先取得a、b、c，符合數字n是第幾個字母
 };
-let c = 3, k = 9;
+// let c = 3, k = 9;
 //"cab"
 // console.log(getHappyString(c, k));
 
