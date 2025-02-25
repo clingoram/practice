@@ -209,7 +209,6 @@ class Solution:
       #   newNums.append(min * multiplier)
       #   op+=1
       return nums
-
 nums = [2,1,3,5,6]
 k = 5
 multiplier = 2

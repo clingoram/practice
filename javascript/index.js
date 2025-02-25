@@ -219,8 +219,8 @@ var twoSum = function (nums, target) {
 // Output: [0,1]
 // Output: Because nums[0] + nums[1] == 9, we return [0, 1].
 
-const nums = [3, 2, 4];
-const target = 6;
+// const nums = [3, 2, 4];
+// const target = 6;
 // Output: [1,2]
 // nums[1] + nums[2] = 6
 // console.log(twoSum(nums, target));
