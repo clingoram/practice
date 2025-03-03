@@ -259,6 +259,9 @@ p contains only lowercase English letters and exactly one '*'
 def hasMatch(s: str, p: str) -> bool:
   #  將字串拆成兩部分再搜尋
   return False
-s = "leetcode", p = "ee*e"
+s = "leetcode"
+p = "ee*e"
 # True
-print(hasMatch(s,p))
+# print(hasMatch(s,p))
+
+

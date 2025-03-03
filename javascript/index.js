@@ -175,7 +175,7 @@ var multiply = function (num1, num2) {
 };
 // const num1 = "2", num2 = "3";
 // "6"
-const num1 = "123", num2 = "456";
+// const num1 = "123", num2 = "456";
 // "56088"
 // console.log(multiply(num1, num2));
 
