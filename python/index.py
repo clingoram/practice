@@ -7,6 +7,7 @@ python xxx.py(檔案名稱)
 如何知道Python version?
 python -V
 """
+from math import sqrt
 from operator import le
 from typing import List
 # module
@@ -263,5 +264,4 @@ s = "leetcode"
 p = "ee*e"
 # True
 # print(hasMatch(s,p))
-
 
