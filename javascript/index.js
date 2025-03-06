@@ -360,3 +360,20 @@ let nums = [1, 2, 3, 2, 5];
 // 6
 // console.log(missingInteger(nums));
 
+
+
+/**
+ * @param {number[][]} grid
+ * @return {number[]}
+ */
+var findMissingAndRepeatedValues = function (grid) {
+  // 給一個二維陣列，以陣列回傳出現最多次的元素和一個缺少的元素
+  let obj = {};
+  let count = 0;
+  for (let i = 0; i < grid.length; i++) {
+
+  }
+};
+let grid = [[9, 1, 7], [8, 9, 2], [3, 4, 6]];
+// [9,5]
+console.log(findMissingAndRepeatedValues(grid));
