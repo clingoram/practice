@@ -262,8 +262,8 @@ p contains only lowercase English letters and exactly one '*'
 def hasMatch(s: str, p: str) -> bool:
   #  將字串拆成兩部分再搜尋
   return False
-s = "leetcode"
-p = "ee*e"
+# s = "leetcode"
+# p = "ee*e"
 # True
 # print(hasMatch(s,p))
 
@@ -349,4 +349,5 @@ left = 10
 right = 19
 # [11,13]
 # 11, 13, 17, and 19.
-print(closestPrimes(left,right))
+# print(closestPrimes(left,right))
+
