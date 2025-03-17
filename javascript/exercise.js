@@ -27,8 +27,8 @@ function sumArray(arr) {
     // return arr.reduce((a, b) => a + b, 0);
 
 }
-const arr = [4];
-console.log(sumArray(arr));
+// const arr = [4];
+// console.log(sumArray(arr));
 
 /* 
 
@@ -104,8 +104,8 @@ function TestArray(array) {
     // let result = array.sort((a, b) => a - b);
     // return result[0];
 }
-const myArray = [6, 3, 12, 5, 5, 14, 1, 9, 98];
-console.log(TestArray(myArray))
+// const myArray = [6, 3, 12, 5, 5, 14, 1, 9, 98];
+// console.log(TestArray(myArray))
 
 
 // 取不重複值的array
@@ -144,8 +144,8 @@ function noDuplicate(array) {
     return array.reduce((item, index) => item.includes(index) ? item : [...item, index], []);
 
 }
-const arr = ['apple', 'orange', 'grape', 'apple', 'pineapple'];
-console.log(`The result is ${noDuplicate(arr)}`);
+// const arr = ['apple', 'orange', 'grape', 'apple', 'pineapple'];
+// console.log(`The result is ${noDuplicate(arr)}`);
 
 
 /*
@@ -167,10 +167,10 @@ function test(array, target) {
     }
     return result;
 }
-const a = [1, 6, 48, 6, 35, 79, 86, 5, 23];
-const t = 30;
+// const a = [1, 6, 48, 6, 35, 79, 86, 5, 23];
+// const t = 30;
 // should return 48,35,79,86
-console.log(`The result is ${test(a, t)}`);
+// console.log(`The result is ${test(a, t)}`);
 
 /*
 es5的class
@@ -200,9 +200,9 @@ class es5Class {
         return this.name;
     }
 }
-let test = new es5Class('Joe');
-test.getName();
-console.log(test);
+// let test = new es5Class('Joe');
+// test.getName();
+// console.log(test);
 
 // find largest and smallest number of array
 function find(array) {
@@ -219,8 +219,8 @@ function find(array) {
     // console.log(min);
 
 }
-const nums = [12, 4, 65, 7, 2, 4, 12];
-console.log(`The result is ${find(nums)}`);
+// const nums = [12, 4, 65, 7, 2, 4, 12];
+// console.log(`The result is ${find(nums)}`);
 
 // find all pairs of an integer array whose sum is equal to a given number?
 function find(array, target) {
@@ -247,10 +247,10 @@ function find(array, target) {
     // return result;
 
 }
-const nums = [12, 4, 65, 7, 2, 4];
+// const nums = [12, 4, 65, 7, 2, 4];
 // should return 65,2
-const t = 67;
-console.log(`The result is ${find(nums, t)}`);
+// const t = 67;
+// console.log(`The result is ${find(nums, t)}`);
 
 // 條件式3種:
 // 以下結果都一樣
@@ -302,10 +302,10 @@ function tar(array, target) {
     //     return x + x === target;
     // })
 }
-const a = [1, 2, 4, 4];
-const t = 8;
+// const a = [1, 2, 4, 4];
+// const t = 8;
 // return : [4,4]
-console.log(tar(a, t));
+// console.log(tar(a, t));
 
 function test(a, b) {
     if (a.length < 1 || b.length < 1) {
@@ -342,9 +342,9 @@ function test(a, b) {
         return a.indexOf(x) === -1;
     }))
 };
-let arr1 = [1, 2, 3, 4, 5];
-let arr2 = [2, 4, 6, 8, 10];
-console.log(test(arr1, arr2));
+// let arr1 = [1, 2, 3, 4, 5];
+// let arr2 = [2, 4, 6, 8, 10];
+// console.log(test(arr1, arr2));
 
 // 9*9
 function go() {
@@ -356,7 +356,7 @@ function go() {
         }
     }
 }
-console.log(go());
+// console.log(go());
 
 // 印出1-100的偶數
 function solve() {
@@ -368,7 +368,7 @@ function solve() {
         }
     }
 }
-console.log(solve());
+// console.log(solve());
 
 /*
 印出fizz buzz
@@ -408,8 +408,8 @@ function solveBuzz(n) {
     // }
     // return res;
 }
-const n = 7;
-console.log(solveBuzz(n));
+// const n = 7;
+// console.log(solveBuzz(n));
 
 
 // 找最小
@@ -430,8 +430,8 @@ function solve(n) {
     }
     return min;
 }
-const n = [12, 6, 5, 8, 15];
-console.log(solve(n));
+// const n = [12, 6, 5, 8, 15];
+// console.log(solve(n));
 
 // return max value
 function solve(lines) {
@@ -450,8 +450,8 @@ function solve(lines) {
     }
     return max;
 }
-const n = ['7', '3'];
-console.log(solve(n));
+// const n = ['7', '3'];
+// console.log(solve(n));
 
 
 // 找最大值
@@ -472,8 +472,8 @@ function solveThree(b) {
     }
     return max;
 }
-const ag = [6, 8, 5, 9, 2]; // 9
-console.log(solveThree(ag));
+// const ag = [6, 8, 5, 9, 2]; // 9
+// console.log(solveThree(ag));
 
 // 找第二大值
 function findSecond(array) {
@@ -499,8 +499,8 @@ function findSecond(array) {
     res.push(max, secondMax);
     return res;
 }
-const arr = [5, 6, 7, 3]; // 6
-console.log(findSecond(arr));
+// const arr = [5, 6, 7, 3]; // 6
+// console.log(findSecond(arr));
 
 /**
  * 找次小值
@@ -518,8 +518,8 @@ function findSecMin(array) {
     }
     return minest;
 };
-const a = [5, 6, 7, 8]; // 6
-console.log(findSecMin(a));
+// const a = [5, 6, 7, 8]; // 6
+// console.log(findSecMin(a));
 
 /*
 字串轉大寫
@@ -573,8 +573,8 @@ function checkStr(str) {
     //方法3:
     // return str.toUpperCase();
 }
-const a = 'i need a job';
-console.log(checkStr(a));
+// const a = 'ightyb';
+// console.log(checkStr(a));
 
 /**
  * 小寫轉大寫
@@ -597,8 +597,8 @@ function switchCase(string) {
     }
     return ans;
 }
-const string = 'hElLo';
-console.log(switchCase(string));
+// const string = 'hElLo';
+// console.log(switchCase(string));
 
 /*刪除(略過)特定字元 */
 function deleteStr(str, deleted) {
@@ -613,9 +613,9 @@ function deleteStr(str, deleted) {
     }
     return ans;
 };
-const str = 'today is friday.';
-let target = 'r';
-console.log(deleteStr(str, target));
+// const str = 'today is friday.';
+// let target = 'r';
+// console.log(deleteStr(str, target));
 
 
 /**
@@ -632,8 +632,8 @@ function finsNum(n) {
     }
 
 }
-const n = 30;
-console.log(finsNum(n));
+// const n = 30;
+// console.log(finsNum(n));
 
 /*
 0-50的偶數
@@ -991,3 +991,47 @@ function rDuplicates(array) {
 }
 let chars = ['A', 'B', 'C', 'A', 'D'];
 console.log(rDuplicates(chars));
+
+
+/*
+目前電視流行的卡通–烏龍派出所，卡通主角兩津勘吉想要好好幫自己存一筆錢買
+模型用，提出了一個「倍倍儲蓄法」，內容如下：
+  「第一天存1元、第二天存2元、第三天存4元，每天都比前一天多存一
+  倍的錢。」 
+
+  (一) 如果要將每天存的金額記錄下來，應該用何種資料結構比較適合，請直接宣
+告第1天到第50天的變數結構來？(共3分)
+  (二) 承第一小題，「每天都比前一天多存一倍的錢」這句話如何用程式語言來表
+示？(共4分)
+  (三) 承第二小題，請撰寫一段程式來計算「前20天的存款總金額」。(請以for迴
+圈作答) (共8分)
+  (四) 承第三小題，試問如果要存到100萬元，請問要存幾天？請完整撰寫出「如何
+找出需要幾天才可以存到100萬元」的可執行程式。(請以while迴圈作答)(共
+10 分) 
+*/
+function tryit(target) {
+    let money = 1;
+    let date = 1;
+    // Q.1
+    // for (let i = 1; i <= date; i++) {
+    //   // Q.2. 每天都比前一天多存一倍的錢
+    //   money += 2;
+    // }
+    // return money;
+
+    // Q.3.前20天的存款總金額
+    // for (let i = 1; i <= date; i++) {
+    //   money += 2;
+    // }
+    // return money;
+
+    // Q.4.要存到100萬元，請問要存幾天？
+    while (money <= target) {
+        money += 2;
+        date++;
+    }
+    return date;
+}
+
+let targetMoney = 1000000;
+// console.log(tryit(targetMoney));

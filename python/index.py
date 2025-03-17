@@ -10,6 +10,8 @@ python -V
 from math import sqrt
 from operator import le
 from typing import List
+
+from numpy import diff
 # module
 # import basic.algo.linearSearch
 # arr = [2,4,6,8,10]
@@ -260,8 +262,92 @@ p contains only lowercase English letters and exactly one '*'
 def hasMatch(s: str, p: str) -> bool:
   #  將字串拆成兩部分再搜尋
   return False
-s = "leetcode"
-p = "ee*e"
+# s = "leetcode"
+# p = "ee*e"
 # True
 # print(hasMatch(s,p))
+
+'''
+2523. Closest Prime Numbers in Range
+
+Given two positive integers left and right, find the two integers num1 and num2 such that:
+  left <= num1 < num2 <= right .
+  Both num1 and num2 are prime numbers.
+  num2 - num1 is the minimum amongst all other pairs satisfying the above conditions.
+Return the positive integer array ans = [num1, num2]. If there are multiple pairs satisfying these conditions, return the one with the smallest num1 value. If no such numbers exist, return [-1, -1].
+
+Hints:
+1.Use Sieve of Eratosthenes to mark numbers that are primes.
+2.Iterate from right to left and find pair with the minimum distance between marked numbers. 
+
+Example 1:
+Input: left = 10, right = 19
+Output: [11,13]
+Explanation: The prime numbers between 10 and 19 are 11, 13, 17, and 19.
+The closest gap between any pair is 2, which can be achieved by [11,13] or [17,19].
+Since 11 is smaller than 17, we return the first pair.
+
+Example 2:
+Input: left = 4, right = 6
+Output: [-1,-1]
+Explanation: There exists only one prime number in the given range, so the conditions cannot be satisfied.
+ 
+
+Constraints:
+1 <= left <= right <= 106
+
+
+'''
+def closestPrimes(left: int, right: int) -> List[int]:
+  '''
+  參數為兩個數值，left、right。找出介於left、right的兩個prime number(num1 & num2)
+  找出這兩個prime number在相減後必須是所有對中num1值是最小的，若沒有則回傳[-1,-1]
+  prime number:只有兩個自然數，1和自己
+  '''
+  theRange = []
+  prev_prime = -1
+  a = -1
+  b = -1
+  min_difference = float("inf")
+
+  for i in range(left,right+1):
+    if isPrime(i):
+      # if prev_prime != -1:
+      #   difference = i - prev_prime
+      #   if difference < min_difference:
+      #     min_difference = difference
+      #     a = prev_prime
+      #     b = i
+      #   if difference == 1 or difference == 2:
+      #     return [prev_prime, i]
+      # prev_prime = i
+      theRange.append(i)
+
+  # return [a, b] if a != -1 else [-1, -1]
+
+  for i in range(1,len(theRange)):
+    difference = theRange[i] - theRange[i-1]
+    if difference < min_difference:
+      min_difference = difference
+      result = [theRange[i-1], theRange[i]]
+    # print(theRange[i])
+  return result
+
+  # chunks = [theRange[i:i + 2] for i in range(0, len(theRange), 2)]
+  # print(theRange)
+
+def isPrime(element:int):
+  if element == 1:
+      return False
+
+  for i in range(2,element):
+    if element % i == 0:
+      return False
+  return True
+
+left = 10
+right = 19
+# [11,13]
+# 11, 13, 17, and 19.
+# print(closestPrimes(left,right))
 
