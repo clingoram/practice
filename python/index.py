@@ -11,7 +11,7 @@ from math import sqrt
 from operator import le
 from typing import List
 
-from numpy import diff
+# from numpy import diff
 # module
 # import basic.algo.linearSearch
 # arr = [2,4,6,8,10]
@@ -351,3 +351,10 @@ right = 19
 # 11, 13, 17, and 19.
 # print(closestPrimes(left,right))
 
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var divideArray = function(nums) {
+    
+};
