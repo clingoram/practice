@@ -351,10 +351,3 @@ right = 19
 # 11, 13, 17, and 19.
 # print(closestPrimes(left,right))
 
-/**
- * @param {number[]} nums
- * @return {boolean}
- */
-var divideArray = function(nums) {
-    
-};
