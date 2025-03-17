@@ -356,9 +356,7 @@ var getHappyString = function (n, k) {
 var missingInteger = function (nums) {
 
 };
-let nums = [1, 2, 3, 2, 5];
+// let nums = [1, 2, 3, 2, 5];
 // 6
 // console.log(missingInteger(nums));
-
-
 

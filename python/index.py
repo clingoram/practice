@@ -11,7 +11,7 @@ from math import sqrt
 from operator import le
 from typing import List
 
-from numpy import diff
+# from numpy import diff
 # module
 # import basic.algo.linearSearch
 # arr = [2,4,6,8,10]
