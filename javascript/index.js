@@ -382,13 +382,14 @@ var maxSubsequence = function(nums, k) {
     const index = nums.indexOf(max);
     if (index > -1) { 
       nums.splice(index, 1);
-      // temp.push(max);
+      temp.push(max);
     }
   }
+  console.log(temp)
+  // console.log(nums)
   for(const [key,value] of Object.entries(obj)){
     console.log(key)
   }
-  // console.log(temp);
 };
 let nums = [-1,-2,3,4], k = 3;
 // [-1,3,4]
