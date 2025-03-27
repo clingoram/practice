@@ -391,7 +391,7 @@ var maxSubsequence = function(nums, k) {
     console.log(key)
   }
 };
-let nums = [-1,-2,3,4], k = 3;
+// let nums = [-1,-2,3,4], k = 3;
 // [-1,3,4]
 // let nums = [3,4,3,3], k = 2;
 // [4,3]
@@ -434,4 +434,5 @@ var shortestToChar = function(s, c) {
 };
 let s = "loveleetcode", c = "e";
 // [3,2,1,0,1,0,0,1,2,2,1,0]
-console.log(shortestToChar(s,c));
+// console.log(shortestToChar(s,c));
+
