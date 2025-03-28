@@ -389,6 +389,9 @@ Constraints:
 def maximumTripletValue(nums: List[int]) -> int:
   # i < j < k
   # (nums[i] - nums[j]) * nums[k]
+  ans = 0
+  
+  return ans
 
 
 nums = [12,6,1,2,7]
