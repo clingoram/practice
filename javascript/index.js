@@ -468,6 +468,8 @@ var minSteps = function(s, t) {
  * We used a total of 2 + 5 = 7 steps.
  * It can be shown that there is no way to make them anagrams of each other with less than 7 steps.
  */
-let s = "cotxazilut",t = "nahrrmcchxwrieqqdwdpneitkxgnt";
+// let s = "cotxazilut",t = "nahrrmcchxwrieqqdwdpneitkxgnt";
 // 27
 // console.log(minSteps(s,t));
+
+
