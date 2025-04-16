@@ -326,37 +326,149 @@ var getHappyString = function (n, k) {
 
 
 /**
- * 2996. Smallest Missing Integer Greater Than Sequential Prefix Sum
+ * 2099. Find Subsequence of Length K With the Largest Sum
  * 
- * You are given a 0-indexed array of integers nums.
- * A prefix nums[0..i] is sequential if, for all 1 <= j <= i, nums[j] = nums[j - 1] + 1. In particular, the prefix consisting only of nums[0] is sequential.
- * Return the smallest integer x missing from nums such that x is greater than or equal to the sum of the longest sequential prefix.
+ * You are given an integer array nums and an integer k. You want to find a subsequence of nums of length k that has the largest sum.
+ * Return any such subsequence as an integer array of length k.
+ * 
+ * A subsequence is an array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements.
  * 
  * Hints:
- * 1.To find the longest sequential prefix, iterate from left to right. For a fixed i, if nums[i] != nums[i - 1] + 1 then the longest sequential prefix ends at i - 1.
+ * 1.From a greedy perspective, what k elements should you pick?
+ * 2.Could you sort the array while maintaining the index?
  * 
  * Example 1:
- * Input: nums = [1,2,3,2,5]
- * Output: 6
- * Explanation: The longest sequential prefix of nums is [1,2,3] with a sum of 6. 6 is not in the array, therefore 6 is the smallest missing integer greater than or equal to the sum of the longest sequential prefix.
+ * Input: nums = [2,1,3,3], k = 2
+ * Output: [3,3]
+ * Explanation:
+ * The subsequence has the largest sum of 3 + 3 = 6.
  * 
  * Example 2:
- * Input: nums = [3,4,5,1,12,14,13]
- * Output: 15
- * Explanation: The longest sequential prefix of nums is [3,4,5] with a sum of 12. 12, 13, and 14 belong to the array while 15 does not. Therefore 15 is the smallest missing integer greater than or equal to the sum of the longest sequential prefix.
+ * Input: nums = [-1,-2,3,4], k = 3
+ * Output: [-1,3,4]
+ * Explanation: 
+ * The subsequence has the largest sum of -1 + 3 + 4 = 6.
+ * 
+ * Example 3:
+ * Input: nums = [3,4,3,3], k = 2
+ * Output: [3,4]
+ * Explanation:
+ * The subsequence has the largest sum of 3 + 4 = 7. 
+ * Another possible subsequence is [4, 3].
  *  
  * 
  * Constraints:
- * 1 <= nums.length <= 50
- * 1 <= nums[i] <= 50
+ * 1 <= nums.length <= 1000
+ * -105 <= nums[i] <= 105
+ * 1 <= k <= nums.length
+ *  
  * 
  * @param {number[]} nums
+ * @param {number} k
+ * @return {number[]}
+ */
+var maxSubsequence = function(nums, k) {
+  // 參數為一個數值陣列nums和數值k，找出符合長度k的最大合subsequence
+  // subsequence = 在不改變元素位置的情況下，移除或保留元素
+  let temp = [];
+  let j = 0;
+  let obj = {};
+  for(let i = 0;i < nums.length;i++){
+    obj[i] = nums[i];
+  }
+
+  while(temp.length !== k){
+    let max = Math.max(...nums);
+    const index = nums.indexOf(max);
+    if (index > -1) { 
+      nums.splice(index, 1);
+      temp.push(max);
+    }
+  }
+  console.log(temp)
+  // console.log(nums)
+  for(const [key,value] of Object.entries(obj)){
+    console.log(key)
+  }
+};
+// let nums = [-1,-2,3,4], k = 3;
+// [-1,3,4]
+// let nums = [3,4,3,3], k = 2;
+// [4,3]
+// let nums = [2,1,3,3], k = 2;
+// 「3,3]
+// console.log(maxSubsequence(nums,k))
+
+/**
+ * 2186. Minimum Number of Steps to Make Two Strings Anagram II
+ * 
+ * 兩個字串參數s & t，在一次操作中，可以加上任一字母至s或t中。
+ * 回傳讓s和t變成anagrams的最少步驟數
+ * 
+ * anagrams:長度一樣、字母一樣但排序可以不一樣
+ * 
+ * @param {string} s
+ * @param {string} t
  * @return {number}
  */
-var missingInteger = function (nums) {
+var minSteps = function(s, t) {
+  // 檢查是否是anagrams可用：sort、count
+  let countOP = 0;
+  let mapS = new Map();
+  let mapT = new Map();
+  // 參數s 字母出現次數
+  for (let i = 0; i < s.length; i++) {
+    const element = s[i];
+    mapS.has(element) ? mapS.set(element, mapS.get(element) + 1) : mapS.set(element, 1);
+  }
+  // 參數t 字母出現次數
+  for (let i = 0; i < t.length; i++) {
+    const element = t[i];
+    mapT.has(element) ? mapT.set(element, mapT.get(element) + 1) : mapT.set(element, 1);
+  }
 
+  // 字母出現幾次就得是幾次
+  // t有但s沒有的字母有幾個 (a,s) 2
+  // s有但t沒有的字母有幾個 (l,e,e,d,e) 5
+  for(let [key,value] of mapS){
+    if(!mapT.has(key)){
+      countOP+= value;
+    }
+
+  }
+  for(let [key,value] of mapT){
+    if(!mapS.has(key)){
+      countOP+= value;
+    }
+  }
+  return countOP;
+
+  // solution 2.
+  // use obj
+  // let countOP = 0;
+  // let freq = {};
+  // for (const element of s) {
+  //   freq[element] =  freq[element] || 0) + 1;
+  // }
+  // for(const element of t) {
+  //   if(!freq[element]){
+  //     continue;
+  //   }
+  //   --freq[element];
+  //   ++countOP;
+  // }
+  // return s.length + t.length - countOP * 2;
 };
-// let nums = [1, 2, 3, 2, 5];
-// 6
-// console.log(missingInteger(nums));
+// let s = "leetcode", t = "coats";
+/**
+ * 7
+ * - In 2 steps, we can append the letters in "as" onto s = "leetcode", forming s = "leetcodeas".
+ * - In 5 steps, we can append the letters in "leede" onto t = "coats", forming t = "coatsleede".
+ * "leetcodeas" and "coatsleede" are now anagrams of each other.
+ * We used a total of 2 + 5 = 7 steps.
+ * It can be shown that there is no way to make them anagrams of each other with less than 7 steps.
+ */
+// let s = "cotxazilut",t = "nahrrmcchxwrieqqdwdpneitkxgnt";
+// 27
+// console.log(minSteps(s,t));
 
