@@ -472,4 +472,3 @@ var minSteps = function(s, t) {
 // 27
 // console.log(minSteps(s,t));
 
-
