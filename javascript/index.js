@@ -73,7 +73,7 @@ var generateParenthesis = function (n) {
   }
 
 };
-const n = 3;
+// const n = 3;
 // should return: ["((()))","(()())","(())()","()(())","()()()"]
 // console.log(generateParenthesis(n));
 
@@ -471,4 +471,3 @@ var minSteps = function(s, t) {
 // let s = "cotxazilut",t = "nahrrmcchxwrieqqdwdpneitkxgnt";
 // 27
 // console.log(minSteps(s,t));
-
