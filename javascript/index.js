@@ -471,3 +471,4 @@ var minSteps = function(s, t) {
 // let s = "cotxazilut",t = "nahrrmcchxwrieqqdwdpneitkxgnt";
 // 27
 // console.log(minSteps(s,t));
+

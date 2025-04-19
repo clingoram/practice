@@ -175,6 +175,6 @@ var nth = function (a1,a2,n) {
     }
     return ans;
 }
-let a1 = 2,  a2 = 3,  n = 4;
+// let a1 = 2,  a2 = 3,  n = 4;
 // 5
-console.log(nth(a1,a2,n));
+// console.log(nth(a1,a2,n));
