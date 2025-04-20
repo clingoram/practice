@@ -66,6 +66,62 @@ var primeTest = function(n) {
   }
   return true;
 }
-let n = 11;
+// let n = 11;
 // true
-console.log(primeTest(n));
+// console.log(primeTest(n));
+
+
+/**
+ * Check Power
+ * 
+ * Given two positive numbers x and y, check if y is a power of x or not.
+ * 兩個正數x,y，檢查y是否是x的平方
+ * 
+ * @param {number} x
+ * @param {number} y
+ * @returns {boolean}
+ */
+var checkPower = function (x,y) {
+  /**
+   * Time complexity: O(Logxy)
+   * Auxiliary space: O(1)
+   */
+  // if(x === 1){
+  //   return y === 1;
+  // }
+  // let pow = 1;
+  // while(pow < y){
+  //   pow *= x;
+  // }
+  // return pow === y;
+
+
+  // solution 2.
+  /**
+   * Time complexity: O(1)
+   * Auxiliary space: O(1)
+   */
+  let res = Math.log(x) / Math.log(y);
+  return res === Math.floor(res);
+}
+let x = 10, y = 1;
+// True
+console.log(checkPower(x,y));
+
+/**
+ * Distance between Two Points
+ * 
+ * You are given two coordinates (x1, y1) and (x2, y2) of a two-dimensional graph. Find the distance between them.
+ * 
+ * @param {number} x1
+ * @param {number} y1
+ * @param {number} x2
+ * @param {number} y2
+ * @returns {number}
+ */
+var distance = function (x1,y1,x2,y2) {
+  return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+}
+let x1 = 3,y1 = 4,x2 = 7, y2 = 7;
+// 5
+console.log(distance(x1,y1,x2,y2));
