@@ -125,3 +125,131 @@ var distance = function (x1,y1,x2,y2) {
 let x1 = 3,y1 = 4,x2 = 7, y2 = 7;
 // 5
 console.log(distance(x1,y1,x2,y2));
+
+/**
+ * Valid Triangle
+ * 
+ * Given three sides, check whether triangle is valid or not.
+ * 
+ * 給3個數字，檢查他們是否能組成三角形
+ * @param {number} a
+ * @param {number} b
+ * @param {number} c
+ * @returns {string} Valid or Invalid
+ */
+var validTriangle = function(a,b,c) {
+  // 三角形任兩邊和 > 剩下的一邊
+
+  /**
+   * Time Complexity: O(1)
+   * Auxiliary Space: O(1)
+   */
+  let res = "Invalid";
+  if((a + b) > c || (b + c) > a || (c + a) > b){
+    res = "Valid";
+  }
+  return res;
+}
+let a = 7, b = 10, c = 5;
+// Valid
+console.log(validTriangle(a,b,c));
+
+/**
+ * Factorial of a Number
+ * 
+ * Given the number n (n >=0), find its factorial. 
+ * Factorial of n is defined as 1 x 2 x … x n. 
+ * For n = 0, factorial is 1. 
+ * We are going to discuss iterative and recursive programs in this post.
+ * 
+ * @param {number} n
+ * @returns {number}
+ */
+var factorial = function (n) {
+  /**
+   * Time Complexity: O(n)
+   * Auxiliary Space: O(1)
+   */
+  let res = 1;
+  for (let i = 2; i <= n; i++){
+    res *= i;
+  }
+  return res;
+}
+// let n = 5;
+// 120
+// console.log(factorial(n));
+
+/**
+ * Square Root
+ * 
+ * Given a positive integer n, find its square root. If n is not a perfect square, then return floor of √n.
+ * 
+ * @param {number} n
+ * @returns {number}
+ */
+var squareRoot = function (n) {
+  /**
+   * Time Complexity – O(logn)
+   * Auxiliary Space – O(1)
+   */
+  return Math.floor(Math.sqrt(n));
+} 
+// let n = 11;
+// 3
+// console.log(squareRoot(n));
+
+/**
+ * Largest in an Array
+ * 
+ * Given an array arr. The task is to find the largest element in the given array. 
+ *
+ * @param {number[]} arr
+ * @returns {number}
+ */
+var findMax = function(arr) {
+  // Solution 1.
+  // O(n) Time and O(1) Space
+  // return Math.max(...arr);
+
+  // Solution 2.
+  // O(n) Time and O(1) Space
+  let tempMax = arr[0];
+  for(let i = 0;i < arr.length;i++) {
+    if(arr[i] > tempMax){
+      tempMax = arr[i];
+    }
+  }
+  return tempMax;
+}
+let n = [12,6,23,9];
+// 23
+console.log(findMax(n));
+
+/**
+ * Second Largest in an array
+ * 
+ * Given an array of positive integers arr[] of size n, the task is to find second largest distinct element in the array.
+ * Note: If the second largest element does not exist, return -1.
+ * 
+ * 找出陣列中第二大的元素並回傳，若沒有則回傳-1
+ * 
+ * @param {number[]} arr
+ * @returns {number}
+ */
+var secLargest = function (arr){
+  // desc
+  arr.sort((a,b) => b - a);
+  let ans = -1;
+  for(let i = 0;i < arr.length;i++) {
+    if(arr[i] > arr[i + 1] && i === 1){
+      ans = arr[i];
+    }
+  }
+  return ans;
+}
+// let arr = [12, 35, 1, 10, 34, 1];
+// 34
+let arr = [10,10,10];
+// -1
+console.log(secLargest(arr));
