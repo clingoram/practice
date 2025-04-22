@@ -512,3 +512,19 @@ var doOverlap = function(l1, r1, l2, r2) {
 
 
 
+/**
+ * Largest three in an array
+ * 
+ * Given an array arr[], the task is to find the top three largest distinct integers present in the array.
+ * Note: If there are less than three distinct elements in the array, then return the available distinct numbers in descending order.
+ * 
+ * @param {number[]} arr
+ * @returns {number[]}
+ */
+var largestThree = function(arr) {
+
+}
+// let arr = [10, 4, 3, 50, 23, 90];
+// [90, 50, 23]
+// console.log(largestThree(arr));
+

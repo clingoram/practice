@@ -370,3 +370,26 @@ var lcm = function(a,b) {
 // let a = 5, b = 11;
 // 55
 // console.log(lcm(a,b));
+
+/**
+ * Missing Number
+ * 
+ * Given an array arr[] of size n-1 with distinct integers in the range of [1, n]. 
+ * This array represents a permutation of the integers from 1 to n with one element missing. Find the missing element in the array.
+ * 
+ * @param {number[]} arr
+ * @returns {number}
+ */
+var missingN = function(arr){
+  let ans = 0;
+  let min = Math.min(...arr);
+  for(let i = min;i < arr.length;i++){
+    if(!arr.includes(i)){
+      ans = i;
+    }
+  }
+  return ans;
+}
+let arr = [8, 2, 4, 5, 3, 7, 1];
+// 6
+console.log(missingN(arr));
