@@ -222,9 +222,9 @@ var findMax = function(arr) {
   }
   return tempMax;
 }
-let n = [12,6,23,9];
+// let n = [12,6,23,9];
 // 23
-console.log(findMax(n));
+// console.log(findMax(n));
 
 /**
  * Second Largest in an array
@@ -250,6 +250,123 @@ var secLargest = function (arr){
 }
 // let arr = [12, 35, 1, 10, 34, 1];
 // 34
-let arr = [10,10,10];
+// let arr = [10,10,10];
 // -1
-console.log(secLargest(arr));
+// console.log(secLargest(arr));
+
+/**
+ * Sum of Squares of Naturals
+ * 
+ * Given a positive integer n, we have to find the sum of squares of first n natural numbers. 
+ * @param {number} n
+ * @returns {number}
+ */
+var sumSquaresOfNaturals = function (n) {
+  // O(n) Time and O(1) Space
+  let sum = 0;
+  for(let i = 1;i <= n;i++) {
+    sum += (i * i);
+  }
+  return sum;
+}
+// let n = 2;
+// 5
+// console.log(sumSquaresOfNaturals(n));
+
+/**
+ * Pair Cube Count
+ * 
+ * Given n, count all ‘a’ and ‘b’ that satisfy the condition a^3 + b^3 = n. Where (a, b) and (b, a) are considered two different pairs
+ * 
+ * 計算出符合 a^3 = n ＆ b^3 = n 且能成一對但不同值的a,b有幾個
+ * @param {number} n
+ * @returns {number}
+ */
+var pairCount = function(n){
+  // O(n^2) time and O(1) space
+  let count = 0;
+  for(let a = 1;a <= n;a++){
+    for(let b = 0;b <= n;b++) {
+      if(a ** 3 + b ** 3 === n){
+        count++;
+      }
+    }
+  }
+  return count;
+}
+// let n = 9;
+// 2
+// 1^3 + 2^3 = 9 and 2^3 + 1^3 = 9
+// console.log(pairCount(n));
+
+/**
+ * GCD or HCF
+ * 
+ * Given two numbers a and b, the task is to find the GCD of the two numbers.
+ * Note: The GCD (Greatest Common Divisor) or HCF (Highest Common Factor) of two numbers is the largest number that divides both of them. 
+ * 
+ * 參數為a,b兩個數字，找出這兩個數字共同的gcd
+ * GCD: 最大且能被整除的
+ * 
+ * @param {number} a
+ * @param {number} b
+ * @returns {number}
+ */
+var gcd = function (a,b) {
+  let gcdOfa = [];
+  let gcdOfb = [];
+  for(let i = 0;i <= a;i++){
+    if(a % i === 0){
+      gcdOfa.push(i);
+    }
+  }
+  for(let i = 0;i <= b;i++) {
+    if(b % i === 0){
+      gcdOfb.push(i);
+    }
+  }
+  const gcdSetA = new Set(gcdOfa);
+  const gcdSetB = new Set(gcdOfb);
+  const same = gcdSetA.intersection(gcdSetB);
+  return Math.max(...same);
+}
+// let a = 98;
+// let b = 56;
+/**
+ * 14
+*/
+// console.log(gcd(a,b));
+
+/**
+ * LCM of Two Numbers
+ * 
+ * LCM of two numbers is the smallest number which can be divided by both numbers. 
+ * 
+ * LCM:
+ * The Least Common Multiple (LCM) of two numbers is the smallest number that is evenly divisible by both of them.
+ * 
+ * 能夠被a&b整除的最小數
+ * 
+ * @param {number} a
+ * @param {number} b
+ * @returns {number}
+ */
+var lcm = function(a,b) {
+  /**
+   * Time Complexity: O(min(a,b))
+   * Auxiliary Space: O(1)
+   */
+  let max = Math.max(a,b);
+  let min = Math.min(a,b);
+  let ans = 0;
+  for(let i = max;i <= a * b;i+=max) {
+    if(i % min === 0){
+      ans = i;
+    }
+  }
+  return ans;
+
+}
+// let a = 5, b = 11;
+// 55
+// console.log(lcm(a,b));
