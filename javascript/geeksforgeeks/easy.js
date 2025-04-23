@@ -104,9 +104,9 @@ var checkPower = function (x,y) {
   let res = Math.log(x) / Math.log(y);
   return res === Math.floor(res);
 }
-let x = 10, y = 1;
+// let x = 10, y = 1;
 // True
-console.log(checkPower(x,y));
+// console.log(checkPower(x,y));
 
 /**
  * Distance between Two Points
@@ -122,9 +122,9 @@ console.log(checkPower(x,y));
 var distance = function (x1,y1,x2,y2) {
   return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
 }
-let x1 = 3,y1 = 4,x2 = 7, y2 = 7;
+// let x1 = 3,y1 = 4,x2 = 7, y2 = 7;
 // 5
-console.log(distance(x1,y1,x2,y2));
+// console.log(distance(x1,y1,x2,y2));
 
 /**
  * Valid Triangle
@@ -390,6 +390,199 @@ var missingN = function(arr){
   }
   return ans;
 }
-let arr = [8, 2, 4, 5, 3, 7, 1];
+// let arr = [8, 2, 4, 5, 3, 7, 1];
 // 6
-console.log(missingN(arr));
+// console.log(missingN(arr));
+
+/**
+ * Perfect Number
+ * 
+ * A number is a perfect number if is equal to the sum of its proper divisors, that is, the sum of its positive divisors excluding the number itself. 
+ * The task is to find whether a given positive integer n is perfect or not.
+ * 
+ * @param {number} n
+ * @returns {boolean}
+ */
+var perfectN = function(n) {
+  // O(n) Time and O(1) Space
+  let sum = 0;
+  for(let i = 0;i < n;i++) {
+    if(n % i === 0){
+      sum+=i;
+    }
+  }
+  return sum % n === 0;
+}
+// let n = 15;
+/**
+ * Output: false
+Divisors of 15 are 1, 3 and 5. Sum of divisors is 9 which is not equal to 15.
+ */
+// console.log(perfectN(n));
+
+/**
+ * Fizz Buzz
+ * 
+ * Given an integer n, for every positive integer i <= n, the task is to print,
+ * “FizzBuzz” if i is divisible by 3 and 5,
+ * “Fizz” if i is divisible by 3,
+ * “Buzz” if i is divisible by 5
+ * “i” as a string, if none of the conditions are true.
+ * 
+ * @param {number} n
+ * @returns {string[]}
+ */
+var fizzBuzz = function(n){
+  /**
+   * Time Complexity: O(n) 從 1 -n
+   * Auxiliary Space: O(n), for storing the result
+   */
+  let res = [];
+  for(let i = 1;i <= n;i++) {
+    if(i % 3 === 0 && i % 5 === 0){
+      // i能被3和5整除，"FizzBuzz"
+      res.push("FizzBuzz");
+    }else if(i % 3 === 0){
+      // 能被3整除，"Fizz"
+      res.push("Fizz");
+    }else if(i % 5 === 0){
+      // 能被5整除，"Buzz"
+      res.push("Buzz");
+    }else{
+      // i以字串呈現
+      res.push(i.toString());
+    }
+  }
+  return res;
+}
+// let n = 10;
+// [“1”, “2”, “Fizz”, “4”, “Buzz”, “Fizz”, “7”, “8”, “Fizz”, “Buzz”]
+// console.log(fizzBuzz(n));
+
+/**
+ * Day of the Week
+ * 
+ * Given a date (day, month, year), the task is to determine the day of the week on which that date falls. 
+ * The function should be able to compute the day for any date in the past or future. 
+ * The function should return values from 0 to 6 where 0 means Sunday, 1 Monday and so on.
+ * 
+ * 回傳星期幾
+ * 
+ * @param {number} date
+ * @param {number} month
+ * @param {number} year
+ * @returns {number}
+ */
+var dayOfWeek = function(date,month,year){
+  /**
+   * Formula:
+   * dayOfWeek = (d + monthCode + yearCode) % 7
+   */
+  // 不包含leap年，若包含則是[6,2,3,6,1,4,6,2,5,0,3,5]
+  let monthCode = [0,3,3,6,1,4,6,2,5,0,3,5];
+  year -= (month < 3) ? 1 : 0;
+  // leap year (year / 4 - year / 100 + year / 400)
+  return Math.round((year / 4 - year / 100 + year / 400 + monthCode[month - 1] + date) % 7); 
+
+}
+// let d = 30, m = 8, y = 2010;
+// 1
+// 30th August 2010 was a Monday.
+// console.log(dayOfWeek(d,m,y));
+
+
+/**
+ * First Repeating
+ * 
+ * Given an array of integers arr[], The task is to find the index of first repeating element in it 
+ * i.e. the element that occurs more than once and whose index of the first occurrence is the smallest. 
+ * 
+ * 找出element出現次數>1且index是最小的值
+ * 
+ * @param {number[]} arr
+ * @returns {number}
+ */
+var firstRepeat = function(arr){
+  // obj計算element出現次數
+  let obj = {};
+  let temp = [];
+  for(let i = 0;i < arr.length;i++) {
+    obj[arr[i]] = (obj[arr[i]] || 0) + 1;
+  }
+  for(const [key,value] of Object.entries(obj)){
+    if(value >= 2){
+      // 將出現次數大於2的key塞進temp陣列內
+      temp.push(parseInt(key));
+    }
+  }
+  for(let i = 0;i < arr.length;i++) {
+    // 找出第一個符合條件的index
+    let index = temp.findIndex((element) => element === arr[i]);
+    if(temp.includes(arr[i]) && index !== -1){
+      return arr[i];
+    }
+  }
+}
+// let arr = [10, 5, 3, 4, 3, 5, 6];
+// 5
+// let arr = [6, 10, 5, 4, 9, 120, 4, 6, 10];
+// 6
+// console.log(firstRepeat(arr));
+
+/**
+ * Missing and Repeating
+ * 
+ * Given an unsorted array of size n. Array elements are in the range of 1 to n. 
+ * One number from set {1, 2, …n} is missing and one number occurs twice in the array. The task is to find these two numbers.
+ * 
+ * 參數為一個未排序的數字陣列。從中找出沒出現的數字和出現2次的數字
+ * range: 1 - n;
+ * 
+ * 
+ * @param {number[]} arr
+ * @returns {number[]} 
+*/
+var missingAndRepeat = function (arr) {
+  let obj = {};
+  let missing = 0;
+  let repeat = 0;
+  for(let i = 0;i < arr.length;i++) {
+    obj[arr[i]] = (obj[arr[i]] || 0) + 1;
+
+    // missing number.
+    if(!arr.includes(i)){
+      missing = i;
+    }
+  }
+  for(const [key,value] of Object.entries(obj)){
+    if(value >= 2){
+      repeat = parseInt(key);
+    }
+  }
+
+  return [repeat,missing];
+}
+// let arr = [3, 1, 3];
+// [3,2]
+// console.log(missingAndRepeat(arr));
+
+/**
+ * Nth Fibonacci Number
+ * 
+ * Given a positive integer n, the task is to find the nth Fibonacci number.
+ * The Fibonacci sequence is a sequence where the next term is the sum of the previous two terms.
+ * The first two terms of the Fibonacci sequence are 0 followed by 1. The Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21
+ * 
+ * @param {number} n
+ * @returns {number}
+ */
+var fib = function(n) {
+  if(n <= 1){
+    return n;
+  }
+
+  return fib(n - 1) + fib(n - 2);
+}
+let n = 2;
+// 1
+console.log(fib(n));

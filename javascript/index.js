@@ -528,3 +528,24 @@ var largestThree = function(arr) {
 // [90, 50, 23]
 // console.log(largestThree(arr));
 
+/**
+ * Add Two Fraction
+ * 
+ * Given two integer arrays a[] and b[] containing two integers each representing the numerator and denominator of a fraction respectively. 
+ * The task is to find the sum of the two fractions and return the numerator and denominator of the result.
+ * 
+ * 參數為數字陣列 a & b，長度各為2，分別代表分數的分子和分母。找出兩個分數的總和並傳回結果的分子和分母。
+ * @param {number[]} a
+ * @param {number[]} b
+ * @returns {number[]}
+*/
+var twoFraction = function(a,b) {
+
+}
+// let a = [1, 2] , b = [3, 2];
+/**
+ * [2, 1] 
+ * Explanation: 1/2 + 3/2 = 2/1
+ */
+// console.log(twoFraction(a,b));
+
