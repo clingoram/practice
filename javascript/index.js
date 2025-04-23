@@ -73,7 +73,7 @@ var generateParenthesis = function (n) {
   }
 
 };
-const n = 3;
+// const n = 3;
 // should return: ["((()))","(()())","(())()","()(())","()()()"]
 // console.log(generateParenthesis(n));
 
@@ -471,4 +471,81 @@ var minSteps = function(s, t) {
 // let s = "cotxazilut",t = "nahrrmcchxwrieqqdwdpneitkxgnt";
 // 27
 // console.log(minSteps(s,t));
+
+
+
+class Point {
+  constructor(x, y) {
+      this.x = x;
+      this.y = y;
+  }
+}
+
+// Returns true if two rectangles (l1, r1) and (l2, r2) overlap
+/**
+ * Overlapping Rectangles
+ * 
+ * Given two rectangles, find if the given two rectangles overlap or not.
+ * Note that a rectangle can be represented by two coordinates, top left and bottom right. So mainly we are given following four coordinates. 
+ *  l1: Top Left coordinate of first rectangle. 
+ *  r1: Bottom Right coordinate of first rectangle. 
+ *  l2: Top Left coordinate of second rectangle. 
+ *  r2: Bottom Right coordinate of second rectangle.
+ * 
+ * @param {number} l1
+ * @returns {boolean}
+ */
+var doOverlap = function(l1, r1, l2, r2) {
+  
+}
+
+// const l1 = new Point(0, 10);
+// const r1 = new Point(10, 0);
+// const l2 = new Point(5, 5);
+// const r2 = new Point(15, 0);
+
+// if (doOverlap(l1, r1, l2, r2)) {
+//   console.log("Rectangles Overlap");
+// } else {
+//   console.log("Rectangles Don't Overlap");
+// }
+
+
+
+/**
+ * Largest three in an array
+ * 
+ * Given an array arr[], the task is to find the top three largest distinct integers present in the array.
+ * Note: If there are less than three distinct elements in the array, then return the available distinct numbers in descending order.
+ * 
+ * @param {number[]} arr
+ * @returns {number[]}
+ */
+var largestThree = function(arr) {
+
+}
+// let arr = [10, 4, 3, 50, 23, 90];
+// [90, 50, 23]
+// console.log(largestThree(arr));
+
+/**
+ * Add Two Fraction
+ * 
+ * Given two integer arrays a[] and b[] containing two integers each representing the numerator and denominator of a fraction respectively. 
+ * The task is to find the sum of the two fractions and return the numerator and denominator of the result.
+ * 
+ * 參數為數字陣列 a & b，長度各為2，分別代表分數的分子和分母。找出兩個分數的總和並傳回結果的分子和分母。
+ * @param {number[]} a
+ * @param {number[]} b
+ * @returns {number[]}
+*/
+var twoFraction = function(a,b) {
+
+}
+// let a = [1, 2] , b = [3, 2];
+/**
+ * [2, 1] 
+ * Explanation: 1/2 + 3/2 = 2/1
+ */
+// console.log(twoFraction(a,b));
 
