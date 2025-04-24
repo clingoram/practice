@@ -583,6 +583,138 @@ var fib = function(n) {
 
   return fib(n - 1) + fib(n - 2);
 }
-let n = 2;
+// let n = 2;
 // 1
-console.log(fib(n));
+// console.log(fib(n));
+
+/**
+ * Decimal to Binary
+ * 
+ * Given a decimal number n, the task is to convert the given decimal number into an equivalent binary number.
+ * 
+ * @param {number} n
+ * @returns {string}
+ */
+var decTobin = function(n) {
+  // let res = [];
+  // while(n !== 0){
+  //   let bit = n % 2;
+  //   res.push(String(bit));
+  //   n = Math.floor(n / 2);
+  // }
+  // res.reverse();
+  // return res.join("");
+
+  // 
+  return n.toString(2);
+}
+// let n = 12
+//"1100";
+// console.log(decTobin(n));
+
+/**
+ * N-th term of 1, 3, 6, 10, 15, 21…
+ * 
+ * Given a number n, find the n-th term in the series 1, 3, 6, 10, 15, 21…
+ * 
+ * @param {number} n
+ * @returns {number}
+ */
+var nth = function(n){
+  // O(n) time and O(1) space
+  let ans = 0;
+  for(let i = 0; i<= n;i++) {
+    ans+=i;
+  }
+  return ans;
+
+  // O(1) time and O(1) space
+  // return parseInt(n * (n + 1) / 2);
+}
+// let n = 3;
+// 6
+// console.log(nth(n));
+
+
+/**
+ * Armstrong Number
+ * 
+ * Given a number x, determine whether the given number is Armstrong’s number or not. 
+ * A positive integer of n digits is called an Armstrong number of order n (order is the number of digits) if
+ * abcd… = pow(a,n) + pow(b,n) + pow(c,n) + pow(d,n) + ….
+ * 
+ * Here a, b, c and d are digits of input number abcd…..
+ * 
+ * @param {number} n
+ * @returns {boolean}
+ */
+var armstrongNumber = function(n) {
+  let len = n.toString().split("");
+  let sum = 0;
+  for(let i = 0;i < len.length;i++){
+    sum += Math.pow(len[i],3);
+  }
+  return sum === n;
+}
+// let n = 153;
+// Yes(true)
+// 153 is an Armstrong number, 1*1*1 + 5*5*5 + 3*3*3 = 153
+// console.log(armstrongNumber(n));
+
+/**
+ * Palindrome Number
+ * 
+ * Given an integer n, find whether the number is Palindrome or not. 
+ * A number is a Palindrome if it remains the same when its digits are reversed.
+ * 
+ * 檢查反轉後是否一樣
+ * 
+ * @param {number} n
+ * @returns {boolean}
+ */
+var palindromeNumber = function(n) {
+  // let arr = [];
+  // let toStr = n.toString().split("");
+  // for(let i = toStr.length - 1;i >= 0;i--){
+  //   arr.push(parseInt(toStr[i]));
+  // }
+  // return parseInt(arr.join("")) === n;
+
+  // 可能有負數、小數點
+  let toStr = Math.abs(n).toString();
+  for(let i = 0;i < toStr.length / 2;i++) {
+    if(toStr[i] !== toStr[toStr.length- i - 1]){
+      return false;
+    }
+  }
+  return true;
+}
+// let n = 12321;
+// Yes (12321)
+// 12321 is a Palindrome number because after reversing its digits, the number becomes 12321 which is the same as the original number.
+// console.log(palindromeNumber(n));
+
+/**
+ * Digit Root
+ * 
+ * The digital root of a positive integer is found by summing the digits of the integer. 
+ * If the resulting value is a single digit then that digit is the digital root. 
+ * If the resulting value contains two or more digits, those digits are summed and the process is repeated. 
+ * This is continued as long as necessary to obtain a single digit.
+ * 
+ * Given a number, the task is to find its digital root. 
+ * The input number may be large and it may not be possible to store even if we use long long int.
+ * 
+ * @param {string} num
+ * @returns {number}
+ */
+var digitRoot = function(num) {
+  let recursive = num.toString().split('').reduce((sum, s) => {
+    return sum += Number(s);
+  }, 0);
+  return recursive < 10 ? recursive : digitRoot(recursive);
+}
+let num = "1234";
+// Output : 1
+// Explanation : The sum of 1+2+3+4 = 10, digSum(x) == 10,Hence ans will be 1+0 = 1;
+console.log(digitRoot(num));
