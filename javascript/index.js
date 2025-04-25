@@ -549,3 +549,21 @@ var twoFraction = function(a,b) {
  */
 // console.log(twoFraction(a,b));
 
+
+/**
+ * K-th Digit in a^b
+ * 
+ * Given three numbers a, b and k, find k-th digit in ab from right side
+ * 
+ * @param {number} a
+ * @param {number} b
+ * @param {number} k
+ * @returns {number}
+ */
+var kthDigit = function(a,b,k){
+
+}
+let a = 3, b = 3, k = 1;
+// Output : 7
+// Explanation: 3^3 = 27 for k = 1. First digit is 7 in 27
+console.log(kthDigit(a,b,k));
