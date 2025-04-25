@@ -714,7 +714,58 @@ var digitRoot = function(num) {
   }, 0);
   return recursive < 10 ? recursive : digitRoot(recursive);
 }
-let num = "1234";
+// let num = "1234";
 // Output : 1
 // Explanation : The sum of 1+2+3+4 = 10, digSum(x) == 10,Hence ans will be 1+0 = 1;
-console.log(digitRoot(num));
+// console.log(digitRoot(num));
+
+/**
+ * Count 1’s in a sorted binary array
+ * 
+ * Given a binary array arr[] of size n, which is sorted in non-increasing order, count the number of 1’s in it. 
+ * 
+ * @param {number[]} arr
+ * @returns {number}
+ */
+var countSortedBinary = function(arr) {
+  let count = 0;
+  for(let n of arr){
+    if(n === 1){
+      count++;
+    }
+  }
+  return count;
+}
+// let arr = [1, 1, 0, 0, 0, 0, 0];
+// 2
+// Explanation: Count of the 1’s in the given array is 2.
+// console.log(countSortedBinary(arr));
+
+/**
+ * Closest to 0 Sum Pair
+ * 
+ * Given an integer array arr[], the task is to find the maximum sum of two elements such that sum is closest to zero.
+ * Note: In case if we have two of more ways to form sum of two elements closest to zero return the maximum sum.
+ * 
+ * 找出2個elements總和最接近0的加總
+ * @param {number[]} arr
+ * @returns {number}
+ */
+var closestToZeroSumPair = function(arr) {
+  let pairSum = arr[0] + arr[1];
+  for(let i = 0;i < arr.length - 1;i++) {
+    for(let j = i+1;j < arr.length;j++) {
+      let sum = arr[i] + arr[j];
+      if(Math.abs(sum) < Math.abs(pairSum)){
+        pairSum = sum;
+      }else if (Math.abs(sum) == Math.abs(pairSum)) {
+        pairSum = Math.max(pairSum, sum);
+    }
+    }
+  }
+  return pairSum;
+}
+let arr = [-8, 5, 2, -6];
+// -1
+// The min absolute sum pair is (5, -6)
+console.log(closestToZeroSumPair(arr));
