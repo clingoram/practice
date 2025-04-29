@@ -644,7 +644,8 @@ var ComputenPr = function(n,r) {
   return fact(n) / fact(n - r);
 
 }
-let n = 5,r = 2
+// let n = 5,r = 2
 // Output: 20
 // Explanation: 5P2 = 5! / (5 – 2)!  = 20
-console.log(ComputenPr(n,r));
+// console.log(ComputenPr(n,r));
+
