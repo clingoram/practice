@@ -649,3 +649,6 @@ var ComputenPr = function(n,r) {
 // Explanation: 5P2 = 5! / (5 – 2)!  = 20
 // console.log(ComputenPr(n,r));
 
+
+
+
