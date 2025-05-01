@@ -1033,6 +1033,126 @@ var ceilSorted = function(arr,x) {
   }
   return res;
 }
-let arr = [1, 2, 8, 10, 10, 12, 19], x = 5;
+// let arr = [1, 2, 8, 10, 10, 12, 19], x = 5;
 // 2
-console.log(ceilSorted(arr,x));
+// console.log(ceilSorted(arr,x));
+
+/**
+ * Floor in a Sorted
+ * Given a sorted array and a value x, find the element of the floor of x. The floor of x is the largest element in the array smaller than or equal to x.
+ * 
+ * Examples:
+ * Input: arr[] = [1, 2, 8, 10, 10, 12, 19], x = 5
+ * Output: 1
+ * Explanation: Largest number less than or equal to 5 is 2, whose index is 1
+ * 
+ * Input: arr[] = [1, 2, 8, 10, 10, 12, 19], x = 20
+ * Output: 6
+ * Explanation: Largest number less than or equal to 20 is 19, whose index is 6
+ * 
+ * Input : arr[] = [1, 2, 8, 10, 10, 12, 19], x = 0
+ * Output : -1
+ * Explanation: Since floor doesn’t exist, output is -1.
+ * 
+ * 
+ * @param {number[]} arr 
+ * @param {number} x 
+ * @returns {number}
+ */
+var floorSortedArr = function(arr,x) {
+  let res = -1;
+  let l = 0;
+  let r = arr.length - 1;
+  while(l <= r){
+    let mid = l + Math.floor((r - l) / 2);
+
+    if(arr[mid] <= x){
+      res = mid;
+      l++;
+    }else{
+      r--;
+    }
+  }
+  return res;
+}
+// let arr = [1, 2, 8, 10, 10, 12, 19], x = 5;
+// 1
+// console.log(floorSortedArr(arr,x));
+
+/**
+ * Maximum in a Bitonic
+ * 
+ * Given an array arr[] of integers which is initially strictly increasing and then strictly decreasing, the task is to find the bitonic point, 
+ * that is the maximum value in the array. 
+ * 
+ * Note: Bitonic Point is a point in bitonic sequence before which elements are strictly increasing and after which elements are strictly decreasing.
+ * 
+ * Examples: 
+ * Input: arr[] = [1, 2, 4, 5, 7, 8, 3]
+ * Output: 8
+ * Explanation: 8 is the maximum element in the array.
+ * 
+ * Input: arr[] = [10, 20, 30, 40, 50]
+ * Output: 50
+ * Explanation: 50 is the maximum element in the array.
+ * 
+ * 
+ * Input: arr[] = [120, 100, 80, 20, 0]
+ * Output: 120
+ * Explanation: 120 is the maximum element in the array.
+ * 
+ * @param {number[]} arr
+ * @returns {number}
+ */
+var maxBitonic = function(arr){
+  // 暫定arr[0]為最大
+  let max = arr[0];
+  for(let i = 0;i < arr.length;i++){
+    if(arr[i] > max){
+      max = arr[i];
+    }
+  }
+  return max;
+}
+// let arr = [120, 100, 80, 20, 0];
+// 120
+// console.log(maxBitonic(arr));
+
+/**
+ * Elements that appear more than n/k times
+ * 
+ * Given an array of size n and an integer k, find all elements in the array that appear more than n/k times. 
+ * 
+ * Examples:
+ * Input: arr[ ] = [3, 4, 2, 2, 1, 2, 3, 3], k = 4
+ * Output: [2, 3]
+ * Explanation: Here n/k is 8/4 = 2, therefore 2 appears 3 times in the array that is greater than 2 and 3 appears 3 times in the array that is greater than 2
+ * 
+ * 
+ * Input: arr[ ] = [9, 10, 7, 9, 2, 9, 10], k = 3
+ * Output: [9]
+ * Explanation: Here n/k is 7/3 = 2, therefore 9 appears 3 times in the array that is greater than 2.
+ * 
+ * 元素出現的次數必須大於 arr.length / k，以陣列回傳
+ * 
+ * @param {number[]} arr 
+ * @param {number} k 
+ */
+var eleAppearThanK = function(arr,k){
+  let x = Math.floor(arr.length / k);
+  let res = [];
+  let map = new Map();
+  for(let i =0;i < arr.length;i++) {
+    let element = arr[i];
+    map.has(element) ? map.set(element, map.get(element) + 1) : map.set(element, 1);
+  }
+  for(const [key,value] of map.entries()){
+    if(value > x){
+      res.push(key);
+    }
+  }
+  return res;
+}
+let arr = [9, 10, 7, 9, 2, 9, 10], k = 3;
+// [9]
+console.log(eleAppearThanK(arr,k));
