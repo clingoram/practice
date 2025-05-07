@@ -698,6 +698,7 @@ var minOperations = function(boxes) {
   }
   return result;
 };
-let boxes = "110";
+// let boxes = "110";
 // [1,1,3]
-console.log(minOperations(boxes));
+// console.log(minOperations(boxes));
+

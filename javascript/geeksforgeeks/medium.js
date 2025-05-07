@@ -222,3 +222,92 @@ var largestPrimeFactor = function(n) {
 }
 // let n = 28;
 // console.log(largestPrimeFactor(n));
+
+/**
+ * Modular Exponentiation
+ * 
+ * Modular Exponentiation is the process of computing: xy (mod  p). where x, y, and p are integers. 
+ * It efficiently calculates the remainder when xy is divided by p or (xy) % p, even for very large y.
+ * 
+ * Examples : 
+ * Input:  x = 2, y = 3, p = 5
+ * Output: 3
+ * Explanation: 2^3 % 5 = 8 % 5 = 3.
+ * 
+ * Input:  x = 2, y = 5, p = 13
+ * Output: 6
+ * Explanation: 2^5 % 13 = 32 % 13 = 6.
+ * 
+ * 
+ * @param {number} x 
+ * @param {number} y 
+ * @param {number} p 
+ * @returns {number}
+ */
+var modularExpo = function(x,y,p) {
+  return Math.pow(x,y) % p;
+}
+// let x = 2, y = 3, p = 5;
+// console.log(modularExpo(x,y,p));
+
+/**
+ * nth Catalan Number
+ * 
+ * Catalan numbers occur in many interesting counting problems like the following.
+ * Count the number of expressions containing n pairs of parentheses that are correctly matched.
+ * Count the number of possible Binary Search Trees with n keys (See this)
+ * Count the number of full binary trees (A rooted binary tree is full if every vertex has either two children or no children) with n+1 leaves.
+ * Given a number n, return the number of ways you can draw n chords in a circle with 2 x n points such that no 2 chords intersect.
+ * 
+ */
+var catalanN = function(n) {
+  if(n <= 1){
+    return 1;
+  }
+  let res = 0;
+  for(let i = 0;i < n;i++) {
+    res += catalanN(i) * catalanN(n - i - 1);
+  }
+  return res;
+}
+// let n = 6;
+// 132
+// console.log(catalanN(n));
+
+/**
+ * Binomial Coefficient
+ * 
+ * Given an integer values n and k, the task is to find the value of Binomial Coefficient C(n, k).
+ * 
+ * A binomial coefficient C(n, k) can be defined as the coefficient of x^k in the expansion of (1 + x)^n.
+ * A binomial coefficient C(n, k) also gives the number of ways, disregarding order, that k objects can be chosen from among n objects more formally, 
+ * the number of k-element subsets (or k-combinations) of a n-element set.
+ * 
+ * Examples
+ * Input: n = 4, k = 2
+ * Output: 6
+ * Explanation: The value of 4C2 is (4 × 3) / (2 × 1) = 6.
+ * 
+ * Input: n = 5, k = 2
+ * Output: 10
+ * Explanation: The value of 5C2 is (5 × 4) / (2 × 1) = 10.
+ * 
+ * Input: n = 6, k = 3
+ * Output: 20
+ * Explanation: The value of 6C3 is (6 × 5 × 4) / (3 × 2 × 1) = 20.
+ * 
+ * @param {number} n 
+ * @param {number} k 
+ * @returns {number}
+ */
+var binomialCo = function(n,k) {
+  if(k > n){
+    return 0;
+  }
+  if(k === n || k === 0){
+    return 1;
+  }
+  return binomialCo(n - 1,k - 1) + binomialCo(n - 1,k);
+}
+// let n = 4, k = 2;
+// console.log(binomialCo(n,k));
