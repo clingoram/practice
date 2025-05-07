@@ -549,3 +549,186 @@ var twoFraction = function(a,b) {
  */
 // console.log(twoFraction(a,b));
 
+
+/**
+ * K-th Digit in a^b
+ * 
+ * Given three numbers a, b and k, find k-th digit in ab from right side
+ * 
+ * @param {number} a
+ * @param {number} b
+ * @param {number} k
+ * @returns {number}
+ */
+var kthDigit = function(a,b,k){
+
+}
+// let a = 3, b = 3, k = 1;
+// Output : 7
+// Explanation: 3^3 = 27 for k = 1. First digit is 7 in 27
+// console.log(kthDigit(a,b,k));
+
+/**
+ * Fraction to Recurring Decimal
+ * 
+ * Given two integers a and b(b != 0), the task is to return the fraction a/b in string format. 
+ * If the fractional part is repeating, enclose the repeating part in parentheses.
+ * 
+ * Examples: 
+ * Input: a = 1, b = 2
+ * Output: “0.5”
+ * Explanation: 1/2 = 0.5 with no repeating part.
+ * 
+ * 
+ * Input: a = 50, b = 22
+ * Output: “2.(27)”
+ * Explanation: 50/22 = 2.27272727… Since fractional part (27) is repeating, it is enclosed in parentheses.
+ * 
+ * @param {number} a
+ * @param {number} b
+ * @returns {string}
+ * */
+var fractionRecurringDecimal = function (a,b) {
+  // 回傳a,b的分數，若小數點皆是重複數字，則加上括號 => .(XXX)
+}
+// let a = 1,b = 2;
+// "0.5"
+// console.log(fractionRecurringDecimal(a,b));
+
+/**
+ * Recurring Sequence in a Fraction
+ * 
+ * Given a fraction, find a recurring sequence of digits if it exists, otherwise, print “No recurring sequence”.
+ * 
+ * Examples:
+ * Input  : Numerator = 8, Denominator = 3
+ * Output : Recurring sequence is 6 
+ * Explanation : 8/3 = 2.66666666…….  
+ * 
+ * Input : Numerator = 50, Denominator = 22
+ * Output : Recurring sequence is 27
+ * Explanation : 50/22 = 2.272727272….. 
+ * 
+ * Input : Numerator = 11, Denominator = 2
+ * Output : No recurring sequence
+ * Explanation : 11/2 = 5.5
+ * 
+ * @param {number} n
+ * @param {number} d
+ * @returns {string}
+ */
+var RecurringSequenceFraction = function (n,d) {
+  
+
+}
+// let n = 8,d = 3
+// Recurring sequence is 6 
+// console.log(RecurringSequenceFraction(n,d));
+
+
+/**
+ * Compute nPr
+ * 
+ * Given two numbers, n and r, the task is to compute nPr, which represents the number of ways to arrange r elements from a set of n elements. 
+ * It is calculated using the formula n!/(n−r)!, where “!” denotes the factorial operation.
+ * nPr = n! / (n – r)! 
+ */
+var ComputenPr = function(n,r) {
+  function fact(){
+    let res = 1;
+    for(let i = 2;i <= n;i++) {
+      res *= i;
+    }
+    return res;
+  }
+  return fact(n) / fact(n - r);
+
+}
+// let n = 5,r = 2
+// Output: 20
+// Explanation: 5P2 = 5! / (5 – 2)!  = 20
+// console.log(ComputenPr(n,r));
+
+
+/**
+ * 1769. Minimum Number of Operations to Move All Balls to Each Box
+ * 
+ * You have n boxes. You are given a binary string boxes of length n, where boxes[i] is '0' if the ith box is empty, and '1' if it contains one ball.
+ * 
+ * In one operation, you can move one ball from a box to an adjacent box. Box i is adjacent to box j if abs(i - j) == 1. 
+ * Note that after doing so, there may be more than one ball in some boxes.
+ * 
+ * Return an array answer of size n, where answer[i] is the minimum number of operations needed to move all the balls to the ith box.
+ * Each answer[i] is calculated considering the initial state of the boxes.
+ * 
+ * HInts:
+ * 1.If you want to move a ball from box i to box j, you'll need abs(i-j) moves.
+ * 2.To move all balls to some box, you can move them one by one.
+ * 3.For each box i, iterate on each ball in a box j, and add abs(i-j) to answers[i].
+ * 
+ * Example 1:
+ * Input: boxes = "110"
+ * Output: [1,1,3]
+ * Explanation: The answer for each box is as follows:
+ * 1) First box: you will have to move one ball from the second box to the first box in one operation.
+ * 2) Second box: you will have to move one ball from the first box to the second box in one operation.
+ * 3) Third box: you will have to move one ball from the first box to the third box in two operations, and move one ball from the second box to the third box in one operation.
+ * 
+ * Example 2: 
+ * Input: boxes = "001011"
+ * Output: [11,8,5,4,3,4]
+ *  
+ * 
+ * Constraints:
+ * n == boxes.length
+ * 1 <= n <= 2000
+ * boxes[i] is either '0' or '1'.
+ * 
+ * @param {string} boxes
+ * @return {number[]}
+ */
+var minOperations = function(boxes) {
+  let result = [];
+  for(let i = 0;i < boxes.length;i++) {
+    if(boxes.charAt(i) === "1"){
+      for(let j = 0;j < boxes.length;j++) {
+        result[j] = Math.abs(parseInt(j - i));
+      }
+    }
+  }
+  return result;
+};
+// let boxes = "110";
+// [1,1,3]
+// console.log(minOperations(boxes));
+
+/**
+ * Next Permutation
+ * 
+ * Given an array arr[] of size n, the task is to print the lexicographically next greater permutation of the given array. 
+ * If there does not exist any greater permutation, then find the lexicographically smallest permutation of the given array.
+ * Let us understand the problem better by writing all permutations of [1, 2, 4] in lexicographical order: 
+ * [1, 2, 4], [1, 4, 2], [2, 1, 4], [2, 4, 1], [4, 1, 2] and [4, 2, 1]. If we give any of the above (except the last) as input, 
+ * we need to find the next one in sequence. If we give last as input, we need to return the first one.
+ * 
+ * Examples:
+ * Input: arr = [2, 4, 1, 7, 5, 0]
+ * Output: [2, 4, 5, 0, 1, 7]
+ * Explanation: The next permutation of the given array is 2 4 5 0 1 7
+ * 
+ * Input: arr = {3, 2, 1]
+ * Output: [1, 2, 3]
+ * Explanation: As arr[] is the last permutation. So, the next permutation is the lowest one.
+ * 
+ * Input: arr = [1, 3, 5, 4, 2]
+ * Output: [1, 4, 2, 3, 5]
+ * Explanation: The next permutation of the given array is found by rearranging the elements in the next lexicographical order.
+ * 
+ * @param {number[]} arr 
+ * @returns {number[]}
+ */
+var nextPermutation = function(arr) {
+
+}
+// let arr = [2, 4, 1, 7, 5, 0];
+// console.log(nextPermutation(arr));
