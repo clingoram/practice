@@ -1,4 +1,5 @@
 // debugger
+import {ExecutionTimer} from './time.js';
 
 /*
 EG:
@@ -15,26 +16,23 @@ console.log(end);
  * 
  * @param {string} fileName 執行function名稱
  * */
-function countTime(fileName = null) {
+// function countTime(fileName = null) {
 
-  let start_time = new Date().getTime();
-  let data = [
-    fileName,
-    start_time
-  ]
-  return data;
-}
+//   let start_time = performance.now();
+//     let end_time = performance.now();
+//     return end_time - start_time;
+// }
 /**
  * 結束時間
  * 放置於程式執行結束處，回傳結果的結束時間
  * 
  * @param {variable} start 開始執行程式的變數
  */
-function endTime(start) {
-  let end_time = new Date().getTime();
+// function endTime(start) {
+//   let end_time = new Date().getTime();
 
-  return start[0] + '執行時間:' + (end_time - start[1]) / 5000 + 'ms';
-}
+//   return start[0] + '執行時間:' + (end_time - start[1]) / 5000 + 'ms';
+// }
 
 
 /*
